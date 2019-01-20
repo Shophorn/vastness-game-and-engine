@@ -1,0 +1,16 @@
+Adventure Game
+
+Goal
+    Find treasure
+
+Features
+    Sprites in 3d space
+    View map
+    Interact with world items
+    Collide
+
+    Animated sprites
+
+    Menu
+    End screen
+
