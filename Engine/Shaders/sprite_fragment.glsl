@@ -1,7 +1,7 @@
 /*
 Sprite Fragment
 
-Unlit shader, that clips at alpha 0.5
+Unlit shader, that clips at alpha _AlphaClip
 */
 #version 150
 
@@ -15,14 +15,14 @@ uniform sampler2D mainTexture;
 
 out vec4 outColor;
 
-uniform float smoothness = 0.65f;
+uniform float _AlphaClip = 0.5f;
 
 void main ()
 {
     vec4 tex = texture(mainTexture, Texcoord);
-    vec3 n  = normalize(Normal);
-
-    vec3 diffuse = tex.rgb;
-
-    outColor = vec4 (diffuse, 1.0);
+    if (tex.a < _AlphaClip)
+    {
+        discard;
+    }
+    outColor = vec4 (tex.rgb, 1.0);
 }

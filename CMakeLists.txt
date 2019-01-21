@@ -29,6 +29,10 @@ add_executable(
 
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/FishController.cpp Game/FishController.hpp
-        Engine/Collections/Dictionary.hpp Engine/StringOperations.cpp Engine/StringOperations.hpp)
+        Engine/Collections/Dictionary.hpp
+        Engine/StringOperations.cpp Engine/StringOperations.hpp
+        Engine/Scene.cpp Engine/Scene.hpp
+        Engine/SceneLoader.cpp
+)
 
 

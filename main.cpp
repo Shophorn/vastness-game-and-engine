@@ -24,41 +24,19 @@ int main()
     using namespace Engine;
     using namespace Engine::Collections;
 
-//    {
-//        Dictionary<int> d(2);
-//        d.Add("one", 1);
-//        d.Add("two", 2);
-//        d.Add("three", 3);
-//
-//        d["two"] = 4233;
-//
-//        std::cout << d["two"] << "\n";
-//
-//        std::string name = "two";
-//        d.Remove(name.c_str());
-//
-//        std::cout << d["three"] << "\n";
-//
-//    }
-//
-//    std::cout << "Didn't crash";
-//    return 0;
-
     Screen screen = Screen::Create("Fishness", 1920, 1080);
     glewExperimental = GL_TRUE;
     glewInit();
     Input::Initialize(screen.window());
 
 
-    SceneLoader::Scene scene = SceneLoader::Load();
+    Scene scene = SceneLoader::Load();
     scene.camera.aspectRatio = screen.aspectRatio();
 
     std::cout << "Hello\n";
 
-    Array<Actor*> actors = scene.actors;
-    Array<Renderer*> renderers = scene.renderers;
-//    ShaderProgram shader = scene.shader;
-//    shader.Use();
+    Array<Actor*> & actors = scene.actors;
+    Array<Renderer*> & renderers = scene.renderers;
 
     for (const auto &shader : scene.shaders)
     {
@@ -92,8 +70,10 @@ int main()
 
         // Simulate
         for (auto * actor : actors)
+//        for (int i = 0; i <actors.count(); i++)
         {
             actor->Update(deltaTime);
+//            actors[i]->Update(deltaTime);
         }
 
         // Render
