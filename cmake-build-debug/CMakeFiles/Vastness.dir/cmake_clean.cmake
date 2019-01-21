@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj"
   "CMakeFiles/Vastness.dir/Game/FishController.cpp.obj"
   "CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj"
+  "CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj"
+  "CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj"
   "../Vastness.pdb"
   "../Vastness.exe"
   "../Vastness.exe.manifest"

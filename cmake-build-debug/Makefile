@@ -257,6 +257,60 @@ Engine/Renderer.cpp.s:
 	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/Renderer.cpp.s
 .PHONY : Engine/Renderer.cpp.s
 
+Engine/Scene.obj: Engine/Scene.cpp.obj
+
+.PHONY : Engine/Scene.obj
+
+# target to build an object file
+Engine/Scene.cpp.obj:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj
+.PHONY : Engine/Scene.cpp.obj
+
+Engine/Scene.i: Engine/Scene.cpp.i
+
+.PHONY : Engine/Scene.i
+
+# target to preprocess a source file
+Engine/Scene.cpp.i:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/Scene.cpp.i
+.PHONY : Engine/Scene.cpp.i
+
+Engine/Scene.s: Engine/Scene.cpp.s
+
+.PHONY : Engine/Scene.s
+
+# target to generate assembly for a file
+Engine/Scene.cpp.s:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/Scene.cpp.s
+.PHONY : Engine/Scene.cpp.s
+
+Engine/SceneLoader.obj: Engine/SceneLoader.cpp.obj
+
+.PHONY : Engine/SceneLoader.obj
+
+# target to build an object file
+Engine/SceneLoader.cpp.obj:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj
+.PHONY : Engine/SceneLoader.cpp.obj
+
+Engine/SceneLoader.i: Engine/SceneLoader.cpp.i
+
+.PHONY : Engine/SceneLoader.i
+
+# target to preprocess a source file
+Engine/SceneLoader.cpp.i:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.i
+.PHONY : Engine/SceneLoader.cpp.i
+
+Engine/SceneLoader.s: Engine/SceneLoader.cpp.s
+
+.PHONY : Engine/SceneLoader.s
+
+# target to generate assembly for a file
+Engine/SceneLoader.cpp.s:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.s
+.PHONY : Engine/SceneLoader.cpp.s
+
 Engine/Shader.obj: Engine/Shader.cpp.obj
 
 .PHONY : Engine/Shader.obj
@@ -470,6 +524,12 @@ help:
 	@echo ... Engine/Renderer.obj
 	@echo ... Engine/Renderer.i
 	@echo ... Engine/Renderer.s
+	@echo ... Engine/Scene.obj
+	@echo ... Engine/Scene.i
+	@echo ... Engine/Scene.s
+	@echo ... Engine/SceneLoader.obj
+	@echo ... Engine/SceneLoader.i
+	@echo ... Engine/SceneLoader.s
 	@echo ... Engine/Shader.obj
 	@echo ... Engine/Shader.i
 	@echo ... Engine/Shader.s

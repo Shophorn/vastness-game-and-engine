@@ -126,6 +126,15 @@
 		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Renderer.hpp">
 			<Option target="Vastness"/>
 		</Unit>
+		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Scene.cpp">
+			<Option target="Vastness"/>
+		</Unit>
+		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Scene.hpp">
+			<Option target="Vastness"/>
+		</Unit>
+		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/SceneLoader.cpp">
+			<Option target="Vastness"/>
+		</Unit>
 		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/SceneLoader.hpp">
 			<Option target="Vastness"/>
 		</Unit>

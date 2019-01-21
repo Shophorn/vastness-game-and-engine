@@ -70,7 +70,7 @@ CMAKE_BINARY_DIR = C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-a
 CMakeFiles/Vastness.dir/all:
 	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/depend
 	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target Vastness"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target Vastness"
 .PHONY : CMakeFiles/Vastness.dir/all
 
 # Include target in all.
@@ -80,7 +80,7 @@ all: CMakeFiles/Vastness.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Vastness.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles 15
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Vastness.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/Vastness.dir/rule
