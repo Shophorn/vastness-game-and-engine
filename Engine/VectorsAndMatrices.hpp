@@ -5,6 +5,8 @@ Created 16/12/2018
 
 #pragma once
 
+#include <iostream>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -26,4 +28,6 @@ namespace Engine
         extern vec3 back;
         extern vec3 forward;
     }
+
 }
+std::ostream & operator << (std::ostream & os, const glm::vec3 & v);

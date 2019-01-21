@@ -70,11 +70,10 @@ int main()
         // Update input??
 
         // Simulate
+        int i = 0;
         for (auto * actor : actors)
-//        for (int i = 0; i <actors.count(); i++)
         {
             actor->Update(deltaTime);
-//            actors[i]->Update(deltaTime);
         }
 
         // Render

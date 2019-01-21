@@ -14,12 +14,12 @@ namespace Engine::Collections
     class Array
     {
     private:
-        size_t _count;
+        int _count;
         T *_values;
 
     public:
         Array() : _count(0), _values(nullptr) {}
-        explicit Array(size_t count) : _count(count), _values(new T[count]) {}
+        explicit Array(int count) : _count(count), _values(new T[count]) {}
 
         Array(std::initializer_list<T> list)
         {
@@ -34,19 +34,54 @@ namespace Engine::Collections
             delete[] _values;
         }
 
+        Array<T> &  operator = (const Array<T> & other)
+        {
+            if (this == &other)
+                return *this;
+
+            _count = other._count;
+
+            delete [] _values;
+            _values = new T [_count];
+
+            for (int i = 0; i < _count; i++)
+            {
+                _values[i] = other._values[i];
+            }
+
+            return *this;
+        }
+
         T& operator[](int index) { return _values[index]; }
 
-        size_t count() { return _count; }
+        int count() { return _count; }
 
         // Range based for loop
         T * begin() { return _values; }
         T * end() { return _values + _count; }
 
-        void DiscardAndResize(size_t count)
+        void DiscardAndResize(int count)
         {
             delete [] _values;
             _count = count;
             _values = new T [count];
+        }
+
+        void TrimDownToSize(int size)
+        {
+            if (size >= _count)
+                return;
+
+            _count = size;
+            T * trimmedValues = new T [_count];
+
+            for (int i = 0; i < size; i++)
+            {
+                trimmedValues[i] = _values[i];
+            }
+
+            delete [] _values;
+            _values = trimmedValues;
         }
     };
 

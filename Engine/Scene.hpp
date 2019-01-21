@@ -36,5 +36,8 @@ namespace Engine
             DeletePointersInArray(actors);
 //            DeletePointersInArray(renderers);
         }
+
+        void LoadShaderIfNotLoader(string shaderName);
+
     };
 }
