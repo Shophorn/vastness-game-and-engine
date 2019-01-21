@@ -4,11 +4,17 @@ Created 21/01/2019
 */
 #include "SceneLoader.hpp"
 
+#include <rapidjson/document.h>
+
+// STL
 #include <unordered_map>
+#include <vector>
+#include <iostream>
 
 #include "AssetLoader.hpp"
 #include "VectorsAndMatrices.hpp"
 #include "Collections/Array.hpp"
+#include "FileOperations.hpp"
 
 #include "../Game/FishController.hpp"
 #include "../Game/PlayerController.hpp"
@@ -18,6 +24,7 @@ using namespace Game;
 using namespace Collections;
 using std::unordered_map;
 using std::string;
+using std::vector;
 
 namespace
 {
@@ -70,13 +77,29 @@ namespace
                 FileRecord(ActorType::Player, vec3(0, 0, 0), "Assets/Quad.obj", "Game/Assets/dude.png", "sprite")
         };
     }
+
+    vector<FileRecord> readFromFile(string path)
+    {
+        const char * jsonFormat = FileOperations::ReadFile(path.c_str());
+        rapidjson::Document doc;
+        doc.Parse(jsonFormat);
+
+        string type = doc["type"].GetString();
+        std::cout << type;
+
+        return vector<FileRecord>(0);
+    }
 }
 
 
-Scene SceneLoader::Load()
+Scene SceneLoader::Load(string path)
 {
     auto records = readFromFile();
     int count = records.count();
+
+
+    readFromFile(path);
+
 
     Scene scene;
 

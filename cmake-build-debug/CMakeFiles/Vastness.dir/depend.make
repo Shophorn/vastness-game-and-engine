@@ -216,6 +216,9 @@ CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj: ../Engine/Camera.hpp
 CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj: ../Engine/Transform.hpp
 CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj: ../Engine/VectorsAndMatrices.hpp
 
+CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj: ../Engine/FileOperations.cpp
+CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj: ../Engine/FileOperations.hpp
+
 CMakeFiles/Vastness.dir/Engine/Input.cpp.obj: ../include/GLFW/glfw3.h
 CMakeFiles/Vastness.dir/Engine/Input.cpp.obj: ../Engine/Input.cpp
 CMakeFiles/Vastness.dir/Engine/Input.cpp.obj: ../Engine/Input.hpp
@@ -859,10 +862,31 @@ CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/glm/vec2.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/glm/vec3.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/glm/vec4.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/glm/vector_relational.hpp
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/allocators.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/document.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/encodedstream.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/encodings.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/error/error.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/biginteger.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/diyfp.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/ieee754.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/meta.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/pow10.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/stack.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/strfunc.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/strtod.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/internal/swap.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/memorystream.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/msinttypes/inttypes.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/msinttypes/stdint.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/rapidjson.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/reader.h
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../include/rapidjson/stream.h
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Actor.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/AssetLoader.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Camera.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Collections/Array.hpp
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/FileOperations.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Input.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Light.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Mesh.hpp
@@ -877,6 +901,7 @@ CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Game/FishController.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Game/PlayerController.hpp
 
 CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj: ../include/GL/glew.h
+CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj: ../Engine/FileOperations.hpp
 CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj: ../Engine/Shader.cpp
 CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj: ../Engine/Shader.hpp
 

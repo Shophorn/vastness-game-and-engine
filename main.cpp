@@ -18,6 +18,7 @@ Leo Tamminen
 #include <string>
 
 #include "Engine/Collections/Dictionary.hpp"
+#include "Engine/StringOperations.hpp"
 
 int main()
 {
@@ -30,7 +31,7 @@ int main()
     Input::Initialize(screen.window());
 
 
-    Scene scene = SceneLoader::Load();
+    Scene scene = SceneLoader::Load("Game/game.json");
     scene.camera.aspectRatio = screen.aspectRatio();
 
     std::cout << "Hello\n";

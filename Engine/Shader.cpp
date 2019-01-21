@@ -4,35 +4,36 @@ Leo Tamminen
 */
 
 #include "Shader.hpp"
-#include <fstream>
+//#include <fstream>
 
 #include <iostream>
 
+#include "FileOperations.hpp"
 namespace
 {
     const char * shaderPath = "Engine/Shaders/";
     const char * vertexExtension = "_vertex.glsl";
     const char * fragmentExtension = "_fragment.glsl";
 
-    const char * ReadSourceFile(const char * path)
-    {
-        using namespace std;
-
-        ifstream file (path, ios::in | ios::binary);
-        if (!file.good()) return nullptr;
-
-        file.seekg(0, ios::end);
-        int length = file.tellg();
-        file.seekg(0, ios::beg);
-
-        char * source = new char [length + 1];
-
-        file.read(source, length);
-
-        source[length] = 0;
-
-        return source;
-    }
+//    const char * ReadSourceFile(const char * path)
+//    {
+//        using namespace std;
+//
+//        ifstream file (path, ios::in | ios::binary);
+//        if (!file.good()) return nullptr;
+//
+//        file.seekg(0, ios::end);
+//        int length = file.tellg();
+//        file.seekg(0, ios::beg);
+//
+//        char * source = new char [length + 1];
+//
+//        file.read(source, length);
+//
+//        source[length] = 0;
+//
+//        return source;
+//    }
 
     GLuint ShaderFromSource(const char * source, GLenum type)
     {
@@ -62,13 +63,13 @@ namespace
     {
         // Vertex shader
         std::string vertexPath = shaderPath + name + vertexExtension;
-        const char * vertexSource = ReadSourceFile(vertexPath.c_str());
+        const char * vertexSource = FileOperations::ReadFile(vertexPath.c_str());
         GLuint vertexShader = ShaderFromSource(vertexSource, GL_VERTEX_SHADER);
         DoPrintIfNotGood("vertex", vertexShader);
 
         // Fragement shader
         std::string fragmentPath = shaderPath + name + fragmentExtension;
-        const char * fragmentSource = ReadSourceFile(fragmentPath.c_str());
+        const char * fragmentSource = FileOperations::ReadFile(fragmentPath.c_str());
         GLuint fragmentShader = ShaderFromSource(fragmentSource, GL_FRAGMENT_SHADER);
         DoPrintIfNotGood("fragment", fragmentShader);
 

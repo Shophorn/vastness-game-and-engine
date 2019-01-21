@@ -105,6 +105,12 @@
 		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Dictionary.hpp">
 			<Option target="Vastness"/>
 		</Unit>
+		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.cpp">
+			<Option target="Vastness"/>
+		</Unit>
+		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp">
+			<Option target="Vastness"/>
+		</Unit>
 		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.cpp">
 			<Option target="Vastness"/>
 		</Unit>

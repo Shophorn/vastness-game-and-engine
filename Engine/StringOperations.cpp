@@ -3,6 +3,7 @@ LeoTamminen
 Created 20/01/2019
 */
 
+#include <iostream>
 #include "StringOperations.hpp"
 
 bool StringOperations::Equals(const char *a, const char *b)
@@ -23,5 +24,45 @@ bool StringOperations::Equals(const char *a, const char *b)
         }
 
         index++;
+    }
+}
+
+
+
+bool StringOperations::CompareExtension(const char *path, const char *extension)
+{
+    int stopIndex = -1;
+    int index = 0;
+    while (path[index] != 0)
+    {
+        if (path[index] == '.')
+        {
+            stopIndex = index;
+        }
+        index++;
+    }
+
+
+    // no extension found
+    if (stopIndex < 0) return false;
+
+    // Start comparing on position after finding stop
+    int pathIndex = stopIndex + 1;
+    int extensionIndex = 0;
+
+    while (true)
+    {
+        if (path[pathIndex] != extension[extensionIndex])
+        {
+            return false;
+        }
+
+        if (path[pathIndex] == 0)
+        {
+            return true;
+        }
+
+        pathIndex++;
+        extensionIndex++;
     }
 }

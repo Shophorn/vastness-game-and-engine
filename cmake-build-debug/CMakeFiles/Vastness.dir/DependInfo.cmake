@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/AssetLoader.cpp" "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/AssetLoader.cpp.obj"
   "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.cpp" "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj"
+  "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.cpp" "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj"
   "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.cpp" "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Input.cpp.obj"
   "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Mesh.cpp" "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Mesh.cpp.obj"
   "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Renderer.cpp" "C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Renderer.cpp.obj"

@@ -176,6 +176,33 @@ Engine/Camera.cpp.s:
 	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/Camera.cpp.s
 .PHONY : Engine/Camera.cpp.s
 
+Engine/FileOperations.obj: Engine/FileOperations.cpp.obj
+
+.PHONY : Engine/FileOperations.obj
+
+# target to build an object file
+Engine/FileOperations.cpp.obj:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj
+.PHONY : Engine/FileOperations.cpp.obj
+
+Engine/FileOperations.i: Engine/FileOperations.cpp.i
+
+.PHONY : Engine/FileOperations.i
+
+# target to preprocess a source file
+Engine/FileOperations.cpp.i:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.i
+.PHONY : Engine/FileOperations.cpp.i
+
+Engine/FileOperations.s: Engine/FileOperations.cpp.s
+
+.PHONY : Engine/FileOperations.s
+
+# target to generate assembly for a file
+Engine/FileOperations.cpp.s:
+	$(MAKE) -f CMakeFiles\Vastness.dir\build.make CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.s
+.PHONY : Engine/FileOperations.cpp.s
+
 Engine/Input.obj: Engine/Input.cpp.obj
 
 .PHONY : Engine/Input.obj
@@ -515,6 +542,9 @@ help:
 	@echo ... Engine/Camera.obj
 	@echo ... Engine/Camera.i
 	@echo ... Engine/Camera.s
+	@echo ... Engine/FileOperations.obj
+	@echo ... Engine/FileOperations.i
+	@echo ... Engine/FileOperations.s
 	@echo ... Engine/Input.obj
 	@echo ... Engine/Input.i
 	@echo ... Engine/Input.s

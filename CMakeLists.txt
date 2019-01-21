@@ -33,6 +33,6 @@ add_executable(
         Engine/StringOperations.cpp Engine/StringOperations.hpp
         Engine/Scene.cpp Engine/Scene.hpp
         Engine/SceneLoader.cpp
-)
+        Engine/FileOperations.cpp Engine/FileOperations.hpp)
 
 

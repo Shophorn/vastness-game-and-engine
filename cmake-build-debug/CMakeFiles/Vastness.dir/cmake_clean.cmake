@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj"
   "CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj"
   "CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj"
+  "CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj"
   "../Vastness.pdb"
   "../Vastness.exe"
   "../Vastness.exe.manifest"

@@ -216,6 +216,9 @@ CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/VectorsAndMatrices.hpp
+CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj
+ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.cpp
+ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
 CMakeFiles/Vastness.dir/Engine/Input.cpp.obj
  ../include/GLFW/glfw3.h
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.cpp
@@ -860,10 +863,31 @@ CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj
  ../include/glm/vec3.hpp
  ../include/glm/vec4.hpp
  ../include/glm/vector_relational.hpp
+ ../include/rapidjson/allocators.h
+ ../include/rapidjson/document.h
+ ../include/rapidjson/encodedstream.h
+ ../include/rapidjson/encodings.h
+ ../include/rapidjson/error/error.h
+ ../include/rapidjson/internal/biginteger.h
+ ../include/rapidjson/internal/diyfp.h
+ ../include/rapidjson/internal/ieee754.h
+ ../include/rapidjson/internal/meta.h
+ ../include/rapidjson/internal/pow10.h
+ ../include/rapidjson/internal/stack.h
+ ../include/rapidjson/internal/strfunc.h
+ ../include/rapidjson/internal/strtod.h
+ ../include/rapidjson/internal/swap.h
+ ../include/rapidjson/memorystream.h
+ ../include/rapidjson/msinttypes/inttypes.h
+ ../include/rapidjson/msinttypes/stdint.h
+ ../include/rapidjson/rapidjson.h
+ ../include/rapidjson/reader.h
+ ../include/rapidjson/stream.h
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Actor.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/AssetLoader.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Array.hpp
+ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Light.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Mesh.hpp
@@ -878,6 +902,7 @@ CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/PlayerController.hpp
 CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj
  ../include/GL/glew.h
+ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.cpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.hpp
 CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj
