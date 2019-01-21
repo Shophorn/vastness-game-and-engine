@@ -27,6 +27,8 @@ using std::unordered_map;
 using std::string;
 using std::vector;
 
+using namespace rapidjson;
+
 namespace
 {
     vec3 GetVec3(rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator>>::ConstArray array)
@@ -39,64 +41,82 @@ namespace
         return vec;
     }
 
-    struct FileRecord
+    struct SerializableActor
     {
         ActorType type;
         vec3 position;
         string modelPath;
         string texturePath;
         string shaderName;
-
-        FileRecord () : type(ActorType::None), position (vec3(0,0,0)) {}
-
-        FileRecord (
-                ActorType _type,
-                vec3 _position,
-                const char * _modelPath,
-                const char * _texturePath,
-                const char * _shaderName)
-                :   type(_type),
-                    position(_position),
-                    modelPath (_modelPath),
-                    texturePath(_texturePath),
-                    shaderName(_shaderName)
-        {}
-
     };
 
-    Array<FileRecord> readFromFile(string path)
+    Array<SerializableActor> ParseJsonActors(const Value & jsonActors)
     {
-        using namespace rapidjson;
+        Array<SerializableActor> actors (jsonActors.Size());
 
-        const char * jsonFormat = FileOperations::ReadFile(path.c_str());
-        Document doc;
-        doc.Parse(jsonFormat);
-
-        const Value& actors = doc["Actors"];
-
-        Array<FileRecord> records (actors.Size());
-
-        for (int i = 0; i < actors.Size(); i++)
+        for (int i = 0; i < jsonActors.Size(); i++)
         {
-            auto object = actors[i].GetObject();
+            auto object = jsonActors[i].GetObject();
 
-            records[i] = FileRecord (
-                GetActorType(object["type"].GetString()),
-                GetVec3(object["position"].GetArray()),
-                object["model"].GetString(),
-                object["texture"].GetString(),
-                object["shader"].GetString()
-            );
-
+            actors[i].type = GetActorType(object["type"].GetString());
+            actors[i].position = GetVec3(object["position"].GetArray());
+            actors[i].modelPath = object["model"].GetString();
+            actors[i].texturePath = object["texture"].GetString();
+            actors[i].shaderName = object["shader"].GetString();
         }
-        return records;
+        return actors;
+    }
+
+    struct SerializableProp
+    {
+        string modelPath;
+        string texturePath;
+        string shaderName;
+
+//        Array<vec3> positions;
+    };
+
+    Array<SerializableProp> ParseJsonProps(const Value & jsonProps)
+    {
+        int count = jsonProps.Size();
+        Array<SerializableProp> props (count);
+
+        for (int i = 0; i < count; i++)
+        {
+            auto object = jsonProps[i].GetObject();
+
+            props[i].modelPath = object["model"].GetString();
+            props[i].texturePath = object["texture"].GetString();
+            props[i].shaderName = object["shader"].GetString();
+            auto jsonPositions = object["positions"].GetArray();
+
+            int positionCount = jsonPositions.Size();
+            Array<vec3> positions (positionCount);
+
+            for (int ii = 0; ii < positionCount; ii++)
+            {
+                positions[i] = GetVec3(jsonPositions[ii].GetArray());
+            }
+        }
+        return props;
     }
 }
 
 Scene SceneLoader::Load(string path)
 {
-    auto records = readFromFile(path);
-    int count = records.count();
+    using namespace rapidjson;
+
+    const char * jsonFormat = FileOperations::ReadFile(path.c_str());
+    Document doc;
+    doc.Parse(jsonFormat);
+
+    const Value& jsonActors = doc["Actors"];
+    auto actors = ParseJsonActors(jsonActors);
+    int count = actors.count();
+
+    const Value & jsonProps = doc["Props"];
+    auto props = ParseJsonProps(jsonProps);
+
 
     Scene scene;
 
@@ -116,7 +136,7 @@ Scene SceneLoader::Load(string path)
 
     for (int i = 0; i < count; i++)
     {
-        string shaderName = records[i].shaderName;
+        string shaderName = actors[i].shaderName;
         if (scene.shaders.find(shaderName) == scene.shaders.end())
         {
             ShaderProgram shader = ShaderProgram::Load(shaderName);
@@ -124,16 +144,16 @@ Scene SceneLoader::Load(string path)
         }
 
         Mesh * mesh = new Mesh;
-        AssetLoader::LoadOBJ(records[i].modelPath.c_str(), mesh);
+        AssetLoader::LoadOBJ(actors[i].modelPath.c_str(), mesh);
         mesh->LoadToGL(scene.shaders[shaderName].id);
 
         GLuint texture;
-        AssetLoader::LoadTextureRGBA(records[i].texturePath.c_str(), &texture);
+        AssetLoader::LoadTextureRGBA(actors[i].texturePath.c_str(), &texture);
 
-        scene.renderers[i] = new Renderer(Transform(records[i].position, vec3(0,0,0)), texture, mesh, &scene.shaders[shaderName]);
+        scene.renderers[i] = new Renderer(Transform(actors[i].position, vec3(0,0,0)), texture, mesh, &scene.shaders[shaderName]);
 
         // TODO: Move these to game section
-        switch (records[i].type)
+        switch (actors[i].type)
         {
             case ActorType::Player:
                 PlayerController * player;
