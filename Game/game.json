@@ -1,3 +1,25 @@
 {
-    "type" : "FISH"
+  "Actors" : [
+    {
+      "type" : "FISH",
+      "position" : [-1, 0, 0],
+      "model" : "Assets/fish_a.obj",
+      "texture" : "Assets/Fish_A_ColorRGB_SmoothA.png",
+      "shader" : "default"
+    },
+    {
+      "type" : "PLAYER",
+      "position" : [1, 0 , -1],
+      "model" : "Assets/Quad.obj",
+      "texture" : "Game/Assets/dude.png",
+      "shader" : "sprite"
+    },
+    {
+      "type" : "FISH",
+      "position" : [1, 0, 0],
+      "model" : "Assets/fish_b.obj",
+      "texture" : "Assets/Fish_B_ColorRGB_SmoothA.png",
+      "shader" : "default"
+    }
+  ]
 }

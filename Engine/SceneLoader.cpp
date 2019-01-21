@@ -1,5 +1,5 @@
 /*
-LeoTamminen
+Leo Tamminen
 Created 21/01/2019
 */
 #include "SceneLoader.hpp"
@@ -16,6 +16,7 @@ Created 21/01/2019
 #include "Collections/Array.hpp"
 #include "FileOperations.hpp"
 
+#include "../Game/ActorTypes.hpp"
 #include "../Game/FishController.hpp"
 #include "../Game/PlayerController.hpp"
 
@@ -28,28 +29,23 @@ using std::vector;
 
 namespace
 {
-    // Mock scene "file"
-    /*
-    Type : Player
-    Position : vec3
-    Model : "path"
-    Texture : "path"
-    */
-
-    enum ActorType
+    vec3 GetVec3(rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator>>::ConstArray array)
     {
-        None,
-        Player,
-        Fish
-    };
+        vec3 vec(0);
+        vec[0] = array[0].GetFloat();
+        vec[1] = array[1].GetFloat();
+        vec[2] = array[2].GetFloat();
+
+        return vec;
+    }
 
     struct FileRecord
     {
-        const ActorType type;
-        const vec3 position;
-        const char * modelPath = nullptr;
-        const char * texturePath = nullptr;
-        const char * shaderName = nullptr;
+        ActorType type;
+        vec3 position;
+        string modelPath;
+        string texturePath;
+        string shaderName;
 
         FileRecord () : type(ActorType::None), position (vec3(0,0,0)) {}
 
@@ -65,41 +61,42 @@ namespace
                     texturePath(_texturePath),
                     shaderName(_shaderName)
         {}
+
     };
 
-    Collections::Array<FileRecord> readFromFile()
+    Array<FileRecord> readFromFile(string path)
     {
-        return {
-                FileRecord(ActorType::Fish, vec3(-1, 0, 0), "Assets/fish_a.obj", "Assets/Fish_A_ColorRGB_SmoothA.png", "default"),
-                FileRecord(ActorType::Fish, vec3(1, 0, 1), "Assets/fish_a.obj", "Assets/Fish_A_ColorRGB_SmoothA.png", "default"),
-                FileRecord(ActorType::Fish, vec3(1, 0, 0), "Assets/fish_b.obj", "Assets/Fish_B_ColorRGB_SmoothA.png", "default"),
-                FileRecord(ActorType::Fish, vec3(-1, 0, 1), "Assets/fish_b.obj", "Assets/Fish_B_ColorRGB_SmoothA.png", "sprite"),
-                FileRecord(ActorType::Player, vec3(0, 0, 0), "Assets/Quad.obj", "Game/Assets/dude.png", "sprite")
-        };
-    }
+        using namespace rapidjson;
 
-    vector<FileRecord> readFromFile(string path)
-    {
         const char * jsonFormat = FileOperations::ReadFile(path.c_str());
-        rapidjson::Document doc;
+        Document doc;
         doc.Parse(jsonFormat);
 
-        string type = doc["type"].GetString();
-        std::cout << type;
+        const Value& actors = doc["Actors"];
 
-        return vector<FileRecord>(0);
+        Array<FileRecord> records (actors.Size());
+
+        for (int i = 0; i < actors.Size(); i++)
+        {
+            auto object = actors[i].GetObject();
+
+            records[i] = FileRecord (
+                GetActorType(object["type"].GetString()),
+                GetVec3(object["position"].GetArray()),
+                object["model"].GetString(),
+                object["texture"].GetString(),
+                object["shader"].GetString()
+            );
+
+        }
+        return records;
     }
 }
 
-
 Scene SceneLoader::Load(string path)
 {
-    auto records = readFromFile();
+    auto records = readFromFile(path);
     int count = records.count();
-
-
-    readFromFile(path);
-
 
     Scene scene;
 
@@ -127,14 +124,15 @@ Scene SceneLoader::Load(string path)
         }
 
         Mesh * mesh = new Mesh;
-        AssetLoader::LoadOBJ(records[i].modelPath, mesh);
+        AssetLoader::LoadOBJ(records[i].modelPath.c_str(), mesh);
         mesh->LoadToGL(scene.shaders[shaderName].id);
 
         GLuint texture;
-        AssetLoader::LoadTextureRGBA(records[i].texturePath, &texture);
+        AssetLoader::LoadTextureRGBA(records[i].texturePath.c_str(), &texture);
 
         scene.renderers[i] = new Renderer(Transform(records[i].position, vec3(0,0,0)), texture, mesh, &scene.shaders[shaderName]);
 
+        // TODO: Move these to game section
         switch (records[i].type)
         {
             case ActorType::Player:

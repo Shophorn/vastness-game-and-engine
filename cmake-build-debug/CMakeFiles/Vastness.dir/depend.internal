@@ -898,6 +898,7 @@ CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/VectorsAndMatrices.hpp
+ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/ActorTypes.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/FishController.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/PlayerController.hpp
 CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj

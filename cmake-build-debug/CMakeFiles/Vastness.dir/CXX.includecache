@@ -1674,10 +1674,6 @@ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Co
 ../StringOperations.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
 
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.cpp
-FileOperations.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
-
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
 fstream
 -
@@ -1703,6 +1699,10 @@ Mesh.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Mesh.hpp
 Shader.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.hpp
+
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Scene.cpp
+Scene.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Scene.hpp
 
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Scene.hpp
 unordered_map
@@ -1739,6 +1739,8 @@ Collections/Array.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Array.hpp
 FileOperations.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
+../Game/ActorTypes.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/ActorTypes.hpp
 ../Game/FishController.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/FishController.hpp
 ../Game/PlayerController.hpp
@@ -1754,25 +1756,11 @@ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Sc
 GLFW/glfw3.h
 -
 
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.cpp
-Shader.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.hpp
-iostream
--
-FileOperations.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
-
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.hpp
 GL/glew.h
 -
 string
 -
-
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.cpp
-iostream
--
-StringOperations.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
 
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
 
@@ -1790,6 +1778,16 @@ glm/gtc/type_ptr.hpp
 glm/gtx/euler_angles.hpp
 -
 
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/ActorTypes.hpp
+string
+-
+
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/FishController.cpp
+FishController.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/FishController.hpp
+stdio.h
+-
+
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/FishController.hpp
 ../Engine/Actor.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Actor.hpp
@@ -1799,6 +1797,10 @@ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Re
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
 ../Engine/Transform.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
+
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/PlayerController.cpp
+PlayerController.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/PlayerController.hpp
 
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/PlayerController.hpp
 ../Engine/Actor.hpp

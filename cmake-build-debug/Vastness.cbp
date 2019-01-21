@@ -171,6 +171,9 @@
 		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/VectorsAndMatrices.hpp">
 			<Option target="Vastness"/>
 		</Unit>
+		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/ActorTypes.hpp">
+			<Option target="Vastness"/>
+		</Unit>
 		<Unit filename="C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/FishController.cpp">
 			<Option target="Vastness"/>
 		</Unit>

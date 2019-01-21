@@ -897,6 +897,7 @@ CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/SceneLoader.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Shader.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/Transform.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/VectorsAndMatrices.hpp
+CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Game/ActorTypes.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Game/FishController.hpp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Game/PlayerController.hpp
 
