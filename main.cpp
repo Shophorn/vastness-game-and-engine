@@ -17,24 +17,23 @@ Leo Tamminen
 #include <iostream>
 #include <string>
 
-#include "Engine/Collections/Dictionary.hpp"
-#include "Engine/StringOperations.hpp"
 
 int main()
 {
     using namespace Engine;
     using namespace Engine::Collections;
 
-    Screen screen = Screen::Create("Fishness", 1920, 1080);
+    const char * gamePath = "Game/game.json";
+
+    Screen screen = SceneLoader::LoadContext(gamePath);
+
     glewExperimental = GL_TRUE;
     glewInit();
     Input::Initialize(screen.window());
 
 
-    Scene scene = SceneLoader::Load("Game/game.json");
+    Scene scene = SceneLoader::Load(gamePath);
     scene.camera.aspectRatio = screen.aspectRatio();
-
-    std::cout << "Hello\n";
 
     Array<Actor*> & actors = scene.actors;
     Array<Renderer*> & renderers = scene.renderers;
@@ -47,9 +46,9 @@ int main()
         glUniformMatrix4fv(shader.second.projectionLocation, 1, false, glm::value_ptr(scene.camera.projectionMatrix()));
         glUniform3fv(shader.second.cameraPosLocation, 1, glm::value_ptr(scene.camera.position));
         glUniform3fv(shader.second.lightDirLocation, 1, glm::value_ptr(scene.light.direction));
+        glUniform3fv(shader.second.lightColorLocation, 1, &scene.light.color[0]);
     }
 
-    glClearColor(0.046f, 0.102f, 0.24f, 1.0f);
     glEnable(GL_DEPTH_TEST);
 
     // Remember to use glFinish()

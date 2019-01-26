@@ -8,6 +8,7 @@ in vec3 WorldPosition;
 uniform vec3 lightDir;
 uniform vec3 cameraPos;
 uniform sampler2D mainTexture;
+uniform vec3 _LightColor;
 
 out vec4 outColor;
 
@@ -19,13 +20,13 @@ void main ()
     vec3 n  = normalize(Normal);
 
     float NdotL = max(0, dot(n, lightDir));
-    vec3 diffuse = tex.rgb * NdotL;
+    vec3 diffuse = tex.rgb * NdotL * _LightColor;
 
     vec3 viewDir = normalize(cameraPos - WorldPosition);
     vec3 halfVector = normalize(viewDir + lightDir);
 
     float specularValue = pow(max(0, dot(halfVector, n)), 100 * smoothness);
-    float specular = specularValue * tex.a;
+    vec3 specular = specularValue * tex.a * _LightColor;
 
     outColor = vec4 (diffuse + specular, 1.0);
 }

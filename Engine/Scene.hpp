@@ -24,6 +24,8 @@ namespace Engine
     class Scene
     {
     public:
+        Scene() {}
+
         Camera camera;
         Light light;
 

@@ -13,6 +13,7 @@ public:
     GLint modelLocation         = -1;
     GLint modelITLocation       = -1;
     GLint lightDirLocation      = -1;
+    GLint lightColorLocation    = -1;
     GLint cameraPosLocation     = -1;
 
     ShaderProgram () = default;
@@ -24,6 +25,7 @@ public:
         modelLocation       (glGetUniformLocation(id, "model")),
         modelITLocation     (glGetUniformLocation(id, "model_it")),
         lightDirLocation    (glGetUniformLocation(id, "lightDir")),
+        lightColorLocation  (glGetUniformLocation(id, "_LightColor")),
         cameraPosLocation   (glGetUniformLocation(id, "cameraPos"))
     {}
 

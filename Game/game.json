@@ -1,4 +1,29 @@
 {
+  "Version" : 1,
+
+  "Context" :
+  {
+    "title" : "Fishness",
+    "window" : [1920, 1080]
+  },
+
+  "Camera" :
+  {
+    "position" : [0.0, -2.5, 2.0],
+    "target" : [0.0, 0.0, 0.0],
+    "field of view" : 45,
+    "near clipping plane" : 0.01,
+    "far clipping plane" : 100.0,
+    "clear color" : [0.046, 0.102, 0.240, 1.0]
+  },
+
+  "Light" :
+  {
+    "direction" : [0.6, 0.6, 1.0],
+    "color" : [1.0, 0.58, 0.55],
+    "intensity" : 1.0
+  },
+
   "Actors" : [
     {
       "type" : "FISH",

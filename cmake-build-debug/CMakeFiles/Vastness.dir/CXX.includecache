@@ -1476,6 +1476,26 @@ detail/setup.hpp
 detail/func_vector_relational.inl
 ../include/glm/detail/func_vector_relational.inl
 
+../include/rapidjson/Document.h
+reader.h
+../include/rapidjson/reader.h
+internal/meta.h
+../include/rapidjson/internal/meta.h
+internal/strfunc.h
+../include/rapidjson/internal/strfunc.h
+memorystream.h
+../include/rapidjson/memorystream.h
+encodedstream.h
+../include/rapidjson/encodedstream.h
+new
+-
+limits
+-
+iterator
+-
+utility
+-
+
 ../include/rapidjson/allocators.h
 rapidjson.h
 ../include/rapidjson/rapidjson.h
@@ -1670,8 +1690,16 @@ initializer_list
 cstring
 -
 
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Dictionary.hpp
+../StringOperations.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
+
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
 fstream
+-
+string
+-
+rapidjson/Document.h
 -
 
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
@@ -1731,17 +1759,27 @@ Collections/Array.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Array.hpp
 FileOperations.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
+Camera.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.hpp
 ../Game/ActorTypes.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/ActorTypes.hpp
 ../Game/FishController.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/FishController.hpp
 ../Game/PlayerController.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/PlayerController.hpp
+Screen.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Screen.hpp
 
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/SceneLoader.hpp
+string
+-
 Scene.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Scene.hpp
-string
+Screen.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Screen.hpp
+
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Screen.hpp
+GLFW/glfw3.h
 -
 
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.hpp
@@ -1749,6 +1787,8 @@ GL/glew.h
 -
 string
 -
+
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
 
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
 VectorsAndMatrices.hpp
@@ -1789,4 +1829,30 @@ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Re
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
 ../Engine/Transform.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
+
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/main.cpp
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+Engine/Collections/Array.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Array.hpp
+Engine/Actor.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Actor.hpp
+Engine/Input.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
+Engine/Renderer.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Renderer.hpp
+Engine/Screen.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Screen.hpp
+Engine/SceneLoader.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/SceneLoader.hpp
+iostream
+-
+string
+-
+Engine/Collections/Dictionary.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Dictionary.hpp
+Engine/StringOperations.hpp
+C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
 

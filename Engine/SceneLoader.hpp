@@ -4,11 +4,13 @@ Created 27/12/2018
 */
 
 #pragma once
+#include <string>
 
 #include "Scene.hpp"
-#include <string>
+#include "Screen.hpp"
 
 namespace Engine::SceneLoader
 {
-    Scene Load(std::string path);
+    Screen LoadContext(const char * path);
+    Scene Load(const char * path);
 }

@@ -15,10 +15,12 @@ Created 21/01/2019
 #include "VectorsAndMatrices.hpp"
 #include "Collections/Array.hpp"
 #include "FileOperations.hpp"
+#include "Camera.hpp"
 
 #include "../Game/ActorTypes.hpp"
 #include "../Game/FishController.hpp"
 #include "../Game/PlayerController.hpp"
+#include "Screen.hpp"
 
 using namespace Engine;
 using namespace Game;
@@ -106,20 +108,17 @@ namespace
     }
 }
 
-
-Scene SceneLoader::Load(string path)
+Scene SceneLoader::Load(const char * path)
 {
     using namespace rapidjson;
 
-    const char * jsonFormat = FileOperations::ReadFile(path.c_str());
-    Document doc;
-    doc.Parse(jsonFormat);
+    Document document = FileOperations::ReadJson(path);
 
-    const Value& jsonActors = doc["Actors"];
+    const Value& jsonActors = document["Actors"];
     auto actors = ParseJsonActors(jsonActors);
     int actorCount = actors.count();
 
-    const Value & jsonScenery = doc["Scenery"];
+    const Value & jsonScenery = document["Scenery"];
     auto sceneries = ParseJsonSceneries(jsonScenery);
     int sceneryCount = sceneries.count();
 
@@ -131,13 +130,21 @@ Scene SceneLoader::Load(string path)
 
     Scene scene;
 
-    scene.camera.position = vec3(0.0f, -2.5f, 1.0f);
-    // scene.camera.aspectRatio = screen.aspectRatio();
+    const Value & cameraValue = document["Camera"];
+    scene.camera = Camera(
+            GetVec3(cameraValue["position"]),
+            GetVec3(cameraValue["target"]),
+            cameraValue["field of view"].GetFloat(),
+            cameraValue["near clipping plane"].GetFloat(),
+            cameraValue["far clipping plane"].GetFloat(),
+            GetVec3(cameraValue["clear color"])
+    );
 
+    const Value & jsonLight = document["Light"];
     scene.light = Light(
-            glm::normalize(vec3(0.6f,0.6f, 1.0f)),
-            vec3(1.0f, 0.98f, 0.95f),
-            1.0f
+        GetVec3(jsonLight["direction"]),
+        GetVec3(jsonLight["color"]),
+        jsonLight["intensity"].GetFloat()
     );
 
     scene.actors.DiscardAndResize(actorCount);
@@ -216,4 +223,22 @@ Scene SceneLoader::Load(string path)
     }
     scene.actors.TrimDownToSize(actorIndex);
     return scene;
+}
+
+Screen SceneLoader::LoadContext(const char * path)
+{
+    using namespace rapidjson;
+
+    Document document = FileOperations::ReadJson(path);
+
+    const Value & context = document ["Context"].GetObject();
+
+    auto screenSize = context["window"].GetArray();
+
+    return Screen::Create(
+        context["title"].GetString(),
+        screenSize[0].GetInt(),
+        screenSize[1].GetInt()
+    );
+
 }

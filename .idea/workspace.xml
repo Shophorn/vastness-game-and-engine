@@ -13,15 +13,29 @@
   <component name="ChangeListManager">
     <list default="true" id="2cf0ad16-7810-440f-80b8-99a9758dfaec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GDD.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GDD.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Assets/rock.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Assets/rock.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Camera.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Camera.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Camera.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/FileOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/FileOperations.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/FileOperations.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/FileOperations.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scene.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/SceneLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/SceneLoader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/SceneLoader.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/SceneLoader.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Shader.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Shader.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Shaders/default_fragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Shaders/default_fragment.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/game.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/game.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vastness.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Vastness.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Renderer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Renderer.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/Engine/Shader.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Vastness.dir/objects1.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,11 +104,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Vastness (disassembly)" value="7" />
-          <entry key="cpp" value="13" />
-          <entry key="glsl" value="1" />
+          <entry key="Vastness (disassembly)" value="8" />
+          <entry key="cpp" value="16" />
+          <entry key="glsl" value="4" />
           <entry key="h" value="1" />
-          <entry key="hpp" value="13" />
+          <entry key="hpp" value="20" />
           <entry key="json" value="1" />
           <entry key="txt" value="1" />
         </counts>
@@ -102,34 +116,35 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="1" />
-          <entry key="Disassembly" value="7" />
-          <entry key="GLSL shader file" value="1" />
+          <entry key="Disassembly" value="8" />
+          <entry key="GLSL shader file" value="4" />
           <entry key="JSON" value="1" />
-          <entry key="ObjectiveC" value="27" />
+          <entry key="ObjectiveC" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="8596" />
-          <entry key="glsl" value="216" />
-          <entry key="hpp" value="2316" />
-          <entry key="json" value="2097" />
+          <entry key="cpp" value="10437" />
+          <entry key="glsl" value="282" />
+          <entry key="hpp" value="3038" />
+          <entry key="json" value="2608" />
+          <entry key="mm" value="23" />
           <entry key="txt" value="115" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="60" />
-          <entry key="GLSL shader file" value="216" />
-          <entry key="JSON" value="2097" />
-          <entry key="ObjectiveC" value="10912" />
+          <entry key="GLSL shader file" value="282" />
+          <entry key="JSON" value="2608" />
+          <entry key="ObjectiveC" value="13498" />
           <entry key="PLAIN_TEXT" value="55" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44373333">
+    <splitter split-orientation="horizontal" split-proportion="0.4183938">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -141,11 +156,55 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Game/game.json">
               <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-51">
+                  <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/Shaders/default_fragment.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="23" selection-start-line="23" selection-end-line="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/Shaders/sprite_vertex.glsl">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Engine/SceneLoader.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3043">
+                  <caret line="192" column="29" lean-forward="true" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#38#64#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/Shaders/sprite_fragment.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/Light.hpp">
+              <provider selected="true" editor-type-id="text-editor">
                 <state>
-                  <caret column="1" selection-start-column="1" selection-end-column="1" />
+                  <caret column="2" selection-start-column="2" selection-end-line="2" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -155,19 +214,55 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+            <entry file="file://$PROJECT_DIR$/Engine/Screen.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="629">
-                  <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+                <state relative-caret-position="-187">
+                  <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Engine/SceneLoader.cpp">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/FileOperations.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="731">
-                  <caret line="164" column="20" lean-forward="true" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="20" />
+                <state relative-caret-position="238">
+                  <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#52#70#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/FileOperations.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="299">
+                  <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#37#55#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/SceneLoader.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="238">
+                  <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+                  <folding>
+                    <element signature="e#52#69#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/Scene.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
                 </state>
               </provider>
             </entry>
@@ -175,11 +270,35 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+                <state relative-caret-position="323">
+                  <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
                   <folding>
                     <element signature="e#31#51#0" expanded="true" />
                     <element signature="e#289#308#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Engine/Camera.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="2" selection-start-column="2" selection-end-column="2" />
+                  <folding>
+                    <element signature="e#39#59#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Engine/Camera.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-187">
+                  <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+                  <folding>
+                    <element signature="e#52#76#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -209,12 +328,10 @@
         <option value="$PROJECT_DIR$/Engine/GL.hpp" />
         <option value="$PROJECT_DIR$/Engine/Mesh.cpp" />
         <option value="$PROJECT_DIR$/Engine/Mesh.hpp" />
-        <option value="$PROJECT_DIR$/Engine/Camera.hpp" />
         <option value="$PROJECT_DIR$/Engine/Window.hpp" />
         <option value="$PROJECT_DIR$/Engine/Screen.hpp" />
         <option value="$PROJECT_DIR$/Game/PlayerController.cpp" />
         <option value="$PROJECT_DIR$/Engine/List.hpp" />
-        <option value="$PROJECT_DIR$/Engine/Shader.hpp" />
         <option value="$PROJECT_DIR$/Engine/Renderer.cpp" />
         <option value="$PROJECT_DIR$/Engine/Array.hpp" />
         <option value="$PROJECT_DIR$/Game/PlayerController.hpp" />
@@ -224,24 +341,28 @@
         <option value="$PROJECT_DIR$/Engine/Renderer.hpp" />
         <option value="$PROJECT_DIR$/Engine/Collections/PointerArray.hpp" />
         <option value="$PROJECT_DIR$/Engine/Shaders/sprite_fragment.glsl" />
-        <option value="$PROJECT_DIR$/Engine/FileOperations.cpp" />
-        <option value="$PROJECT_DIR$/Engine/FileOperations.hpp" />
         <option value="$PROJECT_DIR$/Engine/Shader.cpp" />
         <option value="$PROJECT_DIR$/Engine/StringOperations.cpp" />
         <option value="$PROJECT_DIR$/Engine/StringOperations.hpp" />
-        <option value="$PROJECT_DIR$/Engine/SceneLoader.hpp" />
         <option value="$PROJECT_DIR$/Game/ActorTypes.hpp" />
         <option value="$PROJECT_DIR$/Engine/Scene.hpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Engine/Actor.hpp" />
         <option value="$PROJECT_DIR$/Engine/VectorsAndMatrices.cpp" />
         <option value="$PROJECT_DIR$/Engine/VectorsAndMatrices.hpp" />
         <option value="$PROJECT_DIR$/Engine/Collections/Array.hpp" />
         <option value="$PROJECT_DIR$/Engine/Scene.cpp" />
-        <option value="$PROJECT_DIR$/Engine/SceneLoader.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/GDD.txt" />
+        <option value="$PROJECT_DIR$/Engine/Shaders/default_fragment.glsl" />
+        <option value="$PROJECT_DIR$/Engine/Shader.hpp" />
+        <option value="$PROJECT_DIR$/Engine/Camera.hpp" />
+        <option value="$PROJECT_DIR$/Engine/Camera.cpp" />
         <option value="$PROJECT_DIR$/Game/game.json" />
+        <option value="$PROJECT_DIR$/Engine/FileOperations.hpp" />
+        <option value="$PROJECT_DIR$/Engine/FileOperations.cpp" />
+        <option value="$PROJECT_DIR$/Engine/SceneLoader.cpp" />
+        <option value="$PROJECT_DIR$/Engine/SceneLoader.hpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -280,6 +401,12 @@
               <item name="vastness-game-and-engine" type="462c0819:PsiDirectoryNode" />
               <item name="Engine" type="462c0819:PsiDirectoryNode" />
               <item name="Collections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Vastness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vastness-game-and-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="Engine" type="462c0819:PsiDirectoryNode" />
+              <item name="Shaders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Vastness" type="b2602c69:ProjectViewProjectNode" />
@@ -356,12 +483,12 @@
       <workItem from="1548149022808" duration="4168000" />
       <workItem from="1548319890777" duration="122000" />
       <workItem from="1548494123631" duration="22000" />
-      <workItem from="1548495701988" duration="355000" />
+      <workItem from="1548495701988" duration="8680000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83835000" />
+    <option name="totallyTimeSpent" value="92160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
@@ -377,7 +504,7 @@
       <window_info anchor="bottom" id="Messages" order="4" weight="0.32321042" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32997987" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.2505423" />
+      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.2505423" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.43817788" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
@@ -444,23 +571,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/GL.hpp" />
-    <entry file="file://$PROJECT_DIR$/Engine/Camera.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/Camera.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/Screen.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Game/PlayerController.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -469,13 +579,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/Actor.cpp" />
-    <entry file="file://$PROJECT_DIR$/Engine/Shader.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/Renderer.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -501,13 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/Light.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -583,31 +679,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/Shaders/sprite_fragment.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/SceneLoader.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/Collections/Array.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/Scene.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -639,31 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/FileOperations.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/Actor.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/FileOperations.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GDD.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -674,10 +728,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GDD.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Light.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Shaders/sprite_vertex.glsl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Shaders/sprite_fragment.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Shader.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Shaders/default_fragment.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Camera.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding>
+            <element signature="e#52#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Screen.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/FileOperations.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="e#52#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/FileOperations.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding>
+            <element signature="e#37#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/SceneLoader.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding>
+            <element signature="e#52#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Scene.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#31#51#0" expanded="true" />
             <element signature="e#289#308#0" expanded="true" />
@@ -685,17 +831,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/SceneLoader.cpp">
+    <entry file="file://$PROJECT_DIR$/Game/game.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="164" column="20" lean-forward="true" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="20" />
+        <state relative-caret-position="-51">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/game.json">
+    <entry file="file://$PROJECT_DIR$/Engine/SceneLoader.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3043">
+          <caret line="192" column="29" lean-forward="true" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
+          <folding>
+            <element signature="e#38#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/Camera.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+          <folding>
+            <element signature="e#39#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

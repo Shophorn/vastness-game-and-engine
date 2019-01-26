@@ -3,7 +3,9 @@ LeoTamminen
 Created 21/01/2019
 */
 
+#include <sstream>
 #include "FileOperations.hpp"
+
 
 const char *FileOperations::ReadFile(const char *path)
 {
@@ -23,4 +25,13 @@ const char *FileOperations::ReadFile(const char *path)
     source[length] = 0;
 
     return source;
+}
+
+rapidjson::Document FileOperations::ReadJson(const char *path)
+{
+    const char * jsonFormat = FileOperations::ReadFile(path);
+    rapidjson::Document document;
+    document.Parse(jsonFormat);
+    delete [] jsonFormat;
+    return document;
 }
