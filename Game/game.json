@@ -25,10 +25,16 @@
 
   "Scenery" : [
     {
-      "positions" : [[2, 5, -1], [-3, 7, -1], [-1, 2, -1]],
-      "model" : "Assets/Quad.obj",
+      "positions" : [[0,0,-2]],
+      "model" : "Game/Assets/ground.obj",
+      "texture" : "Game/Assets/ground.png",
+      "shader" : "default"
+    },
+    {
+      "positions" : [[2, 5, -2], [-3, 7, -2], [-1, 2, -2]],
+      "model" : "Game/Assets/rock.obj",
       "texture" : "Game/Assets/rock.png",
-      "shader" : "sprite"
+      "shader" : "default"
     },
     {
       "positions" : [[3, 3, -1]],

@@ -1,5 +1,8 @@
 Adventure Game
 
+Next up:
+    Fix array delete bug on close
+
 Goal
     Find treasure
 

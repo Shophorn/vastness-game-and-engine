@@ -182,38 +182,10 @@ CMakeFiles/Vastness.dir/Engine/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vastness.dir/Engine/Camera.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Engine\Camera.cpp -o CMakeFiles\Vastness.dir\Engine\Camera.cpp.s
 
-CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj: CMakeFiles/Vastness.dir/flags.make
-CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
-CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj: ../Game/PlayerController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Game\PlayerController.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\PlayerController.cpp
-
-CMakeFiles/Vastness.dir/Game/PlayerController.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vastness.dir/Game/PlayerController.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\PlayerController.cpp > CMakeFiles\Vastness.dir\Game\PlayerController.cpp.i
-
-CMakeFiles/Vastness.dir/Game/PlayerController.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vastness.dir/Game/PlayerController.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\PlayerController.cpp -o CMakeFiles\Vastness.dir\Game\PlayerController.cpp.s
-
-CMakeFiles/Vastness.dir/Game/FishController.cpp.obj: CMakeFiles/Vastness.dir/flags.make
-CMakeFiles/Vastness.dir/Game/FishController.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
-CMakeFiles/Vastness.dir/Game/FishController.cpp.obj: ../Game/FishController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Vastness.dir/Game/FishController.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Game\FishController.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\FishController.cpp
-
-CMakeFiles/Vastness.dir/Game/FishController.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vastness.dir/Game/FishController.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\FishController.cpp > CMakeFiles\Vastness.dir\Game\FishController.cpp.i
-
-CMakeFiles/Vastness.dir/Game/FishController.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vastness.dir/Game/FishController.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\FishController.cpp -o CMakeFiles\Vastness.dir\Game\FishController.cpp.s
-
 CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj: CMakeFiles/Vastness.dir/flags.make
 CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
 CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj: ../Engine/StringOperations.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Engine\StringOperations.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Engine\StringOperations.cpp
 
 CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.i: cmake_force
@@ -227,7 +199,7 @@ CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.s: cmake_force
 CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj: CMakeFiles/Vastness.dir/flags.make
 CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
 CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj: ../Engine/Scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Engine\Scene.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Engine\Scene.cpp
 
 CMakeFiles/Vastness.dir/Engine/Scene.cpp.i: cmake_force
@@ -241,7 +213,7 @@ CMakeFiles/Vastness.dir/Engine/Scene.cpp.s: cmake_force
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: CMakeFiles/Vastness.dir/flags.make
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj: ../Engine/SceneLoader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Engine\SceneLoader.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Engine\SceneLoader.cpp
 
 CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.i: cmake_force
@@ -255,7 +227,7 @@ CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.s: cmake_force
 CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj: CMakeFiles/Vastness.dir/flags.make
 CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
 CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj: ../Engine/FileOperations.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Engine\FileOperations.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Engine\FileOperations.cpp
 
 CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.i: cmake_force
@@ -265,6 +237,34 @@ CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.i: cmake_force
 CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Engine\FileOperations.cpp -o CMakeFiles\Vastness.dir\Engine\FileOperations.cpp.s
+
+CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj: CMakeFiles/Vastness.dir/flags.make
+CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
+CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj: ../Game/PlayerController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Game\PlayerController.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\PlayerController.cpp
+
+CMakeFiles/Vastness.dir/Game/PlayerController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vastness.dir/Game/PlayerController.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\PlayerController.cpp > CMakeFiles\Vastness.dir\Game\PlayerController.cpp.i
+
+CMakeFiles/Vastness.dir/Game/PlayerController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vastness.dir/Game/PlayerController.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\PlayerController.cpp -o CMakeFiles\Vastness.dir\Game\PlayerController.cpp.s
+
+CMakeFiles/Vastness.dir/Game/FishController.cpp.obj: CMakeFiles/Vastness.dir/flags.make
+CMakeFiles/Vastness.dir/Game/FishController.cpp.obj: CMakeFiles/Vastness.dir/includes_CXX.rsp
+CMakeFiles/Vastness.dir/Game/FishController.cpp.obj: ../Game/FishController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Vastness.dir/Game/FishController.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Vastness.dir\Game\FishController.cpp.obj -c C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\FishController.cpp
+
+CMakeFiles/Vastness.dir/Game/FishController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vastness.dir/Game/FishController.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\FishController.cpp > CMakeFiles\Vastness.dir\Game\FishController.cpp.i
+
+CMakeFiles/Vastness.dir/Game/FishController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vastness.dir/Game/FishController.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LeoTamminen\Documents\shophorn-games\vastness-game-and-engine\Game\FishController.cpp -o CMakeFiles\Vastness.dir\Game\FishController.cpp.s
 
 # Object files for target Vastness
 Vastness_OBJECTS = \
@@ -277,12 +277,12 @@ Vastness_OBJECTS = \
 "CMakeFiles/Vastness.dir/Engine/Input.cpp.obj" \
 "CMakeFiles/Vastness.dir/Engine/Renderer.cpp.obj" \
 "CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj" \
-"CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj" \
-"CMakeFiles/Vastness.dir/Game/FishController.cpp.obj" \
 "CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj" \
 "CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj" \
 "CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj" \
-"CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj"
+"CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj" \
+"CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj" \
+"CMakeFiles/Vastness.dir/Game/FishController.cpp.obj"
 
 # External object files for target Vastness
 Vastness_EXTERNAL_OBJECTS =
@@ -296,12 +296,12 @@ Vastness_EXTERNAL_OBJECTS =
 ../Vastness.exe: CMakeFiles/Vastness.dir/Engine/Input.cpp.obj
 ../Vastness.exe: CMakeFiles/Vastness.dir/Engine/Renderer.cpp.obj
 ../Vastness.exe: CMakeFiles/Vastness.dir/Engine/Camera.cpp.obj
-../Vastness.exe: CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj
-../Vastness.exe: CMakeFiles/Vastness.dir/Game/FishController.cpp.obj
 ../Vastness.exe: CMakeFiles/Vastness.dir/Engine/StringOperations.cpp.obj
 ../Vastness.exe: CMakeFiles/Vastness.dir/Engine/Scene.cpp.obj
 ../Vastness.exe: CMakeFiles/Vastness.dir/Engine/SceneLoader.cpp.obj
 ../Vastness.exe: CMakeFiles/Vastness.dir/Engine/FileOperations.cpp.obj
+../Vastness.exe: CMakeFiles/Vastness.dir/Game/PlayerController.cpp.obj
+../Vastness.exe: CMakeFiles/Vastness.dir/Game/FishController.cpp.obj
 ../Vastness.exe: CMakeFiles/Vastness.dir/build.make
 ../Vastness.exe: CMakeFiles/Vastness.dir/linklibs.rsp
 ../Vastness.exe: CMakeFiles/Vastness.dir/objects1.rsp

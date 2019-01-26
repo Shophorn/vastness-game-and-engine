@@ -26,13 +26,15 @@ add_executable(
         Engine/SceneLoader.hpp
         Engine/Actor.hpp
         Engine/Light.hpp
-
-        Game/PlayerController.cpp Game/PlayerController.hpp
-        Game/FishController.cpp Game/FishController.hpp
         Engine/Collections/Dictionary.hpp
         Engine/StringOperations.cpp Engine/StringOperations.hpp
         Engine/Scene.cpp Engine/Scene.hpp
         Engine/SceneLoader.cpp
-        Engine/FileOperations.cpp Engine/FileOperations.hpp Game/ActorTypes.hpp)
+        Engine/FileOperations.cpp Engine/FileOperations.hpp
+
+        Game/PlayerController.cpp Game/PlayerController.hpp
+        Game/FishController.cpp Game/FishController.hpp
+        Game/ActorTypes.hpp
+)
 
 
