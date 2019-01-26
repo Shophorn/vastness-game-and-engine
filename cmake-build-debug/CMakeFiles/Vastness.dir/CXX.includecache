@@ -1690,10 +1690,6 @@ initializer_list
 cstring
 -
 
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Dictionary.hpp
-../StringOperations.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
-
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp
 fstream
 -
@@ -1788,8 +1784,6 @@ GL/glew.h
 string
 -
 
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
-
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
 VectorsAndMatrices.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/VectorsAndMatrices.hpp
@@ -1829,30 +1823,4 @@ C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Re
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
 ../Engine/Transform.hpp
 C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
-
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/main.cpp
-GL/glew.h
--
-GLFW/glfw3.h
--
-Engine/Collections/Array.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Array.hpp
-Engine/Actor.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Actor.hpp
-Engine/Input.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
-Engine/Renderer.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Renderer.hpp
-Engine/Screen.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Screen.hpp
-Engine/SceneLoader.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/SceneLoader.hpp
-iostream
--
-string
--
-Engine/Collections/Dictionary.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Dictionary.hpp
-Engine/StringOperations.hpp
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
 

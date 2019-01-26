@@ -2008,7 +2008,6 @@ CMakeFiles/Vastness.dir/main.cpp.obj: ../include/glm/vector_relational.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Actor.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Camera.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Collections/Array.hpp
-CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Collections/Dictionary.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Input.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Light.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Mesh.hpp
@@ -2017,7 +2016,6 @@ CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Scene.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/SceneLoader.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Screen.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Shader.hpp
-CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/StringOperations.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/Transform.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../Engine/VectorsAndMatrices.hpp
 CMakeFiles/Vastness.dir/main.cpp.obj: ../main.cpp

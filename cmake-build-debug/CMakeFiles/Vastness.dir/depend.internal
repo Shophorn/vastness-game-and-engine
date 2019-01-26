@@ -2009,7 +2009,6 @@ CMakeFiles/Vastness.dir/main.cpp.obj
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Actor.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Array.hpp
- C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Collections/Dictionary.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Light.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Mesh.hpp
@@ -2018,7 +2017,6 @@ CMakeFiles/Vastness.dir/main.cpp.obj
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/SceneLoader.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Screen.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shader.hpp
- C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/StringOperations.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Transform.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/VectorsAndMatrices.hpp
  C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/main.cpp

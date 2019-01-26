@@ -48,7 +48,7 @@ namespace
     {
     public:
         ActorType type;
-        vec3 position;
+        Transform transform;
         string modelPath;
         string texturePath;
         string shaderName;
@@ -63,7 +63,22 @@ namespace
             auto object = jsonActors[i].GetObject();
 
             actors[i].type = GetActorType(object["type"].GetString());
-            actors[i].position = GetVec3(object["position"]);
+
+            if (object.HasMember("transform"))
+            {
+                auto jsonTransform = object["transform"].GetObject();
+                actors[i].transform = Transform(
+                    GetVec3(jsonTransform["position"]),
+                    GetVec3(jsonTransform["rotation"]),
+                    GetVec3(jsonTransform["scale"])
+                );
+            }
+            else if (object.HasMember("position"))
+            {
+                actors[i].transform = Transform(GetVec3(object["position"]), vec3(0), vec3(1));
+            }
+
+
             actors[i].modelPath = object["model"].GetString();
             actors[i].texturePath = object["texture"].GetString();
             actors[i].shaderName = object["shader"].GetString();
@@ -74,7 +89,8 @@ namespace
     class SerializableScenery
     {
     public:
-        Array<vec3> positions;
+//        Array<vec3> positions;
+        Array<Transform> transforms;
         string modelPath;
         string texturePath;
         string shaderName;
@@ -82,6 +98,7 @@ namespace
 
     Array<SerializableScenery> ParseJsonSceneries(const Value & jsonScenery)
     {
+
         int count = jsonScenery.Size();
         Array<SerializableScenery> sceneries(count);
 
@@ -89,16 +106,25 @@ namespace
         {
             auto object = jsonScenery[i].GetObject();
 
-            auto positionsArray = object["positions"].GetArray();
-            int positionCount = positionsArray.Size();
-            Array<vec3> positions (positionCount);
+            Array<Transform> transforms;
 
-            for (int ii = 0; ii < positionCount; ii++)
+            auto transformsArray = object["transforms"].GetArray();
+            int transformCount = transformsArray.Size();
+
+            transforms = Array<Transform>(transformCount);
+
+            for (int ii = 0; ii < transformCount; ii++)
             {
-                positions[ii] = GetVec3(positionsArray[ii]);
+                auto jsonTransform = transformsArray[ii].GetObject();
+                transforms[ii] = Transform
+                (
+                    GetVec3(jsonTransform["position"]),
+                    GetVec3(jsonTransform["rotation"]),
+                    GetVec3(jsonTransform["scale"])
+                );
             }
 
-            sceneries[i].positions = positions;
+            sceneries[i].transforms = transforms;
             sceneries[i].modelPath = object["model"].GetString();
             sceneries[i].texturePath = object["texture"].GetString();
             sceneries[i].shaderName = object["shader"].GetString();
@@ -125,7 +151,7 @@ Scene SceneLoader::Load(const char * path)
     int sceneryRenderersCount = 0;
     for (int i = 0; i <sceneries.count(); i++)
     {
-        sceneryRenderersCount += sceneries[i].positions.count();
+        sceneryRenderersCount += sceneries[i].transforms.count();
     }
 
     Scene scene;
@@ -170,7 +196,7 @@ Scene SceneLoader::Load(const char * path)
         AssetLoader::LoadTextureRGBA(actors[i].texturePath.c_str(), &texture);
 
         scene.renderers[i] = new Renderer(
-            Transform(actors[i].position, vec3(0,0,0)),
+            actors[i].transform,
             texture,
             mesh,
             &scene.shaders[shaderName]
@@ -210,10 +236,11 @@ Scene SceneLoader::Load(const char * path)
         GLuint texture;
         AssetLoader::LoadTextureRGBA(sceneries[i].texturePath.c_str(), &texture);
 
-        for (int ii = 0; ii < sceneries[i].positions.count(); ii++)
+        for (int ii = 0; ii < sceneries[i].transforms.count(); ii++)
         {
             scene.renderers[rendererIndex] = new Renderer(
-                    Transform(sceneries[i].positions[ii], vec3(0)),
+//                    Transform(sceneries[i].positions[ii], vec3(0), vec3(1)),
+                    sceneries[i].transforms[ii],
                     texture,
                     mesh,
                     &scene.shaders[shaderName]
