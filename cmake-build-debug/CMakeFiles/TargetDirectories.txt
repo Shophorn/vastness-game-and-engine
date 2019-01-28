@@ -1,3 +1,0 @@
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/Vastness.dir
-C:/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
