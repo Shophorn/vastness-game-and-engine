@@ -25,4 +25,5 @@ void main ()
         discard;
     }
     outColor = vec4 (tex.rgb, 1.0);
+//    outColor = vec4(Texcoord, 0, 1);
 }

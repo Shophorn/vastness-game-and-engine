@@ -132,6 +132,34 @@ namespace
         }
         return sceneries;
     }
+
+    SerializebleAnimationAtlas ParseJsonAnimation(const Value & animationObject)
+    {
+        SerializebleAnimationAtlas atlas;
+        atlas.frameRate = animationObject["frame rate"].GetFloat();
+        atlas.texturePath = animationObject["texture"].GetString();//"Game/Assets/astronaut_2x1.png";
+        atlas.rows = animationObject["rows"].GetInt();
+        atlas.columns = animationObject["columns"].GetInt();
+
+//        SerializableAnimation idleAnimation;
+//        idleAnimation.frameCount = animationObject["animations"].GetArray()[0].GetObject()["frames"].GetInt();
+//        idleAnimation.name = animationObject["animations"].GetArray()[0].GetObject()["name"].GetString();
+//
+//        atlas.animations = Array<SerializableAnimation> {idleAnimation};
+
+        auto animationsArray = animationObject["animations"].GetArray();
+        int animationsCount = animationsArray.Size();
+        atlas.animations = Array<SerializableAnimation>(animationsCount);
+        for (int i = 0; i < animationsCount; i++)
+        {
+            auto animation = animationsArray[i].GetObject();
+            atlas.animations[i].name = animation["name"].GetString();
+            atlas.animations[i].frameCount = animation["frames"].GetInt();
+        }
+
+
+        return atlas;
+    }
 }
 
 Scene SceneLoader::Load(const char * path)
@@ -206,10 +234,23 @@ Scene SceneLoader::Load(const char * path)
         switch (actors[i].type)
         {
             case ActorType::Player:
-                PlayerController * player;
+            {
+                PlayerController *player;
                 player = new PlayerController(&scene.renderers[i]->transform, 1.5f);
+
+
+                auto animationObject = document["Sprites"].GetArray()[0].GetObject();
+
+                SpriteAnimator *animator = new SpriteAnimator(
+                    scene.shaders[shaderName].id,
+                    ParseJsonAnimation(animationObject)
+                );
+
+                scene.renderers[i]->animator = animator;
+                player->animator = animator;
                 scene.actors[actorIndex] = player;
                 actorIndex++;
+            }
                 break;
 
             case ActorType::Fish:
@@ -239,7 +280,6 @@ Scene SceneLoader::Load(const char * path)
         for (int ii = 0; ii < sceneries[i].transforms.count(); ii++)
         {
             scene.renderers[rendererIndex] = new Renderer(
-//                    Transform(sceneries[i].positions[ii], vec3(0), vec3(1)),
                     sceneries[i].transforms[ii],
                     texture,
                     mesh,

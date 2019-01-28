@@ -24,6 +24,21 @@
     "intensity" : 1.0
   },
 
+  "Sprites" : [
+    {
+      "name" : "astronaut",
+      "texture" : "Game/Assets/astronaut_2x1.png",
+
+      "rows" : 2,
+      "columns" : 2,
+      "frame rate" : 5.0,
+      "animations" : [
+          { "name" : "idle", "frames" : 2 },
+          { "name" : "walk", "frames" : 2 }
+      ]
+    }
+  ],
+
   "Actors" : [
     {
       "type" : "FISH",
@@ -36,7 +51,7 @@
       "type" : "PLAYER",
       "transform" : { "position" : [1, 0, -1], "rotation" : [0, 0, 0], "scale" : [1, 1, 1] },
       "model" : "Assets/Quad.obj",
-      "texture" : "Game/Assets/dude.png",
+      "texture" : "Game/Assets/astronaut_2x1.png",
       "shader" : "sprite"
     },
     {
@@ -45,6 +60,13 @@
       "model" : "Assets/fish_b.obj",
       "texture" : "Assets/Fish_B_ColorRGB_SmoothA.png",
       "shader" : "default"
+    },
+    {
+      "type" : "NONE",
+      "transform" : { "position" : [-1, 0, -1.4], "rotation" : [0, 0, 0], "scale" : [0.6, 0.6, 0.6] },
+      "model" : "Assets/Quad.obj",
+      "texture" : "Game/Assets/pig.png",
+      "shader" : "sprite"
     }
   ],
 

@@ -35,6 +35,6 @@ add_executable(
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/FishController.cpp Game/FishController.hpp
         Game/ActorTypes.hpp
-)
+        Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp)
 
 

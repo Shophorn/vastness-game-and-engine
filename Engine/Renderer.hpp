@@ -10,6 +10,7 @@ Created 26/12/2018
 #include "Transform.hpp"
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include "SpriteAnimator.hpp"
 
 namespace Engine
 {
@@ -26,6 +27,9 @@ namespace Engine
 
         // Owned, do delete
         Mesh * mesh = nullptr;
+
+        SpriteAnimator * animator = nullptr;
+        static SpriteAnimator nullAnimator;
 
         Renderer () {}
 

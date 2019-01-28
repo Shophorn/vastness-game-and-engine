@@ -12,6 +12,7 @@ Leo Tamminen
 #include "Engine/Renderer.hpp"
 #include "Engine/Screen.hpp"
 #include "Engine/SceneLoader.hpp"
+#include "Engine/SpriteAnimator.hpp"
 
 //#include <stdio.h>
 #include <iostream>
@@ -73,6 +74,12 @@ int main()
         for (auto * actor : actors)
         {
             actor->Update(deltaTime);
+        }
+
+        Array<SpriteAnimator> sprites;
+        for (auto sprite : sprites)
+        {
+            sprite.Update(deltaTime);
         }
 
         // Render

@@ -10,5 +10,24 @@ using namespace Game;
 void PlayerController::Update(float deltaTime)
 {
     float step = deltaTime * moveSpeed;
-    transform->position += vec3(Input::horizontal() * step, Input::vertical() * step, 0);
+
+    vec3 movement (Input::horizontal(), Input::vertical(), 0);
+    float magnitude = glm::length(movement);
+    if (magnitude > 1.0f)
+    {
+        movement /= magnitude;
+    }
+    movement *= step;
+
+    transform->position += movement;
+
+    if (magnitude > 0) {
+        animator->SetAnimation(1);
+    } else {
+        animator->SetAnimation(0);
+    }
+
+    animator->Update(deltaTime);
+
+
 }

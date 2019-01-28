@@ -1,4 +1,5 @@
 /*
+Shophorn
 Leo Tamminen
 Created 27/12/2018
 */
@@ -9,6 +10,7 @@ Created 27/12/2018
 #include "../Engine/Renderer.hpp"
 #include "../Engine/Input.hpp"
 #include "../Engine/Transform.hpp"
+#include "../Engine/SpriteAnimator.hpp"
 
 using namespace Engine;
 
@@ -18,6 +20,8 @@ namespace Game
     {
     public:
         Transform * transform = nullptr;
+        SpriteAnimator * animator = nullptr;
+
         float moveSpeed = 0;
 
         PlayerController(Transform * transform, float moveSpeed)

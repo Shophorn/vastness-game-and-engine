@@ -15,26 +15,6 @@ namespace
     const char * vertexExtension = "_vertex.glsl";
     const char * fragmentExtension = "_fragment.glsl";
 
-//    const char * ReadSourceFile(const char * path)
-//    {
-//        using namespace std;
-//
-//        ifstream file (path, ios::in | ios::binary);
-//        if (!file.good()) return nullptr;
-//
-//        file.seekg(0, ios::end);
-//        int length = file.tellg();
-//        file.seekg(0, ios::beg);
-//
-//        char * source = new char [length + 1];
-//
-//        file.read(source, length);
-//
-//        source[length] = 0;
-//
-//        return source;
-//    }
-
     GLuint ShaderFromSource(const char * source, GLenum type)
     {
         GLuint shaderID = glCreateShader(type);
