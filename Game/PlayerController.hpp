@@ -6,7 +6,7 @@ Created 27/12/2018
 
 #pragma once
 
-#include "../Engine/Actor.hpp"
+#include "../Engine/Entity.hpp"
 #include "../Engine/Renderer.hpp"
 #include "../Engine/Input.hpp"
 #include "../Engine/Transform.hpp"
@@ -16,11 +16,12 @@ using namespace Engine;
 
 namespace Game
 {
-    class PlayerController : public Actor
+    class PlayerController : public Entity
     {
     public:
         Transform * transform = nullptr;
         SpriteAnimator * animator = nullptr;
+        Renderer * renderer = nullptr;
 
         float moveSpeed = 0;
 

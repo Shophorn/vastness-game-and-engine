@@ -8,7 +8,7 @@ Created 21/01/2019
 #include <unordered_map>
 #include <string>
 
-#include "Actor.hpp"
+#include "Entity.hpp"
 #include "Renderer.hpp"
 #include "Camera.hpp"
 #include "Light.hpp"
@@ -29,7 +29,7 @@ namespace Engine
         Camera camera;
         Light light;
 
-        Array<Actor *> actors;
+        Array<Entity *> actors;
         Array<Renderer *> renderers;
         unordered_map <string, ShaderProgram> shaders;
 

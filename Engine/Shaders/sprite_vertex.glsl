@@ -22,6 +22,7 @@ uniform float frameHeight = 1.0;
 uniform int currentFrame = 0;
 uniform int currentAnimation = 0;
 
+uniform bool flipped;
 uniform bool isAnimated;
 
 float fmod(float value, float limit)

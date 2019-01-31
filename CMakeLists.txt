@@ -24,7 +24,7 @@ add_executable(
         Engine/Collections/Array.hpp
         Engine/Camera.cpp Engine/Camera.hpp
         Engine/SceneLoader.hpp
-        Engine/Actor.hpp
+        Engine/Entity.hpp
         Engine/Light.hpp
         Engine/Collections/Dictionary.hpp
         Engine/StringOperations.cpp Engine/StringOperations.hpp
@@ -35,6 +35,6 @@ add_executable(
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/FishController.cpp Game/FishController.hpp
         Game/ActorTypes.hpp
-        Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp)
-
+        Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp
+)
 

@@ -141,11 +141,6 @@ namespace
         atlas.rows = animationObject["rows"].GetInt();
         atlas.columns = animationObject["columns"].GetInt();
 
-//        SerializableAnimation idleAnimation;
-//        idleAnimation.frameCount = animationObject["animations"].GetArray()[0].GetObject()["frames"].GetInt();
-//        idleAnimation.name = animationObject["animations"].GetArray()[0].GetObject()["name"].GetString();
-//
-//        atlas.animations = Array<SerializableAnimation> {idleAnimation};
 
         auto animationsArray = animationObject["animations"].GetArray();
         int animationsCount = animationsArray.Size();
@@ -238,13 +233,14 @@ Scene SceneLoader::Load(const char * path)
                 PlayerController *player;
                 player = new PlayerController(&scene.renderers[i]->transform, 1.5f);
 
-
                 auto animationObject = document["Sprites"].GetArray()[0].GetObject();
 
                 SpriteAnimator *animator = new SpriteAnimator(
                     scene.shaders[shaderName].id,
                     ParseJsonAnimation(animationObject)
                 );
+
+                player->renderer = scene.renderers[i];
 
                 scene.renderers[i]->animator = animator;
                 player->animator = animator;

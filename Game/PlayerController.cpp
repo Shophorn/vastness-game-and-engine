@@ -23,11 +23,15 @@ void PlayerController::Update(float deltaTime)
 
     if (magnitude > 0) {
         animator->SetAnimation(1);
+
     } else {
         animator->SetAnimation(0);
     }
 
+    if (movement.x != 0)
+    {
+        transform->scale.x = movement.x < 0 ? -1 : 1;
+    }
+
     animator->Update(deltaTime);
-
-
 }

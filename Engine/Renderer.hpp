@@ -29,7 +29,6 @@ namespace Engine
         Mesh * mesh = nullptr;
 
         SpriteAnimator * animator = nullptr;
-        static SpriteAnimator nullAnimator;
 
         Renderer () {}
 

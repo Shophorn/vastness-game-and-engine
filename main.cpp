@@ -7,7 +7,7 @@ Leo Tamminen
 #include <GLFW/glfw3.h>
 
 #include "Engine/Collections/Array.hpp"
-#include "Engine/Actor.hpp"
+#include "Engine/Entity.hpp"
 #include "Engine/Input.hpp"
 #include "Engine/Renderer.hpp"
 #include "Engine/Screen.hpp"
@@ -36,7 +36,7 @@ int main()
     Scene scene = SceneLoader::Load(gamePath);
     scene.camera.aspectRatio = screen.aspectRatio();
 
-    Array<Actor*> & actors = scene.actors;
+    Array<Entity*> & actors = scene.actors;
     Array<Renderer*> & renderers = scene.renderers;
 
     for (const auto &shader : scene.shaders)

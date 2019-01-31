@@ -12,6 +12,7 @@ using namespace Engine;
 void Renderer::Draw()
 {
     mat4 model = transform.modelMatrix();
+
     glm::mat3 modelIT = glm::transpose(glm::inverse(model));
 
     shader->Use();

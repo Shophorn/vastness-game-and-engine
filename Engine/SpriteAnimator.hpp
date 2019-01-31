@@ -47,6 +47,7 @@ namespace Engine
         int currentFrame;
         float frameRate;
 
+
         float time = 0;
 
             SpriteAnimator(GLuint shaderId, SerializebleAnimationAtlas atlas)

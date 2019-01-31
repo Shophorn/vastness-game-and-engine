@@ -1,7 +1,16 @@
 Adventure Game
 
 Next up:
+    Meshes to dictionary similar to shaders
+    textures also
+
+    Renderer:
+        transform to pointer,
+        mesh to non owned pointer
+
     Fix array delete bug on close
+
+    flip sprite
 
 Goal
     Find treasure
