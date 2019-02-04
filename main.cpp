@@ -27,6 +27,20 @@ int main()
     using namespace Engine::Maths;
 
 
+
+    Vector3f pos (10.3, 2.4, 1.0);
+    Vector3f rot (0);
+    Vector3f scale (1);
+
+    Transform tester (pos, rot, scale);
+    auto MM = tester.modelMatrixNew();
+    auto IM = tester.inverseModelMatrix();
+
+    std::cout << "position\n" << Matrix4f::translate(pos) << "\n";
+
+    std::cout << "MM\n" << MM << "\nIM:\n" << IM << "\nmultiplied\n" << MM * IM << "\n";
+
+
     const char * gamePath = "Game/game.json";
 
     Screen screen = SceneLoader::LoadContext(gamePath);
@@ -42,15 +56,16 @@ int main()
     Array<Entity*> & actors = scene.actors;
     Array<Renderer*> & renderers = scene.renderers;
 
+
     for (const auto &shader : scene.shaders)
     {
         shader.second.Use();
 
-        glUniformMatrix4fv(shader.second.viewLocation, 1, false, glm::value_ptr(scene.camera.viewMatrix()));
-        glUniformMatrix4fv(shader.second.projectionLocation, 1, false, glm::value_ptr(scene.camera.projectionMatrix()));
-        glUniform3fv(shader.second.cameraPosLocation, 1, glm::value_ptr(scene.camera.position));
-        glUniform3fv(shader.second.lightDirLocation, 1, glm::value_ptr(scene.light.direction));
-        glUniform3fv(shader.second.lightColorLocation, 1, &scene.light.color[0]);
+        glUniformMatrix4fv(shader.second.viewLocation, 1, false, &scene.camera.viewMatrix()[0][0]);
+        glUniformMatrix4fv(shader.second.projectionLocation, 1, false, &scene.camera.projectionMatrix()[0][0]);
+        glUniform3fv(shader.second.cameraPosLocation, 1, (float*)&scene.camera.position);
+        glUniform3fv(shader.second.lightDirLocation, 1, (float*)&scene.light.direction);
+        glUniform3fv(shader.second.lightColorLocation, 1, (float*)&scene.light.color);
     }
 
     glEnable(GL_DEPTH_TEST);

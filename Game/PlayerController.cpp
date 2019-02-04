@@ -14,7 +14,7 @@ void PlayerController::Update(float deltaTime)
     float step = deltaTime * moveSpeed;
 
     Vector3f movement (Input::horizontal(), Input::vertical(), 0);
-    float magnitude = Maths::Magnitude(movement);
+    float magnitude = Maths::magnitude(movement);
     if (magnitude > 1.0f)
     {
         movement /= magnitude;

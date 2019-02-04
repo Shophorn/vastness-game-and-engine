@@ -7,7 +7,10 @@ Created 16/12/2018
 
 #include "VectorsAndMatrices.hpp"
 #include "Maths/Vector3f.hpp"
+#include "Maths/Matrix4f.hpp"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 namespace Engine
 {
     class Transform
@@ -18,9 +21,9 @@ namespace Engine
         Maths::Vector3f scale;
 
         // Initialize to zero position and rotation
-        Transform() : position(Maths::Vector3f(0)), rotation(Maths::Vector3f(0)), scale(Maths::Vector3f(1)){}
+        Transform() : position(Vector3f(0)), rotation(Vector3f(0)), scale(Vector3f(1)){}
 
-        Transform(vec3 _position, vec3 _rotation, vec3 _scale) :
+        Transform(const Vector3f & _position, const Vector3f & _rotation, const Vector3f & _scale) :
             position(Maths::Vector3f(_position.x, _position.y, _position.z)),
             rotation(Maths::Vector3f(_rotation.x, _rotation.y, _rotation.z)),
             scale(Maths::Vector3f(_scale.x, _scale.y, _scale.z))
@@ -28,8 +31,9 @@ namespace Engine
 
         Transform(const Transform &other) = default;
 
-        mat4 modelMatrix()
+        glm::mat4 modelMatrix()
         {
+            using namespace glm;
             mat4 m = mat4(1.0f);
             m = glm::translate(m, vec3(position.x, position.y, position.z));
 
@@ -42,6 +46,8 @@ namespace Engine
             return m;
         }
 
+        Maths::Matrix4f modelMatrixNew() const;
+        Maths::Matrix4f inverseModelMatrix() const;
     };
 
 }

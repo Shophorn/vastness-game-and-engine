@@ -26,3 +26,18 @@ Features
     Menu
     End screen
 
+Plot:
+    Player starts at broken teleport / shuttle thing. There is a checkpoint scanner, that they can use, and
+    after that move on to outside world. Player has almost zero health.
+
+    There are alien scientist enemies, that will try to capture player, and raving hound enemies that
+    try to eat both aliens and player. Player can outrun aliens, and outsmart hounds.
+
+    Player must wander around to find tracks to another checkpoint port, after what will be final climax thing.
+    Tracks can be footprints of another human adventurer. Checkpoint machine can have specific number of slots,
+    used by those other.
+
+    Player has no means of fighting at the beginning, and will at most find a gun with 3 or so bullets.
+
+    Around the play arena there are hidden hp boxes, that player can find. These can maybe be checkpoints too.
+    Also the other checkpoint thing in the end is unpowered and player needs to find powercells.

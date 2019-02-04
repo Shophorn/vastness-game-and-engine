@@ -43,7 +43,7 @@ Vector3f Vector3f::operator + (const Vector3f &rhs)
 
 Vector3f Vector3f::operator-(const Vector3f &rhs) {
    Vector3f lhs = *this;
-   lhs += rhs;
+   lhs -= rhs;
    return lhs;
 }
 
@@ -55,7 +55,7 @@ Vector3f & Vector3f::operator*=(float f) {
    return *this;
 }
 
-Vector3f Vector3f::operator* (float f) {
+Vector3f Vector3f::operator* (float f) const {
     Vector3f lhs = *this;
     lhs *= f;
     return lhs;
@@ -70,11 +70,16 @@ Vector3f & Vector3f::operator/= (float f) {
    return *this;
 }
 
-Vector3f Vector3f::operator/(float f)
+Vector3f Vector3f::operator/(float f) const
 {
     Vector3f lhs = *this;
     lhs /= f;
     return lhs;
+}
+
+Vector3f Vector3f::operator-() const
+{
+    return *this * -1;
 }
 
 std::ostream &operator<<(std::ostream &os, const Vector3f &v)
@@ -83,7 +88,27 @@ std::ostream &operator<<(std::ostream &os, const Vector3f &v)
     return os;
 }
 
-float Engine::Maths::Magnitude(const Vector3f & v)
+float Engine::Maths::magnitude(const Vector3f &v)
 {
     return (float)sqrt(v.x * v.x + v.y * v.y + v.z + v.z);
+}
+
+Vector3f Engine::Maths::cross(const Vector3f &lhs, const Vector3f &rhs)
+{
+    return Vector3f(
+        lhs.y * rhs.z - lhs.z * rhs.y,
+        lhs.z * rhs.x - lhs.x * rhs.z,
+        lhs.x * rhs.y - lhs.y * rhs.x
+    );
+}
+
+Vector3f Engine::Maths::normalize(const Vector3f & v)
+{
+    float length = magnitude(v);
+    return v / length;
+}
+
+float Engine::Maths::dot(const Vector3f &lhs, const Vector3f &rhs)
+{
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 }

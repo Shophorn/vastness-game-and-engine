@@ -6,7 +6,7 @@ in vec3 normal;
 in vec2 texcoord;
 
 uniform mat4 model;
-uniform mat3 model_it;
+uniform mat4 model_it;
 
 uniform mat4 projection;
 uniform mat4 view;
@@ -46,6 +46,6 @@ void main()
     }
 
     gl_Position = projection * view * model * vec4 (position, 1.0);
-    Normal = model_it * normal;
+    Normal = mat3(model_it) * normal;
     WorldPosition = (model * vec4(position, 1.0)).xyz;
 }

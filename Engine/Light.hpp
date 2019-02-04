@@ -5,19 +5,19 @@ Created 27/12/2018
 
 #pragma once
 
-#include "VectorsAndMatrices.hpp"
+#include "Maths/Vector3f.hpp"
 
 namespace Engine
 {
     struct Light
     {
-        vec3 direction;
-        vec3 color;
+        Vector3f direction;
+        Vector3f color;
         float intensity;
 
         Light(){}
 
-        Light(vec3 direction, vec3 color, float intensity)
+        Light(Vector3f direction, Vector3f color, float intensity)
             : direction(direction), color(color), intensity(intensity) {}
 
     };

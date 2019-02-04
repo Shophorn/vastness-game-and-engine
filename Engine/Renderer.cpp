@@ -5,20 +5,19 @@ Created 26/12/2018
 */
 
 #include "Renderer.hpp"
-#include "VectorsAndMatrices.hpp"
 
 using namespace Engine;
 
 void Renderer::Draw()
 {
-    mat4 model = transform.modelMatrix();
+    auto model = transform.modelMatrix();
 
-    glm::mat3 modelIT = glm::transpose(glm::inverse(model));
+    glm::mat4 modelIT = glm::transpose(glm::inverse(model));
 
     shader->Use();
 
     glUniformMatrix4fv(shader->modelLocation, 1, false, &model[0][0]);
-    glUniformMatrix3fv(shader->modelITLocation, 1, false, &modelIT[0][0]);
+    glUniformMatrix4fv(shader->modelITLocation, 1, false, &modelIT[0][0]);
 
     if (animator != nullptr)
     {

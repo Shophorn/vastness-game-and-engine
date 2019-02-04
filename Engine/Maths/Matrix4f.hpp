@@ -7,25 +7,35 @@ Created 31/01/2019
 #pragma once
 
 #include "Vector3f.hpp"
+#include "Vector4f.hpp"
+
+#include <iostream>
 
 namespace Engine::Maths
 {
-    class Matrix4f
+    struct Matrix4f
     {
-    public:
-        float _values[16];
+        Vector4f columns [4];
+        Vector4f &operator[] (int index)
+        {
+            return columns[index];
+        }
 
-        Vector3f MultiplyPoint(Vector3f rhs);
-        Vector3f MultiplyDirection(Vector3f rhs);
+        const Vector4f & operator[] (int index) const
+        {
+            return columns[index];
+        }
 
-        void Translate(Vector3f translation);
-        void Rotate(Vector3f rotation);
-        void Scale(Vector3f scale);
 
-        void Transpose();
-        void Invert();
+        static Matrix4f translate(Vector3f translation);
+        static Matrix4f rotate(Vector3f eulerRotation);
+        static Matrix4f scale(Vector3f scale);
 
-        static Matrix4f identity;
+        Vector4f operator * (const Vector4f & v) const;
+        Matrix4f operator * (const Matrix4f & rhs) const;
+
     };
+
 }
 
+    std::ostream & operator << (std::ostream & os, const Engine::Maths::Matrix4f & m);

@@ -34,13 +34,23 @@ namespace Engine::Maths
         Vector3f & operator *= (float f);
         Vector3f & operator /= (float f);
 
-        Vector3f operator * (float f);
-        Vector3f operator / (float f);
+        Vector3f operator * (float f) const;
+        Vector3f operator / (float f) const;
+
+        Vector3f operator - () const;
 
     };
 
-    float Magnitude(const Vector3f & v);
+    Vector3f normalize(const Vector3f & v);
+    float dot(const Vector3f & lhs, const Vector3f & rhs);
+    Vector3f cross(const Vector3f & lhs, const Vector3f & rhs);
+    float magnitude(const Vector3f &v);
 
 }
 std::ostream & operator << (std::ostream & os, const Engine::Maths::Vector3f & v);
 
+
+namespace Engine
+{
+    using Maths::Vector3f;
+}

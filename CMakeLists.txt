@@ -41,5 +41,6 @@ add_executable(
 
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/EntityTypes.hpp
-        Engine/Maths/Basic.hpp)
+        Engine/Maths/Basic.hpp
+        Engine/Maths/Vector4f.cpp Engine/Maths/Vector4f.hpp)
 

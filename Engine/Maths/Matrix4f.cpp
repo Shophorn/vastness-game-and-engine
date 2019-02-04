@@ -5,57 +5,77 @@ Created 31/01/2019
 
 #include "Matrix4f.hpp"
 
+#include <iomanip>
+
 using namespace Engine::Maths;
 
-Vector3f Matrix4f::MultiplyPoint(Vector3f rhs)
+std::ostream & operator << (std::ostream & os, const Matrix4f & m)
 {
-    float z = rhs.x * _values[3] + rhs.y * _values[7] + rhs.z * _values[11] + _values[16];
-    return Vector3f (
-        rhs.x * _values[0] + rhs.y * _values[4] + rhs.z * _values[8] + _values[12] / z,
-        rhs.x * _values[1] + rhs.y * _values[5] + rhs.z * _values[9] + _values[13] / z,
-        rhs.x * _values[2] + rhs.y * _values[6] + rhs.z * _values[10] + _values[14] / z
-    );
-}
-
-Vector3f Matrix4f::MultiplyDirection(Vector3f rhs)
-{
-    return Vector3f (
-            rhs.x * _values[0] + rhs.y * _values[4] + rhs.z * _values[8],
-            rhs.x * _values[1] + rhs.y * _values[5] + rhs.z * _values[9],
-            rhs.x * _values[2] + rhs.y * _values[6] + rhs.z * _values[10]
-    );
-}
-
-void Matrix4f::Translate(Vector3f translation)
-{
-    _values[12] += translation.x;
-    _values[13] += translation.x;
-    _values[14] += translation.x;
-}
-
-void Matrix4f::Scale(Vector3f scale)
-{
-    _values[0] *= scale.x;
-    _values[5] *= scale.y;
-    _values[10] *= scale.z;
-}
-
-void Matrix4f::Transpose()
-{
+    os << std::setprecision(2);
     for (int i = 0; i < 4; i++)
     {
-        for (int j = i + 1; j < 4; j++)
+        for (int j = 0; j < 4; j++)
         {
-            int a = i + 4 * j;
-            int b = j + 4 * i;
-            float temp = _values[a];
-            _values[a] = _values[b];
-            _values[b] = temp;
+            os << std::setw(5) << m[i][j] << "\t";
         }
+        os << "\n";
     }
+    return os;
 }
 
-void Matrix4f::Invert()
+Matrix4f Matrix4f::scale(Vector3f scale)
 {
+    Matrix4f S;
+    S[0] = Vector4f(scale.x, 0, 0, 0);
+    S[1] = Vector4f(0, scale.y, 0, 0);
+    S[2] = Vector4f(0, 0, scale.z, 0);
+    S[3] = Vector4f(0, 0, 0, 1);
 
+    return S;
+}
+
+Matrix4f Matrix4f::rotate(Vector3f eulerRotation)
+{
+    Matrix4f R;
+    R[0] = Vector4f(1, 0, 0, 0);
+    R[1] = Vector4f(0, 1, 0, 0);
+    R[2] = Vector4f(0, 0, 1, 0);
+    R[3] = Vector4f(0, 0, 0, 1);
+
+    return R;
+}
+
+Matrix4f Matrix4f::translate(Vector3f translation)
+{
+    Matrix4f T;
+    T[0] = Vector4f(1, 0, 0, 0);
+    T[1] = Vector4f(0, 1, 0, 0);
+    T[2] = Vector4f(0, 0, 1, 0);
+    T[3] = Vector4f(translation, 1.0f);
+
+    return T;
+}
+
+Vector4f Matrix4f::operator*(const Vector4f & v) const
+{
+    const Matrix4f & m = *this;
+    Vector4f result
+    (
+        dot(v, m[0]),
+        dot(v, m[1]),
+        dot(v, m[2]),
+        dot(v, m[3])
+    );
+    return result;
+}
+
+Matrix4f Matrix4f::operator*(const Matrix4f & rhs) const
+{
+    const Matrix4f & lhs = *this;
+    Matrix4f result;
+    result[0] = lhs * rhs[0];
+    result[1] = lhs * rhs[1];
+    result[2] = lhs * rhs[2];
+    result[3] = lhs * rhs[3];
+    return result;
 }

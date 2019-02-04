@@ -32,11 +32,11 @@ using namespace rapidjson;
 
 namespace
 {
-    vec3 GetVec3(const Value & vec3Array)
+    Vector3f GetVec3(const Value & vec3Array)
     {
         auto array = vec3Array.GetArray();
 
-        return vec3 (
+        return Vector3f (
             array[0].GetFloat(),
             array[1].GetFloat(),
             array[2].GetFloat()
@@ -74,7 +74,7 @@ namespace
             }
             else if (object.HasMember("position"))
             {
-                actors[i].transform = Transform(GetVec3(object["position"]), vec3(0), vec3(1));
+                actors[i].transform = Transform(GetVec3(object["position"]), Vector3f(0), Vector3f(1));
             }
 
 
