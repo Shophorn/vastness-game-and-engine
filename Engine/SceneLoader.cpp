@@ -17,8 +17,7 @@ Created 21/01/2019
 #include "FileOperations.hpp"
 #include "Camera.hpp"
 
-#include "../Game/ActorTypes.hpp"
-#include "../Game/FishController.hpp"
+#include "../Game/EntityTypes.hpp"
 #include "../Game/PlayerController.hpp"
 #include "Screen.hpp"
 
@@ -47,7 +46,7 @@ namespace
     class SerializableActor
     {
     public:
-        ActorType type;
+        EntityType type;
         Transform transform;
         string modelPath;
         string texturePath;
@@ -62,7 +61,7 @@ namespace
         {
             auto object = jsonActors[i].GetObject();
 
-            actors[i].type = GetActorType(object["type"].GetString());
+            actors[i].type = GetEntityType(object["type"].GetString());
 
             if (object.HasMember("transform"))
             {
@@ -228,7 +227,7 @@ Scene SceneLoader::Load(const char * path)
         // TODO: Move these to game section
         switch (actors[i].type)
         {
-            case ActorType::Player:
+            case EntityType::Player:
             {
                 PlayerController *player;
                 player = new PlayerController(&scene.renderers[i]->transform, 1.5f);
@@ -248,14 +247,6 @@ Scene SceneLoader::Load(const char * path)
                 actorIndex++;
             }
                 break;
-
-            case ActorType::Fish:
-                FishController * fish;
-                fish = new FishController(&scene.renderers[i]->transform, vec3(0.0f, 90.0f, 0.0f));
-                scene.actors[actorIndex] = fish;
-                actorIndex++;
-                break;
-
         }
 
     }

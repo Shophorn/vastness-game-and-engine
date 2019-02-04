@@ -31,10 +31,15 @@ add_executable(
         Engine/Scene.cpp Engine/Scene.hpp
         Engine/SceneLoader.cpp
         Engine/FileOperations.cpp Engine/FileOperations.hpp
+        Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp
+
+        Engine/Physics/Collisions.cpp Engine/Physics/Collisions.hpp
+        Engine/Physics/Collider.cpp Engine/Physics/Collider.hpp
+
+        Engine/Maths/Vector3f.cpp Engine/Maths/Vector3f.hpp
+        Engine/Maths/Matrix4f.cpp Engine/Maths/Matrix4f.hpp
 
         Game/PlayerController.cpp Game/PlayerController.hpp
-        Game/FishController.cpp Game/FishController.hpp
-        Game/ActorTypes.hpp
-        Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp
-)
+        Game/EntityTypes.hpp
+        Engine/Maths/Basic.hpp)
 

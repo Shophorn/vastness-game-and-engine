@@ -4,15 +4,17 @@ Created 27/12/2018
 */
 
 #include "PlayerController.hpp"
+#include "../Engine/Maths/Vector3f.hpp"
 
 using namespace Game;
+using namespace Engine::Maths;
 
 void PlayerController::Update(float deltaTime)
 {
     float step = deltaTime * moveSpeed;
 
-    vec3 movement (Input::horizontal(), Input::vertical(), 0);
-    float magnitude = glm::length(movement);
+    Vector3f movement (Input::horizontal(), Input::vertical(), 0);
+    float magnitude = Maths::Magnitude(movement);
     if (magnitude > 1.0f)
     {
         movement /= magnitude;

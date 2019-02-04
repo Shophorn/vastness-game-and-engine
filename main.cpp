@@ -19,10 +19,13 @@ Leo Tamminen
 #include <string>
 
 
+#include "Engine/Maths/Vector3f.hpp"
 int main()
 {
     using namespace Engine;
     using namespace Engine::Collections;
+    using namespace Engine::Maths;
+
 
     const char * gamePath = "Game/game.json";
 
