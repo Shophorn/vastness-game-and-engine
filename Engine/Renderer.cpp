@@ -5,19 +5,22 @@ Created 26/12/2018
 */
 
 #include "Renderer.hpp"
+#include <iostream>
 
 using namespace Engine;
 
 void Renderer::Draw()
 {
-    auto model = transform.modelMatrix();
-
-    glm::mat4 modelIT = glm::transpose(glm::inverse(model));
+    auto model = transform.modelMatrixNew();
+    auto modelIT = transform.inverseModelMatrix();
+    modelIT.transpose();
+//    auto modelIT = glm::transpose(glm::inverse(transform.modelMatrix()));
 
     shader->Use();
 
-    glUniformMatrix4fv(shader->modelLocation, 1, false, &model[0][0]);
-    glUniformMatrix4fv(shader->modelITLocation, 1, false, &modelIT[0][0]);
+    glUniformMatrix4fv(shader->modelLocation, 1, GL_FALSE, &model[0][0]);
+    glUniformMatrix4fv(shader->modelLocation, 1, GL_FALSE, &model[0][0]);
+    glUniformMatrix4fv(shader->modelITLocation, 1, GL_FALSE, &modelIT[0][0]);
 
     if (animator != nullptr)
     {

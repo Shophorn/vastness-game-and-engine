@@ -6,8 +6,6 @@ Created 31/01/2019
 
 #pragma once
 
-#include <iostream>
-
 namespace Engine::Maths
 {
     struct Vector3f
@@ -46,11 +44,4 @@ namespace Engine::Maths
     Vector3f cross(const Vector3f & lhs, const Vector3f & rhs);
     float magnitude(const Vector3f &v);
 
-}
-std::ostream & operator << (std::ostream & os, const Engine::Maths::Vector3f & v);
-
-
-namespace Engine
-{
-    using Maths::Vector3f;
 }

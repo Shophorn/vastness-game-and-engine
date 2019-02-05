@@ -6,9 +6,9 @@ Created 16/12/2018
 #pragma once
 
 #include "VectorsAndMatrices.hpp"
-#include "Maths/Vector3f.hpp"
-#include "Maths/Matrix4f.hpp"
-
+//#include "Maths/Vector3f.hpp"
+//#include "Maths/Matrix4f.hpp"
+#include "Maths/Maths.hpp"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 namespace Engine

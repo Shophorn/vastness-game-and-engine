@@ -6,6 +6,8 @@ Created 31/01/2019
 #include <sstream>
 #include "Vector3f.hpp"
 #include "Basic.hpp"
+#include "OStreamOperators.hpp"
+
 
 using namespace Engine::Maths;
 
@@ -82,11 +84,6 @@ Vector3f Vector3f::operator-() const
     return *this * -1;
 }
 
-std::ostream &operator<<(std::ostream &os, const Vector3f &v)
-{
-    os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    return os;
-}
 
 float Engine::Maths::magnitude(const Vector3f &v)
 {
