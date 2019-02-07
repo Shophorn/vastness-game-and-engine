@@ -21,8 +21,8 @@ Leo Tamminen
 
 #include "Engine/Maths/Maths.hpp"
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+//#include <glm/glm.hpp>
+//#include <glm/gtc/matrix_transform.hpp>
 int main()
 {
     using namespace Engine;
