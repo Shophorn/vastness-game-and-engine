@@ -32,15 +32,19 @@ add_executable(
         Engine/SceneLoader.cpp
         Engine/FileOperations.cpp Engine/FileOperations.hpp
         Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp
+        Engine/Serialization.hpp
 
         Engine/Physics/Collisions.cpp Engine/Physics/Collisions.hpp
         Engine/Physics/Collider.cpp Engine/Physics/Collider.hpp
 
+        Engine/Maths/Basic.hpp
+        Engine/Maths/Maths.hpp
         Engine/Maths/Vector3f.cpp Engine/Maths/Vector3f.hpp
         Engine/Maths/Matrix4f.cpp Engine/Maths/Matrix4f.hpp
+        Engine/Maths/Vector4f.cpp Engine/Maths/Vector4f.hpp
+        Engine/Maths/OStreamOperators.cpp Engine/Maths/OStreamOperators.hpp
 
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/EntityTypes.hpp
-        Engine/Maths/Basic.hpp
-        Engine/Maths/Vector4f.cpp Engine/Maths/Vector4f.hpp Engine/Maths/OStreamOperators.cpp Engine/Maths/OStreamOperators.hpp Engine/Maths/Maths.hpp Game/CameraController.hpp)
+)
 

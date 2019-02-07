@@ -6,6 +6,10 @@ Created 27/12/2018
 
 #pragma once
 
+
+
+
+
 #include "../Engine/Entity.hpp"
 #include "../Engine/Renderer.hpp"
 #include "../Engine/Input.hpp"
@@ -19,19 +23,20 @@ namespace Game
     class PlayerController : public Entity
     {
     public:
-        Camera * camera;
-        Transform * transform = nullptr;
-        SpriteAnimator * animator = nullptr;
-        Renderer * renderer = nullptr;
+        Camera *camera = nullptr;
+        Transform *transform = nullptr;
+        SpriteAnimator *animator = nullptr;
+        Renderer *renderer = nullptr;
 
         float moveSpeed = 0;
         Vector3f cameraOffset;
 
         PlayerController() = default;
 
-        PlayerController(Transform * transform, float moveSpeed)
-            : transform(transform), moveSpeed(moveSpeed) {}
+        PlayerController(Transform *transform, float moveSpeed)
+                : transform(transform), moveSpeed(moveSpeed) {}
 
         void Update(float deltaTime) final;
     };
 }
+

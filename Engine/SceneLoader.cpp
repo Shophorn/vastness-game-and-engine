@@ -3,8 +3,7 @@ Leo Tamminen
 Created 21/01/2019
 */
 #include "SceneLoader.hpp"
-
-#include <rapidjson/document.h>
+#include "Serialization.hpp"
 
 // STL
 #include <unordered_map>
@@ -232,10 +231,11 @@ Scene SceneLoader::Load(const char * path)
         {
             case EntityType::PLAYER:
             {
-                PlayerController *player;
-                player = new PlayerController(&scene.renderers[i]->transform, 1.5f);
+                using namespace Serialization;
+                PlayerController * player = new PlayerController(deserialize<PlayerController>(jsonEntities[i]));
 
                 // stupid simple hackery, bad bad
+                player->transform = &scene.renderers[i]->transform;
                 player->camera = &scene.camera;
                 player->cameraOffset = scene.camera.position;
 

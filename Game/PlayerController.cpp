@@ -5,6 +5,7 @@ Created 27/12/2018
 
 #include "PlayerController.hpp"
 #include "../Engine/Maths/Vector3f.hpp"
+#include "../Engine/Serialization.hpp"
 
 using namespace Game;
 using namespace Engine::Maths;
@@ -39,4 +40,15 @@ void PlayerController::Update(float deltaTime)
 
     camera->position = transform->position + cameraOffset;
     camera->target = transform->position;
+}
+
+namespace Engine::Serialization
+{
+    template<>
+    PlayerController deserialize<PlayerController>(const Value &value)
+    {
+        PlayerController p = PlayerController();
+        p.moveSpeed = value["move speed"].GetFloat();
+        return p;
+    }
 }
