@@ -57,7 +57,6 @@ Vector4f Matrix4f::operator*(const Vector4f & v) const
     return result;
 }
 
-#include <iostream>
 Matrix4f Matrix4f::operator*(const Matrix4f & rhs) const
 {
     const Matrix4f & lhs = *this;
