@@ -36,4 +36,7 @@ void PlayerController::Update(float deltaTime)
     }
 
     animator->Update(deltaTime);
+
+    camera->position = transform->position + cameraOffset;
+    camera->target = transform->position;
 }

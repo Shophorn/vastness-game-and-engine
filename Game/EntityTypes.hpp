@@ -6,12 +6,15 @@ Created 21/01/2019
 #pragma once
 
 #include <string>
+
+#include "PlayerController.hpp"
+
 namespace Game
 {
     enum EntityType
     {
-        None,
-        Player,
+        NONE,
+        PLAYER,
 
         // Keep this last, so we can use it to count these
         COUNT
@@ -32,6 +35,6 @@ namespace Game
                 return (EntityType) i;
             }
         }
-        return EntityType::None;
+        return EntityType::NONE;
     }
 }

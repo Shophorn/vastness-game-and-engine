@@ -39,9 +39,10 @@
     }
   ],
 
-  "Actors" : [
+  "Entities" : [
     {
       "type" : "PLAYER",
+      "typeXXX" : "PlayerController",
       "transform" : { "position" : [1, 0, 1], "rotation" : [0, 0, 0], "scale" : [1, 1, 1] },
       "model" : "Assets/Quad.obj",
       "texture" : "Game/Assets/astronaut_2x1.png",
@@ -49,6 +50,7 @@
     },
     {
       "type" : "NONE",
+      "typeXXX" : null,
       "transform" : { "position" : [-1, 0, 0.5], "rotation" : [0, 0, 0], "scale" : [1, 1, 1] },
       "model" : "Assets/Cube.obj",
       "texture" : "Game/Assets/bricks.png",
@@ -56,10 +58,16 @@
     }
   ],
 
+  "Systems" : [
+    {
+      "type" : "CAMERA_CONTROLLER"
+    }
+  ],
+
   "Scenery" : [
     {
       "transforms" : [
-        { "position" : [0, 0, 0], "rotation" : [0, 0, 0], "scale" : [1, 1, 0.01]}
+        { "position" : [0, 0, 0], "rotation" : [0, 0, 0], "scale" : [1, 1, 1]}
       ],
       "model" : "Game/Assets/ground.obj",
       "texture" : "Game/Assets/ground.png",

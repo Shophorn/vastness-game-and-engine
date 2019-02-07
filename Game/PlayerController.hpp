@@ -11,7 +11,7 @@ Created 27/12/2018
 #include "../Engine/Input.hpp"
 #include "../Engine/Transform.hpp"
 #include "../Engine/SpriteAnimator.hpp"
-
+#include "../Engine/Camera.hpp"
 using namespace Engine;
 
 namespace Game
@@ -19,11 +19,15 @@ namespace Game
     class PlayerController : public Entity
     {
     public:
+        Camera * camera;
         Transform * transform = nullptr;
         SpriteAnimator * animator = nullptr;
         Renderer * renderer = nullptr;
 
         float moveSpeed = 0;
+        Vector3f cameraOffset;
+
+        PlayerController() = default;
 
         PlayerController(Transform * transform, float moveSpeed)
             : transform(transform), moveSpeed(moveSpeed) {}
@@ -31,4 +35,3 @@ namespace Game
         void Update(float deltaTime) final;
     };
 }
-

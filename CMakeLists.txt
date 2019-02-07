@@ -42,5 +42,5 @@ add_executable(
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/EntityTypes.hpp
         Engine/Maths/Basic.hpp
-        Engine/Maths/Vector4f.cpp Engine/Maths/Vector4f.hpp Engine/Maths/OStreamOperators.cpp Engine/Maths/OStreamOperators.hpp Engine/Maths/Maths.hpp)
+        Engine/Maths/Vector4f.cpp Engine/Maths/Vector4f.hpp Engine/Maths/OStreamOperators.cpp Engine/Maths/OStreamOperators.hpp Engine/Maths/Maths.hpp Game/CameraController.hpp)
 

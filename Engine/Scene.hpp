@@ -29,13 +29,13 @@ namespace Engine
         Camera camera;
         Light light;
 
-        Array<Entity *> actors;
+        Array<Entity *> entities;
         Array<Renderer *> renderers;
         unordered_map <string, ShaderProgram> shaders;
 
         ~Scene()
         {
-            DeletePointersInArray(actors);
+            DeletePointersInArray(entities);
 //            DeletePointersInArray(renderers);
         }
 

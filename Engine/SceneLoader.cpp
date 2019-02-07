@@ -30,6 +30,11 @@ using std::vector;
 
 using namespace rapidjson;
 
+namespace keywords
+{
+    const char * entities = "Entities";
+}
+
 namespace
 {
     Vector3f GetVec3(const Value & vec3Array)
@@ -43,7 +48,7 @@ namespace
         );
     }
 
-    class SerializableActor
+    class SerializableEntity
     {
     public:
         EntityType type;
@@ -53,20 +58,20 @@ namespace
         string shaderName;
     };
 
-    Array<SerializableActor> ParseJsonActors(const Value &jsonActors)
+    Array<SerializableEntity> ParseJsonEntities(const Value &jsonEntities)
     {
-        Array<SerializableActor> actors(jsonActors.Size());
+        Array<SerializableEntity> entities(jsonEntities.Size());
 
-        for (int i = 0; i < jsonActors.Size(); i++)
+        for (int i = 0; i < jsonEntities.Size(); i++)
         {
-            auto object = jsonActors[i].GetObject();
+            auto object = jsonEntities[i].GetObject();
 
-            actors[i].type = GetEntityType(object["type"].GetString());
+            entities[i].type = GetEntityType(object["type"].GetString());
 
             if (object.HasMember("transform"))
             {
                 auto jsonTransform = object["transform"].GetObject();
-                actors[i].transform = Transform(
+                entities[i].transform = Transform(
                     GetVec3(jsonTransform["position"]),
                     GetVec3(jsonTransform["rotation"]),
                     GetVec3(jsonTransform["scale"])
@@ -74,15 +79,14 @@ namespace
             }
             else if (object.HasMember("position"))
             {
-                actors[i].transform = Transform(GetVec3(object["position"]), Vector3f(0), Vector3f(1));
+                entities[i].transform = Transform(GetVec3(object["position"]), Vector3f(0), Vector3f(1));
             }
 
-
-            actors[i].modelPath = object["model"].GetString();
-            actors[i].texturePath = object["texture"].GetString();
-            actors[i].shaderName = object["shader"].GetString();
+            entities[i].modelPath = object["model"].GetString();
+            entities[i].texturePath = object["texture"].GetString();
+            entities[i].shaderName = object["shader"].GetString();
         }
-        return actors;
+        return entities;
     }
 
     class SerializableScenery
@@ -162,9 +166,9 @@ Scene SceneLoader::Load(const char * path)
 
     Document document = FileOperations::ReadJson(path);
 
-    const Value& jsonActors = document["Actors"];
-    auto actors = ParseJsonActors(jsonActors);
-    int actorCount = actors.count();
+    const Value& jsonEntities = document[keywords::entities];
+    auto entities = ParseJsonEntities(jsonEntities);
+    int entityCount = entities.count();
 
     const Value & jsonScenery = document["Scenery"];
     auto sceneries = ParseJsonSceneries(jsonScenery);
@@ -195,42 +199,45 @@ Scene SceneLoader::Load(const char * path)
         jsonLight["intensity"].GetFloat()
     );
 
-    scene.actors.DiscardAndResize(actorCount);
+    scene.entities.DiscardAndResize(entityCount);
 
-    int rendererCount = actorCount + sceneryRenderersCount;
+    int rendererCount = entityCount + sceneryRenderersCount;
     scene.renderers.DiscardAndResize(rendererCount);
 
-    scene.shaders = unordered_map<string, ShaderProgram>();
 
-
-    // Build Actors
-    int actorIndex = 0;
-    for (int i = 0; i < actorCount; i++)
+    // Build Entities
+    int entityIndex = 0;
+    for (int i = 0; i < entityCount; i++)
     {
-        string shaderName = actors[i].shaderName;
+        string shaderName = entities[i].shaderName;
         scene.LoadShaderIfNotLoader(shaderName);
 
         Mesh * mesh = new Mesh;
-        AssetLoader::LoadOBJ(actors[i].modelPath.c_str(), mesh);
+        AssetLoader::LoadOBJ(entities[i].modelPath.c_str(), mesh);
         mesh->LoadToGL(scene.shaders[shaderName].id);
 
         GLuint texture;
-        AssetLoader::LoadTextureRGBA(actors[i].texturePath.c_str(), &texture);
+        AssetLoader::LoadTextureRGBA(entities[i].texturePath.c_str(), &texture);
 
         scene.renderers[i] = new Renderer(
-            actors[i].transform,
+            entities[i].transform,
             texture,
             mesh,
             &scene.shaders[shaderName]
         );
 
+
         // TODO: Move these to game section
-        switch (actors[i].type)
+        switch (entities[i].type)
         {
-            case EntityType::Player:
+            case EntityType::PLAYER:
             {
                 PlayerController *player;
                 player = new PlayerController(&scene.renderers[i]->transform, 1.5f);
+
+                // stupid simple hackery, bad bad
+                player->camera = &scene.camera;
+                player->cameraOffset = scene.camera.position;
 
                 auto animationObject = document["Sprites"].GetArray()[0].GetObject();
 
@@ -243,15 +250,15 @@ Scene SceneLoader::Load(const char * path)
 
                 scene.renderers[i]->animator = animator;
                 player->animator = animator;
-                scene.actors[actorIndex] = player;
-                actorIndex++;
+                scene.entities[entityIndex] = player;
+                entityIndex++;
             }
-                break;
+            break;
         }
 
     }
 
-    int rendererIndex = actorCount;
+    int rendererIndex = entityCount;
     for (int i = 0; i < sceneryCount; i++)
     {
         string shaderName = sceneries[i].shaderName;
@@ -275,7 +282,7 @@ Scene SceneLoader::Load(const char * path)
             rendererIndex++;
         }
     }
-    scene.actors.TrimDownToSize(actorIndex);
+    scene.entities.TrimDownToSize(entityIndex);
     return scene;
 }
 
