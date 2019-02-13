@@ -34,10 +34,6 @@ add_executable(
         Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp
         Engine/Serialization.hpp
 
-        Engine/Physics/Collisions.cpp Engine/Physics/Collisions.hpp
-        Engine/Physics/Collider.cpp Engine/Physics/Collider.hpp
-
-        Engine/Maths/Basic.hpp
         Engine/Maths/Maths.hpp
         Engine/Maths/Vector3f.cpp Engine/Maths/Vector3f.hpp
         Engine/Maths/Matrix4f.cpp Engine/Maths/Matrix4f.hpp
@@ -46,5 +42,5 @@ add_executable(
 
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/EntityTypes.hpp
-)
+        Engine/Collisions/Collider.cpp Engine/Collisions/Collider.hpp Engine/Maths/Basic.hpp Engine/Collisions/CollisionManager.cpp Engine/Collisions/CollisionManager.hpp)
 

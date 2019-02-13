@@ -6,11 +6,15 @@ Created 27/12/2018
 #include "PlayerController.hpp"
 #include "../Engine/Maths/Vector3f.hpp"
 #include "../Engine/Serialization.hpp"
+#include "../Engine/Collisions/CollisionManager.hpp"
+
+#include <iostream>
 
 using namespace Game;
+using namespace Engine;
 using namespace Engine::Maths;
 
-void PlayerController::Update(float deltaTime)
+void PlayerController::update(float deltaTime)
 {
     float step = deltaTime * moveSpeed;
 
@@ -22,6 +26,11 @@ void PlayerController::Update(float deltaTime)
     }
     movement *= step;
 
+    Collider moved {transform->position + movement, collider.radius};
+    if (CollisionManager::testCollisions(moved))
+    {
+        movement = Vector3f(0);
+    }
     transform->position += movement;
 
     if (magnitude > 0) {
@@ -40,6 +49,14 @@ void PlayerController::Update(float deltaTime)
 
     camera->position = transform->position + cameraOffset;
     camera->target = transform->position;
+
+
+
+}
+
+void PlayerController::start()
+{
+//    CollisionManager::addCollider(&collider);
 }
 
 namespace Engine::Serialization
@@ -49,6 +66,7 @@ namespace Engine::Serialization
     {
         PlayerController p = PlayerController();
         p.moveSpeed = value["move speed"].GetFloat();
+        p.collider = deserialize<Collider>(value["collider"]);
         return p;
     }
 }

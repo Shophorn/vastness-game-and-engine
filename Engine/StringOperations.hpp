@@ -7,8 +7,8 @@ Created 20/01/2019
 
 namespace StringOperations
 {
-    bool Equals(const char * a, const char * b);
-    bool CompareExtension(const char * path, const char * extension);
+    bool equals(const char *a, const char *b);
+    bool compareExtension(const char *path, const char *extension);
 };
 
 

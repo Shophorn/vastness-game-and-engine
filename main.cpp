@@ -20,9 +20,8 @@ Leo Tamminen
 
 
 #include "Engine/Maths/Maths.hpp"
+#include "Engine/Collisions/CollisionManager.hpp"
 
-//#include <glm/glm.hpp>
-//#include <glm/gtc/matrix_transform.hpp>
 int main()
 {
     using namespace Engine;
@@ -37,12 +36,19 @@ int main()
     glewInit();
     Input::Initialize(screen.window());
 
-
     Scene scene = SceneLoader::Load(gamePath);
     scene.camera.aspectRatio = screen.aspectRatio();
 
     Array<Entity*> & actors = scene.entities;
     Array<Renderer*> & renderers = scene.renderers;
+
+
+    for (const auto &shader : scene.shaders)
+    {
+        shader.second.Use();
+        Vector3f ambientColor (0.05, 0.08, 0.2);
+        glUniform3fv(glGetUniformLocation(shader.second.id, "_Ambient"), 1, (float*)&ambientColor);
+    }
 
     glEnable(GL_DEPTH_TEST);
 
@@ -50,6 +56,8 @@ int main()
     double lastTime = 0.0;
     float deltaTime = 0.0f;
     glfwSwapInterval(1);
+
+    CollisionManager::startUp();
 
     while (!glfwWindowShouldClose(screen.window()))
     {
@@ -67,7 +75,7 @@ int main()
         int i = 0;
         for (auto * actor : actors)
         {
-            actor->Update(deltaTime);
+            actor->update(deltaTime);
         }
 
         Array<SpriteAnimator> sprites;
@@ -92,6 +100,8 @@ int main()
         for (int i = 0; i < renderers.count(); i++) {
             renderers[i]->Draw();
         }
+
         glfwSwapBuffers(screen.window());
     }
+
 }

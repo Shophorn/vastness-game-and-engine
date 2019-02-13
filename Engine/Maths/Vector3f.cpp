@@ -5,9 +5,8 @@ Created 31/01/2019
 
 #include <sstream>
 #include "Vector3f.hpp"
-#include "Basic.hpp"
 #include "OStreamOperators.hpp"
-
+#include "Basic.hpp"
 
 using namespace Engine::Maths;
 
@@ -36,14 +35,14 @@ Vector3f &Vector3f::operator-=(const Vector3f &rhs)
    return *this;
 }
 
-Vector3f Vector3f::operator + (const Vector3f &rhs)
+Vector3f Vector3f::operator + (const Vector3f &rhs) const
 {
    Vector3f lhs = *this;
    lhs += rhs;
    return lhs;
 }
 
-Vector3f Vector3f::operator-(const Vector3f &rhs) {
+Vector3f Vector3f::operator-(const Vector3f &rhs) const {
    Vector3f lhs = *this;
    lhs -= rhs;
    return lhs;
@@ -84,10 +83,9 @@ Vector3f Vector3f::operator-() const
     return *this * -1;
 }
 
-
 float Engine::Maths::magnitude(const Vector3f &v)
 {
-    return (float)sqrt(v.x * v.x + v.y * v.y + v.z + v.z);
+    return sqrt(v.x * v.x + v.y * v.y + v.z + v.z);
 }
 
 Vector3f Engine::Maths::cross(const Vector3f &lhs, const Vector3f &rhs)
@@ -108,4 +106,11 @@ Vector3f Engine::Maths::normalize(const Vector3f & v)
 float Engine::Maths::dot(const Vector3f &lhs, const Vector3f &rhs)
 {
     return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+}
+
+float Engine::Maths::sqrDistance(const Vector3f & lhs, const Vector3f & rhs)
+{
+    Vector3f vec = lhs - rhs;
+    return vec.x * vec.x + vec.y * vec.y + vec.z + vec.z;
+
 }

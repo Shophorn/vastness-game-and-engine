@@ -9,7 +9,8 @@ Created 27/12/2018
 class Entity
 {
 public:
-    virtual void Update(float deltaTime) = 0;
-    // TODO: do we need this?
     virtual ~Entity() = default;
+
+    virtual void update(float deltaTime) = 0;
+    virtual void start() = 0;
 };

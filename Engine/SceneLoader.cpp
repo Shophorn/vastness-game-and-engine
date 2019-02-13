@@ -251,6 +251,7 @@ Scene SceneLoader::Load(const char * path)
                 scene.renderers[i]->animator = animator;
                 player->animator = animator;
                 scene.entities[entityIndex] = player;
+
                 entityIndex++;
             }
             break;

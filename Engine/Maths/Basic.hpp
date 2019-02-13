@@ -1,7 +1,13 @@
 /*
 Shophorn
 Leo Tamminen
-Created 01/02/2019
+13/02/2019
 */
 
 #include <cmath>
+
+namespace Engine
+{
+    using std::abs;
+    using std::sqrt;
+}

@@ -25,7 +25,7 @@ namespace Engine::Collections
         {
             for (int i = 0; i < _count; i++)
             {
-                if (Equals(key, _keys[i]))
+                if (equals(key, _keys[i]))
                 {
                     return i;
                 }

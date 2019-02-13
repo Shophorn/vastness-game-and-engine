@@ -1,6 +1,14 @@
 Adventure Game
 
+
+
+
 Next up:
+    Multiple colliders in collision world
+    Colliders from game file
+
+    proper engine structure with different managers
+
     Meshes to dictionary similar to shaders
     textures also
 

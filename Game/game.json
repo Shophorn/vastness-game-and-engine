@@ -4,12 +4,13 @@
   "Context" :
   {
     "title" : "Fishness",
-    "window" : [1920, 1080]
+    "window" : [2880, 1620],
+    "window_XX" : [1920, 1080]
   },
 
   "Camera" :
   {
-    "position" : [0.0, -6.0, 6.0],
+    "position" : [0.0, -10.0, 10.0],
     "target" : [0.0, 0.0, 0.0],
     "field of view" : 45,
     "near clipping plane" : 0.01,
@@ -42,18 +43,17 @@
   "Entities" : [
     {
       "type" : "PLAYER",
-      "typeXXX" : "PlayerController",
       "transform" : { "position" : [1, 0, 1], "rotation" : [0, 0, 0], "scale" : [1, 1, 1] },
       "model" : "Assets/Quad.obj",
       "texture" : "Game/Assets/astronaut_2x1.png",
       "shader" : "sprite",
 
-      "move speed" : 4.0
+      "move speed" : 4.0,
+      "collider" : { "radius" : 0.5 }
     },
     {
       "type" : "NONE",
-      "typeXXX" : null,
-      "transform" : { "position" : [-1, 0, 0.5], "rotation" : [0, 0, 0], "scale" : [1, 1, 1] },
+      "transform" : { "position" : [-1, -5, 0.5], "rotation" : [0, 0, 0], "scale" : [1, 1, 1] },
       "model" : "Assets/Cube.obj",
       "texture" : "Game/Assets/bricks.png",
       "shader" : "default"
@@ -65,8 +65,16 @@
       "transforms" : [
         { "position" : [0, 0, 0], "rotation" : [0, 0, 0], "scale" : [1, 1, 1]}
       ],
-      "model" : "Game/Assets/ground.obj",
-      "texture" : "Game/Assets/ground.png",
+      "model" : "Game/Assets/megastructure.obj",
+      "texture" : "Game/Assets/rock_plates.png",
+      "shader" : "default"
+    },
+    {
+      "transforms" : [
+        { "position" : [0, 0, 0], "rotation" : [0, 0, 0], "scale" : [1, 1, 1]}
+      ],
+      "model" : "Game/Assets/megastructure_sands.obj",
+      "texture" : "Game/Assets/sand.png",
       "shader" : "default"
     },
     {

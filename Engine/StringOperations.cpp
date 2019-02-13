@@ -6,7 +6,7 @@ Created 20/01/2019
 #include <iostream>
 #include "StringOperations.hpp"
 
-bool StringOperations::Equals(const char *a, const char *b)
+bool StringOperations::equals(const char *a, const char *b)
 {
     int index = 0;
     while(true)
@@ -29,7 +29,7 @@ bool StringOperations::Equals(const char *a, const char *b)
 
 
 
-bool StringOperations::CompareExtension(const char *path, const char *extension)
+bool StringOperations::compareExtension(const char *path, const char *extension)
 {
     int stopIndex = -1;
     int index = 0;

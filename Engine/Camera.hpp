@@ -5,9 +5,6 @@ Created 27/12/2018
 
 #pragma once
 
-#include <iomanip>
-#include <cmath>
-
 #include "Transform.hpp"
 #include "Maths/Matrix4f.hpp"
 namespace Engine

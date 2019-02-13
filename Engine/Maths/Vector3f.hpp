@@ -13,7 +13,7 @@ namespace Engine::Maths
         float x, y, z;
 
         Vector3f() : x(0), y(0), z(0) {}
-        Vector3f(float value) : x(value), y(value), z(value) {}
+        explicit Vector3f(float value) : x(value), y(value), z(value) {}
         Vector3f(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
 
         static const Vector3f down;
@@ -26,8 +26,8 @@ namespace Engine::Maths
         Vector3f & operator += (const Vector3f & rhs);
         Vector3f & operator -= (const Vector3f & rhs);
 
-        Vector3f operator + (const Vector3f & rhs);
-        Vector3f operator - (const Vector3f & rhs);
+        Vector3f operator + (const Vector3f & rhs) const;
+        Vector3f operator - (const Vector3f & rhs) const;
 
         Vector3f & operator *= (float f);
         Vector3f & operator /= (float f);
@@ -36,12 +36,13 @@ namespace Engine::Maths
         Vector3f operator / (float f) const;
 
         Vector3f operator - () const;
-
     };
 
     Vector3f normalize(const Vector3f & v);
     float dot(const Vector3f & lhs, const Vector3f & rhs);
     Vector3f cross(const Vector3f & lhs, const Vector3f & rhs);
+
     float magnitude(const Vector3f &v);
+    float sqrDistance(const Vector3f & lhs, const Vector3f & rhs);
 
 }

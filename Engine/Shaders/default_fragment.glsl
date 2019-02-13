@@ -9,6 +9,7 @@ uniform vec3 lightDir;
 uniform vec3 cameraPos;
 uniform sampler2D mainTexture;
 uniform vec3 _LightColor;
+uniform vec3 _Ambient;
 
 out vec4 outColor;
 
@@ -28,5 +29,8 @@ void main ()
     float specularValue = pow(max(0, dot(halfVector, n)), 100 * smoothness);
     vec3 specular = specularValue * tex.a * _LightColor;
 
-    outColor = vec4 (diffuse + specular, 1.0);
+    // Use occlusion texture ofcourse
+    vec3 ambient = _Ambient * tex.rgb;
+
+    outColor = vec4 (ambient + diffuse + specular, 1.0);
 }
