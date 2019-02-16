@@ -6,13 +6,12 @@ Created 27/12/2018
 #include "PlayerController.hpp"
 #include "../Engine/Maths/Vector3f.hpp"
 #include "../Engine/Serialization.hpp"
-#include "../Engine/Collisions/CollisionManager.hpp"
 
 #include <iostream>
 
 using namespace Game;
-using namespace Engine;
-using namespace Engine::Maths;
+using namespace Core;
+using namespace Core::Maths;
 
 void PlayerController::update(float deltaTime)
 {
@@ -26,11 +25,11 @@ void PlayerController::update(float deltaTime)
     }
     movement *= step;
 
-    Collider moved {transform->position + movement, collider.radius};
-    if (CollisionManager::testCollisions(moved))
-    {
-        movement = Vector3f(0);
-    }
+//    Collider moved {transform->position + movement, collider.radius};
+//    if (CollisionManager::testCollisions(moved))
+//    {
+//        movement = Vector3f(0);
+//    }
     transform->position += movement;
 
     if (magnitude > 0) {
@@ -59,14 +58,14 @@ void PlayerController::start()
 //    CollisionManager::addCollider(&collider);
 }
 
-namespace Engine::Serialization
+namespace Core::Serialization
 {
     template<>
     PlayerController deserialize<PlayerController>(const Value &value)
     {
         PlayerController p = PlayerController();
         p.moveSpeed = value["move speed"].GetFloat();
-        p.collider = deserialize<Collider>(value["collider"]);
+//        p.collider = deserialize<Collider>(value["collider"]);
         return p;
     }
 }

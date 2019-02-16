@@ -11,8 +11,6 @@ Created 21/01/2019
 #include <iostream>
 
 #include "AssetLoader.hpp"
-#include "VectorsAndMatrices.hpp"
-#include "Collections/Array.hpp"
 #include "FileOperations.hpp"
 #include "Camera.hpp"
 
@@ -20,9 +18,9 @@ Created 21/01/2019
 #include "../Game/PlayerController.hpp"
 #include "Screen.hpp"
 
-using namespace Engine;
+using namespace Core;
 using namespace Game;
-using namespace Collections;
+
 using std::unordered_map;
 using std::string;
 using std::vector;
@@ -57,9 +55,9 @@ namespace
         string shaderName;
     };
 
-    Array<SerializableEntity> ParseJsonEntities(const Value &jsonEntities)
+    vector<SerializableEntity> ParseJsonEntities(const Value &jsonEntities)
     {
-        Array<SerializableEntity> entities(jsonEntities.Size());
+        vector<SerializableEntity> entities(jsonEntities.Size());
 
         for (int i = 0; i < jsonEntities.Size(); i++)
         {
@@ -91,29 +89,29 @@ namespace
     class SerializableScenery
     {
     public:
-//        Array<vec3> positions;
-        Array<Transform> transforms;
+//        vector<vec3> positions;
+        vector<Transform> transforms;
         string modelPath;
         string texturePath;
         string shaderName;
     };
 
-    Array<SerializableScenery> ParseJsonSceneries(const Value & jsonScenery)
+    vector<SerializableScenery> ParseJsonSceneries(const Value & jsonScenery)
     {
 
         int count = jsonScenery.Size();
-        Array<SerializableScenery> sceneries(count);
+        vector<SerializableScenery> sceneries(count);
 
         for (int i = 0; i < count; i++)
         {
             auto object = jsonScenery[i].GetObject();
 
-            Array<Transform> transforms;
+            vector<Transform> transforms;
 
             auto transformsArray = object["transforms"].GetArray();
             int transformCount = transformsArray.Size();
 
-            transforms = Array<Transform>(transformCount);
+            transforms = vector<Transform>(transformCount);
 
             for (int ii = 0; ii < transformCount; ii++)
             {
@@ -146,7 +144,7 @@ namespace
 
         auto animationsArray = animationObject["animations"].GetArray();
         int animationsCount = animationsArray.Size();
-        atlas.animations = Array<SerializableAnimation>(animationsCount);
+        atlas.animations = vector<SerializableAnimation>(animationsCount);
         for (int i = 0; i < animationsCount; i++)
         {
             auto animation = animationsArray[i].GetObject();
@@ -167,16 +165,16 @@ Scene SceneLoader::Load(const char * path)
 
     const Value& jsonEntities = document[keywords::entities];
     auto entities = ParseJsonEntities(jsonEntities);
-    int entityCount = entities.count();
+    int entityCount = entities.size();
 
     const Value & jsonScenery = document["Scenery"];
     auto sceneries = ParseJsonSceneries(jsonScenery);
-    int sceneryCount = sceneries.count();
+    int sceneryCount = sceneries.size();
 
     int sceneryRenderersCount = 0;
-    for (int i = 0; i <sceneries.count(); i++)
+    for (int i = 0; i <sceneries.size(); i++)
     {
-        sceneryRenderersCount += sceneries[i].transforms.count();
+        sceneryRenderersCount += sceneries[i].transforms.size();
     }
 
     Scene scene;
@@ -198,10 +196,10 @@ Scene SceneLoader::Load(const char * path)
         jsonLight["intensity"].GetFloat()
     );
 
-    scene.entities.DiscardAndResize(entityCount);
+    scene.entities.reserve(entityCount);
 
     int rendererCount = entityCount + sceneryRenderersCount;
-    scene.renderers.DiscardAndResize(rendererCount);
+    scene.renderers.reserve(rendererCount);
 
 
     // Build Entities
@@ -272,7 +270,7 @@ Scene SceneLoader::Load(const char * path)
         GLuint texture;
         AssetLoader::LoadTextureRGBA(sceneries[i].texturePath.c_str(), &texture);
 
-        for (int ii = 0; ii < sceneries[i].transforms.count(); ii++)
+        for (int ii = 0; ii < sceneries[i].transforms.size(); ii++)
         {
             scene.renderers[rendererIndex] = new Renderer(
                     sceneries[i].transforms[ii],
@@ -283,7 +281,6 @@ Scene SceneLoader::Load(const char * path)
             rendererIndex++;
         }
     }
-    scene.entities.TrimDownToSize(entityIndex);
     return scene;
 }
 

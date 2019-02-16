@@ -9,11 +9,11 @@ Created 28/01/2019
 #include <GL/glew.h>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
-#include "Collections/Array.hpp"
 #include "AssetLoader.hpp"
 
-namespace Engine
+namespace Core
 {
     struct SerializableAnimation
     {
@@ -28,7 +28,7 @@ namespace Engine
         int columns;
         float frameRate;
 
-        Collections::Array<SerializableAnimation> animations;
+        std::vector<SerializableAnimation> animations;
     };
 
 
@@ -41,7 +41,7 @@ namespace Engine
         GLint frameLocation;
         GLint animationIndexLocation;
 
-        Collections::Array<int> frameCounts;
+       std::vector<int> frameCounts;
 
         int currentAnimation;
         int currentFrame;
@@ -57,8 +57,8 @@ namespace Engine
             texture = -1;
             AssetLoader::LoadTextureRGBA(atlas.texturePath, &texture);
 
-            int animationCount = atlas.animations.count();
-            frameCounts = Collections::Array<int>(animationCount);
+            int animationCount = atlas.animations.size();
+            frameCounts = std::vector<int>(animationCount);
             for (int i = 0; i < animationCount; i++)
             {
                 frameCounts[i] = atlas.animations[i].frameCount;

@@ -13,12 +13,9 @@ Created 21/01/2019
 #include "Camera.hpp"
 #include "Light.hpp"
 
-#include "Collections/Array.hpp"
 
-namespace Engine
+namespace Core
 {
-    using namespace Collections;
-    using std::unordered_map;
     using std::string;
 
     class Scene
@@ -29,15 +26,11 @@ namespace Engine
         Camera camera;
         Light light;
 
-        Array<Entity *> entities;
-        Array<Renderer *> renderers;
-        unordered_map <string, ShaderProgram> shaders;
+        std::vector<Entity *> entities;
+        std::vector<Renderer *> renderers;
+        std::unordered_map <string, ShaderProgram> shaders;
 
-        ~Scene()
-        {
-            DeletePointersInArray(entities);
-//            DeletePointersInArray(renderers);
-        }
+        ~Scene() {}
 
         void LoadShaderIfNotLoader(string shaderName);
 

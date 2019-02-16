@@ -7,7 +7,7 @@ Created 26/12/2018
 
 #include <GLFW/glfw3.h>
 
-namespace Engine
+namespace Core
 {
     class Input
     {

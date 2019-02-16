@@ -8,7 +8,7 @@ Created 04/02/2019
 
 #include "Vector3f.hpp"
 
-namespace Engine::Maths
+namespace Core::Maths
 {
     struct Vector4f
     {

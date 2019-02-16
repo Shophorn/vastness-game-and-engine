@@ -6,7 +6,7 @@ Created 26/12/2018
 #include "Input.hpp"
 #include <GLFW/glfw3.h>
 
-using  namespace Engine;
+using  namespace Core;
 
 GLFWwindow * Input::_window = nullptr;
 

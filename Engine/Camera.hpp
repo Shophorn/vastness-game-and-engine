@@ -7,7 +7,7 @@ Created 27/12/2018
 
 #include "Transform.hpp"
 #include "Maths/Matrix4f.hpp"
-namespace Engine
+namespace Core
 {
     class Camera
     {

@@ -18,15 +18,12 @@ add_executable(
         Engine/AssetLoader.cpp Engine/AssetLoader.hpp
         Engine/Screen.hpp
         Engine/Transform.cpp Engine/Transform.hpp
-        Engine/VectorsAndMatrices.hpp Engine/VectorsAndMatrices.cpp
         Engine/Input.cpp Engine/Input.hpp
         Engine/Renderer.cpp Engine/Renderer.hpp
-        Engine/Collections/Array.hpp
         Engine/Camera.cpp Engine/Camera.hpp
         Engine/SceneLoader.hpp
         Engine/Entity.hpp
         Engine/Light.hpp
-        Engine/Collections/Dictionary.hpp
         Engine/StringOperations.cpp Engine/StringOperations.hpp
         Engine/Scene.cpp Engine/Scene.hpp
         Engine/SceneLoader.cpp
@@ -42,5 +39,8 @@ add_executable(
 
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/EntityTypes.hpp
-        Engine/Collisions/Collider.cpp Engine/Collisions/Collider.hpp Engine/Maths/Basic.hpp Engine/Collisions/CollisionManager.cpp Engine/Collisions/CollisionManager.hpp)
+        Engine/Maths/Basic.hpp
+        Engine/Engine.cpp Engine/Engine.hpp
+        Engine/Core.hpp Engine/Core.cpp
+)
 

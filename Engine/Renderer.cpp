@@ -7,7 +7,7 @@ Created 26/12/2018
 #include "Renderer.hpp"
 #include <iostream>
 
-using namespace Engine;
+using namespace Core;
 
 void Renderer::Draw()
 {

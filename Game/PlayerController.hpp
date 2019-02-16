@@ -12,9 +12,8 @@ Created 27/12/2018
 #include "../Engine/Transform.hpp"
 #include "../Engine/SpriteAnimator.hpp"
 #include "../Engine/Camera.hpp"
-#include "../Engine/Collisions/Collider.hpp"
 
-using namespace Engine;
+using namespace Core;
 
 namespace Game
 {
@@ -25,8 +24,6 @@ namespace Game
         Transform *transform = nullptr;
         SpriteAnimator *animator = nullptr;
         Renderer *renderer = nullptr;
-
-        Collider collider;
 
         float moveSpeed = 0;
         Vector3f cameraOffset;

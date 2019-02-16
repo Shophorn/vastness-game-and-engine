@@ -8,7 +8,7 @@ Created 31/01/2019
 
 #include <iostream>
 
-using namespace Engine::Maths;
+using namespace Core::Maths;
 
 
 Matrix4f Matrix4f::scale(Vector3f scale)

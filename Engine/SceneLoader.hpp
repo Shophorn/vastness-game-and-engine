@@ -9,7 +9,9 @@ Created 27/12/2018
 #include "Scene.hpp"
 #include "Screen.hpp"
 
-namespace Engine::SceneLoader
+#include <vector>
+
+namespace Core::SceneLoader
 {
     Screen LoadContext(const char * path);
     Scene Load(const char * path);

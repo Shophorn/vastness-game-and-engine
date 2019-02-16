@@ -6,7 +6,6 @@ Leo Tamminen
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include "Engine/Collections/Array.hpp"
 #include "Engine/Entity.hpp"
 #include "Engine/Input.hpp"
 #include "Engine/Renderer.hpp"
@@ -20,13 +19,31 @@ Leo Tamminen
 
 
 #include "Engine/Maths/Maths.hpp"
-#include "Engine/Collisions/CollisionManager.hpp"
+#include "Engine/Engine.hpp"
+
 
 int main()
 {
-    using namespace Engine;
-    using namespace Engine::Collections;
-    using namespace Engine::Maths;
+#define ENGINE_NEW
+#ifdef ENGINE_NEW
+    Engine engine;
+    engine.initialize("Vastness", 1920, 1080);
+
+    while(engine.isRunning())
+    {
+        engine.handleEvents();
+        engine.update();
+        engine.render();
+    }
+
+    engine.clean();
+#else
+    using namespace Core;
+    using namespace Core::Collections;
+    using namespace Core::Maths;
+
+    // TO engine ----
+
 
     const char * gamePath = "Game/game.json";
 
@@ -51,6 +68,8 @@ int main()
     }
 
     glEnable(GL_DEPTH_TEST);
+
+    // TO engine ----
 
     // Remember to use glFinish()
     double lastTime = 0.0;
@@ -103,5 +122,6 @@ int main()
 
         glfwSwapBuffers(screen.window());
     }
+#endif
 
 }

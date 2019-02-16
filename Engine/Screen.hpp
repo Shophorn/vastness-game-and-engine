@@ -6,7 +6,7 @@ Created 22/11/2018
 #pragma once
 #include <GLFW/glfw3.h>
 
-namespace  Engine
+namespace  Core
 {
     class Screen
     {

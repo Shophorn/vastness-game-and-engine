@@ -7,7 +7,7 @@ Created 27/12/2018
 #include <GL/glew.h>
 #include "Camera.hpp"
 
-using namespace Engine;
+using namespace Core;
 
 Camera::Camera(
         Vector3f _position,

@@ -12,7 +12,7 @@ Created 26/12/2018
 #include "Shader.hpp"
 #include "SpriteAnimator.hpp"
 
-namespace Engine
+namespace Core
 {
     class Renderer
     {

@@ -8,7 +8,7 @@ Created 31/01/2019
 #include "OStreamOperators.hpp"
 #include "Basic.hpp"
 
-using namespace Engine::Maths;
+using namespace Core::Maths;
 
 const Vector3f Vector3f::down = Vector3f(0.0f, 0.0f, -1.0f);
 const Vector3f Vector3f::up = Vector3f(0.0f, 0.0f, 1.0f);
@@ -83,12 +83,12 @@ Vector3f Vector3f::operator-() const
     return *this * -1;
 }
 
-float Engine::Maths::magnitude(const Vector3f &v)
+float Core::Maths::magnitude(const Vector3f &v)
 {
     return sqrt(v.x * v.x + v.y * v.y + v.z + v.z);
 }
 
-Vector3f Engine::Maths::cross(const Vector3f &lhs, const Vector3f &rhs)
+Vector3f Core::Maths::cross(const Vector3f &lhs, const Vector3f &rhs)
 {
     return Vector3f(
         lhs.y * rhs.z - lhs.z * rhs.y,
@@ -97,18 +97,18 @@ Vector3f Engine::Maths::cross(const Vector3f &lhs, const Vector3f &rhs)
     );
 }
 
-Vector3f Engine::Maths::normalize(const Vector3f & v)
+Vector3f Core::Maths::normalize(const Vector3f & v)
 {
     float length = magnitude(v);
     return v / length;
 }
 
-float Engine::Maths::dot(const Vector3f &lhs, const Vector3f &rhs)
+float Core::Maths::dot(const Vector3f &lhs, const Vector3f &rhs)
 {
     return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 }
 
-float Engine::Maths::sqrDistance(const Vector3f & lhs, const Vector3f & rhs)
+float Core::Maths::sqrDistance(const Vector3f & lhs, const Vector3f & rhs)
 {
     Vector3f vec = lhs - rhs;
     return vec.x * vec.x + vec.y * vec.y + vec.z + vec.z;

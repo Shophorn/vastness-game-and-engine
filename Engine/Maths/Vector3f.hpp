@@ -6,7 +6,7 @@ Created 31/01/2019
 
 #pragma once
 
-namespace Engine::Maths
+namespace Core::Maths
 {
     struct Vector3f
     {

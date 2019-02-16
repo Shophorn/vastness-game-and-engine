@@ -7,7 +7,7 @@ Created 27/12/2018
 
 #include "Maths/Vector3f.hpp"
 
-namespace Engine
+namespace Core
 {
     struct Light
     {

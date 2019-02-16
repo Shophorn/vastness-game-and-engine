@@ -12,7 +12,7 @@ Created 05/02/2019
 #include "Vector4f.hpp"
 #include "Matrix4f.hpp"
 
-std::ostream & operator << (std::ostream & os, const Engine::Maths::Vector3f & v);
-std::ostream & operator << (std::ostream & os, const Engine::Maths::Vector4f & v);
-std::ostream & operator << (std::ostream & os, const Engine::Maths::Matrix4f & v);
+std::ostream & operator << (std::ostream & os, const Core::Maths::Vector3f & v);
+std::ostream & operator << (std::ostream & os, const Core::Maths::Vector4f & v);
+std::ostream & operator << (std::ostream & os, const Core::Maths::Matrix4f & v);
 

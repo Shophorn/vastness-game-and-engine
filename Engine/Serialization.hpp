@@ -6,7 +6,7 @@ Created 07/02/2019
 #include <rapidjson/document.h>
 #include "StringOperations.hpp"
 
-namespace Engine
+namespace Core
 {
     namespace Serialization
     {

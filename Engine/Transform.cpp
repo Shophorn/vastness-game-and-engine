@@ -7,8 +7,8 @@ Created 16/12/2018
 
 #include <iostream>
 
-using namespace Engine;
-using namespace Engine::Maths;
+using namespace Core;
+using namespace Core::Maths;
 
 Matrix4f Transform::modelMatrixNew () const
 {

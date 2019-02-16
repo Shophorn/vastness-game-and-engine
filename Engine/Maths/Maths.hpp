@@ -10,7 +10,7 @@ Created 05/02/2019
 
 #include "OStreamOperators.hpp"
 
-namespace Engine
+namespace Core
 {
     using Maths::Vector3f;
     using Maths::Vector4f;

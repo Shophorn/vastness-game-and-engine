@@ -6,7 +6,7 @@ Leo Tamminen
 
 #include <cmath>
 
-namespace Engine
+namespace Core
 {
     using std::abs;
     using std::sqrt;

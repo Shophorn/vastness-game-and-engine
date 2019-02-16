@@ -5,10 +5,9 @@ Created 16/12/2018
 
 #pragma once
 
-#include "VectorsAndMatrices.hpp"
 #include "Maths/Maths.hpp"
 
-namespace Engine
+namespace Core
 {
     class Transform
     {

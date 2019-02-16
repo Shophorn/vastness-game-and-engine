@@ -9,7 +9,7 @@ Created 31/01/2019
 #include "Vector3f.hpp"
 #include "Vector4f.hpp"
 
-namespace Engine::Maths
+namespace Core::Maths
 {
     struct Matrix4f
     {
