@@ -4,18 +4,18 @@ Created 13/02/2019
 */
 
 #include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
+#include "DEBUG.hpp"
 #include "Engine.hpp"
-#include "Screen.hpp"
-#include "Maths/Maths.hpp"
-
-#include "Entity.hpp"
+#include "Rendering/RenderManager.hpp"
+#include "ECS/ECS.hpp"
+#include "ECS/List.hpp"
 #include "Input.hpp"
-#include "Renderer.hpp"
-#include "Screen.hpp"
-#include "SceneLoader.hpp"
-#include "Scene.hpp"
-#include "SpriteAnimator.hpp"
+#include <cmath>
+
+ecs core::ecs;
+Input core::input;
 
 void Engine::handleEvents()
 {
@@ -23,17 +23,63 @@ void Engine::handleEvents()
     _isRunning = !glfwWindowShouldClose(_window);
 }
 
-void Engine::update() {}
+void Engine::update()
+{
+    float deltaTime = 1.0f;
+    core::ecs.update(deltaTime);
+}
+
 void Engine::render()
 {
-//    core::renderManager.render();
+    core::renderManager.render();
     glfwSwapBuffers(_window);
 }
 
-void Engine::clean()
+void Engine::terminate()
 {
     glfwTerminate();
 }
+
+
+struct position
+{
+    float x, y, z;
+};
+
+struct scale
+{
+    float x, y, z;
+};
+
+struct move
+{
+    float speed;
+};
+
+
+struct movementSystem
+{
+    using components = mtl::List<position, move>;
+
+    void update(position& pos, move& mv, float deltaTime)
+    {
+        pos.x += mv.speed;
+        cout << pos.x << "\n";
+    }
+};
+
+struct playerControlTag{};
+
+struct playerControlSystem
+{
+    using components = mtl::List<move, playerControlTag>;
+
+    void update(move& mv, playerControlTag & tag, float deltaTime)
+    {
+        mv.speed = core::input.horizontal();
+    }
+};
+
 
 void Engine::initialize(const char *title, int width, int height)
 {
@@ -48,12 +94,29 @@ void Engine::initialize(const char *title, int width, int height)
     _window = glfwCreateWindow(width, height, title, nullptr, nullptr);
     glfwMakeContextCurrent(_window);
 
-
     glewExperimental = GL_TRUE;
     glewInit();
-    using namespace Core;
-    const char * gamePath = "Game/game.json";
 
+    core::renderManager.initialize();
+
+    core::input.initialize(_window);
+
+    using core::ecs;
+
+    // move component registering to system registering, maybe
+    ecs.registerComponent<position>();
+    ecs.registerComponent<scale>();
+    ecs.registerComponent<move>();
+    ecs.registerComponent<playerControlTag>();
+
+    ecs.registerSystem<movementSystem>();
+    ecs.registerSystem<playerControlSystem>();
+
+    Handle player = ecs.createEntity();
+    ecs.addComponent<move>(player);
+    ecs.addComponent<position>(player);
+    ecs.addComponent<playerControlTag>(player);
 
     _isRunning = true;
 }
+

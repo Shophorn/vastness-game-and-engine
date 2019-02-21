@@ -22,7 +22,6 @@ add_executable(
         Engine/Renderer.cpp Engine/Renderer.hpp
         Engine/Camera.cpp Engine/Camera.hpp
         Engine/SceneLoader.hpp
-        Engine/Entity.hpp
         Engine/Light.hpp
         Engine/StringOperations.cpp Engine/StringOperations.hpp
         Engine/Scene.cpp Engine/Scene.hpp
@@ -41,6 +40,5 @@ add_executable(
         Game/EntityTypes.hpp
         Engine/Maths/Basic.hpp
         Engine/Engine.cpp Engine/Engine.hpp
-        Engine/Core.hpp Engine/Core.cpp
-)
+        Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp Engine/ECS/ECS.hpp Engine/ECS/Handle.hpp Engine/ECS/Component.hpp Engine/DEBUG.hpp Engine/ECS/HandleManager.hpp Engine/ECS/OstreamOperators.hpp Engine/ECS/List.hpp)
 

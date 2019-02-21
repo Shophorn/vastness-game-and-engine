@@ -15,9 +15,10 @@ using namespace Core::Maths;
 
 void PlayerController::update(float deltaTime)
 {
+    /*
     float step = deltaTime * moveSpeed;
 
-    Vector3f movement (Input::horizontal(), Input::vertical(), 0);
+    Vector3f movement (Input::shorizontal(), Input::svertical(), 0);
     float magnitude = Maths::magnitude(movement);
     if (magnitude > 1.0f)
     {
@@ -48,7 +49,7 @@ void PlayerController::update(float deltaTime)
 
     camera->position = transform->position + cameraOffset;
     camera->target = transform->position;
-
+    */
 
 
 }

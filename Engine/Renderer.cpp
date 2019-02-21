@@ -14,7 +14,6 @@ void Renderer::Draw()
     auto model = transform.modelMatrixNew();
     auto modelIT = transform.inverseModelMatrix();
     modelIT.transpose();
-//    auto modelIT = glm::transpose(glm::inverse(transform.modelMatrix()));
 
     shader->Use();
 

@@ -3,24 +3,7 @@ Leo Tamminen
 21/11/2018
 */
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
-#include "Engine/Entity.hpp"
-#include "Engine/Input.hpp"
-#include "Engine/Renderer.hpp"
-#include "Engine/Screen.hpp"
-#include "Engine/SceneLoader.hpp"
-#include "Engine/SpriteAnimator.hpp"
-
-//#include <stdio.h>
-#include <iostream>
-#include <string>
-
-
-#include "Engine/Maths/Maths.hpp"
 #include "Engine/Engine.hpp"
-
 
 int main()
 {
@@ -36,7 +19,7 @@ int main()
         engine.render();
     }
 
-    engine.clean();
+    engine.terminate();
 #else
     using namespace Core;
     using namespace Core::Collections;

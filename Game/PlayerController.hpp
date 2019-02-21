@@ -6,7 +6,6 @@ Created 27/12/2018
 
 #pragma once
 
-#include "../Engine/Entity.hpp"
 #include "../Engine/Renderer.hpp"
 #include "../Engine/Input.hpp"
 #include "../Engine/Transform.hpp"
@@ -17,7 +16,7 @@ using namespace Core;
 
 namespace Game
 {
-    class PlayerController : public Entity
+    class PlayerController// : public Entity
     {
     public:
         Camera *camera = nullptr;

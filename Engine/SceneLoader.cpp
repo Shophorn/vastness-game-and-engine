@@ -196,66 +196,66 @@ Scene SceneLoader::Load(const char * path)
         jsonLight["intensity"].GetFloat()
     );
 
-    scene.entities.reserve(entityCount);
+//    scene.entities.reserve(entityCount);
 
     int rendererCount = entityCount + sceneryRenderersCount;
     scene.renderers.reserve(rendererCount);
 
 
-    // Build Entities
-    int entityIndex = 0;
-    for (int i = 0; i < entityCount; i++)
-    {
-        string shaderName = entities[i].shaderName;
-        scene.LoadShaderIfNotLoader(shaderName);
-
-        Mesh * mesh = new Mesh;
-        AssetLoader::LoadOBJ(entities[i].modelPath.c_str(), mesh);
-        mesh->LoadToGL(scene.shaders[shaderName].id);
-
-        GLuint texture;
-        AssetLoader::LoadTextureRGBA(entities[i].texturePath.c_str(), &texture);
-
-        scene.renderers[i] = new Renderer(
-            entities[i].transform,
-            texture,
-            mesh,
-            &scene.shaders[shaderName]
-        );
-
-
-        // TODO: Move these to game section
-        switch (entities[i].type)
-        {
-            case EntityType::PLAYER:
-            {
-                using namespace Serialization;
-                PlayerController * player = new PlayerController(deserialize<PlayerController>(jsonEntities[i]));
-
-                // stupid simple hackery, bad bad
-                player->transform = &scene.renderers[i]->transform;
-                player->camera = &scene.camera;
-                player->cameraOffset = scene.camera.position;
-
-                auto animationObject = document["Sprites"].GetArray()[0].GetObject();
-
-                SpriteAnimator *animator = new SpriteAnimator(
-                    scene.shaders[shaderName].id,
-                    ParseJsonAnimation(animationObject)
-                );
-
-                player->renderer = scene.renderers[i];
-
-                scene.renderers[i]->animator = animator;
-                player->animator = animator;
-                scene.entities[entityIndex] = player;
-
-                entityIndex++;
-            }
-            break;
-        }
-
-    }
+//    // Build Entities
+//    int entityIndex = 0;
+//    for (int i = 0; i < entityCount; i++)
+//    {
+//        string shaderName = entities[i].shaderName;
+//        scene.LoadShaderIfNotLoader(shaderName);
+//
+//        Mesh * mesh = new Mesh;
+//        AssetLoader::LoadOBJ(entities[i].modelPath.c_str(), mesh);
+//        mesh->LoadToGL(scene.shaders[shaderName].id);
+//
+//        GLuint texture;
+//        AssetLoader::LoadTextureRGBA(entities[i].texturePath.c_str(), &texture);
+//
+//        scene.renderers[i] = new Renderer(
+//            entities[i].transform,
+//            texture,
+//            mesh,
+//            &scene.shaders[shaderName]
+//        );
+//
+//
+//        // TODO: Move these to game section
+//        switch (entities[i].type)
+//        {
+//            case EntityType::PLAYER:
+//            {
+//                using namespace Serialization;
+//                PlayerController * player = new PlayerController(deserialize<PlayerController>(jsonEntities[i]));
+//
+//                // stupid simple hackery, bad bad
+//                player->transform = &scene.renderers[i]->transform;
+//                player->camera = &scene.camera;
+//                player->cameraOffset = scene.camera.position;
+//
+//                auto animationObject = document["Sprites"].GetArray()[0].GetObject();
+//
+//                SpriteAnimator *animator = new SpriteAnimator(
+//                    scene.shaders[shaderName].id,
+//                    ParseJsonAnimation(animationObject)
+//                );
+//
+//                player->renderer = scene.renderers[i];
+//
+//                scene.renderers[i]->animator = animator;
+//                player->animator = animator;
+//                scene.entities[entityIndex] = player;
+//
+//                entityIndex++;
+//            }
+//            break;
+//        }
+//
+//    }
 
     int rendererIndex = entityCount;
     for (int i = 0; i < sceneryCount; i++)

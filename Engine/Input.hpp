@@ -5,21 +5,21 @@ Created 26/12/2018
 
 #pragma once
 
-#include <GLFW/glfw3.h>
+class GLFWwindow;
 
-namespace Core
+class Input
 {
-    class Input
-    {
-    private:
-        static GLFWwindow *_window;
+private:
+    GLFWwindow *_window = nullptr;
 
-    public:
-        static void Initialize(GLFWwindow * window) { _window = window; }
+public:
+    void initialize(GLFWwindow *window){ _window = window; }
 
-        static float horizontal();
+    float horizontal();
+    float vertical();
+};
 
-        static float vertical();
-    };
+namespace core
+{
+    extern Input input;
 }
-

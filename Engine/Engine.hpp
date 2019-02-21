@@ -9,12 +9,7 @@ Created 13/02/2019
 #include <unordered_map>
 #include <string>
 
-//#include "GLFW/glfw3.h"
 class GLFWwindow;
-
-#include "Core.hpp"
-
-
 
 class Engine
 {
@@ -32,7 +27,7 @@ public:
     void handleEvents();
     void update();
     void render();
-    void clean();
+    void terminate();
 
     bool isRunning() { return _isRunning; }
 };
