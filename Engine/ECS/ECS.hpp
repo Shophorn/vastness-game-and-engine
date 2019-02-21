@@ -42,14 +42,22 @@ namespace detail
 
 
     template <typename S, typename T, typename Cs>
-    struct hasComponentUpdateHelper;
+    struct hasComponentTimeUpdateHelper;
 
     template <typename S, typename T, typename ... Cs>
-    struct hasComponentUpdateHelper<S, T, mtl::List<Cs...>>
+    struct hasComponentTimeUpdateHelper<S, T, mtl::List<Cs...>>
     {
         static constexpr bool value = detail::hasUpdate<S, Cs&..., T>(0);
     };
 
+    template <typename S, typename Cs>
+    struct hasComponentUpdateHelper;
+
+    template <typename S, typename ... Cs>
+    struct hasComponentUpdateHelper<S, mtl::List<Cs...>>
+    {
+        static constexpr bool value = detail::hasUpdate<S, Cs&...>(0);
+    };
 
 }
 template <typename System, typename T>
@@ -58,8 +66,12 @@ constexpr bool hasEcsUpdate = detail::hasUpdate<System, T>(0);
 template <typename System>
 constexpr bool hasComponents = detail::hasComponents<System>(0);
 
+
 template <typename System, typename Components, typename T>
-constexpr bool hasComponentUpdate = detail::hasComponentUpdateHelper<System, T, Components>::value;
+constexpr bool hasComponentTimeUpdate = detail::hasComponentTimeUpdateHelper<System, T, Components>::value;
+
+template <typename System, typename Components>
+constexpr bool hasComponentUpdate = detail::hasComponentUpdateHelper<System, Components>::value;
 ///-------------------------------------------------------
 
 class ecs
@@ -91,7 +103,11 @@ public:
         if constexpr (hasComponents<System>)
         {
             using componentList = typename System::components;
-            if (hasComponentUpdate<System, componentList, float>)
+
+            if constexpr (hasComponentTimeUpdate<System, componentList, float>)
+                registerComponentTimeUpdate(system, componentList());
+
+            if constexpr (hasComponentUpdate<System, componentList>)
                 registerComponentUpdate(system, componentList());
         }
 
@@ -145,13 +161,27 @@ public:
     }
 
     template <typename System, typename ... Components>
-    void registerComponentUpdate(System * system, mtl::List <Components...>&&)
+    void registerComponentTimeUpdate(System *system, mtl::List<Components...> &&)
     {
+        cout << "register update with time\n";
+
         registerUpdate([=](float dt)
         {
             auto handles = getHandles<Components...>();
             for (auto h : handles)
                 system->update(getStuff<Components>(h)..., dt);
+        });
+    }
+
+    template <typename System, typename ... Components>
+    void registerComponentUpdate(System * system, mtl::List<Components...>&&)
+    {
+        cout << "register update with no time\n";
+
+        registerUpdate([=](float dt)
+        {
+           for (auto h : getHandles<Components...>())
+               system->update(getStuff<Components>(h)...);
         });
     }
 
@@ -200,8 +230,3 @@ public:
             update(deltaTime);
     }
 };
-
-namespace core
-{
-    extern ecs ecs;
-}

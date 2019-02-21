@@ -9,10 +9,10 @@ Created 13/02/2019
 #include "DEBUG.hpp"
 #include "Engine.hpp"
 #include "Rendering/RenderManager.hpp"
-#include "ECS/ECS.hpp"
-#include "ECS/List.hpp"
+#include "ECS.hpp"
 #include "Input.hpp"
 #include <cmath>
+#include "Rendering/RenderSystem.hpp"
 
 ecs core::ecs;
 Input core::input;
@@ -64,7 +64,7 @@ struct movementSystem
     void update(position& pos, move& mv, float deltaTime)
     {
         pos.x += mv.speed;
-        cout << pos.x << "\n";
+//        cout << pos.x << "\n";
     }
 };
 
@@ -108,14 +108,20 @@ void Engine::initialize(const char *title, int width, int height)
     ecs.registerComponent<scale>();
     ecs.registerComponent<move>();
     ecs.registerComponent<playerControlTag>();
+    ecs.registerComponent<renderer>();
+    ecs.registerComponent<transform>();
 
     ecs.registerSystem<movementSystem>();
     ecs.registerSystem<playerControlSystem>();
+    ecs.registerSystem<renderingSystem>();
 
     Handle player = ecs.createEntity();
     ecs.addComponent<move>(player);
     ecs.addComponent<position>(player);
     ecs.addComponent<playerControlTag>(player);
+    ecs.addComponent<renderer>(player);
+    ecs.addComponent<transform>(player);
+    ecs.addComponent<renderer>(player);
 
     _isRunning = true;
 }
