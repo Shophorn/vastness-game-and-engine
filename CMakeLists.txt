@@ -40,5 +40,5 @@ add_executable(
         Game/EntityTypes.hpp
         Engine/Maths/Basic.hpp
         Engine/Engine.cpp Engine/Engine.hpp
-        Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp Engine/ECS/ECS.hpp Engine/ECS/Handle.hpp Engine/ECS/Component.hpp Engine/DEBUG.hpp Engine/ECS/HandleManager.hpp Engine/ECS/OstreamOperators.hpp Engine/ECS/List.hpp Engine/Rendering/RenderSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp)
+        Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp Engine/ECS/ECS.hpp Engine/ECS/Handle.hpp Engine/ECS/Component.hpp Engine/DEBUG.hpp Engine/ECS/HandleManager.hpp Engine/ECS/OstreamOperators.hpp Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp)
 

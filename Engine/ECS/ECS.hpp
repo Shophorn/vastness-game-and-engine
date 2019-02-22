@@ -216,14 +216,14 @@ public:
     template <typename Component>
     ComponentInterface * getInterface()
     {
-        assert(componentMap.find(&typeid(Component)) != componentMap.end() && "Bad Component type");
+        assert(componentMap.find(&typeid(Component)) != componentMap.end() && "Unregistered Component type");
         return componentMap[&typeid(Component)];
     }
 
     template <typename Component>
     Component & getComponent(Handle entity)
     {
-        assert(componentMap.find(&typeid(Component)) != componentMap.end() && "Bad Component type");
+        assert(componentMap.find(&typeid(Component)) != componentMap.end() && "Unregistered Component type");
         return componentMap[&typeid(Component)]->get<Component>(entity);
     }
 
@@ -231,6 +231,8 @@ public:
     {
         return handleManager.create();
     }
+
+    void initialize() {}
 
     void update(float deltaTime)
     {

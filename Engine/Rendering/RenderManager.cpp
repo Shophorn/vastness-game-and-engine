@@ -17,7 +17,6 @@ Created 16/02/2019
 #include "../AssetLoader.hpp"
 #include "../Camera.hpp"
 
-RenderManager core::renderManager;
 
 struct renderData
 {
