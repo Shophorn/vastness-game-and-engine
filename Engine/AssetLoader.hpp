@@ -7,9 +7,9 @@ Leo Tamminen
 
 #include "Mesh.hpp"
 
-namespace AssetLoader
+namespace loader
 {
-    bool LoadOBJ(const char * path, Mesh * target);
+    bool LoadMeshAsset(const char *path, Mesh *target);
     Mesh * LoadOBJ(const char *path);
 
     bool LoadTextureRGB(const char *path, GLuint *target);

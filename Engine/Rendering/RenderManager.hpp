@@ -15,11 +15,14 @@ Created 16/02/2019
 struct transform;
 struct renderer;
 
+
 struct renderData
 {
     matrix4f model{};
     matrix4f inverse{};
-    unsigned shader{};
+    GLuint vao{};
+    int elementCount{};
+    int shaderHandle{};
 };
 
 class RenderManager
@@ -27,6 +30,8 @@ class RenderManager
 private:
     std::vector<renderData> _toRender{};
     std::vector<shader> _shaders{};
+    std::unordered_map<std::string, signed> _shaderMap {};
+
 public:
     RenderManager() = default;
     ~RenderManager() = default;
@@ -35,7 +40,11 @@ public:
     void terminate();
     void render();
 
-    void addRenderer(const transform &, const renderer &);
+    void addRenderer(const transform &, const renderer & r);
+
+    int getShaderHandle(const std::string & name);
+    const shader & getShader(int handle) { return _shaders[handle]; }
+
 };
 
 namespace core

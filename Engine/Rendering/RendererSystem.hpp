@@ -14,16 +14,15 @@ struct transform;
 struct renderer
 {
     GLuint vao;
-    GLuint texture;
-    GLuint shaderId;
-    GLuint shaderValueBuffer;
+    int elementCount;
+    int shaderHandle;
 };
 
 struct rendererSystem
 {
     using components = mtl::List<transform, renderer>;
 
-    void update(transform & tr, renderer & r)
+    void update(const transform & tr, const renderer & r)
     {
         core::renderManager.addRenderer(tr, r);
     }

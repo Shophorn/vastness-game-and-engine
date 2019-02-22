@@ -14,7 +14,7 @@ Leo Tamminen
 #include <cmath>
 #include <algorithm>
 
-bool AssetLoader::LoadOBJ(const char * path, Mesh * target)
+bool loader::LoadMeshAsset(const char *path, Mesh *target)
 {
     Mesh * mesh = LoadOBJ(path);
 
@@ -23,7 +23,7 @@ bool AssetLoader::LoadOBJ(const char * path, Mesh * target)
     return target != nullptr;
 }
 
-Mesh * AssetLoader::LoadOBJ(const char * path)
+Mesh * loader::LoadOBJ(const char * path)
 {
     // v's to the list
     // vt's to the list
@@ -368,7 +368,7 @@ Mesh * AssetLoader::LoadOBJ(const char * path)
     return mesh;
 }
 
-bool AssetLoader::LoadTextureRGB(const char *path, GLuint *target)
+bool loader::LoadTextureRGB(const char *path, GLuint *target)
 {
     GLuint texture;
     glGenTextures (1, &texture);
@@ -419,7 +419,7 @@ bool AssetLoader::LoadTextureRGB(const char *path, GLuint *target)
 
 }
 
-bool AssetLoader::LoadTextureRGBA(const char *path, GLuint *target)
+bool loader::LoadTextureRGBA(const char *path, GLuint *target)
 {
     GLuint texture;
     glGenTextures (1, &texture);

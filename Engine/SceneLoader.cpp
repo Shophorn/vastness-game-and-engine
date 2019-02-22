@@ -264,11 +264,11 @@ Scene SceneLoader::Load(const char * path)
         scene.LoadShaderIfNotLoader(shaderName);
 
         Mesh * mesh = new Mesh;
-        AssetLoader::LoadOBJ(sceneries[i].modelPath.c_str(), mesh);
+        loader::LoadMeshAsset(sceneries[i].modelPath.c_str(), mesh);
         mesh->LoadToGL(scene.shaders[shaderName].id);
 
         GLuint texture;
-        AssetLoader::LoadTextureRGBA(sceneries[i].texturePath.c_str(), &texture);
+        loader::LoadTextureRGBA(sceneries[i].texturePath.c_str(), &texture);
 
         for (int ii = 0; ii < sceneries[i].transforms.size(); ii++)
         {

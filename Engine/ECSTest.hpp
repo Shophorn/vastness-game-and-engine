@@ -9,6 +9,9 @@ Created 22/02/2019
 #include "TransformComponent.hpp"
 #include "Input.hpp"
 #include "Rendering/RendererSystem.hpp"
+#include "Shader.hpp"
+#include "Mesh.hpp"
+#include "AssetLoader.hpp"
 
 namespace test
 {
@@ -48,8 +51,10 @@ namespace test
             tr.position += fe.speed * dt * movement;
         }
     };
-    
-    
+
+    Mesh mesh;
+    Mesh mesh2;
+
     inline void testECS()
     {
         using core::ecs;
@@ -64,33 +69,29 @@ namespace test
         ecs.registerSystem<rendererSystem>();
         ecs.registerSystem<followEntitySystem>();
 
-//#define TEST
-#if defined TEST
-        int testCount = 1000;
+        loader::LoadMeshAsset("Assets/Cube.obj", &mesh);
+        int shaderHandle = core::renderManager.getShaderHandle("default");
+        mesh.LoadToGL(core::renderManager.getShader(shaderHandle).id);
 
-    std::vector<Handle> handles;
-    handles.reserve(testCount);
-
-    for (int i = 0; i < testCount; i++)
-    {
-        handles[i] = ecs.createEntity();
-        ecs.addComponent<transform>(handles[i]);
-        ecs.addComponent<renderer>(handles[i]);
-    }
-#endif
         Handle player = ecs.createEntity();
         ecs.addComponent<playerControl>(player);
         ecs.addComponent<transform>(player);
-        ecs.addComponent<renderer>(player);
+
+        renderer r {mesh.vao(), mesh.elementCount(), shaderHandle};
+        ecs.addComponent<renderer>(player, r);
+
+        loader::LoadMeshAsset("Assets/fish_a.obj", &mesh2);
+        shaderHandle = core::renderManager.getShaderHandle("default");
+        mesh2.LoadToGL(core::renderManager.getShader(shaderHandle).id);
 
         Handle e1 = ecs.createEntity();
-        ecs.addComponent<transform>(e1, vector3f(0), vector3f(1), vector3f(0.5));
-        ecs.addComponent<renderer>(e1);
+        ecs.addComponent<transform>(e1, vector3f(0), vector3f(1), vector3f(1));
+        ecs.addComponent<renderer>(e1, mesh2.vao(), mesh2.elementCount(), shaderHandle);
         ecs.addComponent<followEntity>(e1, player, 0.1f);
 
         Handle e2 = ecs.createEntity();
-        ecs.addComponent<transform>(e2, vector3f(2, 0 ,0), vector3f(1), vector3f(0.5));
-        ecs.addComponent<renderer>(e2);
+        ecs.addComponent<transform>(e2, vector3f(2, 0 ,0), vector3f(1), vector3f(1));
+        ecs.addComponent<renderer>(e2, mesh2.vao(), mesh2.elementCount(), shaderHandle);
         ecs.addComponent<followEntity>(e2, e1, 0.1f);
     }
 }

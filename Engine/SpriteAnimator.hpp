@@ -55,7 +55,7 @@ namespace Core
             this->shaderId = shaderId;
 
             texture = -1;
-            AssetLoader::LoadTextureRGBA(atlas.texturePath, &texture);
+            loader::LoadTextureRGBA(atlas.texturePath, &texture);
 
             int animationCount = atlas.animations.size();
             frameCounts = std::vector<int>(animationCount);
