@@ -4,7 +4,7 @@ Created 27/12/2018
 */
 
 #include "PlayerController.hpp"
-#include "../Engine/Maths/Vector3f.hpp"
+#include "../Engine/Maths/vector3f.hpp"
 #include "../Engine/Serialization.hpp"
 
 #include <iostream>

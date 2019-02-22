@@ -6,47 +6,47 @@ Created 27/12/2018
 #pragma once
 
 #include "Transform.hpp"
-#include "Maths/Matrix4f.hpp"
+#include "Maths/matrix4f.hpp"
 namespace Core
 {
     class Camera
     {
     private:
-        Vector3f _clearColor;
+        vector3f _clearColor;
 
     public:
-        Vector3f position;
-        Vector3f target;
+        vector3f position;
+        vector3f target;
         float fieldOfView;
         float nearClippingPlane;
         float farClippingPlane;
         float aspectRatio;
 
-        void SetClearColor(Vector3f color);
+        void SetClearColor(vector3f color);
 
         Camera () = default;
 
         Camera(
-                Vector3f _position,
-                Vector3f _target,
+                vector3f _position,
+                vector3f _target,
                 float _fieldOfView,
                 float _nearClippingPlane,
                 float _farClippingPlane,
-                Vector3f _clearColor
+                vector3f _clearColor
         );
 
 
-        Maths::Matrix4f viewMatrix()
+        Maths::matrix4f viewMatrix()
         {
             // Look here
             // https://stackoverflow.com/questions/21830340/understanding-glmlookat
-            Vector3f forward = normalize(position - target);
-            Vector3f right = cross(Vector3f::up, forward);
-            Vector3f up = cross(forward, right);
+            vector3f forward = normalize(position - target);
+            vector3f right = cross(vector3f::up, forward);
+            vector3f up = cross(forward, right);
 
-            Vector3f nPosition = -position;
+            vector3f nPosition = -position;
 
-            Maths::Matrix4f mat;
+            Maths::matrix4f mat;
             mat[0] = Maths::Vector4f(right.x, up.x, forward.x, 0);
             mat[1] = Maths::Vector4f(right.y, up.y, forward.y, 0);
             mat[2] = Maths::Vector4f(right.z, up.z, forward.z, 0);
@@ -57,7 +57,7 @@ namespace Core
         }
 
         bool printed = false;
-        Maths::Matrix4f projectionMatrix()
+        Maths::matrix4f projectionMatrix()
         {
             // Orthographic
             //https://unspecified.wordpress.com/2012/06/21/calculating-the-gluperspective-matrix-and-other-opengl-matrix-maths/
@@ -78,7 +78,7 @@ namespace Core
                 {0, 0, m23, 0}
             };
 
-            Maths::Matrix4f mat;
+            Maths::matrix4f mat;
             mat[0] = Maths::Vector4f(f / aspectRatio, 0, 0, 0);
             mat[1] = Maths::Vector4f(0, f, 0, 0);
             mat[2] = Maths::Vector4f(0, 0, m22, -1);

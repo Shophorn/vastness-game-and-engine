@@ -10,13 +10,14 @@ Created 13/02/2019
 #include <string>
 
 class GLFWwindow;
+class rendererSystem;
 
 class Engine
 {
 private:
     bool _isRunning;
     GLFWwindow * _window;
-
+    rendererSystem * _renderingSystem;
 
 public:
     Engine() = default;

@@ -8,6 +8,8 @@ Created 21/02/2019
 
 #include <GL/glew.h>
 
+#include "RenderManager.hpp"
+
 #include "../ECS.hpp"
 #include "../TransformComponent.hpp"
 
@@ -21,12 +23,18 @@ struct renderer
     GLuint shaderValueBuffer;
 };
 
-struct renderingSystem
+struct rendererSystem
 {
     using components = mtl::List<transform, renderer>;
 
+    rendererSystem()
+    {
+        cout << "renderer system constructor\n";
+    }
+
     void update(transform & tr, renderer & r)
     {
-        cout << "rendering somthing\n";
+//        cout << "rendering somthing\n";
+        core::renderManager.addTarget(tr);
     }
 };

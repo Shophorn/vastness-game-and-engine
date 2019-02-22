@@ -8,11 +8,11 @@ Created 05/02/2019
 
 #include <ostream>
 
-#include "Vector3f.hpp"
+#include "vector3f.hpp"
 #include "Vector4f.hpp"
-#include "Matrix4f.hpp"
+#include "matrix4f.hpp"
 
-std::ostream & operator << (std::ostream & os, const Core::Maths::Vector3f & v);
+std::ostream & operator << (std::ostream & os, const Core::Maths::vector3f & v);
 std::ostream & operator << (std::ostream & os, const Core::Maths::Vector4f & v);
-std::ostream & operator << (std::ostream & os, const Core::Maths::Matrix4f & v);
+std::ostream & operator << (std::ostream & os, const Core::Maths::matrix4f & v);
 

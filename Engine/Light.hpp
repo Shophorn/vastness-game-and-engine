@@ -5,19 +5,19 @@ Created 27/12/2018
 
 #pragma once
 
-#include "Maths/Vector3f.hpp"
+#include "Maths/vector3f.hpp"
 
 namespace Core
 {
     struct Light
     {
-        Vector3f direction;
-        Vector3f color;
+        vector3f direction;
+        vector3f color;
         float intensity;
 
         Light(){}
 
-        Light(Vector3f direction, Vector3f color, float intensity)
+        Light(vector3f direction, vector3f color, float intensity)
             : direction(direction), color(color), intensity(intensity) {}
 
     };

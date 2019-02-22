@@ -10,12 +10,12 @@ Created 27/12/2018
 using namespace Core;
 
 Camera::Camera(
-        Vector3f _position,
-        Vector3f _target,
+        vector3f _position,
+        vector3f _target,
         float _fieldOfView,
         float _nearClippingPlane,
         float _farClippingPlane,
-        Vector3f _clearColor
+        vector3f _clearColor
 ){
     position = _position;
     target = _target;
@@ -26,7 +26,7 @@ Camera::Camera(
     SetClearColor(_clearColor);
 }
 
-void Camera::SetClearColor(Vector3f color)
+void Camera::SetClearColor(vector3f color)
 {
     _clearColor = color;
     glClearColor(_clearColor.x, _clearColor.y, _clearColor.z, 1.0);

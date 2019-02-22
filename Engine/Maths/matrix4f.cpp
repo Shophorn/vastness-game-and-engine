@@ -3,7 +3,7 @@ LeoTamminen
 Created 31/01/2019
 */
 
-#include "Matrix4f.hpp"
+#include "matrix4f.hpp"
 #include "OStreamOperators.hpp"
 
 #include <iostream>
@@ -11,9 +11,9 @@ Created 31/01/2019
 using namespace Core::Maths;
 
 
-Matrix4f Matrix4f::scale(Vector3f scale)
+matrix4f matrix4f::scale(vector3f scale)
 {
-    Matrix4f S;
+    matrix4f S;
     S[0] = Vector4f(scale.x, 0, 0, 0);
     S[1] = Vector4f(0, scale.y, 0, 0);
     S[2] = Vector4f(0, 0, scale.z, 0);
@@ -22,9 +22,9 @@ Matrix4f Matrix4f::scale(Vector3f scale)
     return S;
 }
 
-Matrix4f Matrix4f::rotate(Vector3f eulerRotation)
+matrix4f matrix4f::rotate(vector3f eulerRotation)
 {
-    Matrix4f R;
+    matrix4f R;
     R[0] = Vector4f(1, 0, 0, 0);
     R[1] = Vector4f(0, 1, 0, 0);
     R[2] = Vector4f(0, 0, 1, 0);
@@ -33,9 +33,9 @@ Matrix4f Matrix4f::rotate(Vector3f eulerRotation)
     return R;
 }
 
-Matrix4f Matrix4f::translate(Vector3f translation)
+matrix4f matrix4f::translate(vector3f translation)
 {
-    Matrix4f T;
+    matrix4f T;
     T[0] = Vector4f(1, 0, 0, 0);
     T[1] = Vector4f(0, 1, 0, 0);
     T[2] = Vector4f(0, 0, 1, 0);
@@ -44,9 +44,9 @@ Matrix4f Matrix4f::translate(Vector3f translation)
     return T;
 }
 
-Vector4f Matrix4f::operator*(const Vector4f & v) const
+Vector4f matrix4f::operator*(const Vector4f & v) const
 {
-    const Matrix4f & m = *this;
+    const matrix4f & m = *this;
     Vector4f result
     (
         dot(v, Vector4f(m[0][0], m[1][0], m[2][0], m[3][0])),
@@ -57,10 +57,10 @@ Vector4f Matrix4f::operator*(const Vector4f & v) const
     return result;
 }
 
-Matrix4f Matrix4f::operator*(const Matrix4f & rhs) const
+matrix4f matrix4f::operator*(const matrix4f & rhs) const
 {
-    const Matrix4f & lhs = *this;
-    Matrix4f m;
+    const matrix4f & lhs = *this;
+    matrix4f m;
     m[0][0] = dot(lhs.getRow(0), rhs[0]);
     m[1][0] = dot(lhs.getRow(0), rhs[1]);
     m[2][0] = dot(lhs.getRow(0), rhs[2]);
@@ -84,7 +84,7 @@ Matrix4f Matrix4f::operator*(const Matrix4f & rhs) const
     return m;
 }
 
-Vector4f Matrix4f::getRow(int index) const
+Vector4f matrix4f::getRow(int index) const
 {
     return Vector4f (
         columns[0][index],
@@ -94,7 +94,7 @@ Vector4f Matrix4f::getRow(int index) const
     );
 }
 
-void Matrix4f::setRow(int index, const Vector4f &r)
+void matrix4f::setRow(int index, const Vector4f &r)
 {
     columns[0][index] = r[0];
     columns[1][index] = r[1];
@@ -102,7 +102,7 @@ void Matrix4f::setRow(int index, const Vector4f &r)
     columns[3][index] = r[3];
 }
 
-void Matrix4f::transpose()
+void matrix4f::transpose()
 {
     Vector4f r0 = getRow(0);
     Vector4f r1 = getRow(1);

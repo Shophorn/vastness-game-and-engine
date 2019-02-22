@@ -67,8 +67,8 @@ namespace
 
 }// Anon namespace
 
-ShaderProgram ShaderProgram::Load(std::string shaderName)
+shader shader::Load(std::string shaderName)
 {
     GLuint id = LoadShaderWithName(shaderName);
-    return ShaderProgram(id);
+    return shader(id);
 }

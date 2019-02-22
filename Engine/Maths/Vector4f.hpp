@@ -6,7 +6,7 @@ Created 04/02/2019
 
 #pragma once
 
-#include "Vector3f.hpp"
+#include "vector3f.hpp"
 
 namespace Core::Maths
 {
@@ -20,7 +20,7 @@ namespace Core::Maths
 
         Vector4f(float _x, float _y, float _z, float _w) : values{_x, _y, _z, _w} {}
 
-        Vector4f(Vector3f v, float w) : values{v.x, v.y, v.z, w} {}
+        Vector4f(vector3f v, float w) : values{v.x, v.y, v.z, w} {}
 
 
         float & operator [] (int index);

@@ -34,11 +34,11 @@ namespace keywords
 
 namespace
 {
-    Vector3f GetVec3(const Value & vec3Array)
+    vector3f GetVec3(const Value & vec3Array)
     {
         auto array = vec3Array.GetArray();
 
-        return Vector3f (
+        return vector3f (
             array[0].GetFloat(),
             array[1].GetFloat(),
             array[2].GetFloat()
@@ -76,7 +76,7 @@ namespace
             }
             else if (object.HasMember("position"))
             {
-                entities[i].transform = Transform(GetVec3(object["position"]), Vector3f(0), Vector3f(1));
+                entities[i].transform = Transform(GetVec3(object["position"]), vector3f(0), vector3f(1));
             }
 
             entities[i].modelPath = object["model"].GetString();

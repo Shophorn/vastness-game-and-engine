@@ -31,8 +31,8 @@ add_executable(
         Engine/Serialization.hpp
 
         Engine/Maths/Maths.hpp
-        Engine/Maths/Vector3f.cpp Engine/Maths/Vector3f.hpp
-        Engine/Maths/Matrix4f.cpp Engine/Maths/Matrix4f.hpp
+        Engine/Maths/vector3f.cpp Engine/Maths/vector3f.hpp
+        Engine/Maths/matrix4f.cpp Engine/Maths/matrix4f.hpp
         Engine/Maths/Vector4f.cpp Engine/Maths/Vector4f.hpp
         Engine/Maths/OStreamOperators.cpp Engine/Maths/OStreamOperators.hpp
 

@@ -9,7 +9,7 @@ Created 05/02/2019
 
 using namespace Core::Maths;
 
-std::ostream &operator<<(std::ostream &os, const Vector3f & v)
+std::ostream &operator<<(std::ostream &os, const vector3f & v)
 {
     os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
     return os;
@@ -21,7 +21,7 @@ std::ostream &operator<<(std::ostream &os, const Core::Maths::Vector4f &v)
     return os;
 }
 
-std::ostream & operator << (std::ostream & os, const Matrix4f & m)
+std::ostream & operator << (std::ostream & os, const matrix4f & m)
 {
     os << std::setprecision(4);
     for (int i = 0; i < 4; i++)

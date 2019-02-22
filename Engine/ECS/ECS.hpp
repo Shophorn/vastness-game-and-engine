@@ -91,9 +91,9 @@ class ecs
 
 public:
     template <typename System, typename ... TArgs>
-    void registerSystem(TArgs ... args)
+    System * registerSystem(TArgs ... args)
     {
-        System * system = new System { std::forward<TArgs>(args) ... };
+        auto * system = new System { std::forward<TArgs>(args) ... };
 
         if constexpr (hasEcsUpdate<System, float>)
         {
@@ -109,10 +109,11 @@ public:
 
             if constexpr (hasComponentUpdate<System, componentList>)
                 registerComponentUpdate(system, componentList());
+
         }
 
+        return system;
     }
-
 
     template <typename System>
     void registerPlainUpdate(System * system)
@@ -155,7 +156,7 @@ public:
     }
 
     template <typename CompSequence>
-    CompSequence & getStuff(Handle handle)
+    CompSequence & getComponentSequence(Handle handle)
     {
         return componentMap[&typeid(CompSequence)]->get<CompSequence>(handle);
     }
@@ -167,9 +168,8 @@ public:
 
         registerUpdate([=](float dt)
         {
-            auto handles = getHandles<Components...>();
-            for (auto h : handles)
-                system->update(getStuff<Components>(h)..., dt);
+            for (auto h : getHandles<Components...>())
+                system->update(getComponentSequence<Components>(h)..., dt);
         });
     }
 
@@ -181,7 +181,7 @@ public:
         registerUpdate([=](float dt)
         {
            for (auto h : getHandles<Components...>())
-               system->update(getStuff<Components>(h)...);
+               system->update(getComponentSequence<Components>(h)...);
         });
     }
 
@@ -197,13 +197,15 @@ public:
     {
         ComponentInterface * c = getInterface<Component>();
         c->add<Component>(entity, args...);
-
-        cout << "Added component, current count: " << storage_cast<Component>(c->storage)->_data.size() << "\n";
     }
 
     template <typename Component>
     void registerComponent()
     {
+        // Add only once
+        if (componentMap.find(&typeid(Component)) != componentMap.end())
+            return;
+
         auto * component = new ComponentInterface;
         component->storage = new ComponentStorageHandler<Component>;
 
@@ -218,6 +220,13 @@ public:
         return componentMap[&typeid(Component)];
     }
 
+    template <typename Component>
+    Component & getComponent(Handle entity)
+    {
+        assert(componentMap.find(&typeid(Component)) != componentMap.end() && "Bad Component type");
+        return componentMap[&typeid(Component)]->get<Component>(entity);
+    }
+
     Handle createEntity()
     {
         return handleManager.create();
@@ -225,7 +234,6 @@ public:
 
     void update(float deltaTime)
     {
-
         for (auto update : updateHandlers)
             update(deltaTime);
     }

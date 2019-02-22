@@ -6,12 +6,12 @@ Created 31/01/2019
 
 #pragma once
 
-#include "Vector3f.hpp"
+#include "vector3f.hpp"
 #include "Vector4f.hpp"
 
 namespace Core::Maths
 {
-    struct Matrix4f
+    struct matrix4f
     {
         Vector4f columns [4];
         Vector4f &operator[] (int index)
@@ -29,12 +29,12 @@ namespace Core::Maths
 
         void transpose();
 
-        static Matrix4f translate(Vector3f translation);
-        static Matrix4f rotate(Vector3f eulerRotation);
-        static Matrix4f scale(Vector3f scale);
+        static matrix4f translate(vector3f translation);
+        static matrix4f rotate(vector3f eulerRotation);
+        static matrix4f scale(vector3f scale);
 
         Vector4f operator * (const Vector4f & v) const;
-        Matrix4f operator * (const Matrix4f & rhs) const;
+        matrix4f operator * (const matrix4f & rhs) const;
 
     };
 

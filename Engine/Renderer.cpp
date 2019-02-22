@@ -15,20 +15,20 @@ void Renderer::Draw()
     auto modelIT = transform.inverseModelMatrix();
     modelIT.transpose();
 
-    shader->Use();
+    mshader->Use();
 
-    glUniformMatrix4fv(shader->modelLocation, 1, GL_FALSE, &model[0][0]);
-    glUniformMatrix4fv(shader->modelLocation, 1, GL_FALSE, &model[0][0]);
-    glUniformMatrix4fv(shader->modelITLocation, 1, GL_FALSE, &modelIT[0][0]);
+    glUniformMatrix4fv(mshader->modelLocation, 1, GL_FALSE, &model[0][0]);
+    glUniformMatrix4fv(mshader->modelLocation, 1, GL_FALSE, &model[0][0]);
+    glUniformMatrix4fv(mshader->modelITLocation, 1, GL_FALSE, &modelIT[0][0]);
 
     if (animator != nullptr)
     {
         animator->SetShaderValues();
-        glUniform1i (glGetUniformLocation(shader->id, "isAnimated"), 1);
+        glUniform1i (glGetUniformLocation(mshader->id, "isAnimated"), 1);
     }
     else
     {
-        glUniform1i (glGetUniformLocation(shader->id, "isAnimated"), 0);
+        glUniform1i (glGetUniformLocation(mshader->id, "isAnimated"), 0);
     }
 
     glBindVertexArray(vao);

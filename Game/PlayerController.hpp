@@ -25,7 +25,7 @@ namespace Game
         Renderer *renderer = nullptr;
 
         float moveSpeed = 0;
-        Vector3f cameraOffset;
+        vector3f cameraOffset;
 
         PlayerController() = default;
 

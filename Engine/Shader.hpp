@@ -3,7 +3,7 @@
 #include <GL/glew.h>
 #include <string>
 
-struct ShaderProgram
+struct shader
 {
 public:
     GLuint id = 0;
@@ -16,9 +16,9 @@ public:
     GLint lightColorLocation    = -1;
     GLint cameraPosLocation     = -1;
 
-    ShaderProgram () = default;
+    shader () = default;
 
-    explicit ShaderProgram (GLuint _id) :
+    explicit shader (GLuint _id) :
         id (_id),
         viewLocation        (glGetUniformLocation(id, "view")),
         projectionLocation  (glGetUniformLocation(id, "projection")),
@@ -31,5 +31,5 @@ public:
 
     void Use() const { glUseProgram(id); }
 
-    static ShaderProgram Load(std::string shaderName);
+    static shader Load(std::string shaderName);
 };

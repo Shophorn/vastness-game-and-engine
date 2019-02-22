@@ -5,11 +5,11 @@ in vec3 position;
 in vec3 normal;
 in vec2 texcoord;
 
-uniform mat4 model;
-uniform mat4 model_it;
+uniform mat4 model = mat4 (1.0);
+uniform mat4 model_it = mat4 (1.0);
 
-uniform mat4 projection;
-uniform mat4 view;
+uniform mat4 projection = mat4(1.0);
+uniform mat4 view = mat4(1.0);
 
 out vec3 Normal;
 out vec2 Texcoord;
