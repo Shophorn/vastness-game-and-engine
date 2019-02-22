@@ -3,12 +3,11 @@ LeoTamminen
 Created 31/01/2019
 */
 
-#include <sstream>
 #include "vector3f.hpp"
 #include "OStreamOperators.hpp"
 #include "Basic.hpp"
 
-using namespace Core::Maths;
+using namespace maths;
 
 const vector3f vector3f::down = vector3f(0.0f, 0.0f, -1.0f);
 const vector3f vector3f::up = vector3f(0.0f, 0.0f, 1.0f);
@@ -83,12 +82,12 @@ vector3f vector3f::operator-() const
     return *this * -1;
 }
 
-float Core::Maths::magnitude(const vector3f &v)
+float maths::magnitude(const vector3f &v)
 {
     return sqrt(v.x * v.x + v.y * v.y + v.z + v.z);
 }
 
-vector3f Core::Maths::cross(const vector3f &lhs, const vector3f &rhs)
+vector3f maths::cross(const vector3f &lhs, const vector3f &rhs)
 {
     return vector3f(
         lhs.y * rhs.z - lhs.z * rhs.y,
@@ -97,18 +96,18 @@ vector3f Core::Maths::cross(const vector3f &lhs, const vector3f &rhs)
     );
 }
 
-vector3f Core::Maths::normalize(const vector3f & v)
+vector3f maths::normalize(const vector3f & v)
 {
     float length = magnitude(v);
     return v / length;
 }
 
-float Core::Maths::dot(const vector3f &lhs, const vector3f &rhs)
+float maths::dot(const vector3f &lhs, const vector3f &rhs)
 {
     return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 }
 
-float Core::Maths::sqrDistance(const vector3f & lhs, const vector3f & rhs)
+float maths::sqrDistance(const vector3f & lhs, const vector3f & rhs)
 {
     vector3f vec = lhs - rhs;
     return vec.x * vec.x + vec.y * vec.y + vec.z + vec.z;

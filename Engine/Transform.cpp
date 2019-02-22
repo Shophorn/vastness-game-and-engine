@@ -7,10 +7,9 @@ Created 16/12/2018
 
 #include <iostream>
 
-using namespace Core;
-using namespace Core::Maths;
+using namespace maths;
 
-matrix4f Transform::modelMatrixNew () const
+matrix4f Core::Transform::modelMatrixNew () const
 {
     matrix4f T = matrix4f::translate(position);
     matrix4f S = matrix4f::scale(scale);
@@ -18,7 +17,7 @@ matrix4f Transform::modelMatrixNew () const
     return T * S;
 }
 
-matrix4f Transform::inverseModelMatrix() const
+matrix4f Core::Transform::inverseModelMatrix() const
 {
     matrix4f T = matrix4f::translate(-position);
     vector3f inverseScale ( 1.0f / scale.x, 1.0f / scale.y, 1.0f / scale.z);

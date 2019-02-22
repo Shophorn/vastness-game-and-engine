@@ -7,7 +7,7 @@ Created 05/02/2019
 
 #include "OStreamOperators.hpp"
 
-using namespace Core::Maths;
+using namespace maths;
 
 std::ostream &operator<<(std::ostream &os, const vector3f & v)
 {
@@ -15,7 +15,7 @@ std::ostream &operator<<(std::ostream &os, const vector3f & v)
     return os;
 }
 
-std::ostream &operator<<(std::ostream &os, const Core::Maths::Vector4f &v)
+std::ostream &operator<<(std::ostream &os, const maths::vector4f &v)
 {
     os << "(" << v[0] << ", " << v[1] << ", " << v[2] << ", " << v[3] << ")";
     return os;

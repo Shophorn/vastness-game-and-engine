@@ -10,6 +10,7 @@ Created 16/02/2019
 
 #include "../DEBUG.hpp"
 #include "RenderManager.hpp"
+#include "RendererSystem.hpp"
 #include "../Maths/Maths.hpp"
 #include "../TransformComponent.hpp"
 #include "../Shader.hpp"
@@ -18,15 +19,7 @@ Created 16/02/2019
 #include "../Camera.hpp"
 
 
-struct renderData
-{
-    matrix4f model{};
-    matrix4f inverse{};
-    unsigned shader{};
-};
 
-std::vector<renderData> toRenders;
-std::unordered_map<unsigned, shader> shaders;
 GLuint testVao;
 int testElementCount;
 std::unique_ptr<Mesh> testMesh;
@@ -36,16 +29,16 @@ matrix4f testProjection;
 void RenderManager::initialize()
 {
     glClearColor(0.6, 0.8, 1.0, 1.0);
-    shaders.insert_or_assign(0, shader::Load("default"));
+    _shaders.emplace_back(shader::Load("default"));
 
     Mesh mesh;
     AssetLoader::LoadOBJ("Assets/Cube.obj", &mesh);
     testMesh = std::make_unique<Mesh>(std::move(mesh));
-    testMesh->LoadToGL(shaders[0u].id);
+    testMesh->LoadToGL(_shaders[0u].id);
     testVao = testMesh->vao();
     testElementCount = testMesh->elementCount();
 
-    Core::Camera testCamera(vector3f(0, 5, 2), vector3f(0), 45, 0, 100, vector3f(0.6, 0.8, 1.0));
+    Camera testCamera(vector3f(0, 5, 2), vector3f(0), 45, 0, 100, vector3f(0.6, 0.8, 1.0));
     testCamera.aspectRatio = 1920.0f / 1080.0f;
     testProjection = testCamera.projectionMatrix();
     testView = testCamera.viewMatrix();
@@ -57,17 +50,15 @@ void RenderManager::render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    for (const auto & rd : toRenders)
+    for (const auto & rd : _toRender)
     {
-        glUniformMatrix4fv(shaders[0].modelLocation, 1, GL_FALSE, &rd.model[0][0]);
-        glUniformMatrix4fv(shaders[0].modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
+        glUniformMatrix4fv(_shaders[rd.shader].modelLocation, 1, GL_FALSE, &rd.model[0][0]);
+        glUniformMatrix4fv(_shaders[rd.shader].modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
 
-//        debug << rd.model << "\n";
+        glUniformMatrix4fv(_shaders[rd.shader].viewLocation, 1, GL_FALSE, &testView[0][0]);
+        glUniformMatrix4fv(_shaders[rd.shader].projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
 
-        glUniformMatrix4fv(shaders[0].viewLocation, 1, GL_FALSE, &testView[0][0]);
-        glUniformMatrix4fv(shaders[0].projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
-
-        glUseProgram(shaders[0].id);
+        glUseProgram(_shaders[rd.shader].id);
         glBindVertexArray(testVao);
 
         glDrawElements(GL_TRIANGLES, testElementCount, GL_UNSIGNED_INT, nullptr);
@@ -80,12 +71,22 @@ void RenderManager::render()
 
 //    cout << "Rendering " << toRenders.size() << " objects : " << glfwGetTime() << "\n";
 
-    toRenders.clear();
+    _toRender.clear();
     glFinish();
 }
 
-void RenderManager::addTarget(transform & tr)
+
+
+void RenderManager::addRenderer(const transform &tr, const renderer &r)
 {
-    toRenders.emplace_back(renderData {modelMatrix(tr), inverseModelMatrix(tr)});
+    _toRender.emplace_back(renderData {modelMatrix(tr), inverseModelMatrix(tr)});
+}
+
+void RenderManager::terminate()
+{
+    for (const auto & s : _shaders)
+        glDeleteShader(s.id);
+
+    _shaders.clear();
 }
 

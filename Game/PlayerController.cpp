@@ -11,7 +11,7 @@ Created 27/12/2018
 
 using namespace Game;
 using namespace Core;
-using namespace Core::Maths;
+//using namespace Core::maths;
 
 void PlayerController::update(float deltaTime)
 {

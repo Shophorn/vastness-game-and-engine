@@ -33,12 +33,11 @@ add_executable(
         Engine/Maths/Maths.hpp
         Engine/Maths/vector3f.cpp Engine/Maths/vector3f.hpp
         Engine/Maths/matrix4f.cpp Engine/Maths/matrix4f.hpp
-        Engine/Maths/Vector4f.cpp Engine/Maths/Vector4f.hpp
+        Engine/Maths/vector4f.cpp Engine/Maths/vector4f.hpp
         Engine/Maths/OStreamOperators.cpp Engine/Maths/OStreamOperators.hpp
 
         Game/PlayerController.cpp Game/PlayerController.hpp
         Game/EntityTypes.hpp
-        Engine/Maths/Basic.hpp
         Engine/Engine.cpp Engine/Engine.hpp
-        Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp Engine/ECS/ECS.hpp Engine/ECS/Handle.hpp Engine/ECS/Component.hpp Engine/DEBUG.hpp Engine/ECS/HandleManager.hpp Engine/ECS/OstreamOperators.hpp Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp)
+        Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp Engine/ECS/ECS.hpp Engine/ECS/Handle.hpp Engine/ECS/Component.hpp Engine/DEBUG.hpp Engine/ECS/HandleManager.hpp Engine/ECS/OstreamOperators.hpp Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp Engine/Maths/Basic.hpp)
 
