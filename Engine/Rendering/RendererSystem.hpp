@@ -9,6 +9,7 @@ Created 21/02/2019
 #include <GL/glew.h>
 #include "RenderManager.hpp"
 #include "../ECS.hpp"
+#include "../Assets.hpp"
 
 struct transform;
 struct renderer

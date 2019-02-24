@@ -47,5 +47,5 @@ add_executable(
         Engine/ECS/Component.hpp
         Engine/ECS/HandleManager.hpp
         Engine/ECS/OstreamOperators.hpp
-        Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp Engine/Maths/Basic.hpp Engine/Maths/vector2f.hpp Engine/Assets.hpp)
+        Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp Engine/Maths/Basic.hpp Engine/Maths/vector2f.hpp Engine/Assets.hpp Engine/Assets.cpp)
 

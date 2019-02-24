@@ -30,10 +30,6 @@ Mesh mesh;
 void RenderManager::initialize()
 {
     glClearColor(0.6, 0.8, 1.0, 1.0);
-//    getShaderHandle("default");
-//
-//    assetLoader::LoadOBJ("Assets/Cube.obj", &mesh);
-//    mesh.LoadToGL(getShader(getShaderHandle("default")).id);
 
     Camera testCamera(vector3f(0, 5, 2), vector3f(0), 45, 0, 100, vector3f(0.6, 0.8, 1.0));
     testCamera.aspectRatio = 1920.0f / 1080.0f;
@@ -61,13 +57,6 @@ void RenderManager::render()
         glBindTexture(GL_TEXTURE_2D, rd.texture);
         glDrawElements(GL_TRIANGLES, rd.elementCount, GL_UNSIGNED_INT, nullptr);
     }
-
-    // bind vao
-    // bind texture
-    // use shader
-    // set values
-
-//    cout << "Rendering " << toRenders.size() << " objects : " << glfwGetTime() << "\n";
 
     _toRender.clear();
     glFinish();

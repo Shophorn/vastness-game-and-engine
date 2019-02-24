@@ -1,7 +1,7 @@
 #pragma once
 
 #include <GL/glew.h>
-
+#include <cassert>
 class Mesh
 {
 public:
@@ -66,4 +66,3 @@ struct MeshInstance
 
     GLsizei elementCount {};
 };
-

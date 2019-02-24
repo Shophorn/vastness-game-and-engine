@@ -15,7 +15,6 @@ Created 16/02/2019
 struct transform;
 struct renderer;
 
-
 struct renderData
 {
     matrix4f model{};
@@ -24,6 +23,7 @@ struct renderData
     GLuint texture{};
     int elementCount{};
     int shaderHandle{};
+
 };
 
 class RenderManager
