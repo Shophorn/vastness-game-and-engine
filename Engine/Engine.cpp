@@ -14,7 +14,6 @@ Created 13/02/2019
 
 #include "ECSTest.hpp"
 
-
 ecs core::ecs;
 Input core::input;
 RenderManager core::renderManager;

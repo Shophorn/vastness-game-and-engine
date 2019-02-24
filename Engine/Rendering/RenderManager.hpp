@@ -21,6 +21,7 @@ struct renderData
     matrix4f model{};
     matrix4f inverse{};
     GLuint vao{};
+    GLuint texture{};
     int elementCount{};
     int shaderHandle{};
 };
@@ -44,7 +45,7 @@ public:
 
     int getShaderHandle(const std::string & name);
     const shader & getShader(int handle) { return _shaders[handle]; }
-
+    const shader & getShader (const std::string & name) { return _shaders[_shaderMap[name]]; }
 };
 
 namespace core

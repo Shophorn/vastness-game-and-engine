@@ -32,7 +32,7 @@ void Mesh::Bind()
     glBindVertexArray(_vao);
 }
 
-void Mesh::LoadToGL(GLuint shader)
+void Mesh::generateAndBindBuffers(GLuint shader)
 {
     if(_vertices == nullptr || _elements == nullptr)
     {
@@ -131,4 +131,3 @@ void Mesh::SetTexcoords(GLfloat *texcoordsAsFloats, int texcoordCountAsVector2)
     _texcoords = new float [_texcoordFloatArrayLength];
     std::memcpy(_texcoords, texcoordsAsFloats, _texcoordFloatArrayLength * sizeof(GLfloat));
 }
-

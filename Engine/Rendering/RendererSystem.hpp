@@ -14,6 +14,7 @@ struct transform;
 struct renderer
 {
     GLuint vao;
+    GLuint texture;
     int elementCount;
     int shaderHandle;
 };

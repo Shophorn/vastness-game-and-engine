@@ -16,14 +16,14 @@ Leo Tamminen
 
 bool loader::LoadMeshAsset(const char *path, Mesh *target)
 {
-    Mesh * mesh = LoadOBJ(path);
+    Mesh * mesh = LoadOBJPtr(path);
 
     // TODO: Does this do copying? Could we just move?
     *target = *mesh;
     return target != nullptr;
 }
 
-Mesh * loader::LoadOBJ(const char * path)
+Mesh * loader::LoadOBJPtr(const char *path)
 {
     // v's to the list
     // vt's to the list
@@ -468,4 +468,11 @@ bool loader::LoadTextureRGBA(const char *path, GLuint *target)
     *target = texture;
     return true;
 
+}
+
+template <> Mesh loader::load<Mesh>(const char * path)
+{
+    Mesh mesh;
+    LoadMeshAsset(path, &mesh);
+    return mesh;
 }

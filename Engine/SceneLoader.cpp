@@ -265,7 +265,7 @@ Scene SceneLoader::Load(const char * path)
 
         Mesh * mesh = new Mesh;
         loader::LoadMeshAsset(sceneries[i].modelPath.c_str(), mesh);
-        mesh->LoadToGL(scene.shaders[shaderName].id);
+        mesh->generateAndBindBuffers(scene.shaders[shaderName].id);
 
         GLuint texture;
         loader::LoadTextureRGBA(sceneries[i].texturePath.c_str(), &texture);

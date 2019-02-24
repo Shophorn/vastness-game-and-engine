@@ -193,10 +193,17 @@ public:
 
     /// Components --------------------------------------------
     template <typename Component, typename ... TArgs>
-    void addComponent(Handle entity, TArgs ... args)
+    void addComponent(const Handle entity, const TArgs & ... args)
     {
         ComponentInterface * c = getInterface<Component>();
         c->add<Component>(entity, args...);
+    }
+
+    template <typename Component>
+    void addComponent(const Handle entity, Component && component)
+    {
+        ComponentInterface * c = getInterface<Component>();
+        c->add<Component>(entity, component);
     }
 
     template <typename Component>

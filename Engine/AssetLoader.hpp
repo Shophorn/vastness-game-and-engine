@@ -10,10 +10,15 @@ Leo Tamminen
 namespace loader
 {
     bool LoadMeshAsset(const char *path, Mesh *target);
-    Mesh * LoadOBJ(const char *path);
+    Mesh * LoadOBJPtr(const char *path);
 
     bool LoadTextureRGB(const char *path, GLuint *target);
     bool LoadTextureRGBA(const char *path, GLuint *target);
+
+    template <typename Asset>
+    Asset load(const char * path);
+
+
 };
 
 

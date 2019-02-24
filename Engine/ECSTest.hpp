@@ -52,9 +52,6 @@ namespace test
         }
     };
 
-    Mesh mesh;
-    Mesh mesh2;
-
     inline void testECS()
     {
         using core::ecs;
@@ -69,29 +66,38 @@ namespace test
         ecs.registerSystem<rendererSystem>();
         ecs.registerSystem<followEntitySystem>();
 
+        GLuint playerTexture;
+        loader::LoadTextureRGBA("Game/Assets/bricks.png", &playerTexture);
+        int shaderHandle = core::renderManager.getShaderHandle("sprite");
+
+        static Mesh mesh;
+        static Mesh mesh2;
+
         loader::LoadMeshAsset("Assets/Cube.obj", &mesh);
-        int shaderHandle = core::renderManager.getShaderHandle("default");
-        mesh.LoadToGL(core::renderManager.getShader(shaderHandle).id);
+        mesh.generateAndBindBuffers(core::renderManager.getShader(shaderHandle).id);
 
         Handle player = ecs.createEntity();
         ecs.addComponent<playerControl>(player);
         ecs.addComponent<transform>(player);
-
-        renderer r {mesh.vao(), mesh.elementCount(), shaderHandle};
-        ecs.addComponent<renderer>(player, r);
+        ecs.addComponent<renderer>(player, mesh.vao(), playerTexture, mesh.elementCount(), shaderHandle);
 
         loader::LoadMeshAsset("Assets/fish_a.obj", &mesh2);
-        shaderHandle = core::renderManager.getShaderHandle("default");
-        mesh2.LoadToGL(core::renderManager.getShader(shaderHandle).id);
+        shaderHandle = core::renderManager.getShaderHandle("sprite");
+        mesh2.generateAndBindBuffers(core::renderManager.getShader(shaderHandle).id);
+        GLuint fishTexture;
+        loader::LoadTextureRGBA("Assets/Fish_A_ColorRGB_SmoothA.png", &fishTexture);
 
         Handle e1 = ecs.createEntity();
-        ecs.addComponent<transform>(e1, vector3f(0), vector3f(1), vector3f(1));
-        ecs.addComponent<renderer>(e1, mesh2.vao(), mesh2.elementCount(), shaderHandle);
+        ecs.addComponent<transform>(e1, transform{vector3f(0), vector3f(1), vector3f(1)});
+        ecs.addComponent<renderer>(e1, mesh2.vao(), fishTexture, mesh2.elementCount(), shaderHandle);
         ecs.addComponent<followEntity>(e1, player, 0.1f);
+
+        shaderHandle = core::renderManager.getShaderHandle("default");
+        mesh2.generateAndBindBuffers(core::renderManager.getShader(shaderHandle).id);
 
         Handle e2 = ecs.createEntity();
         ecs.addComponent<transform>(e2, vector3f(2, 0 ,0), vector3f(1), vector3f(1));
-        ecs.addComponent<renderer>(e2, mesh2.vao(), mesh2.elementCount(), shaderHandle);
+        ecs.addComponent<renderer>(e2, mesh2.vao(), 0, mesh2.elementCount(), shaderHandle);
         ecs.addComponent<followEntity>(e2, e1, 0.1f);
     }
 }

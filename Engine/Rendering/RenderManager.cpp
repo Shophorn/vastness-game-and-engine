@@ -48,15 +48,17 @@ void RenderManager::render()
     for (const auto & rd : _toRender)
     {
         auto _shader = getShader(rd.shaderHandle);
+
+        glUseProgram(_shader.id);
+
         glUniformMatrix4fv(_shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
         glUniformMatrix4fv(_shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
 
         glUniformMatrix4fv(_shader.viewLocation, 1, GL_FALSE, &testView[0][0]);
         glUniformMatrix4fv(_shader.projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
 
-        glUseProgram(_shader.id);
         glBindVertexArray(rd.vao);
-
+        glBindTexture(GL_TEXTURE_2D, rd.texture);
         glDrawElements(GL_TRIANGLES, rd.elementCount, GL_UNSIGNED_INT, nullptr);
     }
 
@@ -80,6 +82,7 @@ void RenderManager::addRenderer(const transform &tr,  const renderer & r)
             modelMatrix(tr),
             inverseModelMatrix(tr),
             r.vao,
+            r.texture,
             r.elementCount,
             r.shaderHandle
     });

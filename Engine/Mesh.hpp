@@ -19,6 +19,7 @@ private:
     int _elementCount = 0;
 
     GLuint _vao = -1;
+
     GLuint _vbo  = -1;
     GLuint _ebo = -1;
     GLuint _nbo = -1;
@@ -38,9 +39,8 @@ public:
     void SetNormals(GLfloat *normalsAsFloats, int normalCountAsVector3);
     void SetTexcoords(GLfloat * texcoordsAsFloats, int texcoordCountAsVector2);
 
-    void LoadToGL(GLuint shader);
+    void generateAndBindBuffers(GLuint shader);
 
     void Bind();
 };
-
 
