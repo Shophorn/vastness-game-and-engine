@@ -4,7 +4,7 @@
 
 class Mesh
 {
-private:
+public:
     GLfloat * _vertices = nullptr;
     GLfloat * _normals = nullptr;
     GLfloat * _texcoords = nullptr;
@@ -42,5 +42,28 @@ public:
     void generateAndBindBuffers(GLuint shader);
 
     void Bind();
+};
+
+#include <vector>
+#include "Maths/Maths.hpp"
+
+struct MeshAsset
+{
+    std::vector<float> vertices{};
+    std::vector<float> normals{};
+    std::vector<float> texcoords{};
+    std::vector<unsigned> elements{};
+};
+
+struct MeshInstance
+{
+    GLuint vao{};
+
+    GLuint verticesBO{};
+    GLuint elementsBO{};
+    GLuint normalsBO{};
+    GLuint texcoordBO{};
+
+    GLsizei elementCount {};
 };
 

@@ -16,7 +16,7 @@ namespace loader
     bool LoadTextureRGBA(const char *path, GLuint *target);
 
     template <typename Asset>
-    Asset load(const char * path);
+    Asset load(std::string path);
 
 
 };

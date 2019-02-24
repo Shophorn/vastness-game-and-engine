@@ -469,10 +469,31 @@ bool loader::LoadTextureRGBA(const char *path, GLuint *target)
     return true;
 
 }
+//
+//template <> Mesh loader::load<Mesh>(const char * path)
+//{
+//    Mesh mesh;
+//    LoadMeshAsset(path, &mesh);
+//    return mesh;
+//}
 
-template <> Mesh loader::load<Mesh>(const char * path)
+template <> MeshAsset loader::load<MeshAsset>(std::string path)
 {
     Mesh mesh;
-    LoadMeshAsset(path, &mesh);
-    return mesh;
+    LoadMeshAsset(path.c_str(), &mesh);
+
+    MeshAsset asset;
+    if(mesh._vertices != nullptr)
+        asset.vertices = std::vector<float> (mesh._vertices, mesh._vertices + mesh._vertexFloatArrayLength);
+
+    if (mesh._normals != nullptr)
+        asset.normals = std::vector<float> (mesh._normals, mesh._normals + mesh._vertexFloatArrayLength);
+
+    if (mesh._texcoords != nullptr)
+        asset.texcoords = std::vector<float> (mesh._texcoords, mesh._texcoords + mesh._texcoordFloatArrayLength);
+
+    if (mesh._elements != nullptr)
+        asset.elements = std::vector<unsigned> (mesh._elements, mesh._elements + mesh._elementCount);
+
+    return asset;
 }

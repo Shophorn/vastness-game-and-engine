@@ -100,7 +100,7 @@ int RenderManager::getShaderHandle(const std::string & name)
 {
     if (_shaderMap.find(name) == _shaderMap.end())
     {
-        _shaders.emplace_back(shader::Load(name));
+        _shaders.emplace_back(Shader::Load(name));
         _shaderMap.emplace(name, _shaders.size() -1);
     }
 

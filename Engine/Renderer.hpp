@@ -23,7 +23,7 @@ namespace Core
         int elementCount;
 
         // Shared, don't delete
-        shader * mshader = nullptr;
+        Shader * mshader = nullptr;
 
         // Owned, do delete
         Mesh * mesh = nullptr;
@@ -37,7 +37,7 @@ namespace Core
             delete mesh;
         }
 
-        Renderer(Transform _transform, GLuint _texture, Mesh * _mesh, shader * _shader)
+        Renderer(Transform _transform, GLuint _texture, Mesh * _mesh, Shader * _shader)
         {
             transform = _transform;
             texture = _texture;

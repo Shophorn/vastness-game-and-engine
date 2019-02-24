@@ -9,7 +9,7 @@ void Core::Scene::LoadShaderIfNotLoader(std::string shaderName)
 {
     if (shaders.find(shaderName) == shaders.end())
     {
-        shaders.insert_or_assign(shaderName, shader::Load(shaderName));
+        shaders.insert_or_assign(shaderName, Shader::Load(shaderName));
 
         if (shaderName == "sprite")
         {

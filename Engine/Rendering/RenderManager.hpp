@@ -30,7 +30,7 @@ class RenderManager
 {
 private:
     std::vector<renderData> _toRender{};
-    std::vector<shader> _shaders{};
+    std::vector<Shader> _shaders{};
     std::unordered_map<std::string, signed> _shaderMap {};
 
 public:
@@ -44,8 +44,8 @@ public:
     void addRenderer(const transform &, const renderer & r);
 
     int getShaderHandle(const std::string & name);
-    const shader & getShader(int handle) { return _shaders[handle]; }
-    const shader & getShader (const std::string & name) { return _shaders[_shaderMap[name]]; }
+    const Shader & getShader(int handle) { return _shaders[handle]; }
+    const Shader & getShader (const std::string & name) { return _shaders[_shaderMap[name]]; }
 };
 
 namespace core

@@ -12,6 +12,7 @@ Created 22/02/2019
 #include "Shader.hpp"
 #include "Mesh.hpp"
 #include "AssetLoader.hpp"
+#include "Assets.hpp"
 
 namespace test
 {
@@ -66,20 +67,30 @@ namespace test
         ecs.registerSystem<rendererSystem>();
         ecs.registerSystem<followEntitySystem>();
 
+
+        std::string meshPath = "Assets/Cube.obj";
+        core::meshAssets.load(meshPath);
+        auto meshHandle = core::meshInstances.getHandle(meshPath);
+
+        debug << meshHandle << "\n";
+
         GLuint playerTexture;
         loader::LoadTextureRGBA("Game/Assets/bricks.png", &playerTexture);
         int shaderHandle = core::renderManager.getShaderHandle("sprite");
+        setVertexAttributes(core::meshInstances.get(meshHandle), core::renderManager.getShader(shaderHandle));
 
-        static Mesh mesh;
+//        static Mesh mesh;
         static Mesh mesh2;
 
-        loader::LoadMeshAsset("Assets/Cube.obj", &mesh);
-        mesh.generateAndBindBuffers(core::renderManager.getShader(shaderHandle).id);
+//        loader::LoadMeshAsset("Assets/Cube.obj", &mesh);
+//        mesh.generateAndBindBuffers(core::renderManager.getShader(shaderHandle).id);
+
+        auto meshInstance = core::meshInstances.get(meshHandle);
 
         Handle player = ecs.createEntity();
         ecs.addComponent<playerControl>(player);
         ecs.addComponent<transform>(player);
-        ecs.addComponent<renderer>(player, mesh.vao(), playerTexture, mesh.elementCount(), shaderHandle);
+        ecs.addComponent<renderer>(player, meshInstance.vao, playerTexture, meshInstance.elementCount, shaderHandle);
 
         loader::LoadMeshAsset("Assets/fish_a.obj", &mesh2);
         shaderHandle = core::renderManager.getShaderHandle("sprite");

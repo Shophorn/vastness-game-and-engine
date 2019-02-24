@@ -27,7 +27,7 @@ namespace Core
 
 //        std::vector<Entity *> entities;
         std::vector<Renderer *> renderers;
-        std::unordered_map <string, shader> shaders;
+        std::unordered_map <string, Shader> shaders;
 
         ~Scene() {}
 
