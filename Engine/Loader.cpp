@@ -9,7 +9,7 @@ Leo Tamminen
 
 #include <SOIL.h>
 
-#include "AssetLoader.hpp"
+#include "Loader.hpp"
 #include "FileOperations.hpp"
 #include "StringOperations.hpp"
 #include "DEBUG.hpp"

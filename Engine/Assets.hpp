@@ -9,7 +9,7 @@ Created 24/02/2019
 #include <unordered_map>
 #include <string>
 
-#include "AssetLoader.hpp"
+#include "Loader.hpp"
 
 template<typename Instance, typename Asset>
 Instance instantiate(Asset asset);

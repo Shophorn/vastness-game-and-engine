@@ -16,7 +16,7 @@ Created 16/02/2019
 #include "../TransformComponent.hpp"
 #include "../Shader.hpp"
 #include "../Mesh.hpp"
-#include "../AssetLoader.hpp"
+#include "../Loader.hpp"
 #include "../Camera.hpp"
 #include "../Stopwatch.hpp"
 

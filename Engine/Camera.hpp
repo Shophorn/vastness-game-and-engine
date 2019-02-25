@@ -5,7 +5,6 @@ Created 27/12/2018
 
 #pragma once
 
-#include "Transform.hpp"
 #include "Maths/Maths.hpp"
 
 class Camera

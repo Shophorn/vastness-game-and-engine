@@ -11,7 +11,7 @@ Created 22/02/2019
 #include "Rendering/RendererSystem.hpp"
 #include "Shader.hpp"
 #include "Mesh.hpp"
-#include "AssetLoader.hpp"
+#include "Loader.hpp"
 #include "Assets.hpp"
 
 

@@ -4,8 +4,6 @@ Leo Tamminen
 */
 
 #include "Shader.hpp"
-//#include <fstream>
-
 #include <iostream>
 
 #include "FileOperations.hpp"

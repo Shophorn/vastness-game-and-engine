@@ -15,18 +15,12 @@ add_executable(
         main.cpp
         Engine/Shader.cpp Engine/Shader.hpp
         Engine/Mesh.cpp Engine/Mesh.hpp
-        Engine/AssetLoader.cpp Engine/AssetLoader.hpp
-        Engine/Screen.hpp
-        Engine/Transform.cpp Engine/Transform.hpp
+        Engine/Loader.cpp Engine/Loader.hpp
         Engine/Input.cpp Engine/Input.hpp
         Engine/Camera.cpp Engine/Camera.hpp
-        Engine/SceneLoader.hpp
         Engine/Light.hpp
         Engine/StringOperations.cpp Engine/StringOperations.hpp
-        Engine/Scene.cpp Engine/Scene.hpp
-        Engine/SceneLoader.cpp
         Engine/FileOperations.cpp Engine/FileOperations.hpp
-        Engine/SpriteAnimator.cpp Engine/SpriteAnimator.hpp
         Engine/Serialization.hpp
 
         Engine/Maths/Maths.hpp
@@ -37,8 +31,6 @@ add_executable(
 
         Engine/DEBUG.hpp
 
-        Game/PlayerController.cpp Game/PlayerController.hpp
-        Game/EntityTypes.hpp
 
         Engine/Engine.cpp Engine/Engine.hpp
         Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp
