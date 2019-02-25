@@ -14,11 +14,9 @@ Created 21/02/2019
 struct transform;
 struct renderer
 {
-//    GLuint vao;
     GLuint texture;
-//    int elementCount;
     int shaderHandle;
-    MeshAssetHandle meshHandle;
+    InstanceHandle<MeshInstance> meshHandle;
 };
 
 struct rendererSystem

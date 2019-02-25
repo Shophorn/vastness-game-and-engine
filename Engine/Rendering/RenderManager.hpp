@@ -12,6 +12,7 @@ Created 16/02/2019
 #include "../Shader.hpp"
 #include "../Maths/Maths.hpp"
 #include "../Assets.hpp"
+#include "../Mesh.hpp"
 
 struct transform;
 struct renderer;
@@ -22,7 +23,7 @@ struct renderData
     matrix4f inverse{};
     GLuint texture{};
     int shaderHandle{};
-    MeshAssetHandle meshHandle {};
+    InstanceHandle<MeshInstance> meshHandle {};
 };
 
 class RenderManager

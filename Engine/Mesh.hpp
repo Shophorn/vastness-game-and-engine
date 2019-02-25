@@ -4,6 +4,8 @@
 #include <vector>
 #include <fstream>
 #include <cassert>
+#include "Assets.hpp"
+#include "Shader.hpp"
 
 struct MeshAsset
 {
@@ -25,9 +27,14 @@ struct MeshInstance
     GLsizei elementCount {};
 };
 
-MeshInstance instantiate(MeshAsset asset);
-
 namespace convert
 {
     MeshAsset * fromOBJ(std::ifstream &&file);
 }
+
+namespace core
+{
+    inline AssetManager<MeshInstance, MeshAsset> meshes{};
+}
+
+void setVertexAttributes(MeshInstance instance, Shader shader);
