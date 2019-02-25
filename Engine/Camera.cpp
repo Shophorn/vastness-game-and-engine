@@ -5,7 +5,11 @@ Created 27/12/2018
 */
 
 #include <GL/glew.h>
+#include <cmath>
 #include "Camera.hpp"
+#include "Maths/matrix4f.hpp"
+
+using namespace maths;
 
 Camera::Camera(
         vector3f _position,

@@ -3,18 +3,17 @@ Shophorn
 Leo Tamminen
 Created 07/02/2019
 */
+
+#pragma once
+
 #include <rapidjson/document.h>
-#include "StringOperations.hpp"
+#include <cassert>
 
-namespace Core
+namespace serialization
 {
-    namespace Serialization
-    {
-        using Value = rapidjson::Value;
-        using namespace strOps;
+    using Value = rapidjson::Value;
 
-        template <typename T>
-        T deserialize(const Value & value);
-    }
+    template <typename T>
+    T deserialize(const Value & value);
 }
 

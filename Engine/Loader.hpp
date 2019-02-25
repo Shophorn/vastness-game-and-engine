@@ -10,15 +10,11 @@ Leo Tamminen
 
 namespace loader
 {
-    template<typename Asset>
+    template <typename Asset>
     Asset load(const std::string &path);
-}
 
-// lol remove these and make use above template
-namespace loader
-{
     bool LoadTextureRGB(const char *path, GLuint *target);
     bool LoadTextureRGBA(const char *path, GLuint *target);
-};
+}
 
 

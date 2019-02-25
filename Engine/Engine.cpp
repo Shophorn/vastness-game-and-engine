@@ -64,7 +64,7 @@ void Engine::initialize(const char *title, int width, int height)
     core::input.initialize(_window);
     core::ecs.initialize();
 
-    test::testECS();
+    test::build();
 
     _isRunning = true;
 }

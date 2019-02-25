@@ -9,6 +9,7 @@ Created 16/02/2019
 #include <memory>
 #include <string>
 
+#include "../Camera.hpp"
 #include "../DEBUG.hpp"
 #include "RenderManager.hpp"
 #include "RendererSystem.hpp"
@@ -17,13 +18,7 @@ Created 16/02/2019
 #include "../Shader.hpp"
 #include "../Mesh.hpp"
 #include "../Loader.hpp"
-#include "../Camera.hpp"
-#include "../Stopwatch.hpp"
 
-
-
-GLuint testVao;
-int testElementCount;
 matrix4f testView;
 matrix4f testProjection;
 
@@ -41,28 +36,26 @@ void RenderManager::render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    auto sw = Stopwatch::startNew();
 
     for (const auto & rd : _toRender)
     {
-        // todo: sort
+        // todo sort : shader -> mesh -> entity
         auto shader = getShader(rd.shaderHandle);
         auto mesh = core::meshes.get(rd.meshHandle);
 
+        // per frame
         glUseProgram(shader.id);
-
-        glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
-        glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
-
         glUniformMatrix4fv(shader.viewLocation, 1, GL_FALSE, &testView[0][0]);
         glUniformMatrix4fv(shader.projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
 
+        // per entity = renderdata
+        glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
+        glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
         glBindVertexArray(mesh.vao);
         glBindTexture(GL_TEXTURE_2D, rd.texture);
+
         glDrawElements(GL_TRIANGLES, mesh.elementCount, GL_UNSIGNED_INT, nullptr);
     }
-
-    debug << "rendering took " << sw.seconds() * 1000 << " ms\n";
 
     _toRender.clear();
     glFinish();

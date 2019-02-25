@@ -4,10 +4,9 @@ Leo Tamminen
 13/02/2019
 */
 
+#pragma once
+
 #include <cmath>
 
-namespace Core
-{
-    using std::abs;
-    using std::sqrt;
-}
+using std::abs;
+using std::sqrt;

@@ -5,7 +5,7 @@
 #include "ResourceManager.hpp"
 #include "Shader.hpp"
 
-struct MeshAsset
+struct MeshData
 {
     std::vector<float> vertices{};
     std::vector<float> normals{};
@@ -29,7 +29,10 @@ using mesh_handle = InstanceHandle<MeshInstance>;
 
 namespace core
 {
-    inline ResourceManager<MeshInstance, MeshAsset> meshes{};
+    inline ResourceManager<MeshInstance, MeshData> meshes{};
 }
 
 void setVertexAttributes(MeshInstance instance, Shader shader);
+
+
+

@@ -6,6 +6,8 @@ Created 21/02/2019
 #pragma once
 
 #include "Maths/Maths.hpp"
+#include "Serialization.hpp"
+#include "DEBUG.hpp"
 
 struct transform
 {
@@ -30,4 +32,23 @@ inline matrix4f inverseModelMatrix(const transform & tr)
     matrix4f IS = matrix4f::scale(inverseScale);
 
     return IS * IT;
+}
+
+namespace serialization
+{
+    template <>
+    inline transform deserialize<transform>(const Value & value)
+    {
+        transform result;
+        if (value.HasMember("position"))
+            result.position = deserialize<vector3f>(value["position"]);
+
+        if (value.HasMember("rotation"))
+            result.rotation = deserialize<vector3f>(value["rotation"]);
+
+        if (value.HasMember("scale"))
+            result.scale = deserialize<vector3f>(value["scale"]);
+
+        return result;
+    }
 }

@@ -124,7 +124,7 @@ bool loader::LoadTextureRGBA(const char *path, GLuint *target)
 // MESHES                        //
 //////////////////////////////////
 
-MeshAsset * convertFromOBJ(std::ifstream && file)
+MeshData * convertFromOBJ(std::ifstream && file)
 {
     assert(file.good() && "Do not use bad files");
 
@@ -420,7 +420,7 @@ MeshAsset * convertFromOBJ(std::ifstream && file)
     }
 
     // Unpack indices and vertices
-    auto * asset = new MeshAsset();
+    auto * asset = new MeshData();
     asset->elements = glElementsVector;
 
     asset->vertices.reserve(uniqueVertexCount * 3);
@@ -457,7 +457,7 @@ MeshAsset * convertFromOBJ(std::ifstream && file)
 } // objConvert
 
 
-template <> MeshAsset loader::load<MeshAsset>(const std::string & path)
+template <> MeshData loader::load<MeshData>(const std::string & path)
 {
     if (strOps::compareExtension(path, "obj"))
     {
@@ -465,5 +465,5 @@ template <> MeshAsset loader::load<MeshAsset>(const std::string & path)
     }
     assert(false && "only .objs supported now");
 
-    return MeshAsset{};
+    return MeshData{};
 }

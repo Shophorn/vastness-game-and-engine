@@ -1,5 +1,5 @@
 {
-  "Version" : 1,
+  "Version" : 2,
 
   "Context" :
   {
@@ -29,24 +29,39 @@
     {
       "name" : "cube",
       "path" : "Assets/Cube.obj"
+    },
+    {
+      "name" : "fish1",
+      "path" : "Assets/fish_a.obj"
+    },
+    {
+      "name" : "fish2",
+      "path" : "Assets/fish_b.obj"
     }
+
   ],
 
   "Shaders" : [
     {
       "name" : "default",
-      "path" : "path"
+      "path" : "default"
     },
     {
       "name" : "sprite",
-      "path" : "path"
+      "path" : "sprite"
     }
   ],
 
   "Textures" : [
     {
       "name" : "bricks",
-      "path" : "path"
+      "path" : "Game/Assets/bricks.png",
+      "color mode" : "RGBA"
+    },
+    {
+      "name" : "fish1",
+      "path" : "Assets/Fish_A_ColorRGB_SmoothA.png",
+      "color mode" : "RGBA"
     }
   ],
 
@@ -61,9 +76,27 @@
    "Entities" : [
      {
        "id" : 1,
-       "transform" : {},
-       "renderer" : { "mesh" : "player", "material" : "player"},
-       "playerControl" : {}
+       "components" : [
+         { "type" : "transform" },
+         { "type" : "renderer", "mesh" : "cube", "shader" : "sprite", "texture" : "bricks" },
+         { "type" : "playerControl" }
+       ]
+     },
+     {
+       "id" : 2,
+       "components" : [
+         { "type" : "transform" },
+         { "type" : "renderer", "mesh" : "fish1", "shader" : "sprite", "texture" : "fish1"},
+         { "type" : "followEntity", "target" : 1 }
+       ]
+     },
+     {
+       "id" : 3,
+       "components" : [
+         { "type" : "transform" , "position" : [7, 0, 0] },
+         { "type" : "renderer", "mesh" : "fish1", "shader" : "sprite", "texture" : "fish1"},
+         { "type" : "followEntity", "target" : 2 }
+       ]
      }
    ]
 }

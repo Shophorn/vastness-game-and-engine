@@ -23,7 +23,7 @@ namespace detail
 }
 
 template<>
-MeshInstance instantiate(MeshAsset * asset)
+MeshInstance instantiate(MeshData * asset)
 {
     assert(!asset->vertices.empty() && !asset->elements.empty() && "invalid mesh");
 

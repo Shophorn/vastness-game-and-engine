@@ -6,8 +6,24 @@ Created 31/01/2019
 #include "vector3f.hpp"
 #include "OStreamOperators.hpp"
 #include "Basic.hpp"
+#include "../Serialization.hpp"
 
 using namespace maths;
+
+namespace serialization
+{
+    template <>
+    vector3f deserialize(const Value & value)
+    {
+        auto array = value.GetArray();
+        return vector3f{
+            array[0].GetFloat(),
+            array[1].GetFloat(),
+            array[2].GetFloat()
+        };
+    }
+}
+
 
 const vector3f vector3f::down = vector3f(0.0f, 0.0f, -1.0f);
 const vector3f vector3f::up = vector3f(0.0f, 0.0f, 1.0f);

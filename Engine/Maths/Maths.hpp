@@ -10,8 +10,6 @@ Created 05/02/2019
 
 #include "OStreamOperators.hpp"
 
-#include "Basic.hpp"
-
 using maths::vector2f;
 using maths::vector3f;
 using maths::vector4f;
