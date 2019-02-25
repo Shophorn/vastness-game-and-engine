@@ -46,16 +46,16 @@ void RenderManager::render()
     for (const auto & rd : _toRender)
     {
         // todo: sort
-        auto _shader = getShader(rd.shaderHandle);
+        auto shader = getShader(rd.shaderHandle);
         auto mesh = core::meshes.get(rd.meshHandle);
 
-        glUseProgram(_shader.id);
+        glUseProgram(shader.id);
 
-        glUniformMatrix4fv(_shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
-        glUniformMatrix4fv(_shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
+        glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
+        glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
 
-        glUniformMatrix4fv(_shader.viewLocation, 1, GL_FALSE, &testView[0][0]);
-        glUniformMatrix4fv(_shader.projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
+        glUniformMatrix4fv(shader.viewLocation, 1, GL_FALSE, &testView[0][0]);
+        glUniformMatrix4fv(shader.projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
 
         glBindVertexArray(mesh.vao);
         glBindTexture(GL_TEXTURE_2D, rd.texture);
@@ -76,7 +76,7 @@ void RenderManager::addRenderer(const transform &tr,  const renderer & r)
             inverseModelMatrix(tr),
             r.texture,
             r.shaderHandle,
-            r.meshHandle
+            r.mesh
     });
 }
 

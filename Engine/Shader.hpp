@@ -29,7 +29,5 @@ public:
         cameraPosLocation   (glGetUniformLocation(id, "cameraPos"))
     {}
 
-    void Use() const { glUseProgram(id); }
-
     static Shader Load(std::string shaderName);
 };

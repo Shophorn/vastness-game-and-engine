@@ -9,14 +9,14 @@ Created 21/02/2019
 #include <GL/glew.h>
 #include "RenderManager.hpp"
 #include "../ECS.hpp"
-#include "../Assets.hpp"
+#include "../ResourceManager.hpp"
 
 struct transform;
 struct renderer
 {
     GLuint texture;
     int shaderHandle;
-    InstanceHandle<MeshInstance> meshHandle;
+    mesh_handle mesh;
 };
 
 struct rendererSystem

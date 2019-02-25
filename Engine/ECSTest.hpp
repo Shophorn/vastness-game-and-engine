@@ -12,7 +12,7 @@ Created 22/02/2019
 #include "Shader.hpp"
 #include "Mesh.hpp"
 #include "Loader.hpp"
-#include "Assets.hpp"
+#include "ResourceManager.hpp"
 
 
 namespace test
@@ -68,6 +68,13 @@ namespace test
         ecs.registerSystem<rendererSystem>();
         ecs.registerSystem<followEntitySystem>();
 
+        /*
+        load renderer
+         1. load mesh
+         2. load shader
+         3. load textures
+         4. construct material
+        */
 
         GLuint playerTexture;
         loader::LoadTextureRGBA("Game/Assets/bricks.png", &playerTexture);
@@ -82,6 +89,8 @@ namespace test
         ecs.addComponent<playerControl>(player);
         ecs.addComponent<transform>(player);
         ecs.addComponent<renderer>(player, playerTexture, spriteShaderHandle, meshHandle);
+
+        core::meshes.terminate();
 
         GLuint fishTexture;
         loader::LoadTextureRGBA("Assets/Fish_A_ColorRGB_SmoothA.png", &fishTexture);
@@ -105,9 +114,14 @@ namespace test
         ecs.addComponent<renderer>(e2, 0, defaultShaderHandle, meshHandle2);
         ecs.addComponent<followEntity>(e2, e1, 0.1f);
 
+        core::meshes.terminate();
+
+
         auto e3 = ecs.createEntity();
         ecs.addComponent<transform>(e3, vector3f(3, 0, 0),vector3f(0), vector3f(1));
         ecs.addComponent<renderer>(e3, fishTexture, spriteShaderHandle, fishMeshHandle);
         ecs.addComponent<followEntity>(e3, e2, 0.1f);
+
+        core::meshes.terminate();
     }
 }

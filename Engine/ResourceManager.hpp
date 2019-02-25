@@ -11,8 +11,8 @@ Created 24/02/2019
 
 #include "Loader.hpp"
 
-template<typename Instance, typename Asset>
-Instance instantiate(Asset asset);
+template<typename Instance, typename Resource>
+Instance instantiate(Resource * resource);
 
 template <typename T>
 struct InstanceHandle
@@ -21,7 +21,7 @@ struct InstanceHandle
 };
 
 template <typename Instance, typename Asset>
-class AssetManager
+class ResourceManager
 {
 public:
     using handle_type = InstanceHandle<Instance>;
@@ -33,7 +33,7 @@ public:
         if (_loadedFileIndexes.find(path) == _loadedFileIndexes.end())
         {
             assetIndex = (int)_assets.size();
-            _assets.emplace_back(loader::load<Asset>(path));
+            _assets.emplace_back(new Asset(loader::load<Asset>(path)));
             _loadedFileIndexes.emplace(path, assetIndex);
         }
         else
@@ -41,7 +41,7 @@ public:
             assetIndex = _loadedFileIndexes[path];
         }
 
-        Asset asset = _assets[assetIndex];
+        Asset * asset = _assets[assetIndex];
         _instances.emplace_back(::instantiate<Instance, Asset>(asset));
         int instanceIndex = (int)_instances.size() - 1;
         _loadedAssetIndexes.emplace(instanceIndex, assetIndex);
@@ -59,8 +59,21 @@ public:
         return newHandle;
     }
 
+    void terminate()
+    {
+        for (auto * asset : _assets)
+        {
+            delete asset;
+        }
+        _assets.clear();
+    }
+
+    ~ResourceManager()
+    {
+        terminate();
+    }
 private:
-    std::vector<Asset>                      _assets{};
+    std::vector<Asset *>                      _assets{};
     std::vector<Instance>                   _instances{};
     std::unordered_map<std::string, int>    _loadedFileIndexes{};
     std::unordered_map<int, int>            _loadedAssetIndexes{};

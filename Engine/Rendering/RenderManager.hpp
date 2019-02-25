@@ -11,7 +11,7 @@ Created 16/02/2019
 #include <unordered_map>
 #include "../Shader.hpp"
 #include "../Maths/Maths.hpp"
-#include "../Assets.hpp"
+#include "../ResourceManager.hpp"
 #include "../Mesh.hpp"
 
 struct transform;
@@ -23,7 +23,7 @@ struct renderData
     matrix4f inverse{};
     GLuint texture{};
     int shaderHandle{};
-    InstanceHandle<MeshInstance> meshHandle {};
+    mesh_handle meshHandle {};
 };
 
 class RenderManager

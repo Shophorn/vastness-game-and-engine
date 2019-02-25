@@ -2,9 +2,7 @@
 
 #include <GL/glew.h>
 #include <vector>
-#include <fstream>
-#include <cassert>
-#include "Assets.hpp"
+#include "ResourceManager.hpp"
 #include "Shader.hpp"
 
 struct MeshAsset
@@ -27,14 +25,11 @@ struct MeshInstance
     GLsizei elementCount {};
 };
 
-namespace convert
-{
-    MeshAsset * fromOBJ(std::ifstream &&file);
-}
+using mesh_handle = InstanceHandle<MeshInstance>;
 
 namespace core
 {
-    inline AssetManager<MeshInstance, MeshAsset> meshes{};
+    inline ResourceManager<MeshInstance, MeshAsset> meshes{};
 }
 
 void setVertexAttributes(MeshInstance instance, Shader shader);
