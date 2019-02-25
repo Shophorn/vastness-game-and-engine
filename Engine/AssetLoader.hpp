@@ -5,20 +5,20 @@ Leo Tamminen
 
 #pragma once
 
-#include "Mesh.hpp"
+#include <GL/glew.h>
+#include <string>
 
 namespace loader
 {
-    bool LoadMeshAsset(const char *path, Mesh *target);
-    Mesh * LoadOBJPtr(const char *path);
+    template<typename Asset>
+    Asset load(const std::string &path);
+}
 
+// lol remove these and make use above template
+namespace loader
+{
     bool LoadTextureRGB(const char *path, GLuint *target);
     bool LoadTextureRGBA(const char *path, GLuint *target);
-
-    template <typename Asset>
-    Asset load(std::string path);
-
-
 };
 
 

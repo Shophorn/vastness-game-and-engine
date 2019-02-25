@@ -7,14 +7,20 @@ Created 21/01/2019
 
 #include <fstream>
 #include <string>
+#include <vector>
 
 #include <rapidjson/Document.h>
 
-namespace FileOperations
+
+
+namespace fileOps
 {
+
     const char * ReadFile(const char *path);
 
     rapidjson::Document ReadJson(const char * path);
+
+
 };
 
 

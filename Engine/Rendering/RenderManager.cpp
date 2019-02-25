@@ -7,6 +7,7 @@ Created 16/02/2019
 #include <GLFW/glfw3.h>
 
 #include <memory>
+#include <string>
 
 #include "../DEBUG.hpp"
 #include "RenderManager.hpp"
@@ -17,6 +18,7 @@ Created 16/02/2019
 #include "../Mesh.hpp"
 #include "../AssetLoader.hpp"
 #include "../Camera.hpp"
+#include "../Stopwatch.hpp"
 
 
 
@@ -24,8 +26,6 @@ GLuint testVao;
 int testElementCount;
 matrix4f testView;
 matrix4f testProjection;
-
-Mesh mesh;
 
 void RenderManager::initialize()
 {
@@ -40,6 +40,8 @@ void RenderManager::initialize()
 void RenderManager::render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    auto sw = Stopwatch::startNew();
 
     for (const auto & rd : _toRender)
     {
@@ -58,11 +60,11 @@ void RenderManager::render()
         glDrawElements(GL_TRIANGLES, rd.elementCount, GL_UNSIGNED_INT, nullptr);
     }
 
+    debug << "rendering took " << sw.seconds() << "s\n";
+
     _toRender.clear();
     glFinish();
 }
-
-
 
 void RenderManager::addRenderer(const transform &tr,  const renderer & r)
 {

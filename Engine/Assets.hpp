@@ -15,6 +15,8 @@ Created 24/02/2019
 #include "Shader.hpp"
 #include "DEBUG.hpp"
 
+//template <typename Instance, typename Asset>
+//Instance instantiate (Asset asset);
 
 struct MeshAssetHandle
 {

@@ -19,7 +19,6 @@ add_executable(
         Engine/Screen.hpp
         Engine/Transform.cpp Engine/Transform.hpp
         Engine/Input.cpp Engine/Input.hpp
-        Engine/Renderer.cpp Engine/Renderer.hpp
         Engine/Camera.cpp Engine/Camera.hpp
         Engine/SceneLoader.hpp
         Engine/Light.hpp
@@ -47,5 +46,5 @@ add_executable(
         Engine/ECS/Component.hpp
         Engine/ECS/HandleManager.hpp
         Engine/ECS/OstreamOperators.hpp
-        Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp Engine/Maths/Basic.hpp Engine/Maths/vector2f.hpp Engine/Assets.hpp Engine/Assets.cpp)
+        Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp Engine/Maths/Basic.hpp Engine/Maths/vector2f.hpp Engine/Assets.hpp Engine/Assets.cpp Engine/Stopwatch.hpp)
 

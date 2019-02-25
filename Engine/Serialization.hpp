@@ -11,7 +11,7 @@ namespace Core
     namespace Serialization
     {
         using Value = rapidjson::Value;
-        using namespace StringOperations;
+        using namespace strOps;
 
         template <typename T>
         T deserialize(const Value & value);

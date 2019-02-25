@@ -43,13 +43,13 @@ namespace
     {
         // Vertex shader
         std::string vertexPath = shaderPath + name + vertexExtension;
-        const char * vertexSource = FileOperations::ReadFile(vertexPath.c_str());
+        const char * vertexSource = fileOps::ReadFile(vertexPath.c_str());
         GLuint vertexShader = ShaderFromSource(vertexSource, GL_VERTEX_SHADER);
         DoPrintIfNotGood("vertex", vertexShader);
 
         // Fragement shader
         std::string fragmentPath = shaderPath + name + fragmentExtension;
-        const char * fragmentSource = FileOperations::ReadFile(fragmentPath.c_str());
+        const char * fragmentSource = fileOps::ReadFile(fragmentPath.c_str());
         GLuint fragmentShader = ShaderFromSource(fragmentSource, GL_FRAGMENT_SHADER);
         DoPrintIfNotGood("fragment", fragmentShader);
 

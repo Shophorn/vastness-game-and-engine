@@ -7,7 +7,7 @@ Created 21/01/2019
 #include "FileOperations.hpp"
 
 
-const char *FileOperations::ReadFile(const char *path)
+const char *fileOps::ReadFile(const char *path)
 {
     using namespace std;
 
@@ -27,9 +27,9 @@ const char *FileOperations::ReadFile(const char *path)
     return source;
 }
 
-rapidjson::Document FileOperations::ReadJson(const char *path)
+rapidjson::Document fileOps::ReadJson(const char *path)
 {
-    const char * jsonFormat = FileOperations::ReadFile(path);
+    const char * jsonFormat = fileOps::ReadFile(path);
     rapidjson::Document document;
     document.Parse(jsonFormat);
     delete [] jsonFormat;
