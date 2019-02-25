@@ -14,10 +14,11 @@ Created 21/02/2019
 struct transform;
 struct renderer
 {
-    GLuint vao;
+//    GLuint vao;
     GLuint texture;
-    int elementCount;
+//    int elementCount;
     int shaderHandle;
+    MeshAssetHandle meshHandle;
 };
 
 struct rendererSystem

@@ -14,6 +14,7 @@ private:
 
 public:
     void initialize(GLFWwindow *window){ _window = window; }
+    void terminate() {}
 
     float horizontal();
     float vertical();

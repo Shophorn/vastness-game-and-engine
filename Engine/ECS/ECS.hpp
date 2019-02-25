@@ -240,6 +240,7 @@ public:
     }
 
     void initialize() {}
+    void terminate() {}
 
     void update(float deltaTime)
     {

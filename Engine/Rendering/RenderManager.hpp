@@ -11,6 +11,7 @@ Created 16/02/2019
 #include <unordered_map>
 #include "../Shader.hpp"
 #include "../Maths/Maths.hpp"
+#include "../Assets.hpp"
 
 struct transform;
 struct renderer;
@@ -19,11 +20,9 @@ struct renderData
 {
     matrix4f model{};
     matrix4f inverse{};
-    GLuint vao{};
     GLuint texture{};
-    int elementCount{};
     int shaderHandle{};
-
+    MeshAssetHandle meshHandle {};
 };
 
 class RenderManager

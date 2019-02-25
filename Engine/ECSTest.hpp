@@ -81,7 +81,7 @@ namespace test
         Handle player = ecs.createEntity();
         ecs.addComponent<playerControl>(player);
         ecs.addComponent<transform>(player);
-        ecs.addComponent<renderer>(player, mesh.vao, playerTexture, mesh.elementCount, spriteShaderHandle);
+        ecs.addComponent<renderer>(player, playerTexture, spriteShaderHandle, meshHandle);
 
         GLuint fishTexture;
         loader::LoadTextureRGBA("Assets/Fish_A_ColorRGB_SmoothA.png", &fishTexture);
@@ -92,9 +92,8 @@ namespace test
 
         Handle e1 = ecs.createEntity();
         ecs.addComponent<transform>(e1, transform{vector3f(0), vector3f(1), vector3f(1)});
-        ecs.addComponent<renderer>(e1, fishMesh.vao, fishTexture, fishMesh.elementCount, spriteShaderHandle);
+        ecs.addComponent<renderer>(e1, fishTexture, spriteShaderHandle, fishMeshHandle);
         ecs.addComponent<followEntity>(e1, player, 0.1f);
-
 
 
         auto defaultShaderHandle = core::renderManager.getShaderHandle("default");
@@ -103,12 +102,12 @@ namespace test
         setVertexAttributes(mesh222, core::renderManager.getShader(defaultShaderHandle));
         Handle e2 = ecs.createEntity();
         ecs.addComponent<transform>(e2, vector3f(2, 0 ,0), vector3f(1), vector3f(1));
-        ecs.addComponent<renderer>(e2, mesh222.vao, 0, mesh222.elementCount, defaultShaderHandle);
+        ecs.addComponent<renderer>(e2, 0, defaultShaderHandle, meshHandle2);
         ecs.addComponent<followEntity>(e2, e1, 0.1f);
 
         auto e3 = ecs.createEntity();
         ecs.addComponent<transform>(e3, vector3f(3, 0, 0),vector3f(0), vector3f(1));
-        ecs.addComponent<renderer>(e3, fishMesh.vao, fishTexture, fishMesh.elementCount, spriteShaderHandle);
+        ecs.addComponent<renderer>(e3, fishTexture, spriteShaderHandle, fishMeshHandle);
         ecs.addComponent<followEntity>(e3, e2, 0.1f);
     }
 }

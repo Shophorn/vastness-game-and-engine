@@ -38,6 +38,9 @@ void Engine::render()
 
 void Engine::terminate()
 {
+    core::renderManager.terminate();
+    core::ecs.terminate();
+    core::input.terminate();
     glfwTerminate();
 }
 
