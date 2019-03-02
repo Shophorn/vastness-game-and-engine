@@ -16,18 +16,18 @@ class Engine
 {
 private:
     bool _isRunning;
-    GLFWwindow * _window;
-    rendererSystem * _renderingSystem;
+    GLFWwindow * _window = nullptr;
 
+    void handleEvents();
+    void update();
+    void render();
+ 
 public:
     Engine() = default;
     ~Engine() = default;
 
     void initialize(const char *title, int width, int height);
-
-    void handleEvents();
-    void update();
-    void render();
+    void start();
     void terminate();
 
     bool isRunning() { return _isRunning; }

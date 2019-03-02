@@ -9,27 +9,41 @@ Created 21/02/2019
 #include <GL/glew.h>
 #include "RenderManager.hpp"
 #include "../ECS.hpp"
-#include "../ResourceManager.hpp"
 
-struct transform;
 struct renderer
 {
     GLuint texture{};
-    int shaderHandle{};
-    mesh_handle mesh{};
-
-    renderer(GLuint _texture, int _shaderHandle, mesh_handle _mesh) :
-        texture(_texture), shaderHandle(_shaderHandle), mesh (_mesh) {
-        debug << texture << ", " << shaderHandle << ", " << mesh.index << "\n";
-    }
+    RenderManager::renderHandle handle{};
 };
 
 struct rendererSystem
 {
     using components = mtl::List<transform, renderer>;
-
     void update(const transform & tr, const renderer & r)
     {
-        core::renderManager.addRenderer(tr, r);
+        core::renderManager.addDrawCall(tr, r);
     }
 };
+
+
+
+#include "../Serialization.hpp"
+#include "../Resources/Textures.hpp"
+#include "../Resources/Shaders.hpp"
+#include "../Resources/Meshes.hpp"
+
+namespace serialization
+{
+    template <>
+    inline renderer deserialize<renderer>(const Value & value)
+    {
+        auto tex = resources::textures.getHandle(value["texture"].GetString());
+        auto shader = resources::shaders.getHandle(value["shader"].GetString());
+        auto mesh = resources::meshes.instantiate(value["mesh"].GetString());
+
+        renderer r;
+        r.texture = tex;
+        r.handle = core::renderManager.bindRenderInfo(shader, mesh);
+        return r;
+    }
+}

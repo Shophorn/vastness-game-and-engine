@@ -12,9 +12,9 @@ Created 13/02/2019
 #include "ECS.hpp"
 #include "Input.hpp"
 
-#include "ECSTest.hpp"
+#include "ECSLoader.hpp"
 
-ecs core::ecs;
+ECS core::ecs;
 Input core::input;
 RenderManager core::renderManager;
 
@@ -34,6 +34,16 @@ void Engine::render()
 {
     core::renderManager.render();
     glfwSwapBuffers(_window);
+}
+
+void Engine::start()
+{
+    while (_isRunning)
+    {
+        handleEvents();
+        update();
+        render();
+    }
 }
 
 void Engine::terminate()
@@ -64,7 +74,7 @@ void Engine::initialize(const char *title, int width, int height)
     core::input.initialize(_window);
     core::ecs.initialize();
 
-    test::build();
+    ECSLoader::build();
 
     _isRunning = true;
 }

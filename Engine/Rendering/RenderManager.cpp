@@ -18,6 +18,8 @@ Created 16/02/2019
 #include "../Shader.hpp"
 #include "../Mesh.hpp"
 #include "../Loader.hpp"
+#include "../Resources/Shaders.hpp"
+#include "../Resources/Meshes.hpp"
 
 matrix4f testView;
 matrix4f testProjection;
@@ -26,22 +28,29 @@ void RenderManager::initialize()
 {
     glClearColor(0.6, 0.8, 1.0, 1.0);
 
-    Camera testCamera(vector3f(0, 5, 2), vector3f(0), 45, 0, 100, vector3f(0.6, 0.8, 1.0));
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);
+
+
+    // Take care not to set camera near clipping plane to zero, that hyucks up projection and depth test
+    Camera testCamera(vector3f(0, 5, 2), vector3f(0), 45, 0.01, 100, vector3f(0.6, 0.8, 1.0));
     testCamera.aspectRatio = 1920.0f / 1080.0f;
     testProjection = testCamera.projectionMatrix();
     testView = testCamera.viewMatrix();
+
+
+    debug << testProjection << "\n";
 }
 
 void RenderManager::render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
     for (const auto & rd : _toRender)
     {
         // todo sort : shader -> mesh -> entity
-        auto shader = getShader(rd.shaderHandle);
-        auto mesh = core::meshes.get(rd.meshHandle);
+        auto shader = resources::shaders.get(rd.handle.shader);
+        auto mesh = resources::meshes.get(rd.handle.mesh);
 
         // per frame
         glUseProgram(shader.id);
@@ -61,33 +70,29 @@ void RenderManager::render()
     glFinish();
 }
 
-void RenderManager::addRenderer(const transform &tr,  const renderer & r)
+void RenderManager::addDrawCall(const transform &tr, const renderer &r)
 {
     _toRender.emplace_back(
         renderData {
             modelMatrix(tr),
             inverseModelMatrix(tr),
             r.texture,
-            r.shaderHandle,
-            r.mesh
+            r.handle
     });
 }
 
-void RenderManager::terminate()
+void RenderManager::terminate() {}
+
+RenderManager::renderHandle RenderManager::bindRenderInfo(int shader, meshHandle mesh)
 {
-    for (const auto & s : _shaders)
-        glDeleteShader(s.id);
+//    for (const auto & h : _renderHandles){
+//        if (h.shader == shader && h.mesh == mesh){
+//            return h;
+//        }
+//    }
 
-    _shaders.clear();
-}
-
-int RenderManager::getShaderHandle(const std::string & name)
-{
-    if (_shaderMap.find(name) == _shaderMap.end())
-    {
-        _shaders.emplace_back(Shader::Load(name));
-        _shaderMap.emplace(name, _shaders.size() -1);
-    }
-
-    return _shaderMap[name];
+    // bind together and save
+//    mesh = resources::meshes.instantiate(mesh);
+    setVertexAttributes(resources::meshes.get(mesh), resources::shaders.get(shader));
+    return _renderHandles.emplace_back( renderHandle{ shader, mesh} );
 }

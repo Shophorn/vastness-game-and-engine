@@ -25,14 +25,12 @@ struct MeshInstance
     GLsizei elementCount {};
 };
 
-using mesh_handle = InstanceHandle<MeshInstance>;
-
-namespace core
-{
-    inline ResourceManager<MeshInstance, MeshData> meshes{};
-}
+//using mesh_handle = InstanceHandle<MeshInstance>;
+//
+//namespace core
+//{
+//    inline ResourceManager<MeshInstance, MeshData> meshes{};
+//}
 
 void setVertexAttributes(MeshInstance instance, Shader shader);
-
-
-
+MeshInstance instantiate(MeshData * data);

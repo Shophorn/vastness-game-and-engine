@@ -35,10 +35,13 @@
       "path" : "Assets/fish_a.obj"
     },
     {
-      "name" : "fish2",
-      "path" : "Assets/fish_b.obj"
+      "name": "fish2",
+      "path": "Assets/fish_b.obj"
+    },
+    {
+      "name" : "building",
+      "path" : "Assets/building_mockup_0001.obj"
     }
-
   ],
 
   "Shaders" : [
@@ -96,6 +99,13 @@
          { "type" : "transform" , "position" : [7, 0, 0] },
          { "type" : "renderer", "mesh" : "fish1", "shader" : "sprite", "texture" : "fish1"},
          { "type" : "followEntity", "target" : 2 }
+       ]
+     },
+     {
+       "id" : 4,
+       "components" : [
+         { "type" : "transform", "position" : [0, 0, 0], "scale" : [0.1, 0.1, 0.1] },
+         { "type" : "renderer" , "mesh" : "building", "shader" : "sprite", "texture" : "bricks" }
        ]
      }
    ]

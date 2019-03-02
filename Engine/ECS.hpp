@@ -9,5 +9,9 @@ Created 21/02/2019
 
 namespace core
 {
-    extern ecs ecs;
+    extern ECS ecs;
 }
+
+// core components
+#include "TransformComponent.hpp"
+#include "Rendering/RendererSystem.hpp"

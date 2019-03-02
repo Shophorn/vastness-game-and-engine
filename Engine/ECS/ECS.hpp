@@ -74,7 +74,7 @@ template <typename System, typename Components>
 constexpr bool hasComponentUpdate = detail::hasComponentUpdateHelper<System, Components>::value;
 ///-------------------------------------------------------
 
-class ecs
+class ECS
 {
     using updateHandler  = std::function < void (float) >;
 

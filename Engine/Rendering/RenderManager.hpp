@@ -13,26 +13,15 @@ Created 16/02/2019
 #include "../Maths/Maths.hpp"
 #include "../ResourceManager.hpp"
 #include "../Mesh.hpp"
+#include "../Resources/Meshes.hpp"
 
 struct transform;
 struct renderer;
 
-struct renderData
-{
-    matrix4f model{};
-    matrix4f inverse{};
-    GLuint texture{};
-    int shaderHandle{};
-    mesh_handle meshHandle {};
-};
+
 
 class RenderManager
 {
-private:
-    std::vector<renderData> _toRender{};
-    std::vector<Shader> _shaders{};
-    std::unordered_map<std::string, signed> _shaderMap {};
-
 public:
     RenderManager() = default;
     ~RenderManager() = default;
@@ -41,11 +30,30 @@ public:
     void terminate();
     void render();
 
-    void addRenderer(const transform &, const renderer & r);
+    void addDrawCall(const transform &, const renderer &r);
 
-    int getShaderHandle(const std::string & name);
-    const Shader & getShader(int handle) { return _shaders[handle]; }
-    const Shader & getShader (const std::string & name) { return _shaders[_shaderMap[name]]; }
+    struct renderHandle
+    {
+        int shader;
+        meshHandle mesh;
+    };
+
+//    renderHandle bindRenderInfo(int shader, mesh_handle mesh);
+    renderHandle bindRenderInfo(int shader, meshHandle mesh);
+
+private:
+    struct renderData
+    {
+        matrix4f model{};
+        matrix4f inverse{};
+        GLuint texture{};
+        renderHandle handle{};
+    };
+
+
+    std::vector<renderData> _toRender{};
+    std::vector<renderHandle> _renderHandles{};
+
 };
 
 namespace core

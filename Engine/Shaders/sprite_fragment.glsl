@@ -22,8 +22,7 @@ void main ()
     vec4 tex = texture(mainTexture, Texcoord);
     if (tex.a < _AlphaClip)
     {
-        discard;
+//        discard;
     }
     outColor = vec4 (tex.rgb, 1.0);
-//    outColor = vec4(Texcoord, 0, 1);
 }

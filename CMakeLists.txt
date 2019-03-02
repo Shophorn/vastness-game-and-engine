@@ -38,5 +38,5 @@ add_executable(
         Engine/ECS/Component.hpp
         Engine/ECS/HandleManager.hpp
         Engine/ECS/OstreamOperators.hpp
-        Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSTest.hpp Engine/Maths/Basic.hpp Engine/Maths/vector2f.hpp Engine/ResourceManager.hpp Engine/Stopwatch.hpp Engine/Texture.cpp Engine/Texture.hpp)
+        Engine/ECS/List.hpp Engine/Rendering/RendererSystem.hpp Engine/ECS.hpp Engine/TransformComponent.hpp Engine/ECSLoader.hpp Engine/Maths/Basic.hpp Engine/Maths/vector2f.hpp Engine/ResourceManager.hpp Engine/Stopwatch.hpp Engine/Texture.cpp Engine/Texture.hpp Engine/Resources/Textures.cpp Engine/Resources/Textures.hpp Engine/Resources/Shaders.cpp Engine/Resources/Shaders.hpp Engine/Resources/Meshes.cpp Engine/Resources/Meshes.hpp Game/Scripts/PlayerControlSystem.cpp Game/Scripts/PlayerControlSystem.hpp)
 

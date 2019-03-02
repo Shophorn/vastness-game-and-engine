@@ -7,7 +7,6 @@
 #include "Stopwatch.hpp"
 #include "DEBUG.hpp"
 
-ResourceManager<GLuint, Stopwatch> test;
 
 namespace detail
 {
@@ -22,7 +21,6 @@ namespace detail
     }
 }
 
-template<>
 MeshInstance instantiate(MeshData * asset)
 {
     assert(!asset->vertices.empty() && !asset->elements.empty() && "invalid mesh");
