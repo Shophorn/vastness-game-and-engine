@@ -11,14 +11,12 @@ using namespace maths;
 
 std::ostream &operator<<(std::ostream &os, const vector3f & v)
 {
-    os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    return os;
+    return os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
 }
 
 std::ostream &operator<<(std::ostream &os, const maths::vector4f &v)
 {
-    os << "(" << v[0] << ", " << v[1] << ", " << v[2] << ", " << v[3] << ")";
-    return os;
+    return os << "(" << v[0] << ", " << v[1] << ", " << v[2] << ", " << v[3] << ")";
 }
 
 std::ostream & operator << (std::ostream & os, const matrix4f & m)
@@ -33,4 +31,9 @@ std::ostream & operator << (std::ostream & os, const matrix4f & m)
         os << "\n";
     }
     return os;
+}
+
+std::ostream &operator<<(std::ostream &os, const maths::quaternion &q)
+{
+    return os << "(" << q.x << ", " << q.y << ", " << q.z << ", " << q.w << ")";
 }

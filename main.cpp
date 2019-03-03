@@ -7,8 +7,16 @@ Leo Tamminen
 #include "Engine/Engine.hpp"
 #include "Game/Components.hpp"
 
+
+namespace
+{
+    int test()
+    {
+    }
+}
 int main()
 {
+//    return test();
     Engine engine;
 
     engine.initialize("Vastness", 1920, 1080);

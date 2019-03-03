@@ -26,6 +26,7 @@ struct followEntitySystem
         if (m > 1.0)
             movement /= m;
         tr.position += fe.speed * dt * movement;
+        tr.rotation.y += 90 * dt;
     }
 };
 

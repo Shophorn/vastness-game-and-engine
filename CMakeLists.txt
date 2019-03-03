@@ -53,5 +53,5 @@ add_executable(
 
         Game/Scripts/PlayerControlSystem.hpp
         Game/Components.hpp
-        Game/Scripts/FollowEntitySystem.hpp)
+        Game/Scripts/FollowEntitySystem.hpp Engine/Maths/Quaternion.cpp Engine/Maths/Quaternion.hpp)
 
