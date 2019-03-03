@@ -7,8 +7,8 @@ Created 18/02/2019
 
 #include <type_traits>
 
-// Metaprogramming Template Library, that is cool
-namespace mtl
+// MetaProgramming Library, that is cool
+namespace mpl
 {
     template<typename ... Types>
     struct List {};

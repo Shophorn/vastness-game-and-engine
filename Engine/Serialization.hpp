@@ -8,6 +8,8 @@ Created 07/02/2019
 
 #include <rapidjson/document.h>
 #include <cassert>
+#include <string>
+
 
 namespace serialization
 {

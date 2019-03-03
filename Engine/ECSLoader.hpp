@@ -32,7 +32,7 @@ namespace ECSLoader
 
     struct TEST_PlayerControlSystem
     {
-        using components = mtl::List<transform, TEST_PlayerControl>;
+        using components = mpl::List<transform, TEST_PlayerControl>;
 
         void update(transform & tr, TEST_PlayerControl & pl, float deltaTime)
         {
@@ -49,7 +49,7 @@ namespace ECSLoader
 
     struct followEntitySystem
     {
-        using components = mtl::List<followEntity, transform>;
+        using components = mpl::List<followEntity, transform>;
 
         void update(const followEntity & fe, transform & tr, float dt)
         {

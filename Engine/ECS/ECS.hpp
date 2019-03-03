@@ -45,7 +45,7 @@ namespace detail
     struct hasComponentTimeUpdateHelper;
 
     template <typename S, typename T, typename ... Cs>
-    struct hasComponentTimeUpdateHelper<S, T, mtl::List<Cs...>>
+    struct hasComponentTimeUpdateHelper<S, T, mpl::List<Cs...>>
     {
         static constexpr bool value = detail::hasUpdate<S, Cs&..., T>(0);
     };
@@ -54,7 +54,7 @@ namespace detail
     struct hasComponentUpdateHelper;
 
     template <typename S, typename ... Cs>
-    struct hasComponentUpdateHelper<S, mtl::List<Cs...>>
+    struct hasComponentUpdateHelper<S, mpl::List<Cs...>>
     {
         static constexpr bool value = detail::hasUpdate<S, Cs&...>(0);
     };
@@ -162,7 +162,7 @@ public:
     }
 
     template <typename System, typename ... Components>
-    void registerComponentTimeUpdate(System *system, mtl::List<Components...> &&)
+    void registerComponentTimeUpdate(System *system, mpl::List<Components...> &&)
     {
         cout << "register update with time\n";
 
@@ -174,7 +174,7 @@ public:
     }
 
     template <typename System, typename ... Components>
-    void registerComponentUpdate(System * system, mtl::List<Components...>&&)
+    void registerComponentUpdate(System * system, mpl::List<Components...>&&)
     {
         cout << "register update with no time\n";
 

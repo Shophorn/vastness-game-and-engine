@@ -18,7 +18,7 @@ struct renderer
 
 struct rendererSystem
 {
-    using components = mtl::List<transform, renderer>;
+    using components = mpl::List<transform, renderer>;
     void update(const transform & tr, const renderer & r)
     {
         core::renderManager.addDrawCall(tr, r);
@@ -37,13 +37,11 @@ namespace serialization
     template <>
     inline renderer deserialize<renderer>(const Value & value)
     {
-        auto tex = resources::textures.getHandle(value["texture"].GetString());
-        auto shader = resources::shaders.getHandle(value["shader"].GetString());
-        auto mesh = resources::meshes.instantiate(value["mesh"].GetString());
+        auto tex        = resources::textures.getHandle(value["texture"].GetString());
+        auto shader     = resources::shaders.getHandle(value["shader"].GetString());
+        auto mesh       = resources::meshes.instantiate(value["mesh"].GetString());
 
-        renderer r;
-        r.texture = tex;
-        r.handle = core::renderManager.bindRenderInfo(shader, mesh);
-        return r;
+        auto renderHandle = core::renderManager.bindRenderInfo(shader, mesh);
+        return renderer{ tex, renderHandle };
     }
 }
