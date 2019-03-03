@@ -209,7 +209,7 @@ public:
     template <typename Component>
     void registerComponent()
     {
-        // Add only once
+        // Register only once
         if (componentMap.find(&typeid(Component)) != componentMap.end())
             return;
 

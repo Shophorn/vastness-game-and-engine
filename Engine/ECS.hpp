@@ -12,6 +12,3 @@ namespace core
     extern ECS ecs;
 }
 
-// core components
-#include "TransformComponent.hpp"
-#include "Rendering/RendererSystem.hpp"

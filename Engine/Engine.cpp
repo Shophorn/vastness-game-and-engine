@@ -12,7 +12,9 @@ Created 13/02/2019
 #include "ECS.hpp"
 #include "Input.hpp"
 
+#include "EcsCoreComponents.hpp"
 #include "ECSLoader.hpp"
+
 
 ECS core::ecs;
 Input core::input;
@@ -38,6 +40,9 @@ void Engine::render()
 
 void Engine::start()
 {
+   ecsLoader->build();
+
+    _isRunning = true;
     while (_isRunning)
     {
         handleEvents();
@@ -73,9 +78,11 @@ void Engine::initialize(const char *title, int width, int height)
     core::renderManager.initialize();
     core::input.initialize(_window);
     core::ecs.initialize();
+    ecs = &core::ecs;
 
-    ECSLoader::build();
+    initializeCoreComponents(&core::ecs);
+    initializeCoreSystems(&core::ecs);
 
-    _isRunning = true;
+    ecsLoader = std::make_unique<EcsDeserializer>();
+    ecsLoader->registerDeserializers(getCoreDeserializeFunctions());
 }
-

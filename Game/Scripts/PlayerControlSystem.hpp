@@ -7,6 +7,7 @@ Created 28/02/2019
 #pragma once
 
 #include "../../Engine/ECS.hpp"
+#include "../../Engine/EcsCoreComponents.hpp"
 #include "../../Engine/Input.hpp"
 #include "../../Engine/Serialization.hpp"
 
@@ -29,7 +30,7 @@ struct playerControlSystem
 namespace serialization
 {
     template <>
-    playerControl deserialize<playerControl>(const Value & value)
+    inline playerControl deserialize<playerControl>(const Value & value)
     {
         playerControl p{};
         if (value.HasMember("speed"))

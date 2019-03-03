@@ -8,9 +8,15 @@ Created 13/02/2019
 
 #include <unordered_map>
 #include <string>
+#include "Serialization.hpp"
+#include <memory>
+#include "ECSLoader.hpp"
 
 class GLFWwindow;
 class rendererSystem;
+class ECS;
+
+
 
 class Engine
 {
@@ -21,7 +27,7 @@ private:
     void handleEvents();
     void update();
     void render();
- 
+
 public:
     Engine() = default;
     ~Engine() = default;
@@ -30,7 +36,7 @@ public:
     void start();
     void terminate();
 
-    bool isRunning() { return _isRunning; }
+    // merely a reference, maybe like borrowed_ptr
+    ECS * ecs = nullptr;
+    std::unique_ptr<EcsDeserializer> ecsLoader = nullptr;
 };
-
-

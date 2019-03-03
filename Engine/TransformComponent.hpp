@@ -39,6 +39,8 @@ namespace serialization
     template <>
     inline transform deserialize<transform>(const Value & value)
     {
+        debug << "transform deserialized\n";
+
         transform result;
         if (value.HasMember("position"))
             result.position = deserialize<vector3f>(value["position"]);

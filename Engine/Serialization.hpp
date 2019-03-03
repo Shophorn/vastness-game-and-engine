@@ -8,8 +8,11 @@ Created 07/02/2019
 
 #include <rapidjson/document.h>
 #include <cassert>
-#include <string>
+#include <functional>
 
+#include "ECS.hpp"
+
+class EcsDeserializer;
 
 namespace serialization
 {
@@ -17,5 +20,20 @@ namespace serialization
 
     template <typename T>
     T deserialize(const Value & value);
+
+    using AddDeserializedComponentFunction = std::function< void (Handle, const serialization::Value&)>;
+
+    template <typename Component>
+    void addDeserializedComponent (Handle entity, const serialization::Value & value)
+    {
+        core::ecs.addComponent<Component>(entity, serialization::deserialize<Component>(value));
+    }
+
+    // like what
+    inline EcsDeserializer * ecsDeserializer;
 }
+
+
+
+
 
