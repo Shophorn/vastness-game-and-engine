@@ -2,7 +2,7 @@
 #include <sstream>
 #include <cassert>
 
-#include "ResourceManager.hpp"
+#include "Rendering/Shader.hpp"
 #include "Mesh.hpp"
 #include "Stopwatch.hpp"
 #include "DEBUG.hpp"

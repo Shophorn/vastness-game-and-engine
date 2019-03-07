@@ -1,5 +1,6 @@
 /*
-LeoTamminen
+Shophorn Games
+Leo Tamminen
 Created 13/02/2019
 */
 
@@ -13,8 +14,7 @@ Created 13/02/2019
 #include "Input.hpp"
 
 #include "EcsCoreComponents.hpp"
-#include "ECSLoader.hpp"
-
+#include "SceneLoader.hpp"
 
 ECS core::ecs;
 Input core::input;
@@ -83,6 +83,6 @@ void Engine::initialize(const char *title, int width, int height)
     initializeCoreComponents(&core::ecs);
     initializeCoreSystems(&core::ecs);
 
-    ecsLoader = std::make_unique<EcsDeserializer>();
+    ecsLoader = std::make_unique<SceneLoader>();
     ecsLoader->registerDeserializers(getCoreDeserializeFunctions());
 }

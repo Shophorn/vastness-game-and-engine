@@ -14,14 +14,11 @@ Created 22/02/2019
 #include "FileOperations.hpp"
 #include "Serialization.hpp"
 
-
 #include "Resources/Textures.hpp"
 #include "Resources/Shaders.hpp"
 #include "Resources/Meshes.hpp"
 
-
-
-class EcsDeserializer
+class SceneLoader
 {
     using deserializeMap = std::unordered_map<std::string, serialization::AddDeserializedComponentFunction>;
     deserializeMap _deserializers;
@@ -45,7 +42,7 @@ public:
 
     void build()
     {
-        serialization::ecsDeserializer = this;
+        serialization::sceneLoader = this;
 
         using std::string;
         using std::unordered_map;
@@ -76,6 +73,6 @@ public:
             }
         }
 
-        serialization::ecsDeserializer = nullptr;
+        serialization::sceneLoader = nullptr;
     }
 };

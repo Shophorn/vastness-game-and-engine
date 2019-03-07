@@ -6,7 +6,7 @@ Leo Tamminen
 #include "Shader.hpp"
 #include <iostream>
 
-#include "FileOperations.hpp"
+#include "../FileOperations.hpp"
 namespace
 {
     const char * shaderPath = "Engine/Shaders/";

@@ -9,14 +9,11 @@ Created 16/02/2019
 #include <memory>
 #include <string>
 
-#include "../Camera.hpp"
 #include "RenderManager.hpp"
 #include "RendererSystem.hpp"
+#include "../Camera.hpp"
 #include "../Maths/Maths.hpp"
 #include "../TransformComponent.hpp"
-#include "../Shader.hpp"
-#include "../Mesh.hpp"
-#include "../Loader.hpp"
 #include "../Resources/Shaders.hpp"
 #include "../Resources/Meshes.hpp"
 
@@ -30,7 +27,6 @@ void RenderManager::initialize()
     glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
 
-
     // Take care not to set camera near clipping plane to zero, that hyucks up projection and depth test
     Camera testCamera(vector3f(0, 5, 2), vector3f(0), 45, 0.01, 100, vector3f(0.6, 0.8, 1.0));
     testCamera.aspectRatio = 1920.0f / 1080.0f;
@@ -42,16 +38,24 @@ void RenderManager::render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    // todo: sort by shader, and use this nested loop
+    for (const auto & shader : resources::shaders)
+    {
+        // per frame
+        glUseProgram(shader.id);
+        glUniformMatrix4fv(shader.viewLocation, 1, GL_FALSE, &testView[0][0]);
+        glUniformMatrix4fv(shader.projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
+
+        // for renderer etc...
+    }
+
     for (const auto & rd : _toRender)
     {
         // todo sort : shader -> mesh -> entity
         auto shader = resources::shaders.get(rd.handle.shader);
         auto mesh = resources::meshes.get(rd.handle.mesh);
 
-        // per frame
         glUseProgram(shader.id);
-        glUniformMatrix4fv(shader.viewLocation, 1, GL_FALSE, &testView[0][0]);
-        glUniformMatrix4fv(shader.projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
 
         // per entity = renderdata
         glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
@@ -79,16 +83,25 @@ void RenderManager::addDrawCall(const transform &tr, const renderer &r)
 
 void RenderManager::terminate() {}
 
+void RenderManager::registerLight(light l)
+{
+    if (currentLightCount < MAX_DIRECTIONAL_LIGHTS)
+    {
+        _directionalLights[currentLightCount] = l;
+        currentLightCount++;
+    }
+}
+
 RenderManager::renderHandle RenderManager::bindRenderInfo(int shader, meshHandle mesh)
 {
-//    for (const auto & h : _renderHandles){
-//        if (h.shader == shader && h.mesh == mesh){
-//            return h;
-//        }
-//    }
+   for (const auto & h : _renderHandles){
+       if (h.shader == shader && h.mesh == mesh){
+           return h;
+       }
+   }
 
     // bind together and save
-//    mesh = resources::meshes.instantiate(mesh);
+    // mesh = resources::meshes.instantiate(mesh);
     setVertexAttributes(resources::meshes.get(mesh), resources::shaders.get(shader));
     return _renderHandles.emplace_back( renderHandle{ shader, mesh} );
 }

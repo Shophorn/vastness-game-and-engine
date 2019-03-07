@@ -8,9 +8,10 @@ Created 13/02/2019
 
 #include <unordered_map>
 #include <string>
-#include "Serialization.hpp"
 #include <memory>
-#include "ECSLoader.hpp"
+
+#include "Serialization.hpp"
+#include "SceneLoader.hpp"
 
 class GLFWwindow;
 class rendererSystem;
@@ -38,5 +39,5 @@ public:
 
     // merely a reference, maybe like borrowed_ptr
     ECS * ecs = nullptr;
-    std::unique_ptr<EcsDeserializer> ecsLoader = nullptr;
+    std::unique_ptr<SceneLoader> ecsLoader = nullptr;
 };

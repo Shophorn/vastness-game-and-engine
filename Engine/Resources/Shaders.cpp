@@ -4,7 +4,7 @@ Created 27/02/2019
 */
 
 #include "Shaders.hpp"
-#include "../Shader.hpp"
+#include "../Rendering/Shader.hpp"
 #include "../DEBUG.hpp"
 
 void Shaders::addLoadInfo(const serialization::Value &loadInfoValues)

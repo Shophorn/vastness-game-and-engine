@@ -5,11 +5,11 @@ in vec3 Normal;
 in vec2 Texcoord;
 in vec3 WorldPosition;
 
-uniform vec3 lightDir;
+uniform vec3 lightDir = normalize(vec3(1, 2 ,5));
 uniform vec3 cameraPos;
 uniform sampler2D mainTexture;
-uniform vec3 _LightColor;
-uniform vec3 _Ambient;
+uniform vec3 _LightColor = vec3(0.98, 0.97,0.87);
+uniform vec3 _Ambient = vec3(0.1, 0.1, 0.1);
 
 out vec4 outColor;
 

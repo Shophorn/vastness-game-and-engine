@@ -12,7 +12,7 @@ Created 07/02/2019
 
 #include "ECS.hpp"
 
-class EcsDeserializer;
+class SceneLoader;
 
 namespace serialization
 {
@@ -30,7 +30,7 @@ namespace serialization
     }
 
     // like what
-    inline EcsDeserializer * ecsDeserializer;
+    inline SceneLoader * sceneLoader;
 }
 
 

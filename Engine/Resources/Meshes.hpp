@@ -25,7 +25,7 @@ class Meshes
     using name_type = std::string;
 
     std::unordered_map<std::string, info> _nameInfoMap{};
-    std::vector<MeshInstance> _data;
+    std::vector<MeshInstance> _instances;
     std::vector< MeshData *> _loadedAssets{};
     std::unordered_map<name_type, int> _loadedFileIndexes{};
     std::unordered_map<int, int> _loadedAssetIndexes{};
@@ -36,7 +36,7 @@ public:
     meshHandle instantiate(meshHandle handle);
 
     // use handle - 1, since it is just int now, but we still want to keep handle 0 invalid
-    MeshInstance get (meshHandle  handle) { return _data[handle - 1]; }
+    MeshInstance get (meshHandle  handle) { return _instances[handle - 1]; }
 };
 
 namespace resources

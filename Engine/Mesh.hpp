@@ -2,8 +2,8 @@
 
 #include <GL/glew.h>
 #include <vector>
-#include "ResourceManager.hpp"
-#include "Shader.hpp"
+
+struct Shader;
 
 struct MeshData
 {
@@ -24,13 +24,6 @@ struct MeshInstance
 
     GLsizei elementCount {};
 };
-
-//using mesh_handle = InstanceHandle<MeshInstance>;
-//
-//namespace core
-//{
-//    inline ResourceManager<MeshInstance, MeshData> meshes{};
-//}
 
 void setVertexAttributes(MeshInstance instance, Shader shader);
 MeshInstance instantiate(MeshData * data);

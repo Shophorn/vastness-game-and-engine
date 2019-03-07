@@ -8,17 +8,15 @@ Created 16/02/2019
 
 #include <GL/glew.h>
 #include <vector>
+#include <array>
 #include <unordered_map>
-#include "../Shader.hpp"
-#include "../Maths/Maths.hpp"
-#include "../ResourceManager.hpp"
-#include "../Mesh.hpp"
+
+#include "Light.hpp"
+#include "../Maths/Maths.hpp" // only for renderdata
 #include "../Resources/Meshes.hpp"
 
 struct transform;
 struct renderer;
-
-
 
 class RenderManager
 {
@@ -38,8 +36,9 @@ public:
         meshHandle mesh;
     };
 
-//    renderHandle bindRenderInfo(int shader, mesh_handle mesh);
     renderHandle bindRenderInfo(int shader, meshHandle mesh);
+    
+    void registerLight(light l);
 
 private:
     struct renderData
@@ -50,10 +49,12 @@ private:
         renderHandle handle{};
     };
 
-
     std::vector<renderData> _toRender{};
     std::vector<renderHandle> _renderHandles{};
 
+    static constexpr int MAX_DIRECTIONAL_LIGHTS = 2;
+    int currentLightCount = 0;
+    std::array<light, MAX_DIRECTIONAL_LIGHTS> _directionalLights;
 };
 
 namespace core

@@ -1,5 +1,5 @@
 /*
-Shophorn
+Shophorn Games
 Leo Tamminen
 Created 21/02/2019
 */
@@ -25,12 +25,12 @@ struct rendererSystem
     }
 };
 
-
-
 #include "../Serialization.hpp"
 #include "../Resources/Textures.hpp"
 #include "../Resources/Shaders.hpp"
 #include "../Resources/Meshes.hpp"
+
+#include "../DEBUG.hpp"
 
 namespace serialization
 {

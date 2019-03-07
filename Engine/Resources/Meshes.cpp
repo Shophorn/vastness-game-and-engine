@@ -36,9 +36,9 @@ meshHandle Meshes::instantiate(std::string name)
     }
 
     MeshData * asset = _loadedAssets[assetIndex];
-    _data.emplace_back(::instantiate(asset));
+    _instances.emplace_back(::instantiate(asset));
 
-    int instanceIndex = (int)_data.size();
+    int instanceIndex = (int)_instances.size();
     _loadedAssetIndexes.emplace(instanceIndex, assetIndex);
 
     return instanceIndex;

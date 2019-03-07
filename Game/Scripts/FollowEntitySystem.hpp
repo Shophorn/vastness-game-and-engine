@@ -45,7 +45,7 @@ namespace serialization
         }
 
         int targetIndex = value["target"].GetInt();
-        p.targetHandle = serialization::ecsDeserializer->getMappedHandle(targetIndex);
+        p.targetHandle = serialization::sceneLoader->getMappedHandle(targetIndex);
         return p;
     }
 }

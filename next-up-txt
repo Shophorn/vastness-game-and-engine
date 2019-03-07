@@ -1,5 +1,22 @@
 NEXT UP
 =============================================
-
-- Quaternion lookRotation and fishes and player looking where they go
+- Serializable lights
+	- Lighthandle
 - Ground texture and normal maps and material
+- 3rd person camera
+	- Serializable camera
+	- Transform hierarchy
+	- mouse input
+	- correct keyboard direction input
+
+- CMake Structure
+- Compile engine to .lib
+- Proper handle based containers
+
+- Skysphere
+- template vectors
+
+PREVIOUSLY
+============================================
+07.03.19 Quaternion lookRotation and fishes and player looking where they go
+07.03.19 Multiple shaders to be used

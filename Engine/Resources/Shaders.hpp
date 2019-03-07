@@ -10,7 +10,7 @@ Created 27/02/2019
 #include <vector>
 #include <unordered_map>
 
-#include "../Shader.hpp"
+#include "../Rendering/Shader.hpp"
 #include "../Serialization.hpp"
 
 using shaderHandle = int;
@@ -30,6 +30,9 @@ public:
     void addLoadInfo(const serialization::Value & loadInfoValues);
     shaderHandle getHandle(std::string name);
     Shader get(shaderHandle handle) { return _shaders[handle - 1]; };
+
+    const auto begin() { return _shaders.cbegin(); }
+    const auto end() { return _shaders.cend(); }
 };
 
 namespace resources
