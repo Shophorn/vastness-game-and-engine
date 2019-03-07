@@ -10,6 +10,7 @@ Created 28/02/2019
 #include "../../Engine/EcsCoreComponents.hpp"
 #include "../../Engine/Input.hpp"
 #include "../../Engine/Serialization.hpp"
+#include "../../Engine/DEBUG.hpp"
 
 struct playerControl
 {
@@ -22,8 +23,21 @@ struct playerControlSystem
 
     void update(transform & tr, playerControl & pl, float dt)
     {
-        tr.position.x += core::input.horizontal() * dt * pl.speed;
-        tr.position.y += core::input.vertical() * dt * pl.speed;
+        vector3f input (core::input.horizontal(), core::input.vertical(), 0);
+
+        float length = magnitude(input);
+
+        if (length > 0.0f)
+        {
+            vector3f forward = input / length;
+            tr.rotation = lookRotation(input / length, vector3f::up);
+        }
+
+        if (length > 1.0f)
+        {
+            input /= length;
+        }
+        tr.position += input * dt * pl.speed;
     }
 };
 

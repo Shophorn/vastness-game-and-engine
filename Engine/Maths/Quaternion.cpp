@@ -10,6 +10,66 @@ Created 03/03/2019
 
 using namespace maths;
 
+maths::quaternion::quaternion (float x, float y, float z, float w)
+    : x(x), y(y), z(z), w(w) {}
+
+maths::quaternion::quaternion(vector3f xyz, float w) 
+    : x (xyz.x), y(xyz.y), z(xyz.z), w(w) {}
+
+
+vector3f maths::quaternion::operator * (vector3f vec)
+{
+    quaternion lhs = *this;
+    quaternion rhs (vec, 0);
+    rhs = lhs * rhs;
+    lhs = inverse(lhs);
+    rhs = rhs * lhs;
+    return vector3f(rhs.x, rhs.y, rhs.z);
+
+
+/*
+    rhs = lhs * rhs;
+    lhs = inverse(lhs);
+    rhs = rhs * lhs;
+    return vector3f(rhs.x, rhs.y, rhs.z);
+*/
+
+    // // convert v to pure quaternion
+    // vec4 w = vec4(v, 0);
+   
+    // // multiply on both sides, invert q in between
+    // w = multiplyQuaternion(q, w);
+    // q.xyz *= -1.0;
+    // w = multiplyQuaternion (w, q);
+    // return w.xyz;
+}
+
+vector3f maths::quaternion::xyz()
+{
+    return vector3f(x, y, z);
+}
+
+quaternion maths::quaternion::operator * (quaternion rhs)
+{
+    float _w = w * rhs.w - dot(xyz(), rhs.xyz());
+    vector3f _xyz = w * rhs.xyz() + rhs.w * xyz() + cross(rhs.xyz(), xyz());
+    
+    return quaternion (_xyz, _w);
+}
+
+quaternion maths::lookRotation(vector3f forward, vector3f up)
+{
+    auto binormal = cross(forward, up);
+    auto axis = cross(forward,binormal);
+    return axisAngle(axis, signedAngle(forward, vector3f::forward));
+}
+
+quaternion maths::axisAngle(vector3f axis, float angle)
+{
+    angle /= 2.0f;
+    return quaternion(axis * sin(angle), cos(angle));
+}
+
 quaternion maths::eulerToQuaternion(vector3f euler)
 {
     // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
@@ -28,14 +88,6 @@ quaternion maths::eulerToQuaternion(vector3f euler)
         sy * cp * sr + cy * sp * cr,
         sy * cp * cr - cy * sp * sr
     };
-}
-
-quaternion maths::inverse(quaternion q)
-{
-    q.x *= -1;
-    q.y *= -1;
-    q.z *= -1;
-    return q;
 }
 
 matrix4f maths::toRotationMatrix(quaternion q)
@@ -59,4 +111,12 @@ matrix4f maths::toRotationMatrix(quaternion q)
         vector4f {0, 0, 0, 1}
     };
 
+}
+
+quaternion maths::inverse(quaternion q)
+{
+    q.x *= -1;
+    q.y *= -1;
+    q.z *= -1;
+    return q;
 }

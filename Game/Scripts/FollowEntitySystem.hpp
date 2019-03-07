@@ -23,10 +23,13 @@ struct followEntitySystem
         vector3f target = core::ecs.getComponent<transform>(fe.targetHandle).position;
         vector3f movement = target - tr.position;
         float m = magnitude(movement);
+
+        vector3f forward = movement / m;
+        tr.rotation = lookRotation(forward, vector3f::up);
+
         if (m > 1.0)
             movement /= m;
         tr.position += fe.speed * dt * movement;
-        tr.rotation.y += 90 * dt;
     }
 };
 

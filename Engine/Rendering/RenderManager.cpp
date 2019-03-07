@@ -10,7 +10,6 @@ Created 16/02/2019
 #include <string>
 
 #include "../Camera.hpp"
-#include "../DEBUG.hpp"
 #include "RenderManager.hpp"
 #include "RendererSystem.hpp"
 #include "../Maths/Maths.hpp"
@@ -37,9 +36,6 @@ void RenderManager::initialize()
     testCamera.aspectRatio = 1920.0f / 1080.0f;
     testProjection = testCamera.projectionMatrix();
     testView = testCamera.viewMatrix();
-
-
-    debug << testProjection << "\n";
 }
 
 void RenderManager::render()

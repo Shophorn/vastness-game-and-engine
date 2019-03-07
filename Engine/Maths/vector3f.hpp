@@ -48,6 +48,8 @@ namespace maths
     float dot(const vector3f & lhs, const vector3f & rhs);
     vector3f cross(const vector3f & lhs, const vector3f & rhs);
 
+    float angle(const vector3f & lhs, const vector3f & rhs);
+    float signedAngle(const vector3f & lhs, const vector3f & rhs, const vector3f & up = vector3f::up);
     float magnitude(const vector3f &v);
     float sqrDistance(const vector3f & lhs, const vector3f & rhs);
 

@@ -16,7 +16,7 @@ Created 17/02/2019
 #include "List.hpp"
 #include "Component.hpp"
 
-#include "../DEBUG.hpp"
+// #include "../DEBUG.hpp"
 
 
 #include "Component.hpp"
@@ -164,8 +164,6 @@ public:
     template <typename System, typename ... Components>
     void registerComponentTimeUpdate(System *system, mpl::List<Components...> &&)
     {
-        cout << "register update with time\n";
-
         registerUpdate([=](float dt)
         {
             for (auto h : getHandles<Components...>())
@@ -176,8 +174,6 @@ public:
     template <typename System, typename ... Components>
     void registerComponentUpdate(System * system, mpl::List<Components...>&&)
     {
-        cout << "register update with no time\n";
-
         registerUpdate([=](float dt)
         {
            for (auto h : getHandles<Components...>())
@@ -190,8 +186,9 @@ public:
         updateHandlers.emplace_back(handler);
     }
 
-
-    /// Components --------------------------------------------
+    ///////////////////////////////////
+    /// Components                  ///
+    ///////////////////////////////////
     template <typename Component, typename ... TArgs>
     void addComponent(const Handle entity, const TArgs & ... args)
     {

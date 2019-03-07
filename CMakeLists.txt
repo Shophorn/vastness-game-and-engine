@@ -31,7 +31,6 @@ add_executable(
 
         Engine/DEBUG.hpp
 
-
         Engine/Engine.cpp Engine/Engine.hpp
         Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp
         Engine/ECS/ECS.hpp Engine/ECS/Handle.hpp
@@ -53,5 +52,7 @@ add_executable(
 
         Game/Scripts/PlayerControlSystem.hpp
         Game/Components.hpp
-        Game/Scripts/FollowEntitySystem.hpp Engine/Maths/Quaternion.cpp Engine/Maths/Quaternion.hpp)
+        Game/Scripts/FollowEntitySystem.hpp
+        Engine/Maths/Quaternion.cpp Engine/Maths/Quaternion.hpp
+)
 
