@@ -29,7 +29,5 @@ shaderHandle Shaders::getHandle(std::string name)
         _shaders.emplace_back(Shader::Load(info->path));
         info->handle = _shaders.size();
     }
-
-    debug << info -> handle;
     return info->handle;
 }

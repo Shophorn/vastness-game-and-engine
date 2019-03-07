@@ -11,4 +11,4 @@ Created 18/02/2019
 
 using std::cout;
 
-inline std::ostream & debug = std::cout;
+inline std::ostream & DEBUG = std::cout;

@@ -105,7 +105,7 @@ matrix4f maths::toRotationMatrix(quaternion q)
 
     // remember, columnwise, so visually this is transpose
     return matrix4f{
-        vector4f { 1.0f - 2.0f * (jj * kk), 2.0f * (ij + kr), 2.0f * (ik - jr), 0.0f },
+        vector4f { 1.0f - 2.0f * (jj + kk), 2.0f * (ij + kr), 2.0f * (ik - jr), 0.0f },
         vector4f { 2.0f * (ij - kr), 1.0f - 2.0f * (ii + kk), 2.0f * (jk + ir), 0.0f },
         vector4f { 2.0f * (ik + jr), 2.0f * (jk - ir), 1.0f - 2.0f * (ii + jj), 0.0f},
         vector4f {0, 0, 0, 1}
