@@ -7,40 +7,33 @@ Leo Tamminen
 #pragma once
 
 #include "../Color.hpp"
-#include "../Serialization.hpp"
-// #include "RenderManager.hpp"
-
+#include "../Maths/Maths.hpp"
 
 enum class lightType
 {
-	DIRECTIONAL = 0
+	DIRECTIONAL,
+	POINT
 };
 
-struct light
+struct Light
 {
-	color32 color;
-	float intensity;
-	lightType type;
+	color3f 	color {};
+	float 		intensity { 1.0f };
+	vector3f 	transform {};
+	lightType 	type {};
 };
 
-namespace serialization
+
+class LightingManager
 {
-	template<>
-	inline light deserialize <light>(const serialization::Value & value)
-	{
-		lightType type;
-		auto typeString = value["light type"].GetString();
-		if (typeString == "DIRECTIONAL")
-			type = lightType::DIRECTIONAL;
+public:
+	void addSerializedLighting(const serialization::Value & value);
 
-		light l {
-			deserialize<color32> (value["color"]),
-			value["intensity"].GetFloat(),
-			type
-		};
+	auto begin() { return _lights.begin(); }
+	auto end() { return _lights.end(); }
 
-		// core::renderManager.registerLight(l);
+	int count() { return _lights.size(); }
 
-		return l;
-	}
-}
+private:
+	std::vector<Light> _lights;
+};

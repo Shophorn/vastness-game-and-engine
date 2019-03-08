@@ -58,6 +58,6 @@ add_executable(
         Engine/Rendering/RendererSystem.hpp 
         Engine/Rendering/RenderManager.cpp Engine/Rendering/RenderManager.hpp
         Engine/Rendering/Shader.cpp Engine/Rendering/Shader.hpp
-        Engine/Rendering/Light.hpp
+        Engine/Rendering/Light.cpp Engine/Rendering/Light.hpp
 )
 

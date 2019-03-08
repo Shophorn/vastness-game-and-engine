@@ -46,6 +46,13 @@ void RenderManager::render()
         glUniformMatrix4fv(shader.viewLocation, 1, GL_FALSE, &testView[0][0]);
         glUniformMatrix4fv(shader.projectionLocation, 1, GL_FALSE, &testProjection[0][0]);
 
+        if (lighting.count() > 0)
+        {
+            glUniform3fv(shader.lightDirLocation, 1, &lighting.begin()->transform.x);
+            glUniform3fv(shader.lightColorLocation, 1, &lighting.begin() ->color.r);
+        }
+
+        // glUniform4bv(shader.lightColorLocation, 1, GL_FALSE, &_directionalLights[0].color);
         // for renderer etc...
     }
 
@@ -60,6 +67,7 @@ void RenderManager::render()
         // per entity = renderdata
         glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
         glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
+
         glBindVertexArray(mesh.vao);
         glBindTexture(GL_TEXTURE_2D, rd.texture);
 
@@ -83,14 +91,8 @@ void RenderManager::addDrawCall(const transform &tr, const renderer &r)
 
 void RenderManager::terminate() {}
 
-void RenderManager::registerLight(light l)
-{
-    if (currentLightCount < MAX_DIRECTIONAL_LIGHTS)
-    {
-        _directionalLights[currentLightCount] = l;
-        currentLightCount++;
-    }
-}
+
+
 
 RenderManager::renderHandle RenderManager::bindRenderInfo(int shader, meshHandle mesh)
 {

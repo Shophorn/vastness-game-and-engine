@@ -37,8 +37,8 @@ public:
     };
 
     renderHandle bindRenderInfo(int shader, meshHandle mesh);
-    
-    void registerLight(light l);
+
+    LightingManager lighting;
 
 private:
     struct renderData
@@ -52,9 +52,7 @@ private:
     std::vector<renderData> _toRender{};
     std::vector<renderHandle> _renderHandles{};
 
-    static constexpr int MAX_DIRECTIONAL_LIGHTS = 2;
-    int currentLightCount = 0;
-    std::array<light, MAX_DIRECTIONAL_LIGHTS> _directionalLights;
+    std::vector<Light> _staticLights {};
 };
 
 namespace core

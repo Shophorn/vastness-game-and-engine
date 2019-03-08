@@ -17,6 +17,7 @@ Created 22/02/2019
 #include "Resources/Textures.hpp"
 #include "Resources/Shaders.hpp"
 #include "Resources/Meshes.hpp"
+#include "Rendering/RenderManager.hpp"
 
 class SceneLoader
 {
@@ -55,6 +56,9 @@ public:
         resources::textures.addLoadInfo(document["Textures"]);
         resources::shaders.addLoadInfo(document["Shaders"]);
         resources::meshes.addLoadInfo(document["Meshes"]);
+
+        core::renderManager.lighting.addSerializedLighting(document["Lighting"]);
+
 
         auto jsonEntities = document["Entities"].GetArray();
         for (const auto & item : jsonEntities)

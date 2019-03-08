@@ -2,6 +2,9 @@ NEXT UP
 =============================================
 - Serializable lights
 	- Lighthandle
+
+- Setup LLVM
+
 - Ground texture and normal maps and material
 - 3rd person camera
 	- Serializable camera

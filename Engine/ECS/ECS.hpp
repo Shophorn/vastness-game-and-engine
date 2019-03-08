@@ -16,7 +16,7 @@ Created 17/02/2019
 #include "List.hpp"
 #include "Component.hpp"
 
-// #include "../DEBUG.hpp"
+#include "../DEBUG.hpp"
 
 
 #include "Component.hpp"
@@ -89,11 +89,27 @@ class ECS
     // std::vector<Handle> deadHandles;
 
 
+    // keep track of registered systems
+    std::unordered_map<const std::type_info *, void *> _registeredSystemsMap;
+    template <typename System>
+    System * isRegistered()
+    {
+        auto it = _registeredSystemsMap.find(&typeid(System));
+        if (it != _registeredSystemsMap.end())
+            return static_cast<System *>(it->second);
+        return nullptr;
+    }
+
 public:
     template <typename System, typename ... TArgs>
     System * registerSystem(TArgs ... args)
     {
-        auto * system = new System { std::forward<TArgs>(args) ... };
+        auto * system = isRegistered<System>();
+        if (system != nullptr)
+            return system;
+
+        system = new System { std::forward<TArgs>(args) ... };
+        _registeredSystemsMap.emplace(&typeid(System), system);
 
         if constexpr (hasEcsUpdate<System, float>)
         {
