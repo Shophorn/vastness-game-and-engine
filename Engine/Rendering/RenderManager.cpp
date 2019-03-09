@@ -22,8 +22,6 @@ matrix4f testProjection;
 
 void RenderManager::initialize()
 {
-    glClearColor(0.6, 0.8, 1.0, 1.0);
-
     glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
 
@@ -32,6 +30,7 @@ void RenderManager::initialize()
     testCamera.aspectRatio = 1920.0f / 1080.0f;
     testProjection = testCamera.projectionMatrix();
     testView = testCamera.viewMatrix();
+
 }
 
 void RenderManager::render()
@@ -52,7 +51,6 @@ void RenderManager::render()
             glUniform3fv(shader.lightColorLocation, 1, &lighting.begin() ->color.r);
         }
 
-        // glUniform4bv(shader.lightColorLocation, 1, GL_FALSE, &_directionalLights[0].color);
         // for renderer etc...
     }
 
@@ -90,9 +88,6 @@ void RenderManager::addDrawCall(const transform &tr, const renderer &r)
 }
 
 void RenderManager::terminate() {}
-
-
-
 
 RenderManager::renderHandle RenderManager::bindRenderInfo(int shader, meshHandle mesh)
 {

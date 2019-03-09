@@ -1,25 +1,35 @@
 NEXT UP
 =============================================
-- Serializable lights
-	- Lighthandle
 
-- Setup LLVM
+- Serializable material
+	- multiple textures
+	- arbitrary values
+	- Shader organization
+		- pick vertex and fragment shaders separately
+		- shader #include - functionality	
 
-- Ground texture and normal maps and material
 - 3rd person camera
 	- Serializable camera
 	- Transform hierarchy
 	- mouse input
 	- correct keyboard direction input
 
-- CMake Structure
-- Compile engine to .lib
 - Proper handle based containers
 
+- Setup Build system (do this on new machine)
+	- Setup Ninja
+	- Setup LLVM
+	- EasyClangAutocomplete plugin
+
 - Skysphere
-- template vectors
+- Lighthandle, multi-light support
+- template vectors, maybe also colors
 
 PREVIOUSLY
 ============================================
 07.03.19 Quaternion lookRotation and fishes and player looking where they go
 07.03.19 Multiple shaders to be used
+08.03.19 Serializable lighting
+09.03.19 Proper project structure
+	- CMake Structure
+	- Compile engine to .lib

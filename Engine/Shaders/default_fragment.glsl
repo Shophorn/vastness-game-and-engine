@@ -29,7 +29,7 @@ void main ()
     float specularValue = pow(max(0, dot(halfVector, n)), 100 * smoothness);
     vec3 specular = specularValue * tex.a * _LightColor;
 
-    // Use occlusion texture ofcourse
+    // Use occlusion texture of course
     vec3 ambient = _Ambient * tex.rgb;
 
     outColor = vec4 (ambient + diffuse + specular, 1.0);
