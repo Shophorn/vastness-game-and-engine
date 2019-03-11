@@ -1,5 +1,6 @@
 #include "Materials.hpp"
 #include "Shaders.hpp"
+#include "Textures.hpp"
 #include "../DEBUG.hpp"
 
 
@@ -9,25 +10,40 @@ void MaterialsManager::addLoadInfo(const serialization::Value & value)
 	for (const auto & item : serializedArray)
 	{
 		auto obj = item.GetObject();
-		auto name = obj["name"].GetString();
-		auto vertexShaderPath = obj["vertex shader"].GetString();
-		auto fragmentShaderPath = obj["fragment shader"].GetString();
 
-		shaderHandle shader = resources::shaders.create(vertexShaderPath, fragmentShaderPath);
+		MaterialLoadInfo info;
+		info.name = obj["name"].GetString();
+		info.vertexShaderPath = obj["vertex shader"].GetString();
+		info.fragmentShaderPath = obj["fragment shader"].GetString();
 
 		for (const auto & texture : obj["textures"].GetArray())
 		{
-			DEBUG << texture["target"].GetString() << " => " << texture["name"].GetString() << "\n";
+			info.textures.emplace_back(
+				textureInfo{
+					texture["target"].GetString(),
+					texture["name"].GetString()
+			});
 		}
+		_loadInfos.emplace(info.name, info);
 	}	
 }
 
 MaterialHandle MaterialsManager::getHandle(const std::string & name)
 {
+	// Return existing
 	auto it = _loadedMaterialsMap.find(name);
-	if (it == _loadedMaterialsMap.end())
-	{
-		DEBUG << "Load new material";
-	}
-	return 0;
+	if (it != _loadedMaterialsMap.end())
+		return it->second;
+
+	assert (_loadInfos.find(name) != _loadInfos.end() && "That material is not found.");
+
+	// Create new
+	auto info = _loadInfos[name];
+	auto shader = resources::shaders.create(info.vertexShaderPath, info.fragmentShaderPath);
+	auto texture = resources::textures.getHandle(info.textures[0].name);
+
+	auto handle = _materials.size();
+	_materials.emplace_back ( Material {shader, texture} );
+	_loadedMaterialsMap.emplace(name, handle);
+	return handle;
 }

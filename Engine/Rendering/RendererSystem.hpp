@@ -19,14 +19,14 @@ Created 21/02/2019
 
 struct renderer
 {
-    GLuint texture{};
-    meshHandle mesh;
-    int shader;
+    meshHandle      mesh {};
+    MaterialHandle  material {};
 };
 
 struct rendererSystem
 {
     using components = mpl::List<transform, renderer>;
+    
     void update(const transform & tr, const renderer & r)
     {
         core::renderManager.addDrawCall(tr, r);

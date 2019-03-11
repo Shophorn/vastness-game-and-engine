@@ -17,7 +17,14 @@ Leo Tamminen
 struct Material
 {
 	shaderHandle shader;
-	std::vector<textureHandle> textures;
+	textureHandle texture;
+	// std::vector<textureHandle> textures;
+};
+
+struct textureInfo
+{
+	std::string target;
+	std::string name;
 };
 
 struct MaterialLoadInfo
@@ -25,7 +32,7 @@ struct MaterialLoadInfo
 	std::string name;
 	std::string vertexShaderPath;
 	std::string fragmentShaderPath;
-	std::unordered_map<std::string, std::string> textureNames;
+	std::vector<textureInfo> textures;
 };
 
 using MaterialHandle = int;

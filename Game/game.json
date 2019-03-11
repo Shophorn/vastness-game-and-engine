@@ -90,11 +90,29 @@
 
   "Materials" : [
     {
-      "name" :            "player",
+      "name" :            "bricks",
       "vertex shader" :   "Engine/Shaders/default_vertex.glsl",
       "fragment shader" : "Engine/Shaders/default_fragment.glsl",
       "textures" : [
         { "target" : "_Albedo", "name" : "bricks" },
+        { "target" : "_Normal", "name" : "testNormal" }
+      ]
+    },
+    {
+      "name" :            "fish",
+      "vertex shader" :   "Engine/Shaders/default_vertex.glsl",
+      "fragment shader" : "Engine/Shaders/default_fragment.glsl",
+      "textures" : [
+        { "target" : "_Albedo", "name" : "fish1" },
+        { "target" : "_Normal", "name" : "testNormal" }
+      ]
+    },
+    {
+      "name": "ground",
+      "vertex shader" : "Engine/Shaders/default_vertex.glsl",
+      "fragment shader" : "Engine/Shaders/default_fragment.glsl",
+      "textures" : [
+        { "target" : "_Albedo", "name" : "ground" },
         { "target" : "_Normal", "name" : "testNormal" }
       ]
     }
@@ -106,7 +124,7 @@
      "COMMENT" : "Player",
      "components" : [
        { "type" : "transform" },
-       { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "player "},
+       { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "bricks"},
        { "type" : "playerControl" }
      ]
    },
@@ -114,7 +132,7 @@
      "id" : 2,
      "components" : [
        { "type" : "transform" },
-       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1"},
+       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
        { "type" : "followEntity", "target" : 1 }
      ]
    },
@@ -122,7 +140,7 @@
      "id" : 3,
      "components" : [
        { "type" : "transform" , "position" : [7, 0, 0] },
-       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1"},
+       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
        { "type" : "followEntity", "target" : 2 }
      ]
    },
@@ -130,14 +148,14 @@
      "id" : 4,
      "components" : [
        { "type" : "transform", "position" : [0, 0, 0], "scale" : [0.1, 0.1, 0.1] },
-       { "type" : "renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" }
+       { "type" : "renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" , "material" : "bricks" }
      ]
    },
    {
     "id" : 5,
     "components" : [
        { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 0, 0, 90 ], "scale" : [1, 1, 1] },
-       { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" }
+       { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
     ]
    }
 ]

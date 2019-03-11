@@ -36,13 +36,11 @@ private:
     {
         matrix4f model{};
         matrix4f inverse{};
-        GLuint texture{};
-        int shader;
         meshHandle mesh;
+        MaterialHandle material;
     };
 
     std::vector<drawCall> _drawCalls{};
-
     std::vector<Light> _staticLights {};
 };
 

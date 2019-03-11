@@ -57,20 +57,21 @@ void RenderManager::render()
         // for renderer etc...
     }
 
-    for (const auto & rd : _drawCalls)
+    for (const auto & dc : _drawCalls)
     {
         // todo sort : shader -> mesh -> entity
-        auto shader = resources::shaders.get(rd.shader);
-        auto mesh = resources::meshes.get(rd.mesh);
+        auto & material = resources::materials.get(dc.material);
+        auto shader = resources::shaders.get(material.shader);
+        auto mesh = resources::meshes.get(dc.mesh);
 
         glUseProgram(shader.id);
 
         // per entity = drawCall
-        glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
-        glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
+        glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &dc.model[0][0]);
+        glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &dc.inverse[0][0]);
 
         glBindVertexArray(mesh.vao);
-        glBindTexture(GL_TEXTURE_2D, rd.texture);
+        glBindTexture(GL_TEXTURE_2D, material.texture);
 
         glDrawElements(GL_TRIANGLES, mesh.elementCount, GL_UNSIGNED_INT, nullptr);
     }
@@ -79,15 +80,14 @@ void RenderManager::render()
     glFinish();
 }
 
-void RenderManager::addDrawCall(const transform &tr, const renderer &r)
+void RenderManager::addDrawCall(const transform & tr, const renderer & r)
 {
     _drawCalls.emplace_back(
         drawCall {
             modelMatrix(tr),
             inverseModelMatrix(tr),
-            r.texture,
-            r.shader,
-            r.mesh
+            r.mesh,
+            r.material
     });
 }
 
