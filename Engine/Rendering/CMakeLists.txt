@@ -3,6 +3,7 @@ target_sources(
 PRIVATE
 	Light.cpp
 	Light.hpp
+	RendererSystem.cpp
 	RendererSystem.hpp
 	RenderManager.cpp
 	RenderManager.hpp
