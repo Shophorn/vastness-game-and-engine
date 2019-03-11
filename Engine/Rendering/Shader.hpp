@@ -2,6 +2,7 @@
 
 #include <GL/glew.h>
 #include <string>
+#include <array>
 
 struct Shader
 {
@@ -15,8 +16,15 @@ public:
     GLint lightDirLocation      = -1;
     GLint lightColorLocation    = -1;
     GLint cameraPosLocation     = -1;
+    
+    GLint mainTextureLocation   = -1;
+    GLint normalMapLocation     = -1;
 
     Shader () = default;
+
+    static Shader create(const std::string & vertexPath, const std::string & fragmentPath);
+
+private:
 
     explicit Shader (GLuint _id) :
         id (_id),
@@ -26,9 +34,9 @@ public:
         modelITLocation     (glGetUniformLocation(id, "model_it")),
         lightDirLocation    (glGetUniformLocation(id, "lightDir")),
         lightColorLocation  (glGetUniformLocation(id, "_LightColor")),
-        cameraPosLocation   (glGetUniformLocation(id, "cameraPos"))
-    {}
+        cameraPosLocation   (glGetUniformLocation(id, "cameraPos")),
 
-    static Shader Load(const std::string & shaderName);
-    static Shader create(const std::string & vertexPath, const std::string & fragmentPath);
+        mainTextureLocation (glGetUniformLocation(id, "_AlbedoTexture")),
+        normalMapLocation   (glGetUniformLocation(id, "_NormalTexture"))
+    {}
 };

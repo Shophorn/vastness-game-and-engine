@@ -6,7 +6,6 @@ NEXT UP
 	- arbitrary values
 	- Shader organization
 		- pick vertex and fragment shaders separately
-		- shader #include - functionality	
 
 - 3rd person camera
 	- Serializable camera
@@ -24,6 +23,8 @@ NEXT UP
 - Skysphere
 - Lighthandle, multi-light support
 - template vectors, maybe also colors
+- shader #include - functionality	
+- Decrease indirection with resources
 
 PREVIOUSLY
 ============================================

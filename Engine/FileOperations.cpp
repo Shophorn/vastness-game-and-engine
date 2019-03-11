@@ -3,11 +3,13 @@ LeoTamminen
 Created 21/01/2019
 */
 
+#include <string>
 #include <sstream>
+#include <fstream>
+
 #include "FileOperations.hpp"
 
-
-const char *fileOps::ReadFile(const char *path)
+std::string fileOps::ReadFile(const std::string & path)
 {
     using namespace std;
 
@@ -27,11 +29,10 @@ const char *fileOps::ReadFile(const char *path)
     return source;
 }
 
-rapidjson::Document fileOps::ReadJson(const char *path)
+rapidjson::Document fileOps::ReadJson(const std::string & path)
 {
-    const char * jsonFormat = fileOps::ReadFile(path);
+    auto jsonFormat = fileOps::ReadFile(path);
     rapidjson::Document document;
-    document.Parse(jsonFormat);
-    delete [] jsonFormat;
+    document.Parse(jsonFormat.c_str());
     return document;
 }

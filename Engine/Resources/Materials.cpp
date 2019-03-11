@@ -41,9 +41,10 @@ MaterialHandle MaterialsManager::getHandle(const std::string & name)
 	auto info = _loadInfos[name];
 	auto shader = resources::shaders.create(info.vertexShaderPath, info.fragmentShaderPath);
 	auto texture = resources::textures.getHandle(info.textures[0].name);
+	auto tex1 = resources::textures.getHandle(info.textures[1].name);
 
 	auto handle = _materials.size();
-	_materials.emplace_back ( Material {shader, texture} );
+	_materials.emplace_back ( Material {shader, texture, tex1} );
 	_loadedMaterialsMap.emplace(name, handle);
 	return handle;
 }

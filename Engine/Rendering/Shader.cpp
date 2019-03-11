@@ -4,18 +4,13 @@ Leo Tamminen
 */
 
 #include "Shader.hpp"
-#include <iostream>
-
 #include "../FileOperations.hpp"
+
 namespace
 {
-    const char * shaderPath = "Engine/Shaders/";
-    const char * vertexExtension = "_vertex.glsl";
-    const char * fragmentExtension = "_fragment.glsl";
-
-    GLuint ShaderFromSource(const char * source, GLenum type)
+    GLuint ShaderFromSource(const char * source, GLenum SHADER_TYPE)
     {
-        GLuint shaderID = glCreateShader(type);
+        GLuint shaderID = glCreateShader(SHADER_TYPE);
         glShaderSource(shaderID, 1, &source, nullptr);
         glCompileShader(shaderID);
 
@@ -36,59 +31,25 @@ namespace
         }
 
     }
-
-    GLuint LoadShaderWithName(std::string name)
-    {
-        // Vertex shader
-        std::string vertexPath = shaderPath + name + vertexExtension;
-        const char * vertexSource = fileOps::ReadFile(vertexPath.c_str());
-        GLuint vertexShader = ShaderFromSource(vertexSource, GL_VERTEX_SHADER);
-        DoPrintIfNotGood("vertex", vertexShader);
-
-        // Fragement shader
-        std::string fragmentPath = shaderPath + name + fragmentExtension;
-        const char * fragmentSource = fileOps::ReadFile(fragmentPath.c_str());
-        GLuint fragmentShader = ShaderFromSource(fragmentSource, GL_FRAGMENT_SHADER);
-        DoPrintIfNotGood("fragment", fragmentShader);
-
-        GLuint shaderProgram = glCreateProgram();
-        glAttachShader(shaderProgram, vertexShader);
-        glAttachShader(shaderProgram, fragmentShader);
-        glBindFragDataLocation(shaderProgram, 0, "outColor");
-        glLinkProgram(shaderProgram);
-
-        delete [] vertexSource;
-        delete [] fragmentSource;
-
-        return shaderProgram;
-    }
-
 }// Anon namespace
 
-Shader Shader::Load(const std::string & shaderName)
-{
-    GLuint id = LoadShaderWithName(shaderName);
-    return Shader(id);
-}
 
 Shader Shader::create(const std::string & vertexPath, const std::string & fragmentPath)
 {
-        const char * vertexSource = fileOps::ReadFile(vertexPath.c_str());
-        GLuint vertexShader = ShaderFromSource(vertexSource, GL_VERTEX_SHADER);
+        auto vertexSource = fileOps::ReadFile(vertexPath);
+        GLuint vertexShader = ShaderFromSource(vertexSource.c_str(), GL_VERTEX_SHADER);
         DoPrintIfNotGood("vertex", vertexShader);
 
-        const char * fragmentSource = fileOps::ReadFile(fragmentPath.c_str());
-        GLuint fragmentShader = ShaderFromSource(fragmentSource, GL_FRAGMENT_SHADER);
+        auto fragmentSource = fileOps::ReadFile(fragmentPath);
+        GLuint fragmentShader = ShaderFromSource(fragmentSource.c_str(), GL_FRAGMENT_SHADER);
         DoPrintIfNotGood("fragment", fragmentShader);
 
         GLuint id = glCreateProgram();
         glAttachShader(id, vertexShader);
         glAttachShader(id, fragmentShader);
         glBindFragDataLocation(id, 0, "outColor");
-        glLinkProgram(id);
 
-        delete [] vertexSource;
-        delete [] fragmentSource;
+        glLinkProgram(id);
 
         return Shader(id);
 }

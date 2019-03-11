@@ -18,6 +18,7 @@ struct Material
 {
 	shaderHandle shader;
 	textureHandle texture;
+	textureHandle tex1;
 	// std::vector<textureHandle> textures;
 };
 

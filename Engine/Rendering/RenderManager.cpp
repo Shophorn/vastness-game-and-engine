@@ -71,7 +71,14 @@ void RenderManager::render()
         glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &dc.inverse[0][0]);
 
         glBindVertexArray(mesh.vao);
+        
+        glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, material.texture);
+        glUniform1i(shader.mainTextureLocation, 0);
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, material.tex1);
+        glUniform1i(shader.normalMapLocation, 1);
 
         glDrawElements(GL_TRIANGLES, mesh.elementCount, GL_UNSIGNED_INT, nullptr);
     }
