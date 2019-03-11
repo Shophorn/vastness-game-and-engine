@@ -15,18 +15,18 @@ namespace maths
 
     struct quaternion
     {
-        float x, y, z, w;
+        float x = 0, y = 0, z = 0, w = 1;
 
         static const quaternion identity;
 
         quaternion (float x, float y, float z, float w);
         quaternion(vector3f xyz, float w);
 
-        vector3f    operator * (vector3f rhs);
-        quaternion  operator * (quaternion rhs);
+        vector3f    operator * (vector3f rhs) const;
+        quaternion  operator * (quaternion rhs) const;
 
     private:
-        vector3f xyz();
+        vector3f xyz() const;
     };
 
     inline const quaternion quaternion::identity = quaternion{0,0,0,1};

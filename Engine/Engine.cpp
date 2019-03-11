@@ -34,6 +34,7 @@ void Engine::update()
 
 void Engine::render()
 {
+    core::ecs.onBeforeRender();
     core::renderManager.render();
     glfwSwapBuffers(_window);
 }

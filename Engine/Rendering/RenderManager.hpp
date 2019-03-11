@@ -17,6 +17,7 @@ Created 16/02/2019
 #include "../Resources/Materials.hpp"
 struct transform;
 struct renderer;
+struct CameraComponent;
 
 class RenderManager
 {
@@ -29,6 +30,8 @@ public:
     void render();
 
     void addDrawCall(const transform &, const renderer &r);
+    void updateCamera(const CameraComponent &, const transform &);
+    
     LightingManager lighting;
 
 private:

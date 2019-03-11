@@ -13,6 +13,7 @@ Created 16/02/2019
 #include "RenderManager.hpp"
 #include "RendererSystem.hpp"
 #include "../Camera.hpp"
+#include "../CameraComponent.hpp"
 #include "../Maths/Maths.hpp"
 #include "../TransformComponent.hpp"
 #include "../Resources/Shaders.hpp"
@@ -22,6 +23,53 @@ Created 16/02/2019
 
 matrix4f testView;
 matrix4f testProjection;
+
+namespace
+{
+    maths::matrix4f viewMatrix(const transform & tr)
+    {
+        // Look here
+        // https://stackoverflow.com/questions/21830340/understanding-glmlookat
+        vector3f forward = normalize(tr.position);
+        forward = normalize(forward);
+        vector3f right = cross(vector3f::up, forward);
+        vector3f up = cross(forward, right);
+
+        vector3f nPosition = -tr.position;
+
+        matrix4f mat;
+        mat[0] = vector4f(right.x, up.x, forward.x, 0);
+        mat[1] = vector4f(right.y, up.y, forward.y, 0);
+        mat[2] = vector4f(right.z, up.z, forward.z, 0);
+        mat[3] = vector4f(dot(right, nPosition), dot (up, nPosition), dot(forward, nPosition), 1);
+
+        return mat;
+    }
+
+    maths::matrix4f projectionMatrix(CameraComponent cam)
+    {
+            // Orthographic
+    //https://unspecified.wordpress.com/2012/06/21/calculating-the-gluperspective-matrix-and-other-opengl-matrix-maths/
+//            float matGG [4][4] = {
+//                {1 / 5.0f , 0, 0, 0},
+//                {0, 1 / 5.0f * aspectRatio, 0, 0},
+//                {0, 0, -2 / farClippingPlane - nearClippingPlane, 0},
+//                {0, 0, 0, 1}
+//            };
+    // Perspective, same source
+    float f = 1.0f / tanf(cam.fieldOfView / 2.0f);
+    float m22 = (cam.farClippingPlane + cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
+    float m23 = (2 * cam.farClippingPlane * cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
+
+    matrix4f mat;
+    mat[0] = vector4f(f / cam.aspectRatio, 0, 0, 0);
+    mat[1] = vector4f(0, f, 0, 0);
+    mat[2] = vector4f(0, 0, m22, -1);
+    mat[3] = vector4f(0, 0, m23, 0);
+
+    return mat;
+    }
+}
 
 void RenderManager::initialize()
 {
@@ -34,6 +82,13 @@ void RenderManager::initialize()
     testProjection = testCamera.projectionMatrix();
     testView = testCamera.viewMatrix();
 
+    DEBUG << testProjection << "\n\n" << testView << "\n\n";
+
+    DEBUG
+        << testCamera.fieldOfView << "\n"
+        << testCamera.nearClippingPlane << "\n"
+        << testCamera.farClippingPlane << "\n"
+        << testCamera.aspectRatio << "\n";
 }
 
 void RenderManager::render()
@@ -96,6 +151,28 @@ void RenderManager::addDrawCall(const transform & tr, const renderer & r)
             r.mesh,
             r.material
     });
+}
+
+
+void RenderManager::updateCamera(const CameraComponent & cam, const transform & tr)
+{
+    testView = viewMatrix(tr);
+    testProjection = projectionMatrix(cam);
+
+    static bool debugged = false;
+    if (!debugged)
+    {
+        DEBUG << testProjection << "\n\n" << testView << "\n\n";
+
+        DEBUG
+            << cam.fieldOfView << "\n"
+            << cam.nearClippingPlane << "\n"
+            << cam.farClippingPlane << "\n"
+            << cam.aspectRatio << "\n";
+
+        debugged = true;
+    }
+
 }
 
 void RenderManager::terminate() {}

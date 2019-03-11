@@ -28,6 +28,15 @@ Created 17/02/2019
 // S for System
 namespace detail
 {
+    // template <typename System, typename ... Args>
+    // constexpr decltype(std::declval<System>().onBeforeRender(std::declval<Args>()...), true) hasOnBeforeRender(int) { return true; }
+
+    template<typename S, typename... Args>
+    constexpr decltype(std::declval<S>().onBeforeRender(std::declval<Args>()...), true) hasOnBeforeRender(int) { return true; }
+
+    template<typename System, typename ... Args>
+    constexpr bool hasOnBeforeRender (...) { return false; }
+
     template<typename S, typename... Args>
     constexpr decltype(std::declval<S>().update(std::declval<Args>()...), true) hasUpdate(int) { return true; }
 
@@ -59,7 +68,19 @@ namespace detail
         static constexpr bool value = detail::hasUpdate<S, Cs&...>(0);
     };
 
+    template<typename S, typename Cs>
+    struct  hasOnBeforeRenderComponentHelper;
+
+    template<typename S, typename ... Cs>
+    struct hasOnBeforeRenderComponentHelper<S, mpl::List<Cs...>>
+    {
+        static constexpr bool value = hasOnBeforeRender<S, Cs&...>(0);
+    };
+
 }
+template <typename System, typename Components>
+constexpr bool hasOnBeforeRender = detail::hasOnBeforeRenderComponentHelper<System, Components>::value;
+
 template <typename System, typename T>
 constexpr bool hasEcsUpdate = detail::hasUpdate<System, T>(0);
 
@@ -76,9 +97,10 @@ constexpr bool hasComponentUpdate = detail::hasComponentUpdateHelper<System, Com
 
 class ECS
 {
-    using updateHandler  = std::function < void (float) >;
+    using UpdateHandler  = std::function < void (float) >;
 
-    std::vector<updateHandler> updateHandlers;
+    std::vector<UpdateHandler> updateHandlers;
+    std::vector<std::function<void()>> onBeforeRenderHandlers;
 
     std::vector<ComponentInterface*> components;
     std::unordered_map< const std::type_info*, ComponentInterface *> componentMap;
@@ -126,6 +148,8 @@ public:
             if constexpr (hasComponentUpdate<System, componentList>)
                 registerComponentUpdate(system, componentList());
 
+            if constexpr (hasOnBeforeRender<System, componentList>)
+                registerOnBeforeRender(system, componentList());
         }
 
         return system;
@@ -197,9 +221,21 @@ public:
         });
     }
 
-    void registerUpdate(updateHandler && handler)
+    void registerUpdate(UpdateHandler && handler)
     {
         updateHandlers.emplace_back(handler);
+    }
+
+    template<typename System, typename ... Components>
+    void registerOnBeforeRender(System * system, mpl::List<Components...>&&)
+    {
+        onBeforeRenderHandlers.push_back(
+            [=]()
+            {
+                auto handles = getHandles<Components...>();
+                for (auto h : handles)
+                    system->onBeforeRender(getComponentSequence<Components>(h)...);
+            });
     }
 
     ///////////////////////////////////
@@ -259,5 +295,12 @@ public:
     {
         for (auto update : updateHandlers)
             update(deltaTime);
+  
+    }
+
+    void onBeforeRender()
+    {
+        for (auto func : onBeforeRenderHandlers)
+            func();
     }
 };

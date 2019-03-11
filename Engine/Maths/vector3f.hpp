@@ -44,7 +44,7 @@ namespace maths
     inline vector3f operator / (float f, vector3f v) { return v / f; }
 
 
-    vector3f normalize(const vector3f & v);
+    vector3f normalize(vector3f v);
     float dot(const vector3f & lhs, const vector3f & rhs);
     vector3f cross(const vector3f & lhs, const vector3f & rhs);
 

@@ -1,12 +1,5 @@
 NEXT UP
 =============================================
-
-- Serializable material
-	- multiple textures
-	- arbitrary values
-	- Shader organization
-		- pick vertex and fragment shaders separately
-
 - 3rd person camera
 	- Serializable camera
 	- Transform hierarchy
@@ -34,3 +27,7 @@ PREVIOUSLY
 09.03.19 Proper project structure
 	- CMake Structure
 	- Compile engine to .lib
+11.03.19 Serializable material
+	- multiple textures (now 2)
+	- Shader organization
+		- pick vertex and fragment shaders separately

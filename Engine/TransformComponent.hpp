@@ -52,7 +52,12 @@ namespace serialization
             result.rotation = eulerToQuaternion(deserialize<vector3f>(value["rotation"]));
 
         else if (value.HasMember("direction"))
-            result.rotation = lookRotation(deserialize<vector3f>(value["direction"]));
+        {
+            auto forward = deserialize<vector3f>(value["direction"]);
+            forward = normalize(forward);
+            auto rot = lookRotation(forward);
+            result.rotation = rot;//lookRotation(normalize(deserialize<vector3f>(value["direction"])));
+        }
 
         if (value.HasMember("scale"))
             result.scale = deserialize<vector3f>(value["scale"]);

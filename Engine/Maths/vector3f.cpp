@@ -103,7 +103,7 @@ vector3f vector3f::operator-() const
 
 float maths::magnitude(const vector3f &v)
 {
-    return sqrt(v.x * v.x + v.y * v.y + v.z + v.z);
+    return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 }
 
 vector3f maths::cross(const vector3f &lhs, const vector3f &rhs)
@@ -115,7 +115,7 @@ vector3f maths::cross(const vector3f &lhs, const vector3f &rhs)
     );
 }
 
-vector3f maths::normalize(const vector3f & v)
+vector3f maths::normalize(vector3f v)
 {
     float length = magnitude(v);
     return v / length;

@@ -146,6 +146,20 @@
        { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 0, 0, 90 ], "scale" : [1, 1, 1] },
        { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
     ]
+   },
+   {
+    "id" : 6,
+    "components" : [
+      { "type" : "transform" , "position" : [0, -10, 10] },
+      { "type" : "camera",
+        "field of view" : 45,
+        "near clipping plane" : 0.01,
+        "far clipping plane" : 100.0,
+        "aspect ratio" : 1.777
+      },
+      { "type" : "player camera"}
+
+    ]
    }
 ]
 }

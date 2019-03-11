@@ -3,6 +3,7 @@ target_sources(
 PRIVATE
 	Camera.cpp
 	Camera.hpp
+	CameraComponent.hpp
 	Color.hpp
 	DEBUG.hpp
 	ECS.hpp

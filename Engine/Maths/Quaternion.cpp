@@ -17,7 +17,8 @@ maths::quaternion::quaternion(vector3f xyz, float w)
     : x (xyz.x), y(xyz.y), z(xyz.z), w(w) {}
 
 
-vector3f maths::quaternion::operator * (vector3f vec)
+// todo: do testing, this returns wrong values
+vector3f maths::quaternion::operator * (vector3f vec) const
 {
     quaternion lhs = *this;
     quaternion rhs (vec, 0);
@@ -44,17 +45,17 @@ vector3f maths::quaternion::operator * (vector3f vec)
     // return w.xyz;
 }
 
-vector3f maths::quaternion::xyz()
+vector3f maths::quaternion::xyz() const
 {
     return vector3f(x, y, z);
 }
 
-quaternion maths::quaternion::operator * (quaternion rhs)
+quaternion maths::quaternion::operator * (quaternion rhs) const
 {
-    float _w = w * rhs.w - dot(xyz(), rhs.xyz());
-    vector3f _xyz = w * rhs.xyz() + rhs.w * xyz() + cross(rhs.xyz(), xyz());
-    
-    return quaternion (_xyz, _w);
+    auto lhs = *this;
+    float r = lhs.w * rhs.w - dot (lhs.xyz(), rhs.xyz());
+    auto vec = lhs.w * rhs.xyz() + rhs.w * lhs.xyz() + cross(lhs.xyz(), rhs.xyz());
+    return quaternion(vec, r);
 }
 
 quaternion maths::lookRotation(vector3f forward, vector3f up)
@@ -66,7 +67,7 @@ quaternion maths::lookRotation(vector3f forward, vector3f up)
 
 quaternion maths::axisAngle(vector3f axis, float angle)
 {
-    angle /= 2.0f;
+    angle *= 0.5f;
     return quaternion(axis * sin(angle), cos(angle));
 }
 
