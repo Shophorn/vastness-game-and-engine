@@ -14,26 +14,29 @@ link_directories(${LIBRARIES_DIRECTORY})
 
 # Build Engine
 set (SHOPHORN_TARGET_ENGINE engine)
+
 add_library(engine "")
 target_link_libraries(engine libsoil glew32s libglfw3 gdi32 opengl32)
 add_compile_definitions(GLEW_STATIC)
 add_subdirectory(Engine)
 set_target_properties(
-	engine
+	${SHOPHORN_TARGET_ENGINE}
+
 	PROPERTIES 
 		PREFIX lib
 		OUTPUT_NAME VastnessEngine
 		SUFFIX .lib
 )	
 
-
 # Build Game
 set (SHOPHORN_TARGET_GAME game)
+
 add_executable(game main.cpp)
 target_link_libraries(game libVastnessEngine libsoil glew32s libglfw3 gdi32 opengl32)
 add_subdirectory(Game)
 set_target_properties (
-	game
+	${SHOPHORN_TARGET_GAME}
+
 	PROPERTIES
 		OUTPUT_NAME Vastness
 )

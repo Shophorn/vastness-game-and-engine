@@ -43,29 +43,4 @@ MeshInstance instantiate(MeshData * asset)
     return instance;
 }
 
-namespace detail
-{
-    void setAttribPointer(GLuint target, GLint size, GLuint shader, std::string name)
-    {
-        glBindBuffer(GL_ARRAY_BUFFER, target);
-        auto location = glGetAttribLocation(shader, name.c_str());
-        glVertexAttribPointer(location, size, GL_FLOAT, GL_FALSE, 0, 0);
-        glEnableVertexAttribArray(location);
-    }
-
-}
-void setVertexAttributes(MeshInstance instance, Shader shader)
-{
-    glBindVertexArray(instance.vao);
-
-    using namespace detail;
-    setAttribPointer(instance.verticesBO, 3, shader.id, "position");
-
-    if (instance.texcoordBO > 0 )
-        setAttribPointer(instance.texcoordBO, 2, shader.id, "texcoord");
-
-    if (instance.normalsBO > 0 )
-        setAttribPointer(instance.normalsBO, 3, shader.id, "normal");
-
-}
 

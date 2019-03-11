@@ -12,9 +12,9 @@ Created 16/02/2019
 #include <unordered_map>
 
 #include "Light.hpp"
-#include "../Maths/Maths.hpp" // only for renderdata
+#include "../Maths/Maths.hpp" // only for drawCall
 #include "../Resources/Meshes.hpp"
-
+#include "../Resources/Materials.hpp"
 struct transform;
 struct renderer;
 
@@ -29,28 +29,19 @@ public:
     void render();
 
     void addDrawCall(const transform &, const renderer &r);
-
-    struct renderHandle
-    {
-        int shader;
-        meshHandle mesh;
-    };
-
-    renderHandle bindRenderInfo(int shader, meshHandle mesh);
-
     LightingManager lighting;
 
 private:
-    struct renderData
+    struct drawCall
     {
         matrix4f model{};
         matrix4f inverse{};
         GLuint texture{};
-        renderHandle handle{};
+        int shader;
+        meshHandle mesh;
     };
 
-    std::vector<renderData> _toRender{};
-    std::vector<renderHandle> _renderHandles{};
+    std::vector<drawCall> _drawCalls{};
 
     std::vector<Light> _staticLights {};
 };

@@ -92,7 +92,7 @@
     {
       "name" :            "player",
       "vertex shader" :   "Engine/Shaders/default_vertex.glsl",
-      "fragment shader" : "Engine/Shaders/pbr_fragment.glsl",
+      "fragment shader" : "Engine/Shaders/default_fragment.glsl",
       "textures" : [
         { "target" : "_Albedo", "name" : "bricks" },
         { "target" : "_Normal", "name" : "testNormal" }
@@ -103,9 +103,10 @@
   "Entities" : [
    {
      "id" : 1,
+     "COMMENT" : "Player",
      "components" : [
        { "type" : "transform" },
-       { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" },
+       { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "player "},
        { "type" : "playerControl" }
      ]
    },

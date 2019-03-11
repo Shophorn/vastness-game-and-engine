@@ -25,5 +25,4 @@ struct MeshInstance
     GLsizei elementCount {};
 };
 
-void setVertexAttributes(MeshInstance instance, Shader shader);
 MeshInstance instantiate(MeshData * data);

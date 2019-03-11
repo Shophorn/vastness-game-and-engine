@@ -34,6 +34,7 @@ class MaterialsManager
 {
 public:
 	const Material & get(MaterialHandle handle) const { return _materials[handle]; }
+	MaterialHandle getHandle(const std::string & name);
 	void addLoadInfo(const serialization::Value & value);
 
 private:

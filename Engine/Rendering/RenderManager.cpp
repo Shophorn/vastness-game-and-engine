@@ -1,4 +1,5 @@
 /*
+Shophorn GAMES
 LeoTamminen
 Created 16/02/2019
 */
@@ -16,6 +17,8 @@ Created 16/02/2019
 #include "../TransformComponent.hpp"
 #include "../Resources/Shaders.hpp"
 #include "../Resources/Meshes.hpp"
+
+#include "../DEBUG.hpp"
 
 matrix4f testView;
 matrix4f testProjection;
@@ -54,15 +57,15 @@ void RenderManager::render()
         // for renderer etc...
     }
 
-    for (const auto & rd : _toRender)
+    for (const auto & rd : _drawCalls)
     {
         // todo sort : shader -> mesh -> entity
-        auto shader = resources::shaders.get(rd.handle.shader);
-        auto mesh = resources::meshes.get(rd.handle.mesh);
+        auto shader = resources::shaders.get(rd.shader);
+        auto mesh = resources::meshes.get(rd.mesh);
 
         glUseProgram(shader.id);
 
-        // per entity = renderdata
+        // per entity = drawCall
         glUniformMatrix4fv(shader.modelLocation, 1, GL_FALSE, &rd.model[0][0]);
         glUniformMatrix4fv(shader.modelITLocation, 1, GL_TRUE, &rd.inverse[0][0]);
 
@@ -72,33 +75,20 @@ void RenderManager::render()
         glDrawElements(GL_TRIANGLES, mesh.elementCount, GL_UNSIGNED_INT, nullptr);
     }
 
-    _toRender.clear();
+    _drawCalls.clear();
     glFinish();
 }
 
 void RenderManager::addDrawCall(const transform &tr, const renderer &r)
 {
-    _toRender.emplace_back(
-        renderData {
+    _drawCalls.emplace_back(
+        drawCall {
             modelMatrix(tr),
             inverseModelMatrix(tr),
             r.texture,
-            r.handle
+            r.shader,
+            r.mesh
     });
 }
 
 void RenderManager::terminate() {}
-
-RenderManager::renderHandle RenderManager::bindRenderInfo(int shader, meshHandle mesh)
-{
-   for (const auto & h : _renderHandles){
-       if (h.shader == shader && h.mesh == mesh){
-           return h;
-       }
-   }
-
-    // bind together and save
-    // mesh = resources::meshes.instantiate(mesh);
-    setVertexAttributes(resources::meshes.get(mesh), resources::shaders.get(shader));
-    return _renderHandles.emplace_back( renderHandle{ shader, mesh} );
-}

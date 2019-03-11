@@ -21,3 +21,13 @@ void MaterialsManager::addLoadInfo(const serialization::Value & value)
 		}
 	}	
 }
+
+MaterialHandle MaterialsManager::getHandle(const std::string & name)
+{
+	auto it = _loadedMaterialsMap.find(name);
+	if (it == _loadedMaterialsMap.end())
+	{
+		DEBUG << "Load new material";
+	}
+	return 0;
+}
