@@ -36,18 +36,22 @@ struct MaterialLoadInfo
 	std::vector<textureInfo> textures;
 };
 
-using MaterialHandle = int;
+struct MaterialHandle
+{
+	int index;
+	Material & get() const;
+};
 
 class MaterialsManager
 {
 public:
-	const Material & get(MaterialHandle handle) const { return _materials[handle]; }
+	Material & get(MaterialHandle handle) { return _materials[handle.index]; }
 	MaterialHandle getHandle(const std::string & name);
 	void addLoadInfo(const serialization::Value & value);
 
 private:
 	std::unordered_map<std::string, MaterialLoadInfo> 	_loadInfos{};
-	std::unordered_map<std::string, int> 				_loadedMaterialsMap{};
+	std::unordered_map<std::string, MaterialHandle> 	_loadedMaterialsMap{};
 	std::vector<Material> 								_materials{};
 };
 

@@ -13,7 +13,11 @@ Created 27/02/2019
 #include "../Rendering/Shader.hpp"
 #include "../Serialization.hpp"
 
-using shaderHandle = int;
+struct shaderHandle
+{
+    int index;
+    Shader & get() const;
+};
 
 class Shaders
 {
@@ -29,10 +33,9 @@ class Shaders
 public:
     void addLoadInfo(const serialization::Value & loadInfoValues);
     shaderHandle create (const std::string & vertexPath, const std::string & fragmentPath);
-    Shader get(shaderHandle handle)
+    Shader & get(shaderHandle handle)
     { 
-        // -1 because handle 0 means not initialized
-        return _shaders[handle - 1];
+        return _shaders[handle.index];
     };
 
     const auto begin() { return _shaders.cbegin(); }

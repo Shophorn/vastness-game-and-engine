@@ -8,7 +8,12 @@ Created 28/02/2019
 #include "../Mesh.hpp"
 #include "../DEBUG.hpp"
 
-void Meshes::addLoadInfo(const serialization::Value &value)
+MeshInstance & meshHandle::get() const
+{
+    return resources::meshes.get(*this);
+}
+
+void MeshManager::addLoadInfo(const serialization::Value &value)
 {
     auto jsonArray = value.GetArray();
     for (const auto & item : jsonArray)
@@ -20,7 +25,7 @@ void Meshes::addLoadInfo(const serialization::Value &value)
     }
 }
 
-meshHandle Meshes::instantiate(std::string name)
+meshHandle MeshManager::instantiate(std::string name)
 {
     int assetIndex;
     if (_loadedFileIndexes.find(name) == _loadedFileIndexes.end())
@@ -41,5 +46,5 @@ meshHandle Meshes::instantiate(std::string name)
     int instanceIndex = (int)_instances.size();
     _loadedAssetIndexes.emplace(instanceIndex, assetIndex);
 
-    return instanceIndex;
+    return meshHandle{ instanceIndex - 1 };
 }

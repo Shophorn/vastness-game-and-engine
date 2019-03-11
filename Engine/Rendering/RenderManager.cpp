@@ -60,9 +60,9 @@ void RenderManager::render()
     for (const auto & dc : _drawCalls)
     {
         // todo sort : shader -> mesh -> entity
-        auto & material = resources::materials.get(dc.material);
-        auto shader = resources::shaders.get(material.shader);
-        auto mesh = resources::meshes.get(dc.mesh);
+        auto & material = dc.material.get();
+        auto & shader = material.shader.get();
+        auto & mesh = dc.mesh.get();
 
         glUseProgram(shader.id);
 

@@ -3,6 +3,10 @@
 #include "Textures.hpp"
 #include "../DEBUG.hpp"
 
+Material & MaterialHandle::get() const
+{
+	return resources::materials.get(*this);
+}
 
 void MaterialsManager::addLoadInfo(const serialization::Value & value)
 {
@@ -43,7 +47,8 @@ MaterialHandle MaterialsManager::getHandle(const std::string & name)
 	auto texture = resources::textures.getHandle(info.textures[0].name);
 	auto tex1 = resources::textures.getHandle(info.textures[1].name);
 
-	auto handle = _materials.size();
+	auto index = _materials.size();
+	MaterialHandle handle {index};
 	_materials.emplace_back ( Material {shader, texture, tex1} );
 	_loadedMaterialsMap.emplace(name, handle);
 	return handle;

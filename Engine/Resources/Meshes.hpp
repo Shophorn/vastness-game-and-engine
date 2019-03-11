@@ -12,13 +12,17 @@ Created 28/02/2019
 #include "../Serialization.hpp"
 #include "../Mesh.hpp"
 
-using meshHandle = int;
+struct meshHandle
+{
+    int index;
+    MeshInstance & get() const;
+};
 
-class Meshes
+class MeshManager
 {
     struct info
     {
-        meshHandle handle { 0 };
+        meshHandle handle;
         std::string path;
     };
 
@@ -36,10 +40,10 @@ public:
     meshHandle instantiate(meshHandle handle);
 
     // use handle - 1, since it is just int now, but we still want to keep handle 0 invalid
-    MeshInstance get (meshHandle  handle) { return _instances[handle - 1]; }
+    MeshInstance & get (meshHandle  handle) { return _instances[handle.index]; }
 };
 
 namespace resources
 {
-    inline Meshes meshes;
+    inline MeshManager meshes;
 }

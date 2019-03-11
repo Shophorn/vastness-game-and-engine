@@ -7,6 +7,11 @@ Created 27/02/2019
 #include "../Rendering/Shader.hpp"
 #include "../DEBUG.hpp"
 
+Shader & shaderHandle::get() const
+{
+    return resources::shaders.get(*this);
+}
+
 void Shaders::addLoadInfo(const serialization::Value & loadInfoValues)
 {
     auto jsonShaderArray = loadInfoValues.GetArray();
@@ -22,5 +27,5 @@ void Shaders::addLoadInfo(const serialization::Value & loadInfoValues)
 shaderHandle Shaders::create(const std::string & vertexPath, const std::string & fragmentPath)
 {
     _shaders.emplace_back(Shader::create(vertexPath, fragmentPath));
-    return _shaders.size();
+    return shaderHandle { _shaders.size() - 1 };
 }
