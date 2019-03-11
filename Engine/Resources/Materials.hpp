@@ -16,44 +16,45 @@ Leo Tamminen
 
 struct Material
 {
-	shaderHandle shader;
-	textureHandle texture;
-	textureHandle tex1;
-	// std::vector<textureHandle> textures;
-};
-
-struct textureInfo
-{
-	std::string target;
-	std::string name;
-};
-
-struct MaterialLoadInfo
-{
-	std::string name;
-	std::string vertexShaderPath;
-	std::string fragmentShaderPath;
-	std::vector<textureInfo> textures;
-};
-
-struct MaterialHandle
-{
-	int index;
-	Material & get() const;
+	ShaderHandle shader;
+	TextureHandle texture;
+	TextureHandle tex1;
+	// std::vector<TextureHandle> textures;
 };
 
 class MaterialsManager
 {
 public:
-	Material & get(MaterialHandle handle) { return _materials[handle.index]; }
-	MaterialHandle getHandle(const std::string & name);
+	struct Handle
+	{
+		int index;
+		Material & get() const;	
+	};
+
+	Handle getHandle(const std::string & name);
 	void addLoadInfo(const serialization::Value & value);
 
 private:
+	struct textureInfo
+	{
+		std::string target;
+		std::string name;
+	};
+
+	struct MaterialLoadInfo
+	{
+		std::string name;
+		std::string vertexShaderPath;
+		std::string fragmentShaderPath;
+		std::vector<textureInfo> textures;
+	};
+
 	std::unordered_map<std::string, MaterialLoadInfo> 	_loadInfos{};
-	std::unordered_map<std::string, MaterialHandle> 	_loadedMaterialsMap{};
+	std::unordered_map<std::string, Handle> 			_loadedMaterialsMap{};
 	std::vector<Material> 								_materials{};
 };
+
+using MaterialHandle = MaterialsManager::Handle;
 
 namespace resources
 {

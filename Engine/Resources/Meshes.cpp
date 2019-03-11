@@ -10,7 +10,8 @@ Created 28/02/2019
 
 MeshInstance & meshHandle::get() const
 {
-    return resources::meshes.get(*this);
+    // return resources::meshes.get(*this);
+    return resources::meshes._instances[index];
 }
 
 void MeshManager::addLoadInfo(const serialization::Value &value)

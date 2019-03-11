@@ -3,9 +3,9 @@
 #include "Textures.hpp"
 #include "../DEBUG.hpp"
 
-Material & MaterialHandle::get() const
+Material & MaterialsManager::Handle::get() const
 {
-	return resources::materials.get(*this);
+	return resources::materials._materials[index];
 }
 
 void MaterialsManager::addLoadInfo(const serialization::Value & value)

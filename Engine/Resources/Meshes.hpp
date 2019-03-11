@@ -12,17 +12,24 @@ Created 28/02/2019
 #include "../Serialization.hpp"
 #include "../Mesh.hpp"
 
-struct meshHandle
-{
-    int index;
-    MeshInstance & get() const;
-};
 
 class MeshManager
 {
+public:
+    struct Handle
+    {   
+        int index;
+        MeshInstance & get() const;
+    };
+
+    void addLoadInfo(const serialization::Value & value);
+    Handle instantiate(std::string name);
+    Handle instantiate(Handle handle);
+    
+private:
     struct info
     {
-        meshHandle handle;
+        Handle handle;
         std::string path;
     };
 
@@ -34,14 +41,9 @@ class MeshManager
     std::unordered_map<name_type, int> _loadedFileIndexes{};
     std::unordered_map<int, int> _loadedAssetIndexes{};
     std::unordered_map<int, name_type> _handleNameMap{};
-public:
-    void addLoadInfo(const serialization::Value & value);
-    meshHandle instantiate(std::string name);
-    meshHandle instantiate(meshHandle handle);
-
-    // use handle - 1, since it is just int now, but we still want to keep handle 0 invalid
-    MeshInstance & get (meshHandle  handle) { return _instances[handle.index]; }
 };
+
+using meshHandle = MeshManager::Handle;
 
 namespace resources
 {

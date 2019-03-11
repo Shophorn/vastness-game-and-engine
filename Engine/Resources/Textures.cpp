@@ -82,7 +82,7 @@ GLuint LoadTextureRGBA(textureLoadInfo loadInfo)
     return texture;
 }
 
-textureHandle Textures::getHandle(std::string name)
+TextureHandle Textures::getHandle(std::string name)
 {
     assert(_nameInfoMap.find(name) != _nameInfoMap.end() && "name not found");
 

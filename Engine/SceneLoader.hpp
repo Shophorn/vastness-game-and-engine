@@ -54,7 +54,6 @@ public:
 
         // Cache load info, but only load assets on first usage
         resources::textures     .addLoadInfo(document["Textures"]);
-        resources::shaders      .addLoadInfo(document["Shaders"]);
         resources::meshes       .addLoadInfo(document["Meshes"]);
         resources::materials    .addLoadInfo(document["Materials"]);
 

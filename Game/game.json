@@ -54,17 +54,6 @@
     }
   ],
 
-  "Shaders" : [
-    {
-      "name" : "default",
-      "path" : "default"
-    },
-    {
-      "name" : "sprite",
-      "path" : "sprite"
-    }
-  ],
-
   "Textures" : [
     {
       "name" : "bricks",

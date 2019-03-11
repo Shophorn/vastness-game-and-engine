@@ -13,7 +13,7 @@ Created 26/02/2019
 
 #include "../Serialization.hpp"
 
-using textureHandle = GLuint;
+using TextureHandle = GLuint;
 
 struct textureLoadInfo
 {
@@ -28,19 +28,17 @@ class Textures
 {
     struct textureInfo
     {
-        textureHandle handle { 0 };
+        TextureHandle handle { 0 };
         textureLoadInfo loadInfo;
     };
 
     std::unordered_map<std::string, textureInfo> _nameInfoMap{};
 public:
     void addLoadInfo(const serialization::Value & loadInfoValues);
-    textureHandle getHandle(std::string name);
+    TextureHandle getHandle(std::string name);
 };
 
 namespace resources
 {
     inline Textures textures;
 }
-
-

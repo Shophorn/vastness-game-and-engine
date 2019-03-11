@@ -5,7 +5,6 @@ Created 11/03/2019
 */
 #include "RendererSystem.hpp"
 #include "../Serialization.hpp"
-#include "../DEBUG.hpp"
 
 namespace
 {
@@ -37,11 +36,11 @@ namespace serialization
     template <>
     renderer deserialize<renderer>(const Value & value)
     {
-        auto mesh       = resources::meshes.instantiate(value["mesh"].GetString());
-        auto material   = resources::materials.getHandle(value["material"].GetString());
+        auto meshHandle         = resources::meshes.instantiate(value["mesh"].GetString());
+        auto materialHandle     = resources::materials.getHandle(value["material"].GetString());
+        auto shaderHandle       = materialHandle.get().shader;
 
-        auto shader = resources::materials.get(material).shader;
-        setVertexAttributes(resources::meshes.get(mesh), resources::shaders.get(shader));
-        return renderer{ mesh, material };
+        setVertexAttributes(meshHandle.get(), shaderHandle.get());
+        return renderer{ meshHandle, materialHandle };
     }
 }
