@@ -10,3 +10,6 @@ cmake-build
 
 # helper files
 *.bat
+
+# compiled libraries
+/lib/
