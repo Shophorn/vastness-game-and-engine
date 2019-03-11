@@ -65,8 +65,30 @@ namespace
 
 }// Anon namespace
 
-Shader Shader::Load(std::string shaderName)
+Shader Shader::Load(const std::string & shaderName)
 {
     GLuint id = LoadShaderWithName(shaderName);
     return Shader(id);
+}
+
+Shader Shader::create(const std::string & vertexPath, const std::string & fragmentPath)
+{
+        const char * vertexSource = fileOps::ReadFile(vertexPath.c_str());
+        GLuint vertexShader = ShaderFromSource(vertexSource, GL_VERTEX_SHADER);
+        DoPrintIfNotGood("vertex", vertexShader);
+
+        const char * fragmentSource = fileOps::ReadFile(fragmentPath.c_str());
+        GLuint fragmentShader = ShaderFromSource(fragmentSource, GL_FRAGMENT_SHADER);
+        DoPrintIfNotGood("fragment", fragmentShader);
+
+        GLuint id = glCreateProgram();
+        glAttachShader(id, vertexShader);
+        glAttachShader(id, fragmentShader);
+        glBindFragDataLocation(id, 0, "outColor");
+        glLinkProgram(id);
+
+        delete [] vertexSource;
+        delete [] fragmentSource;
+
+        return Shader(id);
 }

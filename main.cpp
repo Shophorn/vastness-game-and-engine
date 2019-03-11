@@ -7,6 +7,8 @@ Leo Tamminen
 #include "Engine/Engine.hpp"
 #include "Game/Components.hpp"
 
+#include <iostream>
+
 namespace
 {
     int test()
@@ -27,14 +29,22 @@ int main()
     // return test();
 
     Engine engine;
-
     engine.initialize("Vastness", 1920, 1080);
+
 
     initializeGameComponents(engine.ecs);
     initializeGameSystems(engine.ecs);
 
     engine.ecsLoader->registerDeserializers(getGameDeserializeFunctions());
 
-    engine.start();
+    bool sceneLoaded = engine.loadScene("Game/game.json");
+    
+    // std::cout << "loaded";
+
+    if (sceneLoaded)
+    {
+        engine.start();
+    }
+
     engine.terminate();
 }

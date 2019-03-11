@@ -29,5 +29,6 @@ public:
         cameraPosLocation   (glGetUniformLocation(id, "cameraPos"))
     {}
 
-    static Shader Load(std::string shaderName);
+    static Shader Load(const std::string & shaderName);
+    static Shader create(const std::string & vertexPath, const std::string & fragmentPath);
 };

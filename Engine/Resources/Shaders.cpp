@@ -7,7 +7,7 @@ Created 27/02/2019
 #include "../Rendering/Shader.hpp"
 #include "../DEBUG.hpp"
 
-void Shaders::addLoadInfo(const serialization::Value &loadInfoValues)
+void Shaders::addLoadInfo(const serialization::Value & loadInfoValues)
 {
     auto jsonShaderArray = loadInfoValues.GetArray();
     for (const auto & item : jsonShaderArray)
@@ -19,7 +19,7 @@ void Shaders::addLoadInfo(const serialization::Value &loadInfoValues)
     }
 }
 
-shaderHandle Shaders::getHandle(std::string name)
+shaderHandle Shaders::getHandle(const std::string & name)
 {
     assert(_nameInfoMap.find(name) != _nameInfoMap.end() && "name not found");
 
@@ -30,4 +30,10 @@ shaderHandle Shaders::getHandle(std::string name)
         info->handle = _shaders.size();
     }
     return info->handle;
+}
+
+shaderHandle Shaders::create(const std::string & vertexPath, const std::string & fragmentPath)
+{
+    _shaders.emplace_back(Shader::create(vertexPath, fragmentPath));
+    return _shaders.size();
 }

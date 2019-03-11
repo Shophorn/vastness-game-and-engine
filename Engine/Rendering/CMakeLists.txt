@@ -1,0 +1,11 @@
+target_sources(
+	${SHOPHORN_TARGET_ENGINE}
+PRIVATE
+	Light.cpp
+	Light.hpp
+	RendererSystem.hpp
+	RenderManager.cpp
+	RenderManager.hpp
+	Shader.cpp
+	Shader.hpp
+)

@@ -80,55 +80,64 @@
       "name" : "ground",
       "path" : "Game/Assets/ground.png",
       "color mode" : "RGBA"
+    },
+    {
+      "name" : "testNormal",
+      "path" : "Game/Assets/testNormal.png",
+      "color mode" : "RGBA"
     }
   ],
 
   "Materials" : [
     {
-      "name" : "player",
-      "shader" : "sprite",
-      "texture" : "texture"
+      "name" :            "player",
+      "vertex shader" :   "Engine/Shaders/default_vertex.glsl",
+      "fragment shader" : "Engine/Shaders/pbr_fragment.glsl",
+      "textures" : [
+        { "target" : "_Albedo", "name" : "bricks" },
+        { "target" : "_Normal", "name" : "testNormal" }
+      ]
     }
   ],
 
-   "Entities" : [
-     {
-       "id" : 1,
-       "components" : [
-         { "type" : "transform" },
-         { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" },
-         { "type" : "playerControl" }
-       ]
-     },
-     {
-       "id" : 2,
-       "components" : [
-         { "type" : "transform" },
-         { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1"},
-         { "type" : "followEntity", "target" : 1 }
-       ]
-     },
-     {
-       "id" : 3,
-       "components" : [
-         { "type" : "transform" , "position" : [7, 0, 0] },
-         { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1"},
-         { "type" : "followEntity", "target" : 2 }
-       ]
-     },
-     {
-       "id" : 4,
-       "components" : [
-         { "type" : "transform", "position" : [0, 0, 0], "scale" : [0.1, 0.1, 0.1] },
-         { "type" : "renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" }
-       ]
-     },
-     {
-      "id" : 5,
-      "components" : [
-         { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 0, 0, 90 ], "scale" : [1, 1, 1] },
-         { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" }
-      ]
-     }
-   ]
+  "Entities" : [
+   {
+     "id" : 1,
+     "components" : [
+       { "type" : "transform" },
+       { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" },
+       { "type" : "playerControl" }
+     ]
+   },
+   {
+     "id" : 2,
+     "components" : [
+       { "type" : "transform" },
+       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1"},
+       { "type" : "followEntity", "target" : 1 }
+     ]
+   },
+   {
+     "id" : 3,
+     "components" : [
+       { "type" : "transform" , "position" : [7, 0, 0] },
+       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1"},
+       { "type" : "followEntity", "target" : 2 }
+     ]
+   },
+   {
+     "id" : 4,
+     "components" : [
+       { "type" : "transform", "position" : [0, 0, 0], "scale" : [0.1, 0.1, 0.1] },
+       { "type" : "renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" }
+     ]
+   },
+   {
+    "id" : 5,
+    "components" : [
+       { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 0, 0, 90 ], "scale" : [1, 1, 1] },
+       { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" }
+    ]
+   }
+]
 }

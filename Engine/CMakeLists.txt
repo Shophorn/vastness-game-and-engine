@@ -1,0 +1,32 @@
+target_sources(
+	${SHOPHORN_TARGET_ENGINE}
+PRIVATE
+	Camera.cpp
+	Camera.hpp
+	Color.hpp
+	DEBUG.hpp
+	ECS.hpp
+	EcsCoreComponents.hpp
+	Engine.cpp
+	Engine.hpp
+	FileOperations.cpp
+	FileOperations.hpp
+	Input.cpp
+	Input.hpp
+	Loader.cpp
+	Loader.hpp
+	Mesh.cpp
+	Mesh.hpp
+	SceneLoader.hpp
+	Serialization.hpp
+	Stopwatch.hpp
+	StringOperations.cpp
+	StringOperations.hpp
+	TransformComponent.hpp
+)
+
+add_subdirectory(ECS)
+add_subdirectory(Maths)
+add_subdirectory(Rendering)
+add_subdirectory(Resources)
+add_subdirectory(Shaders)

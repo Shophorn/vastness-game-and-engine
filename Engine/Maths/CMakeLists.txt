@@ -1,0 +1,17 @@
+target_sources(
+	${SHOPHORN_TARGET_ENGINE}
+PRIVATE
+	Basic.hpp
+	Maths.hpp
+	matrix4f.cpp
+	matrix4f.hpp
+	OStreamOperators.cpp
+	OStreamOperators.hpp
+	Quaternion.cpp
+	Quaternion.hpp
+	vector2f.hpp
+	vector3f.cpp
+	vector3f.hpp
+	vector4f.cpp
+	vector4f.hpp
+)

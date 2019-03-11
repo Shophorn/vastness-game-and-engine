@@ -17,6 +17,7 @@ Created 22/02/2019
 #include "Resources/Textures.hpp"
 #include "Resources/Shaders.hpp"
 #include "Resources/Meshes.hpp"
+#include "Resources/Materials.hpp"
 #include "Rendering/RenderManager.hpp"
 
 class SceneLoader
@@ -41,7 +42,7 @@ public:
         }
     }
 
-    void build()
+    void build(const char * gamePath)
     {
         serialization::sceneLoader = this;
 
@@ -49,16 +50,15 @@ public:
         using std::unordered_map;
         using rapidjson::Document;
 
-        string gamePath = "Game/game.json";
-        Document document = fileOps::ReadJson(gamePath.c_str());
+        Document document = fileOps::ReadJson(gamePath);
 
         // Cache load info, but only load assets on first usage
-        resources::textures.addLoadInfo(document["Textures"]);
-        resources::shaders.addLoadInfo(document["Shaders"]);
-        resources::meshes.addLoadInfo(document["Meshes"]);
+        resources::textures     .addLoadInfo(document["Textures"]);
+        resources::shaders      .addLoadInfo(document["Shaders"]);
+        resources::meshes       .addLoadInfo(document["Meshes"]);
+        resources::materials    .addLoadInfo(document["Materials"]);
 
         core::renderManager.lighting.addSerializedLighting(document["Lighting"]);
-
 
         auto jsonEntities = document["Entities"].GetArray();
         for (const auto & item : jsonEntities)

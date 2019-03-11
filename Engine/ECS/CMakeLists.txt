@@ -1,0 +1,10 @@
+target_sources(
+	${SHOPHORN_TARGET_ENGINE}
+PRIVATE
+	Component.hpp
+	ECS.hpp
+	Handle.hpp
+	HandleManager.hpp
+	List.hpp
+	OstreamOperators.hpp
+)

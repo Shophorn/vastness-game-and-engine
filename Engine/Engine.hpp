@@ -33,7 +33,8 @@ public:
     Engine() = default;
     ~Engine() = default;
 
-    void initialize(const char *title, int width, int height);
+    void initialize(const char * title, int width, int height);
+    bool loadScene(const char * path);
     void start();
     void terminate();
 

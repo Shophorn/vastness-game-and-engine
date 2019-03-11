@@ -40,7 +40,6 @@ void Engine::render()
 
 void Engine::start()
 {
-   ecsLoader->build();
 
     _isRunning = true;
     while (_isRunning)
@@ -49,6 +48,14 @@ void Engine::start()
         update();
         render();
     }
+}
+
+bool Engine::loadScene(const char * path)
+{
+   ecsLoader->build(path);
+
+   // make use of this
+   return true;
 }
 
 void Engine::terminate()

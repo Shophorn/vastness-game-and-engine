@@ -28,8 +28,15 @@ class Shaders
 
 public:
     void addLoadInfo(const serialization::Value & loadInfoValues);
-    shaderHandle getHandle(std::string name);
-    Shader get(shaderHandle handle) { return _shaders[handle - 1]; };
+    shaderHandle getHandle(const std::string & name);
+
+    shaderHandle create (const std::string & vertexPath, const std::string & fragmentPath);
+
+    Shader get(shaderHandle handle)
+    { 
+        // -1 because handle 0 means not initialized
+        return _shaders[handle - 1];
+    };
 
     const auto begin() { return _shaders.cbegin(); }
     const auto end() { return _shaders.cend(); }

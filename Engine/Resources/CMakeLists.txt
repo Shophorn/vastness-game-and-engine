@@ -1,0 +1,12 @@
+target_sources(
+	${SHOPHORN_TARGET_ENGINE}
+PRIVATE
+	Materials.cpp
+	Materials.hpp
+	Meshes.cpp
+	Meshes.hpp
+	Shaders.cpp
+	Shaders.hpp
+	Textures.cpp
+	Textures.hpp
+)
