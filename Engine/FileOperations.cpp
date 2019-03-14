@@ -29,10 +29,9 @@ std::string fileOps::ReadFile(const std::string & path)
     return source;
 }
 
-rapidjson::Document fileOps::ReadJson(const std::string & path)
+fileOps::JsonDocument fileOps::ReadJson(const std::string & path)
 {
-    auto jsonFormat = fileOps::ReadFile(path);
-    rapidjson::Document document;
-    document.Parse(jsonFormat.c_str());
+    fileOps::JsonDocument document;
+    document.template Parse<rapidjson::kParseCommentsFlag>(fileOps::ReadFile(path).c_str());
     return document;
 }

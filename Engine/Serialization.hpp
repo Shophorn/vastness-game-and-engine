@@ -6,17 +6,18 @@ Created 07/02/2019
 
 #pragma once
 
-#include <rapidjson/document.h>
 #include <cassert>
 #include <functional>
 
 #include "ECS.hpp"
 
+#include "FileOperations.hpp"
+
 class SceneLoader;
 
 namespace serialization
 {
-    using Value = rapidjson::Value;
+    using Value = fileOps::JsonDocument::ValueType;
 
     template <typename T>
     T deserialize(const Value & value);
@@ -29,8 +30,16 @@ namespace serialization
         core::ecs.addComponent<Component>(entity, serialization::deserialize<Component>(value));
     }
 
-    // like what
+    // this is used to get mapped entities from scene file, so that serialized references could work
+    // probably not the best
     inline SceneLoader * sceneLoader;
+
+    template <typename T>
+    void setIfHasMember(T * target, const char * name, const Value & value)
+    {
+        if (value.HasMember(name))
+            *target = value[name].Get<T>();
+    }
 }
 
 

@@ -11,7 +11,10 @@ Created 21/01/2019
 namespace fileOps
 {
     std::string 		ReadFile(const std::string & path);
-    rapidjson::Document ReadJson(const std::string & path);
+
+
+    using JsonDocument = rapidjson::Document;
+    JsonDocument ReadJson(const std::string & path);
 };
 
 
