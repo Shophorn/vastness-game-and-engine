@@ -14,7 +14,6 @@ struct transform
     vector3f position { 0 };
     quaternion rotation { quaternion::identity };
     vector3f scale { 1 };
-
 };
 
 inline matrix4f modelMatrix(const transform & tr)
@@ -53,9 +52,21 @@ namespace serialization
 
         else if (value.HasMember("direction"))
         {
+
+            DEBUG << "DESERIALIZE TRANSFORM: \n";
             auto forward = deserialize<vector3f>(value["direction"]);
+
+            DEBUG<< forward << ", ";
+
             forward = normalize(forward);
+            
+            DEBUG<< forward << ", ";
+
             auto rot = lookRotation(forward);
+
+            DEBUG<< rot << "\n\n";
+
+
             result.rotation = rot;//lookRotation(normalize(deserialize<vector3f>(value["direction"])));
         }
 

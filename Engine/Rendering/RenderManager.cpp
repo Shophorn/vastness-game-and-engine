@@ -30,8 +30,7 @@ namespace
     {
         // Look here
         // https://stackoverflow.com/questions/21830340/understanding-glmlookat
-        vector3f forward = normalize(tr.position);
-        forward = normalize(forward);
+        vector3f forward = tr.rotation * vector3f::forward;
         vector3f right = cross(vector3f::up, forward);
         vector3f up = cross(forward, right);
 
@@ -57,7 +56,7 @@ namespace
 //                {0, 0, 0, 1}
 //            };
     // Perspective, same source
-    float f = 1.0f / tanf(cam.fieldOfView / 2.0f);
+    float f = 1.0f / tanf(maths::deg2rad * cam.fieldOfView / 2.0f);
     float m22 = (cam.farClippingPlane + cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
     float m23 = (2 * cam.farClippingPlane * cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
 

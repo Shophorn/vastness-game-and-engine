@@ -38,6 +38,8 @@ namespace maths
         vector3f operator / (float f) const;
 
         vector3f operator - () const;
+
+        bool operator == (const vector3f & other);
     };
 
     inline vector3f operator * (float f, vector3f v) { return v * f; }
@@ -50,7 +52,8 @@ namespace maths
 
     float angle(const vector3f & lhs, const vector3f & rhs);
     float signedAngle(const vector3f & lhs, const vector3f & rhs, const vector3f & up = vector3f::up);
-    float magnitude(const vector3f &v);
+    float magnitude(const vector3f & v);
+    float sqrMagnitude(const vector3f & v);
     float sqrDistance(const vector3f & lhs, const vector3f & rhs);
 
 }

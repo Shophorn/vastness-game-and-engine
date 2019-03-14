@@ -8,6 +8,9 @@ Created 03/03/2019
 #include "matrix4f.hpp"
 #include "Basic.hpp"
 
+#include "OstreamOperators.hpp"
+
+#include "../DEBUG.hpp"
 using namespace maths;
 
 maths::quaternion::quaternion (float x, float y, float z, float w)
@@ -15,7 +18,6 @@ maths::quaternion::quaternion (float x, float y, float z, float w)
 
 maths::quaternion::quaternion(vector3f xyz, float w) 
     : x (xyz.x), y(xyz.y), z(xyz.z), w(w) {}
-
 
 // todo: do testing, this returns wrong values
 vector3f maths::quaternion::operator * (vector3f vec) const
@@ -57,18 +59,37 @@ quaternion maths::quaternion::operator * (quaternion rhs) const
     auto vec = lhs.w * rhs.xyz() + rhs.w * lhs.xyz() + cross(lhs.xyz(), rhs.xyz());
     return quaternion(vec, r);
 }
-
+    
 quaternion maths::lookRotation(vector3f forward, vector3f up)
 {
-    auto binormal = cross(forward, up);
-    auto axis = cross(forward,binormal);
-    return axisAngle(axis, signedAngle(forward, vector3f::forward));
+    // ASSERT_VECTOR_NORMALIZED(forward)
+    static const float epsAlmostOne = 0.9999f;
+    float d = dot (forward, vector3f::forward);
+
+    if (d > epsAlmostOne)
+        return quaternion::identity;
+
+    if (d < -epsAlmostOne)
+        return axisAngle(vector3f::up, pi);
+
+
+    // auto binormal = cross(forward, up);
+    // auto axis = cross(binormal, forward);
+    auto axis = cross (vector3f::forward, forward);
+    axis = normalize(axis);
+
+    return axisAngle(axis, signedAngle(vector3f::forward, forward, axis));
 }
 
 quaternion maths::axisAngle(vector3f axis, float angle)
 {
     angle *= 0.5f;
     return quaternion(axis * sin(angle), cos(angle));
+}
+
+float maths::magnitude(quaternion q)
+{
+    return sqrt(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w);
 }
 
 quaternion maths::eulerToQuaternion(vector3f euler)

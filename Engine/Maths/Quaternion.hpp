@@ -4,6 +4,11 @@ Leo Tamminen
 Created 03/03/2019
 */
 
+/*
+quaternions represent rotation.
+in all operations expect radians as angle inputs. As of writing this, its not so though.
+*/
+
 #pragma once
 
 #include "vector3f.hpp"
@@ -26,11 +31,12 @@ namespace maths
         quaternion  operator * (quaternion rhs) const;
 
     private:
-        vector3f xyz() const;
+        vector3f xyz() const; // for debug now. Maybe make union to use as such
     };
 
     inline const quaternion quaternion::identity = quaternion{0,0,0,1};
 
+    float magnitude(quaternion);
 
     quaternion lookRotation(vector3f forward, vector3f up = vector3f::up);
     quaternion axisAngle(vector3f axis, float angle);

@@ -8,16 +8,43 @@ Leo Tamminen
 #include "Game/Components.hpp"
 
 #include <iostream>
+#include <iomanip>
+
+#include "Engine/Maths/Maths.hpp"
 
 namespace
 {
     int test()
     {
-        vector3f a (-1, 0, 0);
-        vector3f b (1, -1, 0);
+        using namespace maths;
+        using std::cout;
 
-        std::cout << maths::rad2deg * angle(a, b) << "\n";
-        std::cout << maths::rad2deg * signedAngle(b, a) << "\n";
+        double pi = atan(1.0) * 4.0;
+        std::cout << std::setprecision(30) << pi << "\n";
+
+        vector3f vecs[] = {
+            // vector3f(1, 0, 0.1),
+            // vector3f(-1, 0, 0.1),
+            vector3f(0, 1, 0),      // 00
+            vector3f(0, -1, 0),     // 00
+            // vector3f(0, 1, 1),
+            // vector3f(0, 1, -1),
+            // vector3f(1, 1, 1),
+            // vector3f(1, 1, -1),
+            // vector3f(0, 0, 1),
+            // vector3f(0, 0, -1),
+        };
+
+        int count = sizeof(vecs) / sizeof(vecs[0]);
+        for (int i = 0; i < count; i++)
+        {
+            cout << std::setprecision (3) << "#" << i << ": ";
+            auto vec = normalize(vecs[i]);
+            auto rot = lookRotation(vec);
+            auto result = rot * vector3f::forward;
+
+            cout << vec << "\t" << rot << "\t" << result << "\t" << (vec - result) << "\n";
+        }
 
         return 0;
     }
@@ -27,7 +54,7 @@ namespace
 int main()
 {
     // return test();
-
+ 
     Engine engine;
     engine.initialize("Vastness", 1920, 1080);
 
