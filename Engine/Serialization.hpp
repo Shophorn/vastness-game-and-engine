@@ -30,6 +30,7 @@ namespace serialization
         core::ecs.addComponent<Component>(entity, serialization::deserialize<Component>(value));
     }
 
+
     // this is used to get mapped entities from scene file, so that serialized references could work
     // probably not the best
     inline SceneLoader * sceneLoader;

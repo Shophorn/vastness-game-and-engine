@@ -30,19 +30,16 @@ namespace maths
         vector3f    operator * (vector3f rhs) const;
         quaternion  operator * (quaternion rhs) const;
 
+        static quaternion axisAngle(vector3f axis, float angle);
+        static quaternion lookRotation(vector3f forward, vector3f up = vector3f::up);
+        static quaternion eulerToQuaternion(vector3f euler);
+        static matrix4f   toRotationMatrix(quaternion q);
+
     private:
         vector3f xyz() const; // for debug now. Maybe make union to use as such
     };
 
     inline const quaternion quaternion::identity = quaternion{0,0,0,1};
-
     float magnitude(quaternion);
-
-    quaternion lookRotation(vector3f forward, vector3f up = vector3f::up);
-    quaternion axisAngle(vector3f axis, float angle);
-    quaternion eulerToQuaternion(vector3f euler);
-    
     quaternion inverse(quaternion q);
-
-    matrix4f toRotationMatrix(quaternion q);
 }

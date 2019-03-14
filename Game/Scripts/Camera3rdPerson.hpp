@@ -30,6 +30,7 @@ Created 14/03/2019
 #include "../../Engine/ECS.hpp"
 #include "../../Engine/TransformComponent.hpp"
 #include "../../Engine/DEBUG.hpp"
+#include "../../Engine/EcsCoreComponents.hpp"
 
 namespace maths
 {
@@ -57,29 +58,19 @@ struct camera3rdPerson
 	maths::quaternion computeRotation() const;
 };
 
-struct camera3rdPersonInput
-{
-	float horizontal;
-	float vertical;
-};
-
 struct camera3rdPersonDriverSystem
 {
-	using components = mpl::List<camera3rdPerson, transform>;
+	using components = mpl::List<camera3rdPerson, transform, UserInput>;
 
-
-	void update(camera3rdPerson & cam, transform & tr, float dt)
+	void update(camera3rdPerson & cam, transform & tr, UserInput input, float dt)
 	{
 
-		// cam.orbit += cam.xSensitivity * input.horizontal;
-		// cam.pivot += cam.ySensitivity * input.horizontal;
+		cam.orbit += cam.xSensitivity * input.horizontal * dt;
+		cam.pivot += cam.ySensitivity * input.vertical * dt;
 
 		// tr.position = cam.computePosition();
 		// tr.rotation = cam.computeRotation();
 
 		tr = cam.computeTransform();
-
-		// DEBUG << tr.rotation << "\n";
 	}
 };
-

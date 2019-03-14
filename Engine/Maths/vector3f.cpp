@@ -7,6 +7,7 @@ Created 31/01/2019
 #include "OStreamOperators.hpp"
 #include "Basic.hpp"
 #include "../Serialization.hpp"
+#include "quaternion.hpp"
 
 using namespace maths;
 

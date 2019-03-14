@@ -56,4 +56,5 @@ namespace maths
     float sqrMagnitude(const vector3f & v);
     float sqrDistance(const vector3f & lhs, const vector3f & rhs);
 
+
 }

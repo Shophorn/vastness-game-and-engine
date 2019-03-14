@@ -21,19 +21,23 @@ transform camera3rdPerson::computeTransform() const
 
 	// this should be copy, that we can modify, and move back out
 	auto target = core::ecs.getComponent<transform>(targetHandle);
-	auto pos = target.position + headHeight * vector3f::up + camDistance * vector3f::forward;
+
+	// instead use targets up
+	auto up = vector3f::up;
+	auto orbitRotation = quaternion::axisAngle(up, orbit);
+	auto right = orbitRotation * vector3f::right;
+	auto pivotRotation = quaternion::axisAngle(right, pivot);
+
+	auto forward = pivotRotation * orbitRotation * vector3f::forward;
+
+	auto pos = target.position + headHeight * up + forward * camDistance;
+
 
 	transform tr;
 	tr.position = pos;
+	tr.rotation = quaternion::lookRotation(forward, up);
 	return tr;
-/*
-	auto pos = target.position;
-	auto up = target.rotation * vector3f::up;
-	pos += up * headHeight;
 
-	auto forward = target.rotation * vector3f::forward;
-	auto right = target.rotation * vector3f::right;
-	*/
 }
 
 

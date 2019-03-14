@@ -19,32 +19,11 @@ namespace
         using namespace maths;
         using std::cout;
 
-        double pi = atan(1.0) * 4.0;
-        std::cout << std::setprecision(30) << pi << "\n";
-
-        vector3f vecs[] = {
-            // vector3f(1, 0, 0.1),
-            // vector3f(-1, 0, 0.1),
-            vector3f(0, 1, 0),      // 00
-            vector3f(0, -1, 0),     // 00
-            // vector3f(0, 1, 1),
-            // vector3f(0, 1, -1),
-            // vector3f(1, 1, 1),
-            // vector3f(1, 1, -1),
-            // vector3f(0, 0, 1),
-            // vector3f(0, 0, -1),
-        };
-
-        int count = sizeof(vecs) / sizeof(vecs[0]);
-        for (int i = 0; i < count; i++)
-        {
-            cout << std::setprecision (3) << "#" << i << ": ";
-            auto vec = normalize(vecs[i]);
-            auto rot = lookRotation(vec);
-            auto result = rot * vector3f::forward;
-
-            cout << vec << "\t" << rot << "\t" << result << "\t" << (vec - result) << "\n";
-        }
+        vector3f vec0 (0, 1, 0);
+        auto vec1 = quaternion::axisAngle(vector3f::up, deg2rad * 90) * vec0;
+        auto vec2 = quaternion::axisAngle(vector3f::right, deg2rad * 90) * vec0;
+        auto vec3 = quaternion::axisAngle(vector3f::left, deg2rad * 90) * vec0;
+        cout << vec1 << "\n" << vec2 << "\n" << vec3;
 
         return 0;
     }

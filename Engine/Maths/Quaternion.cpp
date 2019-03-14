@@ -47,12 +47,12 @@ vector3f maths::quaternion::operator * (vector3f vec) const
     // return w.xyz;
 }
 
-vector3f maths::quaternion::xyz() const
+vector3f quaternion::xyz() const
 {
     return vector3f(x, y, z);
 }
 
-quaternion maths::quaternion::operator * (quaternion rhs) const
+quaternion quaternion::operator * (quaternion rhs) const
 {
     auto lhs = *this;
     float r = lhs.w * rhs.w - dot (lhs.xyz(), rhs.xyz());
@@ -60,7 +60,7 @@ quaternion maths::quaternion::operator * (quaternion rhs) const
     return quaternion(vec, r);
 }
     
-quaternion maths::lookRotation(vector3f forward, vector3f up)
+quaternion quaternion::lookRotation(vector3f forward, vector3f up)
 {
     // ASSERT_VECTOR_NORMALIZED(forward)
     static const float epsAlmostOne = 0.9999f;
@@ -70,7 +70,7 @@ quaternion maths::lookRotation(vector3f forward, vector3f up)
         return quaternion::identity;
 
     if (d < -epsAlmostOne)
-        return axisAngle(vector3f::up, pi);
+        return axisAngle(up, pi);
 
 
     // auto binormal = cross(forward, up);
@@ -81,7 +81,7 @@ quaternion maths::lookRotation(vector3f forward, vector3f up)
     return axisAngle(axis, signedAngle(vector3f::forward, forward, axis));
 }
 
-quaternion maths::axisAngle(vector3f axis, float angle)
+quaternion quaternion::axisAngle(vector3f axis, float angle)
 {
     angle *= 0.5f;
     return quaternion(axis * sin(angle), cos(angle));
@@ -92,7 +92,7 @@ float maths::magnitude(quaternion q)
     return sqrt(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w);
 }
 
-quaternion maths::eulerToQuaternion(vector3f euler)
+quaternion quaternion::eulerToQuaternion(vector3f euler)
 {
     // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
     // Abbreviations for the various angular functions
@@ -112,7 +112,7 @@ quaternion maths::eulerToQuaternion(vector3f euler)
     };
 }
 
-matrix4f maths::toRotationMatrix(quaternion q)
+matrix4f quaternion::toRotationMatrix(quaternion q)
 {
     float
         ii = q.x * q.x,

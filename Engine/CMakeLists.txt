@@ -25,6 +25,7 @@ PRIVATE
 	StringOperations.hpp
 	TransformComponent.cpp
 	TransformComponent.hpp
+	UserInputSystem.hpp
 )
 
 add_subdirectory(ECS)

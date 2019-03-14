@@ -19,25 +19,25 @@ struct playerControl
 
 struct playerControlSystem
 {
-    using components = mpl::List<transform, playerControl>;
+    using components = mpl::List<transform, playerControl, UserInput>;
 
-    void update(transform & tr, playerControl & pl, float dt)
+    void update(transform & tr, playerControl & pl, UserInput input, float dt)
     {
-        vector3f input (core::input.horizontal(), core::input.vertical(), 0);
+        vector3f inputVector (input.horizontal, input.vertical, 0);
 
-        float length = magnitude(input);
+        float length = magnitude(inputVector);
 
         if (length > 0.0f)
         {
-            vector3f forward = input / length;
-            tr.rotation = lookRotation(input / length, vector3f::up);
+            vector3f forward = inputVector / length;
+            tr.rotation = quaternion::lookRotation(inputVector / length, vector3f::up);
         }
 
         if (length > 1.0f)
         {
-            input /= length;
+            inputVector /= length;
         }
-        tr.position += input * dt * pl.speed;
+        tr.position += inputVector * dt * pl.speed;
     }
 };
 
@@ -47,10 +47,7 @@ namespace serialization
     inline playerControl deserialize<playerControl>(const Value & value)
     {
         playerControl p{};
-        if (value.HasMember("speed"))
-        {
-            p.speed = value ["speed"].GetFloat();
-        }
+        setIfHasMember(&p.speed, "speed", value);
         return p;
     }
 }

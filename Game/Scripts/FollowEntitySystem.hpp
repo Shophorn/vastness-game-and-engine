@@ -27,7 +27,7 @@ struct followEntitySystem
         float m = magnitude(movement);
 
         vector3f forward = movement / m;
-        tr.rotation = lookRotation(forward, vector3f::up);
+        tr.rotation = quaternion::lookRotation(forward, vector3f::up);
 
         if (m > 1.0)
             movement /= m;

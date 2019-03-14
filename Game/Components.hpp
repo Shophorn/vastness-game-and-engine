@@ -24,7 +24,6 @@ void initializeGameComponents(ECS * ecs)
     ecs->registerComponent<playerControl>();
     ecs->registerComponent<followEntity>();
     ecs->registerComponent<camera3rdPerson>();
-    ecs->registerComponent<camera3rdPersonInput>();
 }
 
 void initializeGameSystems(ECS * ecs)
