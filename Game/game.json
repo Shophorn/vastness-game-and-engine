@@ -1,165 +1,165 @@
 {
-  "Version" : 2,
+	"Version" : 2,
 
-  "Context" :
-  {
-    "title" : "Fishness",
-    "window" : [2880, 1620],
-    "window_XX" : [1920, 1080]
-  },
+	"Context" :
+	{
+		"title" : "Fishness",
+		"window" : [2880, 1620],
+		"window_XX" : [1920, 1080]
+	},
 
-  "Camera" :
-  {
-    "position" : [0.0, -10.0, 10.0],
-    "target" : [0.0, 0.0, 0.0],
-    "field of view" : 45,
-    "near clipping plane" : 0.01,
-    "far clipping plane" : 100.0,
-    "clear color" : [0.7, 0.9, 1.0, 1.0]
-  },
+	"Camera" :
+	{
+		"position" : [0.0, -10.0, 10.0],
+		"target" : [0.0, 0.0, 0.0],
+		"field of view" : 45,
+		"near clipping plane" : 0.01,
+		"far clipping plane" : 100.0,
+		"clear color" : [0.7, 0.9, 1.0, 1.0]
+	},
 
-  "Lighting" : [
-    {
-      "color" : [0.98, 0.89, 1.0],
-      "intensity" : 1.0,
-      "transform" : [2.6, -1.6, 1.0],
-      "type" : "DIRECTIONAL"
-    }
-  ],
+	"Lighting" : [
+		{
+			"color" : [0.98, 0.89, 1.0],
+			"intensity" : 1.0,
+			"transform" : [2.6, -1.6, 1.0],
+			"type" : "DIRECTIONAL"
+		}
+	],
 
-  "Meshes" : [
-    {
-      "name" : "cube",
-      "path" : "Assets/Cube.obj"
-    },
-    {
-      "name" : "dude",
-      "path" : "Game/Assets/dude.obj"
-    },
-    {
-      "name" : "fish1",
-      "path" : "Assets/fish_a.obj"
-    },
-    {
-      "name": "fish2",
-      "path": "Assets/fish_b.obj"
-    },
-    {
-      "name" : "building",
-      "path" : "Assets/building_mockup_0001.obj"
-    },
-    {
-      "name" : "plane",
-      "path" : "Assets/Plane.obj"
-    }
-  ],
+	"Meshes" : [
+		{
+			"name" : "cube",
+			"path" : "Assets/Cube.obj"
+		},
+		{
+			"name" : "dude",
+			"path" : "Game/Assets/dude.obj"
+		},
+		{
+			"name" : "fish1",
+			"path" : "Assets/fish_a.obj"
+		},
+		{
+			"name": "fish2",
+			"path": "Assets/fish_b.obj"
+		},
+		{
+			"name" : "building",
+			"path" : "Assets/building_mockup_0001.obj"
+		},
+		{
+			"name" : "plane",
+			"path" : "Assets/Plane.obj"
+		}
+	],
 
-  "Textures" : [
-    {
-      "name" : "bricks",
-      "path" : "Game/Assets/bricks.png",
-      "color mode" : "RGBA"
-    },
-    {
-      "name" : "fish1",
-      "path" : "Assets/Fish_A_ColorRGB_SmoothA.png",
-      "color mode" : "RGBA"
-    },
-    {
-      "name" : "ground",
-      "path" : "Game/Assets/ground.png",
-      "color mode" : "RGBA"
-    },
-    {
-      "name" : "testNormal",
-      "path" : "Game/Assets/testNormal.png",
-      "color mode" : "RGBA"
-    }
-  ],
+	"Textures" : [
+		{
+			"name" : "bricks",
+			"path" : "Game/Assets/bricks.png",
+			"color mode" : "RGBA"
+		},
+		{
+			"name" : "fish1",
+			"path" : "Assets/Fish_A_ColorRGB_SmoothA.png",
+			"color mode" : "RGBA"
+		},
+		{
+			"name" : "ground",
+			"path" : "Game/Assets/ground.png",
+			"color mode" : "RGBA"
+		},
+		{
+			"name" : "testNormal",
+			"path" : "Game/Assets/testNormal.png",
+			"color mode" : "RGBA"
+		}
+	],
 
-  "Materials" : [
-    {
-      "name" :            "bricks",
-      "vertex shader" :   "Engine/Shaders/default_vertex.glsl",
-      "fragment shader" : "Engine/Shaders/default_fragment.glsl",
-      "textures" : [
-        { "target" : "_Albedo", "name" : "bricks" },
-        { "target" : "_Normal", "name" : "testNormal" }
-      ]
-    },
-    {
-      "name" :            "fish",
-      "vertex shader" :   "Engine/Shaders/default_vertex.glsl",
-      "fragment shader" : "Engine/Shaders/default_fragment.glsl",
-      "textures" : [
-        { "target" : "_Albedo", "name" : "fish1" },
-        { "target" : "_Normal", "name" : "testNormal" }
-      ]
-    },
-    {
-      "name": "ground",
-      "vertex shader" : "Engine/Shaders/default_vertex.glsl",
-      "fragment shader" : "Engine/Shaders/default_fragment.glsl",
-      "textures" : [
-        { "target" : "_Albedo", "name" : "ground" },
-        { "target" : "_Normal", "name" : "testNormal" }
-      ]
-    }
-  ],
+	"Materials" : [
+		{
+			"name" :            "bricks",
+			"vertex shader" :   "Engine/Shaders/default_vertex.glsl",
+			"fragment shader" : "Engine/Shaders/default_fragment.glsl",
+			"textures" : [
+				{ "target" : "_Albedo", "name" : "bricks" },
+				{ "target" : "_Normal", "name" : "testNormal" }
+			]
+		},
+		{
+			"name" :            "fish",
+			"vertex shader" :   "Engine/Shaders/default_vertex.glsl",
+			"fragment shader" : "Engine/Shaders/default_fragment.glsl",
+			"textures" : [
+				{ "target" : "_Albedo", "name" : "fish1" },
+				{ "target" : "_Normal", "name" : "testNormal" }
+			]
+		},
+		{
+			"name": "ground",
+			"vertex shader" : "Engine/Shaders/default_vertex.glsl",
+			"fragment shader" : "Engine/Shaders/default_fragment.glsl",
+			"textures" : [
+				{ "target" : "_Albedo", "name" : "ground" },
+				{ "target" : "_Normal", "name" : "testNormal" }
+			]
+		}
+	],
 
-  "Entities" : [
-   {
-     "id" : 1,
-     "COMMENT" : "Player",
-     "components" : [
-       { "type" : "transform" },
-       { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "bricks"},
-       { "type" : "playerControl" }
-     ]
-   },
-   {
-     "id" : 2,
-     "components" : [
-       { "type" : "transform" },
-       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
-       { "type" : "followEntity", "target" : 1 }
-     ]
-   },
-   {
-     "id" : 3,
-     "components" : [
-       { "type" : "transform" , "position" : [7, 0, 0] },
-       { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
-       { "type" : "followEntity", "target" : 2 }
-     ]
-   },
-   {
-     "id" : 4,
-     "components" : [
-       { "type" : "transform", "position" : [0, 0, 0], "scale" : [0.5, 0.5, 0.5] },
-       { "type" : "renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" , "material" : "bricks" }
-     ]
-   },
-   {
-    "id" : 5,
-    "components" : [
-       { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 0, 0, 90 ], "scale" : [1, 1, 1] },
-       { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
-    ]
-   },
-   {
-    "id" : 6,
-    "components" : [
-      { "type" : "transform" , "position" : [10, -15, 2], "direction" : [5, -5, 0] },
-      { "type" : "camera",
-        "field of view" : 45,
-        "near clipping plane" : 0.01,
-        "far clipping plane" : 100.0,
-        "aspect ratio" : 1.777
-      },
-      { "type" : "player camera"}
-
-    ]
-   }
+	"Entities" : [
+	 {
+		 "id" : 1,
+		 "COMMENT" : "Player",
+		 "components" : [
+			 { "type" : "transform" },
+			 { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "bricks"},
+			 { "type" : "playerControl" }
+		 ]
+	 },
+	 {
+		 "id" : 2,
+		 "components" : [
+			 { "type" : "transform" },
+			 { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
+			 { "type" : "followEntity", "target" : 1 }
+		 ]
+	 },
+	 {
+		 "id" : 3,
+		 "components" : [
+			 { "type" : "transform" , "position" : [7, 0, 0] },
+			 { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
+			 { "type" : "followEntity", "target" : 2 }
+		 ]
+	 },
+	 // {
+		// 	"COMMENT" : "building",
+		// 	"id" : 4,
+		// 	"components" : [
+		// 		{ "type" : "transform", "position" : [0, 0, 0], "scale" : [0.5, 0.5, 0.5] },
+		// 		{ "type" : "renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" , "material" : "bricks" }
+		// 	]
+	 // },
+	 {
+		"id" : 5,
+		"components" : [
+			 { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 0, 0, 90 ], "scale" : [1, 1, 1] },
+			 { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
+		]
+	 },
+	 {
+		"id" : 6,
+		"components" : [
+			{ "type" : "transform", "direction" : [0, -5, 0] },
+			{ "type" : "camera",
+				"field of view" : 45,
+				"near clipping plane" : 0.01,
+				"far clipping plane" : 100.0,
+				"aspect ratio" : 1.777
+			},
+			{ "type" : "camera3rdPerson", "target" : 1, "cam distance" : 7 }
+		]
+	 }
 ]
 }

@@ -23,6 +23,7 @@ PRIVATE
 	Stopwatch.hpp
 	StringOperations.cpp
 	StringOperations.hpp
+	TransformComponent.cpp
 	TransformComponent.hpp
 )
 

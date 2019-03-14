@@ -4,6 +4,8 @@ Leo Tamminen
 Created 03/03/2019
 */
 
+#pragma once
+
 #include "../../Engine/ECS.hpp"
 #include "../../Engine/EcsCoreComponents.hpp"
 #include "../../Engine/Serialization.hpp"
@@ -11,7 +13,7 @@ Created 03/03/2019
 struct followEntity
 {
     Handle targetHandle;
-    float speed{0.5f};
+    float speed {0.5f};
 };
 
 struct followEntitySystem
@@ -39,13 +41,11 @@ namespace serialization
     inline followEntity deserialize<followEntity>(const Value & value)
     {
         followEntity p{};
-        if (value.HasMember("speed"))
-        {
-            p.speed = value ["speed"].GetFloat();
-        }
+            
+        setIfHasMember(&p.speed, "speed", value);
 
-        int targetIndex = value["target"].GetInt();
-        p.targetHandle = serialization::sceneLoader->getMappedHandle(targetIndex);
+        // ASSERT_HAS_FIELD(target)
+        p.targetHandle = sceneLoader->getMappedHandle(value["target"].GetInt());
         return p;
     }
 }

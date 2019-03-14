@@ -50,7 +50,7 @@ public:
         using std::unordered_map;
         using rapidjson::Document;
 
-        Document document = fileOps::ReadJson(gamePath);
+        auto document = fileOps::ReadJson(gamePath);
 
         // Cache load info, but only load assets on first usage
         resources::textures     .addLoadInfo(document["Textures"]);
