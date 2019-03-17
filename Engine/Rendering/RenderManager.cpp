@@ -31,8 +31,8 @@ namespace
         // Look here
         // https://stackoverflow.com/questions/21830340/understanding-glmlookat
         vector3f forward = tr.rotation * vector3f::forward;
-        vector3f right = cross(vector3f::up, forward);
-        vector3f up = cross(forward, right);
+        vector3f right = normalize(cross(vector3f::up, forward));
+        vector3f up = normalize(cross(forward, right));
 
         vector3f nPosition = -tr.position;
 

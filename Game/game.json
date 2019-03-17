@@ -158,7 +158,7 @@
 				"far clipping plane" : 100.0,
 				"aspect ratio" : 1.777
 			},
-			{ "type" : "camera3rdPerson", "target" : 1, "cam distance" : 7 },
+			{ "type" : "camera3rdPerson", "target" : 1, "cam distance" : 7, "head height" : 3.0 },
 			{ "type" : "user input" }
 		]
 	 }

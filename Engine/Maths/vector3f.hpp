@@ -39,6 +39,9 @@ namespace maths
 
         vector3f operator - () const;
 
+        vector3f normalized ();
+
+
         bool operator == (const vector3f & other);
     };
 
@@ -49,6 +52,7 @@ namespace maths
     vector3f normalize(vector3f v);
     float dot(const vector3f & lhs, const vector3f & rhs);
     vector3f cross(const vector3f & lhs, const vector3f & rhs);
+    vector3f normalizedCross(const vector3f & lhs, const vector3f & rhs);
 
     float angle(const vector3f & lhs, const vector3f & rhs);
     float signedAngle(const vector3f & lhs, const vector3f & rhs, const vector3f & up = vector3f::up);

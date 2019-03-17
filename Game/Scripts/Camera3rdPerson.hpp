@@ -38,6 +38,8 @@ namespace maths
 	struct quaternions;
 }
 
+static constexpr float maxPivot = maths::deg2rad * 70;
+
 struct camera3rdPerson
 {
 	float headHeight { 2.0f };
@@ -46,6 +48,7 @@ struct camera3rdPerson
 	float xSensitivity { 1.0f };
 	float ySensitivity { 1.0f };
 	
+
 	Handle targetHandle;
 
 	// not serialized, or maybe yes. not now though
@@ -53,9 +56,6 @@ struct camera3rdPerson
 	float pivot = 0.0f;
 
 	transform computeTransform() const;
-
-	maths::vector3f computePosition() const;
-	maths::quaternion computeRotation() const;
 };
 
 struct camera3rdPersonDriverSystem
@@ -65,12 +65,16 @@ struct camera3rdPersonDriverSystem
 	void update(camera3rdPerson & cam, transform & tr, UserInput input, float dt)
 	{
 
+		// NOT? todo: just rotate transform like a normal person
 		cam.orbit += cam.xSensitivity * input.horizontal * dt;
 		cam.pivot += cam.ySensitivity * input.vertical * dt;
+		// cam.pivot = maths::clamp(cam.pivot, -maxPivot, maxPivot);
 
-		// tr.position = cam.computePosition();
-		// tr.rotation = cam.computeRotation();
+		if (maths::abs(input.vertical) > 0.0001f || maths::abs(input.horizontal) > 0.0001f)
+		{
+			// TODO, not happy with this, but works with clamped pivot
+			tr = cam.computeTransform();
+		}
 
-		tr = cam.computeTransform();
 	}
 };

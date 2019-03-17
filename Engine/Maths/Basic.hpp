@@ -42,4 +42,16 @@ namespace maths
     {
         return (value > 0) * 2 - 1;
     }
+
+    template <typename T>
+    T clamp (T value, const T & min, const T & max) // todo: could use universal/forward references here
+    {
+        if (value < min)
+            value = min;
+
+        else if (value > max)
+            value = max;
+
+        return value;
+    }
 }

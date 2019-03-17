@@ -165,3 +165,14 @@ bool vector3f::operator == (const vector3f & other)
 {
     return x == other.x && y == other.y && z == other.z;
 }
+
+vector3f maths::normalizedCross(const vector3f & lhs, const vector3f & rhs)
+{
+    return normalize(cross(lhs, rhs));
+}
+
+
+vector3f vector3f::normalized ()
+{
+    return normalize(*this);
+}

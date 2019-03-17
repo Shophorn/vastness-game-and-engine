@@ -8,6 +8,9 @@
 #include "../../Engine/SceneLoader.hpp" // for some reason, this must be included here, but 'followEntitySystem' does not need this.
 										// corresponds to serialization::sceneloader
 
+
+#include "../../Engine/DEBUG.hpp"
+
 transform camera3rdPerson::computeTransform() const
 {
 	// move POS to target
@@ -23,23 +26,27 @@ transform camera3rdPerson::computeTransform() const
 	auto target = core::ecs.getComponent<transform>(targetHandle);
 
 	// instead use targets up
-	auto up = vector3f::up;
+	auto up = target.rotation * vector3f::up;
 	auto orbitRotation = quaternion::axisAngle(up, orbit);
-	auto right = orbitRotation * vector3f::right;
-	auto pivotRotation = quaternion::axisAngle(right, pivot);
+	// auto right = orbitRotation * vector3f::right;
+	auto pivotRotation = quaternion::axisAngle(vector3f::right, pivot);
 
-	auto forward = pivotRotation * orbitRotation * vector3f::forward;
+	auto forward = orbitRotation * pivotRotation * vector3f::forward;
 
 	auto pos = target.position + headHeight * up + forward * camDistance;
+	
+	up = pivotRotation * up;
+	// DEBUG << up << ", " << magnitude(up) << ", " << dot (up, vector3f::up) <<  "\n";
 
 
 	transform tr;
 	tr.position = pos;
+
 	tr.rotation = quaternion::lookRotation(forward, up);
+	// tr.rotation = orbitRotation * pivotRotation;
 	return tr;
 
 }
-
 
 
 namespace serialization

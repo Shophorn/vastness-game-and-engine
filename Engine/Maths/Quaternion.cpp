@@ -54,6 +54,8 @@ vector3f quaternion::xyz() const
 
 quaternion quaternion::operator * (quaternion rhs) const
 {
+    // ASSERT_QUATERNION_NORMALIZED (this, rhs)
+
     auto lhs = *this;
     float r = lhs.w * rhs.w - dot (lhs.xyz(), rhs.xyz());
     auto vec = lhs.w * rhs.xyz() + rhs.w * lhs.xyz() + cross(lhs.xyz(), rhs.xyz());
@@ -62,6 +64,14 @@ quaternion quaternion::operator * (quaternion rhs) const
     
 quaternion quaternion::lookRotation(vector3f forward, vector3f up)
 {
+    // TODO 
+    // cross of forward and global forward to get axis of major rotation
+    // axis angle around that the signed angle amount
+    // cross of up and forward, and cross of that and first axis to get proprly aligned up
+    // rotate around forward from first axis to aligned up
+
+
+    // Old way, that doesn't concern roll
     // ASSERT_VECTOR_NORMALIZED(forward)
     static const float epsAlmostOne = 0.9999f;
     float d = dot (forward, vector3f::forward);
@@ -72,13 +82,15 @@ quaternion quaternion::lookRotation(vector3f forward, vector3f up)
     if (d < -epsAlmostOne)
         return axisAngle(up, pi);
 
+    auto axis = normalize (cross (vector3f::forward, forward) );
+    auto mainRotation = axisAngle(axis, signedAngle(vector3f::forward, forward, axis));
+    return mainRotation;
 
-    // auto binormal = cross(forward, up);
-    // auto axis = cross(binormal, forward);
-    auto axis = cross (vector3f::forward, forward);
-    axis = normalize(axis);
+    vector3f alignedUp = normalize(cross(normalize(cross(up, forward)), axis));
+    float alignAngle = signedAngle(axis, alignedUp, forward);
+    quaternion alignRotation = axisAngle(forward, alignAngle);
 
-    return axisAngle(axis, signedAngle(vector3f::forward, forward, axis));
+    return mainRotation * alignRotation;
 }
 
 quaternion quaternion::axisAngle(vector3f axis, float angle)
