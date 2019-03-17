@@ -14,7 +14,7 @@ Created 05/02/2019
 #include "matrix4f.hpp"
 #include "Quaternion.hpp"
 
-std::ostream & operator << (std::ostream & os, const maths::vector2f & v);
+std::ostream & operator << (std::ostream & os, maths::vector2f v);
 std::ostream & operator << (std::ostream & os, const maths::vector3f & v);
 std::ostream & operator << (std::ostream & os, const maths::vector4f & v);
 std::ostream & operator << (std::ostream & os, const maths::matrix4f & m);

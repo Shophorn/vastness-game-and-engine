@@ -14,14 +14,14 @@ Created 28/02/2019
 
 struct playerControl
 {
-    float speed = 1.0f;
+    float speed { 1.0f };
 };
 
 struct playerControlSystem
 {
     using components = mpl::List<transform, playerControl, UserInput>;
 
-    void update(transform & tr, playerControl & pl, UserInput input, float dt)
+    void update(transform & tr, playerControl & pl, const UserInput & input, float dt)
     {
         vector3f inputVector (input.horizontal, input.vertical, 0);
 

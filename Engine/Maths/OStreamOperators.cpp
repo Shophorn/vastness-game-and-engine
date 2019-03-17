@@ -9,13 +9,23 @@ Created 05/02/2019
 
 using namespace maths;
 
+constexpr int vectorPrecision = 3;
+
+std::ostream & operator << (std::ostream & os, const vector2f v)
+{
+    std::setprecision(vectorPrecision);
+    return os << "(" << v.x << ", " << v.y << ")";
+}
+
 std::ostream &operator<<(std::ostream &os, const vector3f & v)
 {
+    std::setprecision(vectorPrecision);
     return os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
 }
 
 std::ostream &operator<<(std::ostream &os, const maths::vector4f &v)
 {
+    std::setprecision(vectorPrecision);
     return os << "(" << v[0] << ", " << v[1] << ", " << v[2] << ", " << v[3] << ")";
 }
 

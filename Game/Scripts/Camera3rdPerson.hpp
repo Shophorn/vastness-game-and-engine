@@ -45,9 +45,8 @@ struct camera3rdPerson
 	float headHeight { 2.0f };
 	float camHeight { 0.0f }; 
 	float camDistance { -5.0f };
-	float xSensitivity { 1.0f };
-	float ySensitivity { 1.0f };
-	
+	float xSensitivity { 0.3f };
+	float ySensitivity { 0.3f };
 
 	Handle targetHandle;
 
@@ -64,17 +63,8 @@ struct camera3rdPersonDriverSystem
 
 	void update(camera3rdPerson & cam, transform & tr, UserInput input, float dt)
 	{
-
-		// NOT? todo: just rotate transform like a normal person
-		cam.orbit += cam.xSensitivity * input.horizontal * dt;
-		cam.pivot += cam.ySensitivity * input.vertical * dt;
-		// cam.pivot = maths::clamp(cam.pivot, -maxPivot, maxPivot);
-
-		if (maths::abs(input.vertical) > 0.0001f || maths::abs(input.horizontal) > 0.0001f)
-		{
-			// TODO, not happy with this, but works with clamped pivot
-			tr = cam.computeTransform();
-		}
-
+		cam.orbit += cam.xSensitivity * input.mouseDelta.x * dt;
+		cam.pivot += cam.ySensitivity * input.mouseDelta.y * dt;
+		tr = cam.computeTransform();
 	}
 };

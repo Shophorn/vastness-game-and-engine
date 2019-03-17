@@ -11,6 +11,7 @@ PRIVATE
 	Quaternion.hpp
 	QuaternionTests.hpp
 	Random.hpp
+	vector2f.cpp
 	vector2f.hpp
 	vector3f.cpp
 	vector3f.hpp

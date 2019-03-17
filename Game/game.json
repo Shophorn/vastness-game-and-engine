@@ -114,8 +114,9 @@
 		 "components" : [
 			 { "type" : "transform" },
 			 { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "bricks"},
-			 { "type" : "playerControl", "speed" : 0 }
-			 // { "type" : "user input"}
+			 { "type" : "playerControl", "speed" : 4 },
+			 { "type" : "user input"},
+			 { "type" : "cameraController3rdPerson", "cameraId" : null, }
 		 ]
 	 },
 	 {
@@ -159,6 +160,7 @@
 				"far clipping plane" : 100.0,
 				"aspect ratio" : 1.777
 			},
+			{ "type" : "controllableCamera" }
 			{ "type" : "camera3rdPerson", "target" : 1, "cam distance" : 7, "head height" : 3.0 },
 			{ "type" : "user input" }
 		]

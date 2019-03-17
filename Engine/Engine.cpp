@@ -24,6 +24,7 @@ void Engine::handleEvents()
 {
     glfwPollEvents();
     _isRunning = !glfwWindowShouldClose(_window);
+    core::input.update();
 }
 
 void Engine::update()

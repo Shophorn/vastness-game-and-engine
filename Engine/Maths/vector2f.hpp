@@ -7,12 +7,13 @@ Created 24/02/2019
 
 namespace maths
 {
-    class vector2f
+    struct vector2f
     {
-    public:
-        float &operator[](int index) { return _values[index]; }
+    	float x, y;
 
-    private:
-        float _values[2];
+    	vector2f & operator += (vector2f rhs);
+    	vector2f & operator -= (vector2f rhs);
     };
+	inline vector2f operator + (vector2f lhs, vector2f rhs) { return lhs += rhs; }
+	inline vector2f operator - (vector2f lhs, vector2f rhs) { return lhs -= rhs; }
 }
