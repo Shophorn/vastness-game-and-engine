@@ -12,19 +12,18 @@ Leo Tamminen
 
 #include "Engine/Maths/Maths.hpp"
 
+#include "Engine/Maths/QuaternionTests.hpp"
+
 namespace
 {
     int test()
     {
-        using namespace maths;
-        using std::cout;
-
-        vector3f vec0 (0, 1, 0);
-        auto vec1 = quaternion::axisAngle(vector3f::up, deg2rad * 90) * vec0;
-        auto vec2 = quaternion::axisAngle(vector3f::right, deg2rad * 90) * vec0;
-        auto vec3 = quaternion::axisAngle(vector3f::left, deg2rad * 90) * vec0;
-        cout << vec1 << "\n" << vec2 << "\n" << vec3;
-
+        // testEuler();                 // FAIL
+        // testLookRotation()           // PENDING
+        // testAxisAngle();             // PASS
+        // testMultiplication();        // PASS
+        // testInverse();               // PASS
+        // testVectorMultiplication();  // PASS
         return 0;
     }
 }

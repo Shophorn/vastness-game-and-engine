@@ -142,9 +142,10 @@
 		// 	]
 	 // },
 	 {
+	 	// Ground plane
 		"id" : 5,
 		"components" : [
-			 { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 0, 0, 90 ], "scale" : [1, 1, 1] },
+			 { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 90, 0, 0 ], "scale" : [1, 1, 1] },
 			 { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
 		]
 	 },

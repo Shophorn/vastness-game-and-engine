@@ -35,5 +35,6 @@ std::ostream & operator << (std::ostream & os, const matrix4f & m)
 
 std::ostream &operator<<(std::ostream &os, const maths::quaternion &q)
 {
+    os << std::setprecision(2);
     return os << "(" << q.x << ", " << q.y << ", " << q.z << ", " << q.w << ")";
 }

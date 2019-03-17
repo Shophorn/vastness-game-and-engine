@@ -9,6 +9,8 @@ PRIVATE
 	OStreamOperators.hpp
 	Quaternion.cpp
 	Quaternion.hpp
+	QuaternionTests.hpp
+	Random.hpp
 	vector2f.hpp
 	vector3f.cpp
 	vector3f.hpp
