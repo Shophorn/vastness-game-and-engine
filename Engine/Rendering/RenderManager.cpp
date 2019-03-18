@@ -26,6 +26,7 @@ matrix4f testProjection;
 
 namespace
 {
+    // todo Test against unity, and also move to matrix class
     maths::matrix4f viewMatrix(const transform & tr)
     {
         // Look here
@@ -47,26 +48,28 @@ namespace
 
     maths::matrix4f projectionMatrix(CameraComponent cam)
     {
-            // Orthographic
-    //https://unspecified.wordpress.com/2012/06/21/calculating-the-gluperspective-matrix-and-other-opengl-matrix-maths/
-//            float matGG [4][4] = {
-//                {1 / 5.0f , 0, 0, 0},
-//                {0, 1 / 5.0f * aspectRatio, 0, 0},
-//                {0, 0, -2 / farClippingPlane - nearClippingPlane, 0},
-//                {0, 0, 0, 1}
-//            };
-    // Perspective, same source
-    float f = 1.0f / tanf(maths::deg2rad * cam.fieldOfView / 2.0f);
-    float m22 = (cam.farClippingPlane + cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
-    float m23 = (2 * cam.farClippingPlane * cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
+        // Orthographic
+        //https://unspecified.wordpress.com/2012/06/21/calculating-the-gluperspective-matrix-and-other-opengl-matrix-maths/
+        // 5.0 here is 'orthograpic size', whatever it means
+        //            float matGG [4][4] = {
+        //                {1 / 5.0f , 0, 0, 0},
+        //                {0, 1 / 5.0f * aspectRatio, 0, 0},
+        //                {0, 0, -2 / farClippingPlane - nearClippingPlane, 0},
+        //                {0, 0, 0, 1}
+        //            };
+    
+        // Perspective, same source
+        float f = 1.0f / tanf(maths::deg2rad * cam.fieldOfView / 2.0f);
+        float m22 = (cam.farClippingPlane + cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
+        float m23 = (2 * cam.farClippingPlane * cam.nearClippingPlane) / (cam.nearClippingPlane - cam.farClippingPlane);
 
-    matrix4f mat;
-    mat[0] = vector4f(f / cam.aspectRatio, 0, 0, 0);
-    mat[1] = vector4f(0, f, 0, 0);
-    mat[2] = vector4f(0, 0, m22, -1);
-    mat[3] = vector4f(0, 0, m23, 0);
+        matrix4f mat;
+        mat[0] = vector4f(f / cam.aspectRatio, 0, 0, 0);
+        mat[1] = vector4f(0, f, 0, 0);
+        mat[2] = vector4f(0, 0, m22, -1);
+        mat[3] = vector4f(0, 0, m23, 0);
 
-    return mat;
+        return mat;
     }
 }
 

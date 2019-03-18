@@ -4,6 +4,7 @@ PRIVATE
 	Camera.cpp
 	Camera.hpp
 	CameraComponent.hpp
+	CameraController3rdPerson.hpp
 	Color.hpp
 	DEBUG.hpp
 	ECS.hpp

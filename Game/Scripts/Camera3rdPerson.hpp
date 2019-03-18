@@ -19,7 +19,6 @@ Created 14/03/2019
 	|				
 	B
 
-
 	View is rotated horizontally by rotating around [Bh] - axis and vertically
 	pivoting around rotated x - axis of h.
 

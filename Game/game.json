@@ -108,15 +108,34 @@
 	],
 
 	"Entities" : [
+
+ 	{
+		"id" : 6,
+		"components" : [
+			{ "type" : "transform", "direction" : [0, -5, 0] },
+			{ "type" : "camera",
+				"field of view" : 45,
+				"near clipping plane" : 0.01,
+				"far clipping plane" : 100.0,
+
+				// 16:9, this should be computed runtime
+				"aspect ratio" : 1.777
+			}
+			// { "type" : "controllableCamera" },
+			// { "type" : "camera3rdPerson", "target" : 1, "cam distance" : 7, "head height" : 3.0 },
+			// { "type" : "user input" }
+		]
+	 },
+
 	 {
 	 	// Player Character
 		 "id" : 1,
 		 "components" : [
 			 { "type" : "transform" },
 			 { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "bricks"},
-			 { "type" : "playerControl", "speed" : 4 },
+			 { "type" : "playerControl", "speed" : 2.5 },
 			 { "type" : "user input"},
-			 { "type" : "cameraController3rdPerson", "cameraId" : null, }
+			 { "type" : "cameraController3rdPerson", "target" : 6, "cam distance" : 7, "head height" : 3 }
 		 ]
 	 },
 	 {
@@ -148,21 +167,6 @@
 		"components" : [
 			 { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 90, 0, 0 ], "scale" : [1, 1, 1] },
 			 { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
-		]
-	 },
-	 {
-		"id" : 6,
-		"components" : [
-			{ "type" : "transform", "direction" : [0, -5, 0] },
-			{ "type" : "camera",
-				"field of view" : 45,
-				"near clipping plane" : 0.01,
-				"far clipping plane" : 100.0,
-				"aspect ratio" : 1.777
-			},
-			{ "type" : "controllableCamera" }
-			{ "type" : "camera3rdPerson", "target" : 1, "cam distance" : 7, "head height" : 3.0 },
-			{ "type" : "user input" }
 		]
 	 }
 ]

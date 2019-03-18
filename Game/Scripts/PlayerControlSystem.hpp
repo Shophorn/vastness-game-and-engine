@@ -6,6 +6,7 @@ Created 28/02/2019
 
 #pragma once
 
+#include "../../Engine/Maths/Maths.hpp"
 #include "../../Engine/ECS.hpp"
 #include "../../Engine/EcsCoreComponents.hpp"
 #include "../../Engine/Input.hpp"
@@ -19,25 +20,32 @@ struct playerControl
 
 struct playerControlSystem
 {
-    using components = mpl::List<transform, playerControl, UserInput>;
+    using components = mpl::List<transform, playerControl, UserInput, CameraController3rdPerson>;
 
-    void update(transform & tr, playerControl & pl, const UserInput & input, float dt)
+    void update(transform & tr, playerControl & pl, const UserInput & input, const CameraController3rdPerson & camera, float dt)
     {
-        vector3f inputVector (input.horizontal, input.vertical, 0);
+        vector3f inputVector {input.horizontal, input.vertical, 0};
 
         float length = magnitude(inputVector);
 
-        if (length > 0.0f)
-        {
-            vector3f forward = inputVector / length;
-            tr.rotation = quaternion::lookRotation(inputVector / length, vector3f::up);
-        }
 
         if (length > 1.0f)
         {
             inputVector /= length;
         }
-        tr.position += inputVector * dt * pl.speed;
+
+        auto camRotation = quaternion::axisAngle(vector3f::up, camera.orbit);
+
+        vector3f motion = 
+            camRotation * vector3f::forward * inputVector.y 
+            + camRotation * vector3f::right * inputVector.x;
+
+        tr.position += motion * dt * pl.speed;
+
+        if (length > 0.0f)
+        {
+            tr.rotation = quaternion::lookRotation(normalize(motion), vector3f::up);
+        }
     }
 };
 

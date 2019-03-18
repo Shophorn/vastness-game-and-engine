@@ -143,13 +143,19 @@ public:
             using componentList = typename System::components;
 
             if constexpr (hasComponentTimeUpdate<System, componentList, float>)
+            {
                 registerComponentTimeUpdate(system, componentList());
+            }
 
             if constexpr (hasComponentUpdate<System, componentList>)
+            {
                 registerComponentUpdate(system, componentList());
+            }
 
             if constexpr (hasOnBeforeRender<System, componentList>)
+            {
                 registerOnBeforeRender(system, componentList());
+            }
         }
 
         return system;

@@ -1,10 +1,7 @@
 NEXT UP
 =============================================
-- 3rd person camera
-	- Serializable camera
-	- mouse input
-
-- 
+- Flip control/owning flow with 3rd person camera and make move direction relative to camera direction
+- Delta -time to be actually framerate dependant
 
 - Proper handle based containers
 
@@ -13,6 +10,7 @@ NEXT UP
 	- Setup LLVM
 	- EasyClangAutocomplete plugin
 
+- Instanced renderer for scenery 
 - Skysphere
 - Lighthandle, multi-light support
 - template vectors, maybe also colors
@@ -32,3 +30,6 @@ PREVIOUSLY
 	- multiple textures (now 2)
 	- Shader organization
 		- pick vertex and fragment shaders separately
+17.03.19 3rd person camera
+	- Serializable camera
+	- mouse input

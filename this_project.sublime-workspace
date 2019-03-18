@@ -4,16 +4,184 @@
 		"selected_items":
 		[
 			[
-				"ali",
-				"alignedUp"
+				"CA",
+				"CameraController3rdPerson"
 			],
 			[
-				"ma",
-				"major"
+				"st",
+				"step"
+			],
+			[
+				"inpu",
+				"inputVector"
+			],
+			[
+				"ve",
+				"vector3f"
+			],
+			[
+				"cam",
+				"camRotation"
+			],
+			[
+				"thi",
+				"thisTransform"
+			],
+			[
+				"regiser",
+				"registered"
+			],
+			[
+				"Ca",
+				"CameraController3rdPersonSystem"
+			],
+			[
+				"cop",
+				"computeTransform"
+			],
+			[
+				"e",
+				"ecs"
+			],
+			[
+				"targe",
+				"targetHandle"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"comp",
+				"computeTransform"
+			],
+			[
+				"Came",
+				"CameraController3rdPerson"
+			],
+			[
+				"re",
+				"registerSystem"
+			],
+			[
+				"Cam",
+				"CameraController3rdPerson"
+			],
+			[
+				"a",
+				"addDeserializedComponent"
+			],
+			[
+				"con",
+				"controller"
+			],
+			[
+				"ca",
+				"cameraController3rdPerson"
+			],
+			[
+				"conr",
+				"controllerId"
+			],
+			[
+				"mou",
+				"mouseDelta"
+			],
+			[
+				"os",
+				"ostream"
+			],
+			[
+				"vec",
+				"vector2f"
+			],
+			[
+				"_mou",
+				"_mouseMovement"
+			],
+			[
+				"_mo",
+				"_mouseMovement"
+			],
+			[
+				"c",
+				"currentMousePosition"
+			],
+			[
+				"mo",
+				"_mousePosition"
+			],
+			[
+				"s",
+				"static_cast"
+			],
+			[
+				"glfw",
+				"glfwGetCursorPos"
+			],
+			[
+				"gl",
+				"glfwGetCursorPos"
+			],
+			[
+				"_",
+				"_mousePosition"
+			],
+			[
+				"in",
+				"inverse"
+			],
+			[
+				"set",
+				"setprecision"
+			],
+			[
+				"v",
+				"vector\tstd::vector"
+			],
+			[
+				"form",
+				"formatVectors"
+			],
+			[
+				"pre",
+				"precision"
 			],
 			[
 				"al",
-				"alignedHelper"
+				"alignRotation"
+			],
+			[
+				"main",
+				"mainRotation"
+			],
+			[
+				"for",
+				"forward"
+			],
+			[
+				"ma",
+				"maxPivot"
+			],
+			[
+				"PIV",
+				"pivotRotation"
+			],
+			[
+				"up",
+				"upAliginingRotation"
+			],
+			[
+				"fro",
+				"forwardFinal"
+			],
+			[
+				"sign",
+				"signedAngle"
+			],
+			[
+				"ali",
+				"alignedUp"
 			],
 			[
 				"align",
@@ -48,18 +216,6 @@
 				"forward"
 			],
 			[
-				"st",
-				"static"
-			],
-			[
-				"a",
-				"abs"
-			],
-			[
-				"ve",
-				"vertical"
-			],
-			[
 				"p",
 				"pivotRotation"
 			],
@@ -76,24 +232,12 @@
 				"forward"
 			],
 			[
-				"ca",
-				"camHeight"
-			],
-			[
 				"piv",
 				"pivotRotation"
 			],
 			[
-				"cam",
-				"camDistance"
-			],
-			[
 				"r",
 				"right"
-			],
-			[
-				"vec",
-				"vector3f"
 			],
 			[
 				"en",
@@ -104,16 +248,8 @@
 				"Handle"
 			],
 			[
-				"re",
-				"registerComponent"
-			],
-			[
 				"h",
 				"horizontal"
-			],
-			[
-				"up",
-				"update"
 			],
 			[
 				"Ha",
@@ -130,10 +266,6 @@
 			[
 				"ta",
 				"targetHandle"
-			],
-			[
-				"set",
-				"setIfHasMember"
 			],
 			[
 				"head",
@@ -160,10 +292,6 @@
 				"camera3rdPersonInput"
 			],
 			[
-				"in",
-				"include"
-			],
-			[
 				"vo",
 				"vector3f"
 			],
@@ -184,10 +312,6 @@
 				"deserialize"
 			],
 			[
-				"for",
-				"forward"
-			],
-			[
 				"test",
 				"testCamera"
 			],
@@ -198,10 +322,6 @@
 			[
 				"tes",
 				"testView"
-			],
-			[
-				"Came",
-				"CameraComponent"
 			],
 			[
 				"pro",
@@ -268,14 +388,6 @@
 				"hasOnBeforeRenderComponentHelper"
 			],
 			[
-				"c",
-				"CameraComponent"
-			],
-			[
-				"Cam",
-				"CameraComponent"
-			],
-			[
 				"typ",
 				"typename"
 			],
@@ -332,24 +444,8 @@
 				"MeshManager"
 			],
 			[
-				"_",
-				"_NormalTexture"
-			],
-			[
-				"s",
-				"string"
-			],
-			[
 				"sr",
 				"string\tstandard header"
-			],
-			[
-				"gl",
-				"glGetUniformLocation"
-			],
-			[
-				"main",
-				"mainTexturePosition"
 			],
 			[
 				"t",
@@ -418,252 +514,36 @@
 			[
 				"frag",
 				"fragmentSource"
-			],
-			[
-				"VEr",
-				"vertex"
-			],
-			[
-				"ver",
-				"vertexSource"
-			],
-			[
-				"sh",
-				"shader"
-			],
-			[
-				"Cmake",
-				"CMakeLists"
-			],
-			[
-				"cmak",
-				"cmakepath"
-			],
-			[
-				"new",
-				"newText"
-			],
-			[
-				"dir",
-				"dirpath"
-			],
-			[
-				"di",
-				"dirpath"
-			],
-			[
-				"ios",
-				"iostream\tstandard header"
-			],
-			[
-				"Cre",
-				"create"
-			],
-			[
-				"Sh",
-				"Shader"
-			],
-			[
-				"fragment",
-				"fragmentPath"
-			],
-			[
-				"verte",
-				"vertexPath"
-			],
-			[
-				"sha",
-				"shader"
-			],
-			[
-				"shade",
-				"shaderHandle"
-			],
-			[
-				"Get",
-				"GetString"
-			],
-			[
-				"Ma",
-				"MaterialLoadInfo"
-			],
-			[
-				"un",
-				"unordered_map\tstandard header (since c++11)"
-			],
-			[
-				"MA",
-				"MaterialHandle"
-			],
-			[
-				"buil",
-				"buildGame"
-			],
-			[
-				"build",
-				"buildGame"
-			],
-			[
-				"Vastness",
-				"Vastness"
-			],
-			[
-				"add_cu",
-				"add_custom_target"
-			],
-			[
-				"targ",
-				"target_link_libraries"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "Game/Scripts/Camera3rdPerson.cpp",
+			"file": "next-up-txt",
 			"settings":
 			{
-				"buffer_size": 2161,
+				"buffer_size": 1041,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Engine/Maths/Quaternion.cpp",
+			"file": "Engine/CameraController3rdPerson.hpp",
 			"settings":
 			{
-				"buffer_size": 3914,
+				"buffer_size": 3285,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Windows",
+				"name": "/*"
 			}
 		},
 		{
 			"file": "Game/Scripts/PlayerControlSystem.hpp",
 			"settings":
 			{
-				"buffer_size": 1167,
+				"buffer_size": 1456,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Game/Scripts/FollowEntitySystem.hpp",
-			"settings":
-			{
-				"buffer_size": 1174,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "include/rapidjson/document.h",
-			"settings":
-			{
-				"buffer_size": 117808,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/FileOperations.hpp",
-			"settings":
-			{
-				"buffer_size": 283,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Game/Components.hpp",
-			"settings":
-			{
-				"buffer_size": 972,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/Serialization.hpp",
-			"settings":
-			{
-				"buffer_size": 1027,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/CameraComponent.hpp",
-			"settings":
-			{
-				"buffer_size": 1143,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Game/Scripts/Camera3rdPerson.hpp",
-			"settings":
-			{
-				"buffer_size": 1790,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/Camera.cpp",
-			"settings":
-			{
-				"buffer_size": 2204,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/Rendering/RenderManager.cpp",
-			"settings":
-			{
-				"buffer_size": 5261,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/Maths/Basic.hpp",
-			"settings":
-			{
-				"buffer_size": 820,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/Maths/vector3f.hpp",
-			"settings":
-			{
-				"buffer_size": 1806,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/Maths/vector3f.cpp",
-			"settings":
-			{
-				"buffer_size": 3691,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Engine/Maths/Quaternion.hpp",
-			"settings":
-			{
-				"buffer_size": 1125,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "main.cpp",
-			"settings":
-			{
-				"buffer_size": 1070,
 				"line_ending": "Windows"
 			}
 		},
@@ -671,26 +551,46 @@
 			"file": "Engine/EcsCoreComponents.hpp",
 			"settings":
 			{
-				"buffer_size": 996,
+				"buffer_size": 1270,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Engine/UserInputSystem.hpp",
+			"file": "Engine/Rendering/RenderManager.cpp",
 			"settings":
 			{
-				"buffer_size": 660,
+				"buffer_size": 5478,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
+			"contents": "{\n\t\"Version\" : 2,\n\n\t\"Context\" :\n\t{\n\t\t\"title\" : \"Fishness\",\n\t\t\"window\" : [2880, 1620],\n\t\t\"window_XX\" : [1920, 1080]\n\t},\n\n\t\"Camera\" :\n\t{\n\t\t\"position\" : [0.0, -10.0, 10.0],\n\t\t\"target\" : [0.0, 0.0, 0.0],\n\t\t\"field of view\" : 45,\n\t\t\"near clipping plane\" : 0.01,\n\t\t\"far clipping plane\" : 100.0,\n\t\t\"clear color\" : [0.7, 0.9, 1.0, 1.0]\n\t},\n\n\t\"Lighting\" : [\n\t\t{\n\t\t\t\"color\" : [0.98, 0.89, 1.0],\n\t\t\t\"intensity\" : 1.0,\n\t\t\t\"transform\" : [2.6, -1.6, 1.0],\n\t\t\t\"type\" : \"DIRECTIONAL\"\n\t\t}\n\t],\n\n\t\"Meshes\" : [\n\t\t{\n\t\t\t\"name\" : \"cube\",\n\t\t\t\"path\" : \"Assets/Cube.obj\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"dude\",\n\t\t\t\"path\" : \"Game/Assets/dude.obj\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"fish1\",\n\t\t\t\"path\" : \"Assets/fish_a.obj\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"fish2\",\n\t\t\t\"path\": \"Assets/fish_b.obj\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"building\",\n\t\t\t\"path\" : \"Assets/building_mockup_0001.obj\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"plane\",\n\t\t\t\"path\" : \"Assets/Plane.obj\"\n\t\t}\n\t],\n\n\t\"Textures\" : [\n\t\t{\n\t\t\t\"name\" : \"bricks\",\n\t\t\t\"path\" : \"Game/Assets/bricks.png\",\n\t\t\t\"color mode\" : \"RGBA\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"fish1\",\n\t\t\t\"path\" : \"Assets/Fish_A_ColorRGB_SmoothA.png\",\n\t\t\t\"color mode\" : \"RGBA\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"ground\",\n\t\t\t\"path\" : \"Game/Assets/ground.png\",\n\t\t\t\"color mode\" : \"RGBA\"\n\t\t},\n\t\t{\n\t\t\t\"name\" : \"testNormal\",\n\t\t\t\"path\" : \"Game/Assets/testNormal.png\",\n\t\t\t\"color mode\" : \"RGBA\"\n\t\t}\n\t],\n\n\t\"Materials\" : [\n\t\t{\n\t\t\t\"name\" :            \"bricks\",\n\t\t\t\"vertex shader\" :   \"Engine/Shaders/default_vertex.glsl\",\n\t\t\t\"fragment shader\" : \"Engine/Shaders/default_fragment.glsl\",\n\t\t\t\"textures\" : [\n\t\t\t\t{ \"target\" : \"_Albedo\", \"name\" : \"bricks\" },\n\t\t\t\t{ \"target\" : \"_Normal\", \"name\" : \"testNormal\" }\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\" :            \"fish\",\n\t\t\t\"vertex shader\" :   \"Engine/Shaders/default_vertex.glsl\",\n\t\t\t\"fragment shader\" : \"Engine/Shaders/default_fragment.glsl\",\n\t\t\t\"textures\" : [\n\t\t\t\t{ \"target\" : \"_Albedo\", \"name\" : \"fish1\" },\n\t\t\t\t{ \"target\" : \"_Normal\", \"name\" : \"testNormal\" }\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"ground\",\n\t\t\t\"vertex shader\" : \"Engine/Shaders/default_vertex.glsl\",\n\t\t\t\"fragment shader\" : \"Engine/Shaders/default_fragment.glsl\",\n\t\t\t\"textures\" : [\n\t\t\t\t{ \"target\" : \"_Albedo\", \"name\" : \"ground\" },\n\t\t\t\t{ \"target\" : \"_Normal\", \"name\" : \"testNormal\" }\n\t\t\t]\n\t\t}\n\t],\n\n\t\"Entities\" : [\n\n \t{\n\t\t\"id\" : 6,\n\t\t\"components\" : [\n\t\t\t{ \"type\" : \"transform\", \"direction\" : [0, -5, 0] },\n\t\t\t{ \"type\" : \"camera\",\n\t\t\t\t\"field of view\" : 45,\n\t\t\t\t\"near clipping plane\" : 0.01,\n\t\t\t\t\"far clipping plane\" : 100.0,\n\n\t\t\t\t// 16:9, this should be computed runtime\n\t\t\t\t\"aspect ratio\" : 1.777\n\t\t\t}\n\t\t]\n\t },\n\n\t {\n\t \t// Player Character\n\t\t \"id\" : 1,\n\t\t \"components\" : [\n\t\t\t { \"type\" : \"transform\" },\n\t\t\t { \"type\" : \"renderer\", \"mesh\" : \"dude\", \"shader\" : \"default\", \"texture\" : \"bricks\" , \"material\" : \"bricks\"},\n\t\t\t { \"type\" : \"playerControl\", \"speed\" : 2.5 },\n\t\t\t { \"type\" : \"user input\"},\n\t\t\t { \"type\" : \"cameraController3rdPerson\", \"target\" : 6, \"cam distance\" : 7, \"head height\" : 3 }\n\t\t ]\n\t },\n\t {\n\t\t \"id\" : 2,\n\t\t \"components\" : [\n\t\t\t { \"type\" : \"transform\" },\n\t\t\t { \"type\" : \"renderer\", \"mesh\" : \"fish1\", \"shader\" : \"default\", \"texture\" : \"fish1\", \"material\" : \"fish\" },\n\t\t\t { \"type\" : \"followEntity\", \"target\" : 1 }\n\t\t ]\n\t },\n\t {\n\t\t \"id\" : 3,\n\t\t \"components\" : [\n\t\t\t { \"type\" : \"transform\" , \"position\" : [7, 0, 0] },\n\t\t\t { \"type\" : \"renderer\", \"mesh\" : \"fish1\", \"shader\" : \"default\", \"texture\" : \"fish1\", \"material\" : \"fish\" },\n\t\t\t { \"type\" : \"followEntity\", \"target\" : 2 }\n\t\t ]\n\t },\n\t // {\n\t\t// \t\"id\" : 4,\n\t\t// \t\"components\" : [\n\t\t// \t\t{ \"type\" : \"transform\", \"position\" : [0, 0, 0], \"scale\" : [0.5, 0.5, 0.5] },\n\t\t// \t\t{ \"type\" : \"renderer\" , \"mesh\" : \"building\", \"shader\" : \"default\", \"texture\" : \"bricks\" , \"material\" : \"bricks\" }\n\t\t// \t]\n\t // },\n\t {\n\t \t// Ground plane\n\t\t\"id\" : 5,\n\t\t\"components\" : [\n\t\t\t { \"type\" : \"transform\", \"position\" : [0, 0 ,0], \"rotation\" : [ 90, 0, 0 ], \"scale\" : [1, 1, 1] },\n\t\t\t { \"type\" : \"renderer\", \"mesh\" : \"plane\", \"shader\" : \"default\", \"texture\" : \"ground\" , \"material\" : \"ground\" }\n\t\t]\n\t }\n]\n}\n",
 			"file": "Game/game.json",
+			"file_size": 4252,
+			"file_write_time": 131974127689504819,
 			"settings":
 			{
-				"buffer_size": 3846,
+				"buffer_size": 3913,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Game/Scripts/Camera3rdPerson.hpp",
+			"settings":
+			{
+				"buffer_size": 1551,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Game/Scripts/Camera3rdPerson.cpp",
+			"settings":
+			{
+				"buffer_size": 2236,
 				"line_ending": "Windows"
 			}
 		}
@@ -810,28 +710,45 @@
 	],
 	"file_history":
 	[
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/ECS/ECS.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/vector2f.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/vector2f.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Engine.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/game.json",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/next-up-txt",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/vector3f.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/OStreamOperators.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/OStreamOperators.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/UserInputSystem.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Scripts/Camera3rdPerson.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Scripts/PlayerControlSystem.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Input.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/main.cpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/Quaternion.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/Random.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/maths-test-helper.py",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/Basic.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/QuaternionTests.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/Quaternion.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/math-test-helper.py",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/CameraComponent.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Rendering/RenderManager.cpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/vector3f.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Serialization.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Components.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/include/rapidjson/document.h",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Scripts/FollowEntitySystem.hpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Scripts/Camera3rdPerson.cpp",
+		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/EcsCoreComponents.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/TransformComponent.cpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/TransformComponent.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/vector3f.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/ECS/ECS.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Serialization.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/SceneLoader.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.cpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Scripts/FollowEntitySystem.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Rendering/RendererSystem.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Maths/Quaternion.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.cpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/next-up-txt",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Scripts/PlayerCameraSystem.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Engine.cpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/CameraComponent.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/main.cpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/EcsCoreComponents.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/game.json",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Rendering/RenderManager.cpp",
 		"/C/Users/LeoTamminen/Documents/Disior/lohi-unity/lohi-unity/Assets/Resources/CameraCursorMaterial.mat",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Camera.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Rendering/RenderManager.hpp",
@@ -848,7 +765,6 @@
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Mesh.cpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Mesh.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Rendering/Shader.cpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/FileOperations.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Rendering/[path",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Shaders/default_fragment.glsl",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Engine.hpp",
@@ -875,7 +791,6 @@
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Loader.cpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Texture.cpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/Texture.hpp",
-		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Game/Scripts/PlayerControlSystem.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/EcsDeserializer.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/DEBUG.hpp",
 		"/C/Users/LeoTamminen/Documents/shophorn-games/vastness-game-and-engine/Engine/ECSLoader.hpp",
@@ -922,26 +837,11 @@
 		"/C/GLS/include/GL/glew.h",
 		"/C/Users/LeoTamminen/Documents/OpenGlTest/makefile",
 		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Shaders/Starfield.shader",
-		"/C/Users/LeoTamminen/Documents/OpenGlTest/fourth.cpp",
-		"/C/Users/LeoTamminen/Documents/OpenGlTest/first.cpp",
-		"/C/Users/LeoTamminen/Documents/mingw_test.cpp",
-		"/C/MinGW/include/GLFW/glfw3.h",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/EnemyController.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/EnemyShootPatterns.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/IHittableController.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/Enemy.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/BlockadeController.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/ProjectileController.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/InstancedMatCap.shader",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/PlayerController.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/TODO.txt",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/Blockade.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/GameManager.cs",
-		"/C/Users/LeoTamminen/Documents/ShophornGames/hundreds-of-space-invaders/Hundreds of Space Invaders/Assets/Scripts/InterpolatePosition.cs"
+		"/C/Users/LeoTamminen/Documents/OpenGlTest/fourth.cpp"
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 32.0
 	},
 	"find_in_files":
 	{
@@ -968,6 +868,29 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"motion",
+			"include",
+			"cam",
+			"&cam",
+			"cam",
+			"maths",
+			"(const",
+			"lhs",
+			"0",
+			"sr",
+			"cr",
+			"sp",
+			"cp",
+			"yaw_sin",
+			"cos_yaw",
+			"sy",
+			"cy",
+			"double",
+			"roll",
+			"pitch",
+			"yaw",
+			"aligngAngle",
+			"forwardFinal",
 			"axisAn",
 			"input",
 			"Parse",
@@ -1078,24 +1001,237 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Game/Scripts/Camera3rdPerson.cpp",
+					"file": "next-up-txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2161,
+						"buffer_size": 1041,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1028,
-								1028
+								205,
+								205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Engine/CameraController3rdPerson.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3285,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1964,
+								1964
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/*",
+							"line_numbers": true,
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 766.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Game/Scripts/PlayerControlSystem.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1456,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1228,
+								1228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 157.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Engine/EcsCoreComponents.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1270,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1209,
+								1209
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "Engine/Rendering/RenderManager.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5478,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1513,
+								1513
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 354.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Game/game.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2471,
+								2471
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1366.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Game/Scripts/Camera3rdPerson.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1551,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								634,
+								634
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 546.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Game/Scripts/Camera3rdPerson.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2236,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								380,
+								33
 							]
 						],
 						"settings":
@@ -1109,652 +1245,13 @@
 					},
 					"stack_index": 5,
 					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Engine/Maths/Quaternion.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3914,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1783,
-								1783
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"line_numbers": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 742.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Game/Scripts/PlayerControlSystem.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1167,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								739,
-								739
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Game/Scripts/FollowEntitySystem.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1174,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								546,
-								546
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "include/rapidjson/document.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 117808,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								99823,
-								99828
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 31442.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Engine/FileOperations.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 283,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								217,
-								217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Game/Components.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 972,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								219,
-								219
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Engine/Serialization.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1027,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								657,
-								657
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 5,
-			"sheets":
-			[
-				{
-					"buffer": 8,
-					"file": "Engine/CameraComponent.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1143,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Game/Scripts/Camera3rdPerson.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1790,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1483,
-								1483
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 463.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "Engine/Camera.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 242.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "Engine/Rendering/RenderManager.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5261,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								814,
-								814
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 217.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Engine/Maths/Quaternion.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3914,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2539,
-								2568
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"line_numbers": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 965.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "Engine/Maths/Basic.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 820,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								256,
-								270
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "Engine/Maths/vector3f.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1806,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1415,
-								1415
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 76.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "Engine/Maths/vector3f.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3691,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3625,
-								3625
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2012.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "Engine/Maths/Quaternion.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1125,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1090,
-								1090
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "main.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1070,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								660,
-								660
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "Engine/EcsCoreComponents.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 996,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								532,
-								532
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "Engine/UserInputSystem.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 660,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								588,
-								588
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "Game/game.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3846,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2432,
-								2432
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1493.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Game/Scripts/FollowEntitySystem.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1174,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1065,
-								1065
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 32.0
 	},
 	"input":
 	{
@@ -1802,7 +1299,7 @@
 	"project": "this_project.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1811,6 +1308,70 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"pl",
+				"Game\\Scripts\\PlayerControlSystem.hpp"
+			],
+			[
+				"ecs",
+				"Engine\\ECS\\ECS.hpp"
+			],
+			[
+				"came",
+				"Game\\Scripts\\Camera3rdPerson.cpp"
+			],
+			[
+				"cam",
+				"Game\\Scripts\\Camera3rdPerson.hpp"
+			],
+			[
+				"gam",
+				"Game\\game.json"
+			],
+			[
+				"rendma",
+				"Engine\\Rendering\\RenderManager.cpp"
+			],
+			[
+				"ne",
+				"next-up-txt"
+			],
+			[
+				"ga",
+				"Game\\game.json"
+			],
+			[
+				"os",
+				"Engine\\Maths\\OStreamOperators.hpp"
+			],
+			[
+				"ve",
+				"Engine\\Maths\\vector3f.hpp"
+			],
+			[
+				"in",
+				"Engine\\Input.cpp"
+			],
+			[
+				"main",
+				"main.cpp"
+			],
+			[
+				"q",
+				"Engine\\Maths\\Quaternion.hpp"
+			],
+			[
+				"ran",
+				"Engine\\Maths\\Random.hpp"
+			],
+			[
+				"bas",
+				"Engine\\Maths\\Basic.hpp"
+			],
+			[
+				"math",
+				"Engine\\Maths\\Basic.hpp"
+			],
 			[
 				"basi",
 				"Engine\\Maths\\Basic.hpp"
@@ -1822,18 +1383,6 @@
 			[
 				"ren",
 				"Engine\\Rendering\\RenderManager.cpp"
-			],
-			[
-				"came",
-				"Engine\\Camera.cpp"
-			],
-			[
-				"ve",
-				"Engine\\Maths\\vector3f.cpp"
-			],
-			[
-				"bas",
-				"Engine\\Maths\\Basic.hpp"
 			],
 			[
 				"foil",
@@ -1854,10 +1403,6 @@
 			[
 				"quatr",
 				"Engine\\Maths\\Quaternion.cpp"
-			],
-			[
-				"main",
-				"main.cpp"
 			],
 			[
 				"ser",
@@ -1912,20 +1457,12 @@
 				"Engine\\Maths\\Quaternion.cpp"
 			],
 			[
-				"cam",
-				"Engine\\Camera.cpp"
-			],
-			[
 				"scen",
 				"Engine\\SceneLoader.hpp"
 			],
 			[
 				"rend",
 				"Engine\\Rendering\\RenderManager.cpp"
-			],
-			[
-				"ga",
-				"Game\\game.json"
 			],
 			[
 				"engin",
@@ -2012,10 +1549,6 @@
 				"Engine\\Engine.hpp"
 			],
 			[
-				"gam",
-				"Game\\game.json"
-			],
-			[
 				"tex",
 				"Engine\\Resources\\Textures.cpp"
 			]
@@ -2044,7 +1577,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
