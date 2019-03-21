@@ -12,7 +12,7 @@ Created 26/12/2018
 
 namespace detail
 {
-    vector2f getMouseInput(GLFWwindow * window)
+    vector2f getMousePosition(GLFWwindow * window)
     {
         double x, y;
         glfwGetCursorPos(window, &x, &y);
@@ -23,13 +23,13 @@ namespace detail
 void Input::initialize(GLFWwindow * window)
 {
     _window = window;
-    _mousePosition = detail::getMouseInput(_window);
+    _mousePosition = detail::getMousePosition(_window);
 }
 
 void Input::update()
 {
     // for each controller, once they are implemented
-    vector2f currentMousePosition = detail::getMouseInput(_window);
+    vector2f currentMousePosition = detail::getMousePosition(_window);
     _mouseMovement = currentMousePosition - _mousePosition;
     _mousePosition = currentMousePosition;
 

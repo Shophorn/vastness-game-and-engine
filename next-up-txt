@@ -1,7 +1,6 @@
 NEXT UP
 =============================================
-- Flip control/owning flow with 3rd person camera and make move direction relative to camera direction
-- Delta -time to be actually framerate dependant
+- Flip control/owning flow with 3rd person camera 
 
 - Proper handle based containers
 
@@ -33,3 +32,5 @@ PREVIOUSLY
 17.03.19 3rd person camera
 	- Serializable camera
 	- mouse input
+18.03.19 make move direction relative to camera direction
+21.03.19 Delta -time to be actually framerate dependant

@@ -25,12 +25,16 @@ void Engine::handleEvents()
     glfwPollEvents();
     _isRunning = !glfwWindowShouldClose(_window);
     core::input.update();
+
+    auto time = glfwGetTime();
+    _deltaTime = time - _lastTime;
+    _lastTime = time;
 }
 
 void Engine::update()
 {
-    float deltaTime = 0.01f;
-    core::ecs.update(deltaTime);
+    // float deltaTime = 0.01f;
+    core::ecs.update(_deltaTime);
 }
 
 void Engine::render()
@@ -42,8 +46,8 @@ void Engine::render()
 
 void Engine::start()
 {
-
     _isRunning = true;
+    _lastTime = static_cast<float>(glfwGetTime());
     while (_isRunning)
     {
         handleEvents();

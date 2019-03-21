@@ -15,11 +15,11 @@ inline auto getCoreDeserializeFunctions()
 
     return std::unordered_map<std::string, AddDeserializedComponentFunction>
     {
-        { "transform", addDeserializedComponent<transform> },
-        { "camera", addDeserializedComponent<CameraComponent> },
-        { "renderer", addDeserializedComponent<renderer> },
-        { "user input", addDeserializedComponent<UserInput> },
-        { "cameraController3rdPerson", addDeserializedComponent<CameraController3rdPerson> }
+        { "Transform", addDeserializedComponent<transform> },
+        { "Camera", addDeserializedComponent<CameraComponent> },
+        { "Renderer", addDeserializedComponent<renderer> },
+        { "UserInput", addDeserializedComponent<UserInput> },
+        { "CameraController3rdPerson", addDeserializedComponent<CameraController3rdPerson> }
     };
 }
 

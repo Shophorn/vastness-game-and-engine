@@ -58,12 +58,12 @@ namespace serialization
 		CameraController3rdPerson controller;
 		controller.targetHandle = serialization::sceneLoader->getMappedHandle(value["target"].GetInt());
 
-		setIfHasMember(&controller.headHeight, "head height", value);
-		setIfHasMember(&controller.camHeight, "cam height", value);
-		setIfHasMember(&controller.camDistance, "cam distance", value);
+		setIfHasMember(&controller.headHeight, "headHeight", value);
+		setIfHasMember(&controller.camHeight, "camHeight", value);
+		setIfHasMember(&controller.camDistance, "camDistance", value);
 
-		setIfHasMember(&controller.xSensitivity, "x sensitivity", value);
-		setIfHasMember(&controller.ySensitivity, "y sensitivity", value);
+		setIfHasMember(&controller.xSensitivity, "xSensitivity", value);
+		setIfHasMember(&controller.ySensitivity, "ySensitivity", value);
 
 		return controller;
 	}

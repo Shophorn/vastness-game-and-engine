@@ -17,18 +17,8 @@ class GLFWwindow;
 class rendererSystem;
 class ECS;
 
-
-
 class Engine
 {
-private:
-    bool _isRunning;
-    GLFWwindow * _window = nullptr;
-
-    void handleEvents();
-    void update();
-    void render();
-
 public:
     Engine() = default;
     ~Engine() = default;
@@ -41,4 +31,15 @@ public:
     // merely a reference, maybe like borrowed_ptr
     ECS * ecs = nullptr;
     std::unique_ptr<SceneLoader> ecsLoader = nullptr;
+
+private:
+    GLFWwindow * _window = nullptr;
+    
+    bool _isRunning = false;
+    float _lastTime = 0.0f;
+    float _deltaTime = 0.0f;
+
+    void handleEvents();
+    void update();
+    void render();
 };

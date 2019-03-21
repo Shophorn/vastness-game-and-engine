@@ -8,16 +8,6 @@
 		"window_XX" : [1920, 1080]
 	},
 
-	"Camera" :
-	{
-		"position" : [0.0, -10.0, 10.0],
-		"target" : [0.0, 0.0, 0.0],
-		"field of view" : 45,
-		"near clipping plane" : 0.01,
-		"far clipping plane" : 100.0,
-		"clear color" : [0.7, 0.9, 1.0, 1.0]
-	},
-
 	"Lighting" : [
 		{
 			"color" : [0.98, 0.89, 1.0],
@@ -112,8 +102,8 @@
  	{
 		"id" : 6,
 		"components" : [
-			{ "type" : "transform", "direction" : [0, -5, 0] },
-			{ "type" : "camera",
+			{ "type" : "Transform", "direction" : [0, -5, 0] },
+			{ "type" : "Camera",
 				"field of view" : 45,
 				"near clipping plane" : 0.01,
 				"far clipping plane" : 100.0,
@@ -121,9 +111,6 @@
 				// 16:9, this should be computed runtime
 				"aspect ratio" : 1.777
 			}
-			// { "type" : "controllableCamera" },
-			// { "type" : "camera3rdPerson", "target" : 1, "cam distance" : 7, "head height" : 3.0 },
-			// { "type" : "user input" }
 		]
 	 },
 
@@ -131,42 +118,42 @@
 	 	// Player Character
 		 "id" : 1,
 		 "components" : [
-			 { "type" : "transform" },
-			 { "type" : "renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "bricks"},
+			 { "type" : "Transform" },
+			 { "type" : "Renderer", "mesh" : "dude", "shader" : "default", "texture" : "bricks" , "material" : "bricks"},
 			 { "type" : "playerControl", "speed" : 2.5 },
-			 { "type" : "user input"},
-			 { "type" : "cameraController3rdPerson", "target" : 6, "cam distance" : 7, "head height" : 3 }
+			 { "type" : "UserInput"},
+			 { "type" : "CameraController3rdPerson", "target" : 6, "camDistance" : 7, "headHeight" : 3, "xSensititivity" : -0.2, "ySensitivity" : -0.2 }
 		 ]
 	 },
 	 {
 		 "id" : 2,
 		 "components" : [
-			 { "type" : "transform" },
-			 { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
+			 { "type" : "Transform" },
+			 { "type" : "Renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
 			 { "type" : "followEntity", "target" : 1 }
 		 ]
 	 },
 	 {
 		 "id" : 3,
 		 "components" : [
-			 { "type" : "transform" , "position" : [7, 0, 0] },
-			 { "type" : "renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
+			 { "type" : "Transform" , "position" : [7, 0, 0] },
+			 { "type" : "Renderer", "mesh" : "fish1", "shader" : "default", "texture" : "fish1", "material" : "fish" },
 			 { "type" : "followEntity", "target" : 2 }
 		 ]
 	 },
-	 // {
-		// 	"id" : 4,
-		// 	"components" : [
-		// 		{ "type" : "transform", "position" : [0, 0, 0], "scale" : [0.5, 0.5, 0.5] },
-		// 		{ "type" : "renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" , "material" : "bricks" }
-		// 	]
-	 // },
+	 {
+		"id" : 4,
+		"components" : [
+			{ "type" : "Transform", "position" : [0, 0, 0], "scale" : [0.5, 0.5, 0.5] },
+			{ "type" : "Renderer" , "mesh" : "building", "shader" : "default", "texture" : "bricks" , "material" : "bricks" }
+		]
+	 },
 	 {
 	 	// Ground plane
 		"id" : 5,
 		"components" : [
-			 { "type" : "transform", "position" : [0, 0 ,0], "rotation" : [ 90, 0, 0 ], "scale" : [1, 1, 1] },
-			 { "type" : "renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
+			 { "type" : "Transform", "position" : [0, 0 ,0], "rotation" : [ 90, 0, 0 ], "scale" : [10, 10, 10] },
+			 { "type" : "Renderer", "mesh" : "plane", "shader" : "default", "texture" : "ground" , "material" : "ground" }
 		]
 	 }
 ]
